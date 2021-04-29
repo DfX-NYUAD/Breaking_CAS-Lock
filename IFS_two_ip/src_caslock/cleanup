@@ -1,0 +1,2 @@
+rm -rf AN.DB/ simv.daidir/ csrc/ alib-52/ work/ DVEfiles/
+rm -rf *.svf *.key *.mr *.pvl *.syn inter.vpd command.log default.svf filename*

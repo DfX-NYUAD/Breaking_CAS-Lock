@@ -1,0 +1,29 @@
+Step1: Two-IP library synthesis on the original file
+Step2: Extract logic cones on this synthesized netlist (Nimisha)
+Step3: Select the logic cone and convert it to benchfile using bench convert (Abhro)
+Step4: Apply caslock (python -Abhro)
+Step5: Using ABC convert the benchfile to verilog RTL (using test.sh script)
+Step6: Convert this RTL to Synthesized netlist using post_abc_synthesis script
+
+Approach 2:
+Step7: Using VCS open schematic and check for the caslock net
+Step8: Set this net to stuck-at-fault in the post abc synthesized netlist 
+Step9: Run lec_check_final_combo.do 
+
+Approach 3:
+Step10: Full library synthesis on the locked file using post_abc_synthesis, repeat step 6
+Step11: run approach_3.tcl
+Step12: run hash.py to obtain the keyinputs mapping
+
+//// DONE ////
+
+## Commands
+setenv LIB 2ip
+setenv KEY 80
+setenv DESIGN b20_C
+time ./run_flip_signal_step1.sh |tee log_${DESIGN}_flipsignal_v1
+setenv KEYSIZE 80
+dc_shell-t -f mcas_ifs.tcl |tee log_${DESIGN}_mcas_ifs_v1
+setenv NET n2758
+./run_flip_signal_step2.sh |tee log_ifs_${DESIGN}_v1
+./run_SAT_b20.sh
