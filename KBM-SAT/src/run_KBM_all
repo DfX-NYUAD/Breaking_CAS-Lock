@@ -1,0 +1,50 @@
+setenv KEY 32
+setenv DESIGN c1355
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN c2670
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN c1908
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN c3540
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN c432
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN c5315
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN c499
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN c7552
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN c880
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv KEY 80
+setenv DESIGN b14_C
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN b15_C
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN b20_C
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN b21_C
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN b22_C
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN b17_C
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
+setenv DESIGN b18_C
+source run_keymapping_attack.sh | tee log_${DESIGN}_2ip
+
