@@ -1,0 +1,23 @@
+#!/bin/tcsh
+
+
+##################### Identify flip signal attack begins #########################
+## Select the LIB between fulllib or 2ip
+
+setenv LIB 2ip
+dc_shell-t -x "source -echo -verbose ./synthesis_${LIB}.tcl" |tee ${DESIGN}_synthesis_${LIB}_log
+dc_shell-t -x "source -echo -verbose ./dc_fanin_cone_comb.tcl" |tee ${DESIGN}_dc_fanin_cone_comb_log
+sort -nrk 7,7 ../Results_caslock/$DESIGN/num_of_gates.txt > ../Results_caslock/$DESIGN/sorted_num_of_gates.txt
+awk 'NR==1{print "setenv PO "$5}' ../Results_caslock/$DESIGN/sorted_num_of_gates.txt | source /dev/stdin
+echo $PO
+setenv CASLOCK_OP $PO
+../../../../bench_convert/src/convert ../Results_caslock/$DESIGN/${DESIGN}_$CASLOCK_OP.v ../Results_caslock/$DESIGN/${DESIGN}_$CASLOCK_OP.bench
+echo $CASLOCK_OP $DESIGN
+python caslock.py --name $DESIGN --PO $CASLOCK_OP --keysize $KEY --mcas 0
+cd ../Results_caslock/$DESIGN/
+../../src_caslock/abc -c "read_bench ${DESIGN}_lock.bench; write_verilog ${DESIGN}_lock.v;"
+cd -
+
+setenv LIB fulllib 
+dc_shell-t -x "source -echo -verbose ./post_abc_synth_${LIB}.tcl" |tee ${DESIGN}_post_abc_synth_${LIB}_log
+rm ${DESIGN}_*
