@@ -10,3 +10,5 @@ IFS_SAT folder contains the scripts for MCAS and IFS_SAT attack.
 ABC Synthesis tool, SAT-based attack
 ### Industrial:
 Synopsys Design Compiler, Synopsys Tetramax, Cadence Conformal LEC.
+### Library:
+For all TCL scripts, the library path needs to be redirected to the appropriate one. To get started, we have provided the library files for NangateOpenCellLibrary 45nm.
