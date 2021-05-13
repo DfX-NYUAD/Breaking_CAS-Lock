@@ -1,0 +1,27 @@
+#!/bin/bash
+
+dc_shell-t -x "source -echo -verbose ./post_abc_synth_${LIB}.tcl"
+dc_shell-t -f ifs_attack.tcl
+file_IFS=(`cat ${DESIGN}_IFS_net.txt`)
+
+if (grep "all_nets" "${DESIGN}_IFS_net.txt"); then
+	echo "Net not FOUND"
+else
+export NET=${file_IFS[0]}
+echo $NET
+file_sort=$(tail -1 "../Results/${DESIGN}/sorted_num_of_gates.txt")
+export OP=$(echo $file_sort | awk '{print $5}')
+
+for ((i=0; i<2; i++)); do
+	export TIE_PIN=$i
+	dc_shell-t -f dc_IFS_gen.tcl
+	tmax -shell tmax_patt.tcl
+	tmax -shell tmax_verif.tcl |tee log_tmax_verif
+	if (grep "#fail_pats=0(0)" "log_tmax_verif"); then
+		echo "##################################### VERIFICATION STEP #################################"
+		./run_IFS_verify.sh
+		break
+	fi
+done
+rm -rf ${design}_*
+fi
