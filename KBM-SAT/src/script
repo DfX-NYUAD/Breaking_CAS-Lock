@@ -1,8 +1,0 @@
-#!/bin/bash
-for ((i=0;i<80;i++)); do
-echo -n "0"
-done
-for ((i=0;i<80;i++)); do
-echo -n "x"
-done
-echo ""
