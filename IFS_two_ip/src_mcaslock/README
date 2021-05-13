@@ -1,9 +1,0 @@
-setenv LIB 2ip
-setenv KEY 80
-setenv DESIGN b20_C
-time ./run_flip_signal_step1.sh |tee log_${DESIGN}_flipsignal_v1
-setenv KEYSIZE 80
-dc_shell-t -f mcas_ifs.tcl |tee log_${DESIGN}_mcas_ifs_v1
-setenv NET n2758
-./run_flip_signal_step2.sh |tee log_ifs_${DESIGN}_v1
-./run_SAT_b20.sh

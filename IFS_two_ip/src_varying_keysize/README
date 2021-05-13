@@ -1,4 +1,0 @@
-source run_exploratory_exp_flip1.sh
-source run_mcas_ifs_all.sh
-source run_exploratory_exp_flip2.sh
-./run_SAT_exploratory_exp_all.sh
