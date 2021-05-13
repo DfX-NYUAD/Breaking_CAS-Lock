@@ -1,0 +1,192 @@
+STIL 1.0 { Design 2005; }
+Header {
+   Title "  TetraMAX(R)  M-2016.12-SP5-1-i20170831_145740 STIL output";
+   Date "Fri May 14 01:04:41 2021";
+   History {
+      Ann {*     Uncollapsed Stuck Fault Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* fault class                     code   #faults *}
+      Ann {* ------------------------------  ----  --------- *}
+      Ann {* Detected                         DT          2 *}
+      Ann {* Possibly detected                PT          0 *}
+      Ann {* Undetectable                     UD          0 *}
+      Ann {* ATPG untestable                  AU          0 *}
+      Ann {* Not detected                     ND          0 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* total faults                                 2 *}
+      Ann {* test coverage                           100.00% *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {*            Pattern Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* #internal patterns                           2 *}
+      Ann {*     #basic_scan patterns                     2 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {* rule  severity  #fails  description *}
+      Ann {* ----  --------  ------  --------------------------------- *}
+      Ann {* B8    warning       76  unconnected module input pin *}
+      Ann {* B9    warning      259  undriven module internal net *}
+      Ann {* B10   warning      259  unconnected module internal net *}
+      Ann {*  *}
+      Ann {* There are no clocks *}
+      Ann {* There are no constraint ports *}
+      Ann {* There are no equivalent pins *}
+      Ann {* There are no net connections *}
+      Ann {* top_module_name = c2670 *}
+      Ann {* Unified STIL Flow *}
+      Ann {* min_n_shifts = 1 *}
+      Ann {* serial_flag = 1 *}
+   }
+}
+Signals {
+   "G4" In; "G5" In; "G6" In; "G11" In; "G16" In; "G19" In; "G20" In; "G21" In; "G22" In;
+   "G23" In; "G24" In; "G25" In; "G26" In; "G27" In; "G28" In; "G29" In; "G32" In;
+   "G33" In; "G34" In; "G35" In; "G43" In; "G47" In; "G48" In; "G49" In; "G50" In;
+   "G51" In; "G52" In; "G53" In; "G54" In; "G56" In; "G60" In; "G61" In; "G62" In;
+   "G63" In; "G64" In; "G65" In; "G66" In; "G68" In; "G72" In; "G73" In; "G74" In;
+   "G75" In; "G76" In; "G77" In; "G78" In; "G79" In; "G81" In; "G85" In; "G86" In;
+   "G87" In; "G88" In; "G89" In; "G90" In; "G91" In; "G92" In; "G95" In; "G99" In;
+   "G100" In; "G101" In; "G102" In; "G103" In; "G104" In; "G105" In; "G107" In; "G111" In;
+   "G112" In; "G113" In; "G114" In; "G115" In; "G116" In; "G117" In; "G119" In; "G123" In;
+   "G124" In; "G125" In; "G126" In; "G127" In; "G128" In; "G129" In; "G131" In; "G135" In;
+   "G136" In; "G137" In; "G138" In; "G139" In; "G140" In; "G141" In; "G169" In; "G174" In;
+   "G177" In; "G178" In; "G179" In; "G180" In; "G181" In; "G182" In; "G183" In; "G184" In;
+   "G185" In; "G186" In; "G189" In; "G190" In; "G191" In; "G192" In; "G193" In; "G194" In;
+   "G195" In; "G196" In; "G197" In; "G198" In; "G199" In; "G200" In; "G201" In; "G202" In;
+   "G203" In; "G204" In; "G205" In; "G206" In; "G207" In; "G208" In; "G209" In; "G210" In;
+   "G211" In; "G212" In; "G213" In; "G214" In; "G215" In; "G239" In; "G240" In; "G241" In;
+   "G242" In; "G243" In; "G244" In; "G245" In; "G246" In; "G247" In; "G248" In; "G249" In;
+   "G250" In; "G251" In; "G252" In; "G253" In; "G254" In; "G255" In; "G256" In; "G257" In;
+   "G262" In; "G263" In; "G264" In; "G265" In; "G266" In; "G267" In; "G268" In; "G269" In;
+   "G270" In; "G271" In; "G272" In; "G273" In; "G274" In; "G275" In; "G276" In; "G277" In;
+   "G278" In; "G279" In; "G543" In; "G651" In; "G1341" In; "G1348" In; "G1956" In;
+   "G1961" In; "G1966" In; "G1971" In; "G1976" In; "G1981" In; "G1986" In; "G1991" In;
+   "G1996" In; "G2067" In; "G2072" In; "G2078" In; "G2084" In; "G2090" In; "G2104" In;
+   "G2105" In; "G311" Out;
+}
+SignalGroups {
+   "_default_In_Timing_" = '"G4" + "G5" + "G6" + "G11" + "G16" + "G19" + "G20" +
+   "G21" + "G22" + "G23" + "G24" + "G25" + "G26" + "G27" + "G28" + "G29" + "G32" +
+   "G33" + "G34" + "G35" + "G43" + "G47" + "G48" + "G49" + "G50" + "G51" + "G52" +
+   "G53" + "G54" + "G56" + "G60" + "G61" + "G62" + "G63" + "G64" + "G65" + "G66" +
+   "G68" + "G72" + "G73" + "G74" + "G75" + "G76" + "G77" + "G78" + "G79" + "G81" +
+   "G85" + "G86" + "G87" + "G88" + "G89" + "G90" + "G91" + "G92" + "G95" + "G99" +
+   "G100" + "G101" + "G102" + "G103" + "G104" + "G105" + "G107" + "G111" +
+   "G112" + "G113" + "G114" + "G115" + "G116" + "G117" + "G119" + "G123" +
+   "G124" + "G125" + "G126" + "G127" + "G128" + "G129" + "G131" + "G135" +
+   "G136" + "G137" + "G138" + "G139" + "G140" + "G141" + "G169" + "G174" +
+   "G177" + "G178" + "G179" + "G180" + "G181" + "G182" + "G183" + "G184" +
+   "G185" + "G186" + "G189" + "G190" + "G191" + "G192" + "G193" + "G194" +
+   "G195" + "G196" + "G197" + "G198" + "G199" + "G200" + "G201" + "G202" +
+   "G203" + "G204" + "G205" + "G206" + "G207" + "G208" + "G209" + "G210" +
+   "G211" + "G212" + "G213" + "G214" + "G215" + "G239" + "G240" + "G241" +
+   "G242" + "G243" + "G244" + "G245" + "G246" + "G247" + "G248" + "G249" +
+   "G250" + "G251" + "G252" + "G253" + "G254" + "G255" + "G256" + "G257" +
+   "G262" + "G263" + "G264" + "G265" + "G266" + "G267" + "G268" + "G269" +
+   "G270" + "G271" + "G272" + "G273" + "G274" + "G275" + "G276" + "G277" +
+   "G278" + "G279" + "G543" + "G651" + "G1341" + "G1348" + "G1956" + "G1961" +
+   "G1966" + "G1971" + "G1976" + "G1981" + "G1986" + "G1991" + "G1996" + "G2067" +
+   "G2072" + "G2078" + "G2084" + "G2090" + "G2104" + "G2105"'; // #signals=183
+   "_pi" = '"G4" + "G5" + "G6" + "G11" + "G16" + "G19" + "G20" + "G21" + "G22" +
+   "G23" + "G24" + "G25" + "G26" + "G27" + "G28" + "G29" + "G32" + "G33" + "G34" +
+   "G35" + "G43" + "G47" + "G48" + "G49" + "G50" + "G51" + "G52" + "G53" + "G54" +
+   "G56" + "G60" + "G61" + "G62" + "G63" + "G64" + "G65" + "G66" + "G68" + "G72" +
+   "G73" + "G74" + "G75" + "G76" + "G77" + "G78" + "G79" + "G81" + "G85" + "G86" +
+   "G87" + "G88" + "G89" + "G90" + "G91" + "G92" + "G95" + "G99" + "G100" +
+   "G101" + "G102" + "G103" + "G104" + "G105" + "G107" + "G111" + "G112" +
+   "G113" + "G114" + "G115" + "G116" + "G117" + "G119" + "G123" + "G124" +
+   "G125" + "G126" + "G127" + "G128" + "G129" + "G131" + "G135" + "G136" +
+   "G137" + "G138" + "G139" + "G140" + "G141" + "G169" + "G174" + "G177" +
+   "G178" + "G179" + "G180" + "G181" + "G182" + "G183" + "G184" + "G185" +
+   "G186" + "G189" + "G190" + "G191" + "G192" + "G193" + "G194" + "G195" +
+   "G196" + "G197" + "G198" + "G199" + "G200" + "G201" + "G202" + "G203" +
+   "G204" + "G205" + "G206" + "G207" + "G208" + "G209" + "G210" + "G211" +
+   "G212" + "G213" + "G214" + "G215" + "G239" + "G240" + "G241" + "G242" +
+   "G243" + "G244" + "G245" + "G246" + "G247" + "G248" + "G249" + "G250" +
+   "G251" + "G252" + "G253" + "G254" + "G255" + "G256" + "G257" + "G262" +
+   "G263" + "G264" + "G265" + "G266" + "G267" + "G268" + "G269" + "G270" +
+   "G271" + "G272" + "G273" + "G274" + "G275" + "G276" + "G277" + "G278" +
+   "G279" + "G543" + "G651" + "G1341" + "G1348" + "G1956" + "G1961" + "G1966" +
+   "G1971" + "G1976" + "G1981" + "G1986" + "G1991" + "G1996" + "G2067" + "G2072" +
+   "G2078" + "G2084" + "G2090" + "G2104" + "G2105"'; // #signals=183
+   "_in" = '"G4" + "G5" + "G6" + "G11" + "G16" + "G19" + "G20" + "G21" + "G22" +
+   "G23" + "G24" + "G25" + "G26" + "G27" + "G28" + "G29" + "G32" + "G33" + "G34" +
+   "G35" + "G43" + "G47" + "G48" + "G49" + "G50" + "G51" + "G52" + "G53" + "G54" +
+   "G56" + "G60" + "G61" + "G62" + "G63" + "G64" + "G65" + "G66" + "G68" + "G72" +
+   "G73" + "G74" + "G75" + "G76" + "G77" + "G78" + "G79" + "G81" + "G85" + "G86" +
+   "G87" + "G88" + "G89" + "G90" + "G91" + "G92" + "G95" + "G99" + "G100" +
+   "G101" + "G102" + "G103" + "G104" + "G105" + "G107" + "G111" + "G112" +
+   "G113" + "G114" + "G115" + "G116" + "G117" + "G119" + "G123" + "G124" +
+   "G125" + "G126" + "G127" + "G128" + "G129" + "G131" + "G135" + "G136" +
+   "G137" + "G138" + "G139" + "G140" + "G141" + "G169" + "G174" + "G177" +
+   "G178" + "G179" + "G180" + "G181" + "G182" + "G183" + "G184" + "G185" +
+   "G186" + "G189" + "G190" + "G191" + "G192" + "G193" + "G194" + "G195" +
+   "G196" + "G197" + "G198" + "G199" + "G200" + "G201" + "G202" + "G203" +
+   "G204" + "G205" + "G206" + "G207" + "G208" + "G209" + "G210" + "G211" +
+   "G212" + "G213" + "G214" + "G215" + "G239" + "G240" + "G241" + "G242" +
+   "G243" + "G244" + "G245" + "G246" + "G247" + "G248" + "G249" + "G250" +
+   "G251" + "G252" + "G253" + "G254" + "G255" + "G256" + "G257" + "G262" +
+   "G263" + "G264" + "G265" + "G266" + "G267" + "G268" + "G269" + "G270" +
+   "G271" + "G272" + "G273" + "G274" + "G275" + "G276" + "G277" + "G278" +
+   "G279" + "G543" + "G651" + "G1341" + "G1348" + "G1956" + "G1961" + "G1966" +
+   "G1971" + "G1976" + "G1981" + "G1986" + "G1991" + "G1996" + "G2067" + "G2072" +
+   "G2078" + "G2084" + "G2090" + "G2104" + "G2105"'; // #signals=183
+   "_default_Out_Timing_" = '"G311"'; // #signals=1
+   "_po" = '"G311"'; // #signals=1
+   "_out" = '"G311"'; // #signals=1
+}
+Timing {
+   WaveformTable "_default_WFT_" {
+      Period '100ns';
+      Waveforms {
+         "_default_In_Timing_" { 0 { '0ns' D; } }
+         "_default_In_Timing_" { 1 { '0ns' U; } }
+         "_default_In_Timing_" { Z { '0ns' Z; } }
+         "_default_In_Timing_" { N { '0ns' N; } }
+         "_default_Out_Timing_" { X { '0ns' X; } }
+         "_default_Out_Timing_" { H { '0ns' X; '40ns' H; } }
+         "_default_Out_Timing_" { T { '0ns' X; '40ns' T; } }
+         "_default_Out_Timing_" { L { '0ns' X; '40ns' L; } }
+      }
+   }
+}
+ScanStructures {
+   // Uncomment and modify the following to suit your design
+   // ScanChain "chain_name" { ScanIn "chain_input_name"; ScanOut "chain_output_name"; }
+}
+PatternBurst "_burst_" {
+   PatList { "_pattern_" {
+   }
+}}
+PatternExec {
+   PatternBurst "_burst_";
+}
+Procedures {
+   "capture" {
+      W "_default_WFT_";
+      C { "_po"=X; }
+      "forcePI": V { "_pi"=\r183 # ; }
+      "measurePO": V { "_po"=#; }
+   }
+   // Uncomment and modify the following to suit your design
+   // load_unload {
+      // V { } // force clocks off and scan enable pins active
+      // Shift { V { _si=#; _so=#; }} // pulse shift clocks
+   // }
+}
+MacroDefs {
+}
+Pattern "_pattern_" {
+   W "_default_WFT_";
+   "precondition all Signals": C { "_pi"=\r183 0 ; 
+      "_po"=X; }
+   "pattern 0": Call "capture" { 
+      "_pi"=000111111110111011100110010100000011000011001011110001001110010100100110010011010010010001011100011110100010100010110010110011011000000010101101010110000011110100001110011011100000100; 
+      "_po"=H; }
+   "pattern 1": Call "capture" { 
+      "_pi"=000001111111110110101011001010011011000001100101111000100111001010010011001001101001001000101110001111010001010001011001011001101100000001010110101011000001111010000001001001101001010; 
+      "_po"=L; }
+}
+
+// Patterns reference 4 V statements, generating 4 test cycles

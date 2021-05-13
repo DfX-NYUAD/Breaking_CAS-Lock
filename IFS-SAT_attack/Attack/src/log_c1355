@@ -1,0 +1,1028 @@
+Benchmark: c1355
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version M-2016.12-SP2 for linux64 - Feb 23, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+date
+Fri May 14 00:06:59 2021
+set_host_options -max_cores 8
+1
+set compile_seqmap_propagate_constants     false
+false
+set compile_seqmap_propagate_high_effort   false
+false
+set compile_enable_register_merging        false
+false
+set timing_separate_clock_gating_group     true
+true
+set design   [getenv "DESIGN"]
+c1355
+set search_path [concat * $search_path]
+* . /opt/programs/synopsys/dc/libraries/syn /opt/programs/synopsys/dc/minpower/syn /opt/programs/synopsys/dc/dw/syn_ver /opt/programs/synopsys/dc/dw/sim_ver
+define_design_lib WORK -path ./work
+1
+set target_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set link_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set_dont_use [get_lib_cells NangateOpenCellLibrary/*]
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+1
+set_attribute [get_lib_cells NangateOpenCellLibrary/NAND2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/NAND2_X1 NangateOpenCellLibrary/NAND2_X2 NangateOpenCellLibrary/NAND2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/AND2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/AND2_X1 NangateOpenCellLibrary/AND2_X2 NangateOpenCellLibrary/AND2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/NOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/NOR2_X1 NangateOpenCellLibrary/NOR2_X2 NangateOpenCellLibrary/NOR2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/OR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/OR2_X1 NangateOpenCellLibrary/OR2_X2 NangateOpenCellLibrary/OR2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/XOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 2 objects. (UID-186)
+NangateOpenCellLibrary/XOR2_X1 NangateOpenCellLibrary/XOR2_X2
+set_attribute [get_lib_cells NangateOpenCellLibrary/XNOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 2 objects. (UID-186)
+NangateOpenCellLibrary/XNOR2_X1 NangateOpenCellLibrary/XNOR2_X2
+set_attribute [get_lib_cells NangateOpenCellLibrary/INV_*] dont_use false
+Information: Attribute 'dont_use' is set on 6 objects. (UID-186)
+NangateOpenCellLibrary/INV_X1 NangateOpenCellLibrary/INV_X2 NangateOpenCellLibrary/INV_X4 NangateOpenCellLibrary/INV_X8 NangateOpenCellLibrary/INV_X16 NangateOpenCellLibrary/INV_X32
+analyze -library WORK -format sverilog ../Results/$design/${design}_lock.v
+Running PRESTO HDLC
+Compiling source file ../Results/c1355/c1355_lock.v
+Presto compilation completed successfully.
+1
+elaborate ${design}_lock
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/gtech.db'
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/standard.sldb'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'c1355_lock'.
+1
+create_clock -name VCLK -period 10  -waveform {0 5}
+Warning: Creating virtual clock named 'VCLK' with no sources. (UID-348)
+1
+set input_ports  [all_inputs]
+{G1GAT G8GAT G15GAT G22GAT G29GAT G36GAT G43GAT G50GAT G57GAT G64GAT G71GAT G78GAT G85GAT G92GAT G99GAT G106GAT G113GAT G120GAT G127GAT G134GAT G141GAT G148GAT G155GAT G162GAT G169GAT G176GAT G183GAT G190GAT G197GAT G204GAT G211GAT G218GAT G225GAT G226GAT G227GAT G228GAT G229GAT G230GAT G231GAT G232GAT G233GAT}
+set output_ports [all_outputs]
+{G1336GAT}
+set_input_delay -max 1 [get_ports $input_ports ] -clock VCLK
+1
+set_input_delay -min 0 [get_ports $input_ports ] -clock VCLK
+1
+set_output_delay -max 2 [get_ports $output_ports ] -clock VCLK
+1
+set_output_delay -min 1 [get_ports $output_ports ] -clock VCLK
+1
+ungroup -flatten -all
+Warning: Design has no hierarchy.  No cells can be ungrouped. (UID-228)
+0
+compile_ultra
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 8 cores. (OPT-1500)
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/dw_foundation.sldb'
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | M-2016.12-DWBB_201612.2 |     *     |
+| Licensed DW Building Blocks        | M-2016.12-DWBB_201612.2 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+  Simplifying Design 'c1355_lock'
+
+Loaded alib file './alib-52/Nangate_Library_slow_ccs.db.alib'
+  Building model 'DW01_NAND2'
+Information: Ungrouping 0 of 1 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'c1355_lock'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:01     168.1      0.00       0.0       0.0                           2545.6011
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:02     168.1      0.00       0.0       0.0                           2545.6011
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+compile_ultra -increment 
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 8 cores. (OPT-1500)
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+
+  Beginning Mapping Optimizations  (Ultra High effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+compile_ultra -increment 
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 8 cores. (OPT-1500)
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+
+  Beginning Mapping Optimizations  (Ultra High effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+    0:00:00     168.1      0.00       0.0       0.0                           2545.6011
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+set bus_naming_style "%s_%d"
+%s_%d
+define_name_rules verilog -target_bus_naming_style "%s_%d"
+1
+change_names -rules verilog -hier
+1
+write -format verilog -hierarchy -output ../Results/$design/${design}_lock_synth_2ip.v 
+Writing verilog file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/c1355/c1355_lock_synth_2ip.v'.
+Warning: Bus naming style currently specified as %s_%d, verilog syntax requires bus naming style to be "[]".  (VO-13)
+1
+exit
+
+Thank you...
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version M-2016.12-SP2 for linux64 - Feb 23, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+set start [clock seconds]
+1620936429
+date
+Fri May 14 00:07:09 2021
+set_host_options -max_cores 8
+1
+set compile_seqmap_propagate_constants     false
+false
+set compile_seqmap_propagate_high_effort   false
+false
+set compile_enable_register_merging        false
+false
+set timing_separate_clock_gating_group     true
+true
+set design   [getenv "DESIGN"]
+c1355
+set keysize  [getenv "KEYSIZE"]
+32
+define_design_lib WORK -path ./work
+1
+set target_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set link_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+read_verilog -netlist ../Results/$design/${design}_lock_synth_2ip.v
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/gtech.db'
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Loading verilog file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/c1355/c1355_lock_synth_2ip.v'
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/c1355/c1355_lock_synth_2ip.v
+Verilog netlist reader completed successfully.
+Current design is now '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/c1355/c1355_lock.db:c1355_lock'
+Loaded 1 design.
+Current design is 'c1355_lock'.
+c1355_lock
+set netList [get_attribute [get_nets] full_name]
+G1GAT G8GAT G15GAT G22GAT G29GAT G36GAT G43GAT G50GAT G57GAT G64GAT G71GAT G78GAT G85GAT G92GAT G99GAT G106GAT G113GAT G120GAT G127GAT G134GAT G141GAT G148GAT G155GAT G162GAT G169GAT G176GAT G183GAT G190GAT G197GAT G204GAT G211GAT G218GAT G225GAT G226GAT G227GAT G228GAT G229GAT G230GAT G231GAT G232GAT G233GAT G1336GAT n136 n137 n138 n139 n140 n141 n142 n143 n144 n145 n146 n147 n148 n149 n150 n151 n152 n153 n154 n155 n156 n157 n158 n159 n160 n161 n162 n163 n164 n165 n166 n167 n168 n169 n170 n171 n172 n173 n174 n175 n176 n177 n178 n179 n180 n181 n182 n183 n184 n185 n186 n187 n188 n189 n190 n191 n192 n193 n194 n195 n196 n197 n198 n199 n200 n201 n202 n203 n204 n205 n206 n207 n208 n209 n210 n211 n212 n213 n214 n215 n216 n217 n218 n219 n220 n221 n222 n223 n224 n225 n226 n227 n228 n229 n230 n231 n232 n233 n234 n235 n236 n237 n238 n239 n240 n241 n242 n243 n244 n245 n246 n247 n248 n249 n250 n251 n252 n253 n254 n255 n256 n257 n258 n259 n260 n261 n262 n263 n264 n265 n266 n267 n268 n269
+echo -n "" > ../Results/$design/mcas_nets.txt
+foreach n $netList {
+    set cellSize [sizeof_collection [all_fanin -to $n -only_cells]]
+    set inSize [sizeof_collection [all_fanin -to $n -startpoints_only]]
+
+    if { $keysize == $inSize  && $cellSize < [expr $keysize*2]} {
+        echo "net: $n, size: $cellSize"
+	echo $n >> ../Results/$design/mcas_nets.txt
+    }
+}
+net: n268, size: 37
+set end [clock seconds]
+1620936430
+puts "Time: [expr ($end - $start)]"
+Time: 1
+exit
+
+Thank you...
+Flipsignal is: n268
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version M-2016.12-SP2 for linux64 - Feb 23, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+#!/usr/bin/tclsh
+set design [getenv "DESIGN"]
+c1355
+set flipsignal [getenv "FLIPSIGNAL"]
+n268
+set lib [getenv LIB]
+2ip
+set target_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set link_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+sh mkdir -p ../Results
+sh mkdir -p ../Results/$design
+#read_verilog -netlist ../Results/${design}/CASlock_${design}_lock_synth_${lib}.v
+read_verilog -netlist ../Results/${design}/${design}_lock_synth_${lib}.v
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/gtech.db'
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Loading verilog file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/c1355/c1355_lock_synth_2ip.v'
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/c1355/c1355_lock_synth_2ip.v
+Verilog netlist reader completed successfully.
+Current design is now '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/c1355/c1355_lock.db:c1355_lock'
+Loaded 1 design.
+Current design is 'c1355_lock'.
+c1355_lock
+create_port CASOP -direction "out"
+Creating port 'CASOP' in design 'c1355_lock'.
+1
+connect_net $flipsignal CASOP
+Connecting net 'n268' to port 'CASOP'.
+1
+proc listdiff {a b} {
+    set diff {}
+    foreach i $a {
+        if { [lsearch -exact $b $i]==-1} {
+            lappend diff $i
+        }
+    }
+    return $diff
+}
+set all_ports [get_attribute [get_ports * -filter "direction == out"] full_name]
+G1336GAT CASOP
+set rem_ports [listdiff $all_ports CASOP]
+G1336GAT
+foreach f $rem_ports {
+    remove_port $f
+}
+Removing port 'G1336GAT' in design 'c1355_lock'.
+set all_cells [get_attribute [get_cells] full_name]
+U139 U140 U141 U142 U143 U144 U145 U146 U147 U148 U149 U150 U151 U152 U153 U154 U155 U156 U157 U158 U159 U160 U161 U162 U163 U164 U165 U166 U167 U168 U169 U170 U171 U172 U173 U174 U175 U176 U177 U178 U179 U180 U181 U182 U183 U184 U185 U186 U187 U188 U189 U190 U191 U192 U193 U194 U195 U196 U197 U198 U199 U200 U201 U202 U203 U204 U205 U206 U207 U208 U209 U210 U211 U212 U213 U214 U215 U216 U217 U218 U219 U220 U221 U222 U223 U224 U225 U226 U227 U228 U229 U230 U231 U232 U233 U234 U235 U236 U237 U238 U239 U240 U241 U242 U243 U244 U245 U246 U247 U248 U249 U250 U251 U252 U253 U254 U255 U256 U257 U258 U259 U260 U261 U262 U263 U264 U265 U266 U267 U268 U269 U270 U271 U272 U273
+set cur_cells [get_attribute [all_fanin -to CASOP -only_cells] full_name]
+U152 U153 U154 U151 U155 U156 U150 U158 U157 U160 U159 U161 U162 U149 U163 U164 U147 U146 U165 U148 U144 U166 U145 U167 U168 U141 U170 U169 U142 U171 U143 U172 U173 U139 U174 U140 U175
+echo $cur_cells
+U152 U153 U154 U151 U155 U156 U150 U158 U157 U160 U159 U161 U162 U149 U163 U164 U147 U146 U165 U148 U144 U166 U145 U167 U168 U141 U170 U169 U142 U171 U143 U172 U173 U139 U174 U140 U175
+set rem_cells [listdiff $all_cells $cur_cells]
+U176 U177 U178 U179 U180 U181 U182 U183 U184 U185 U186 U187 U188 U189 U190 U191 U192 U193 U194 U195 U196 U197 U198 U199 U200 U201 U202 U203 U204 U205 U206 U207 U208 U209 U210 U211 U212 U213 U214 U215 U216 U217 U218 U219 U220 U221 U222 U223 U224 U225 U226 U227 U228 U229 U230 U231 U232 U233 U234 U235 U236 U237 U238 U239 U240 U241 U242 U243 U244 U245 U246 U247 U248 U249 U250 U251 U252 U253 U254 U255 U256 U257 U258 U259 U260 U261 U262 U263 U264 U265 U266 U267 U268 U269 U270 U271 U272 U273
+echo $rem_cells
+U176 U177 U178 U179 U180 U181 U182 U183 U184 U185 U186 U187 U188 U189 U190 U191 U192 U193 U194 U195 U196 U197 U198 U199 U200 U201 U202 U203 U204 U205 U206 U207 U208 U209 U210 U211 U212 U213 U214 U215 U216 U217 U218 U219 U220 U221 U222 U223 U224 U225 U226 U227 U228 U229 U230 U231 U232 U233 U234 U235 U236 U237 U238 U239 U240 U241 U242 U243 U244 U245 U246 U247 U248 U249 U250 U251 U252 U253 U254 U255 U256 U257 U258 U259 U260 U261 U262 U263 U264 U265 U266 U267 U268 U269 U270 U271 U272 U273
+foreach c $rem_cells {
+    remove_cell $c
+}
+Removing cell 'U176' in design 'c1355_lock'.
+Removing cell 'U177' in design 'c1355_lock'.
+Removing cell 'U178' in design 'c1355_lock'.
+Removing cell 'U179' in design 'c1355_lock'.
+Removing cell 'U180' in design 'c1355_lock'.
+Removing cell 'U181' in design 'c1355_lock'.
+Removing cell 'U182' in design 'c1355_lock'.
+Removing cell 'U183' in design 'c1355_lock'.
+Removing cell 'U184' in design 'c1355_lock'.
+Removing cell 'U185' in design 'c1355_lock'.
+Removing cell 'U186' in design 'c1355_lock'.
+Removing cell 'U187' in design 'c1355_lock'.
+Removing cell 'U188' in design 'c1355_lock'.
+Removing cell 'U189' in design 'c1355_lock'.
+Removing cell 'U190' in design 'c1355_lock'.
+Removing cell 'U191' in design 'c1355_lock'.
+Removing cell 'U192' in design 'c1355_lock'.
+Removing cell 'U193' in design 'c1355_lock'.
+Removing cell 'U194' in design 'c1355_lock'.
+Removing cell 'U195' in design 'c1355_lock'.
+Removing cell 'U196' in design 'c1355_lock'.
+Removing cell 'U197' in design 'c1355_lock'.
+Removing cell 'U198' in design 'c1355_lock'.
+Removing cell 'U199' in design 'c1355_lock'.
+Removing cell 'U200' in design 'c1355_lock'.
+Removing cell 'U201' in design 'c1355_lock'.
+Removing cell 'U202' in design 'c1355_lock'.
+Removing cell 'U203' in design 'c1355_lock'.
+Removing cell 'U204' in design 'c1355_lock'.
+Removing cell 'U205' in design 'c1355_lock'.
+Removing cell 'U206' in design 'c1355_lock'.
+Removing cell 'U207' in design 'c1355_lock'.
+Removing cell 'U208' in design 'c1355_lock'.
+Removing cell 'U209' in design 'c1355_lock'.
+Removing cell 'U210' in design 'c1355_lock'.
+Removing cell 'U211' in design 'c1355_lock'.
+Removing cell 'U212' in design 'c1355_lock'.
+Removing cell 'U213' in design 'c1355_lock'.
+Removing cell 'U214' in design 'c1355_lock'.
+Removing cell 'U215' in design 'c1355_lock'.
+Removing cell 'U216' in design 'c1355_lock'.
+Removing cell 'U217' in design 'c1355_lock'.
+Removing cell 'U218' in design 'c1355_lock'.
+Removing cell 'U219' in design 'c1355_lock'.
+Removing cell 'U220' in design 'c1355_lock'.
+Removing cell 'U221' in design 'c1355_lock'.
+Removing cell 'U222' in design 'c1355_lock'.
+Removing cell 'U223' in design 'c1355_lock'.
+Removing cell 'U224' in design 'c1355_lock'.
+Removing cell 'U225' in design 'c1355_lock'.
+Removing cell 'U226' in design 'c1355_lock'.
+Removing cell 'U227' in design 'c1355_lock'.
+Removing cell 'U228' in design 'c1355_lock'.
+Removing cell 'U229' in design 'c1355_lock'.
+Removing cell 'U230' in design 'c1355_lock'.
+Removing cell 'U231' in design 'c1355_lock'.
+Removing cell 'U232' in design 'c1355_lock'.
+Removing cell 'U233' in design 'c1355_lock'.
+Removing cell 'U234' in design 'c1355_lock'.
+Removing cell 'U235' in design 'c1355_lock'.
+Removing cell 'U236' in design 'c1355_lock'.
+Removing cell 'U237' in design 'c1355_lock'.
+Removing cell 'U238' in design 'c1355_lock'.
+Removing cell 'U239' in design 'c1355_lock'.
+Removing cell 'U240' in design 'c1355_lock'.
+Removing cell 'U241' in design 'c1355_lock'.
+Removing cell 'U242' in design 'c1355_lock'.
+Removing cell 'U243' in design 'c1355_lock'.
+Removing cell 'U244' in design 'c1355_lock'.
+Removing cell 'U245' in design 'c1355_lock'.
+Removing cell 'U246' in design 'c1355_lock'.
+Removing cell 'U247' in design 'c1355_lock'.
+Removing cell 'U248' in design 'c1355_lock'.
+Removing cell 'U249' in design 'c1355_lock'.
+Removing cell 'U250' in design 'c1355_lock'.
+Removing cell 'U251' in design 'c1355_lock'.
+Removing cell 'U252' in design 'c1355_lock'.
+Removing cell 'U253' in design 'c1355_lock'.
+Removing cell 'U254' in design 'c1355_lock'.
+Removing cell 'U255' in design 'c1355_lock'.
+Removing cell 'U256' in design 'c1355_lock'.
+Removing cell 'U257' in design 'c1355_lock'.
+Removing cell 'U258' in design 'c1355_lock'.
+Removing cell 'U259' in design 'c1355_lock'.
+Removing cell 'U260' in design 'c1355_lock'.
+Removing cell 'U261' in design 'c1355_lock'.
+Removing cell 'U262' in design 'c1355_lock'.
+Removing cell 'U263' in design 'c1355_lock'.
+Removing cell 'U264' in design 'c1355_lock'.
+Removing cell 'U265' in design 'c1355_lock'.
+Removing cell 'U266' in design 'c1355_lock'.
+Removing cell 'U267' in design 'c1355_lock'.
+Removing cell 'U268' in design 'c1355_lock'.
+Removing cell 'U269' in design 'c1355_lock'.
+Removing cell 'U270' in design 'c1355_lock'.
+Removing cell 'U271' in design 'c1355_lock'.
+Removing cell 'U272' in design 'c1355_lock'.
+Removing cell 'U273' in design 'c1355_lock'.
+set PI [get_attribute  [get_ports * -filter "direction == in"] full_name]
+G1GAT G8GAT G15GAT G22GAT G29GAT G36GAT G43GAT G50GAT G57GAT G64GAT G71GAT G78GAT G85GAT G92GAT G99GAT G106GAT G113GAT G120GAT G127GAT G134GAT G141GAT G148GAT G155GAT G162GAT G169GAT G176GAT G183GAT G190GAT G197GAT G204GAT G211GAT G218GAT G225GAT G226GAT G227GAT G228GAT G229GAT G230GAT G231GAT G232GAT G233GAT
+foreach p $PI {
+    set len [sizeof_collection  [all_connected $p]]
+    echo $len
+    if {$len < 2} {
+        echo $p
+        remove_port $p
+    }
+}
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+G225GAT
+Removing port 'G225GAT' in design 'c1355_lock'.
+1
+G226GAT
+Removing port 'G226GAT' in design 'c1355_lock'.
+1
+G227GAT
+Removing port 'G227GAT' in design 'c1355_lock'.
+1
+G228GAT
+Removing port 'G228GAT' in design 'c1355_lock'.
+1
+G229GAT
+Removing port 'G229GAT' in design 'c1355_lock'.
+1
+G230GAT
+Removing port 'G230GAT' in design 'c1355_lock'.
+1
+G231GAT
+Removing port 'G231GAT' in design 'c1355_lock'.
+1
+G232GAT
+Removing port 'G232GAT' in design 'c1355_lock'.
+1
+G233GAT
+Removing port 'G233GAT' in design 'c1355_lock'.
+write -format verilog -hierarchy -output ../Results/$design/CASlock_${design}_${flipsignal}_${lib}.v
+Writing verilog file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/c1355/CASlock_c1355_n268_2ip.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+exit
+
+Thank you...
+  INV_X1 U139 ( .A(G211GAT), .ZN(n216) );
+  NAND2_X1 U140 ( .A1(G218GAT), .A2(n216), .ZN(n165) );
+  INV_X1 U141 ( .A(G190GAT), .ZN(n256) );
+  NOR2_X1 U142 ( .A1(G204GAT), .A2(n256), .ZN(n136) );
+  NAND2_X1 U143 ( .A1(G183GAT), .A2(n136), .ZN(n161) );
+  INV_X1 U144 ( .A(G127GAT), .ZN(n222) );
+  NOR2_X1 U145 ( .A1(G141GAT), .A2(n222), .ZN(n155) );
+  NOR2_X1 U146 ( .A1(G148GAT), .A2(G106GAT), .ZN(n138) );
+  NOR2_X1 U147 ( .A1(G134GAT), .A2(G113GAT), .ZN(n137) );
+  NAND2_X1 U148 ( .A1(n138), .A2(n137), .ZN(n153) );
+  NAND2_X1 U149 ( .A1(G85GAT), .A2(G71GAT), .ZN(n149) );
+  INV_X1 U150 ( .A(G43GAT), .ZN(n249) );
+  NOR2_X1 U151 ( .A1(G29GAT), .A2(G1GAT), .ZN(n141) );
+  INV_X1 U152 ( .A(G15GAT), .ZN(n248) );
+  NAND2_X1 U153 ( .A1(G22GAT), .A2(n248), .ZN(n139) );
+  NOR2_X1 U154 ( .A1(n139), .A2(G8GAT), .ZN(n140) );
+  NAND2_X1 U155 ( .A1(n141), .A2(n140), .ZN(n142) );
+  NAND2_X1 U156 ( .A1(G36GAT), .A2(n142), .ZN(n143) );
+  NAND2_X1 U157 ( .A1(n249), .A2(n143), .ZN(n145) );
+  NOR2_X1 U158 ( .A1(G50GAT), .A2(G57GAT), .ZN(n144) );
+  NAND2_X1 U159 ( .A1(n145), .A2(n144), .ZN(n146) );
+  INV_X1 U160 ( .A(G64GAT), .ZN(n217) );
+  NAND2_X1 U161 ( .A1(n146), .A2(n217), .ZN(n147) );
+  NAND2_X1 U162 ( .A1(n147), .A2(G99GAT), .ZN(n148) );
+  NOR2_X1 U163 ( .A1(n149), .A2(n148), .ZN(n150) );
+  NAND2_X1 U164 ( .A1(n150), .A2(G92GAT), .ZN(n151) );
+  NOR2_X1 U165 ( .A1(G78GAT), .A2(n151), .ZN(n152) );
+  NOR2_X1 U166 ( .A1(n153), .A2(n152), .ZN(n154) );
+  NAND2_X1 U167 ( .A1(n155), .A2(n154), .ZN(n156) );
+  NOR2_X1 U168 ( .A1(G120GAT), .A2(n156), .ZN(n157) );
+  NOR2_X1 U169 ( .A1(G155GAT), .A2(n157), .ZN(n159) );
+  NAND2_X1 U170 ( .A1(G169GAT), .A2(G162GAT), .ZN(n158) );
+  NOR2_X1 U171 ( .A1(n159), .A2(n158), .ZN(n160) );
+  NOR2_X1 U172 ( .A1(n161), .A2(n160), .ZN(n162) );
+  NAND2_X1 U173 ( .A1(n162), .A2(G176GAT), .ZN(n163) );
+  NOR2_X1 U174 ( .A1(G197GAT), .A2(n163), .ZN(n164) );
+  NOR2_X1 U175 ( .A1(n165), .A2(n164), .ZN(n268) );
+inputs=32 keys=64 outputs=1 gates=128
+iteration: 1; vars: 928; clauses: 828; decisions: 156
+iteration: 2; vars: 1182; clauses: 1460; decisions: 549
+iteration: 3; vars: 1436; clauses: 644; decisions: 765
+iteration: 4; vars: 1690; clauses: 1264; decisions: 912
+iteration: 5; vars: 1944; clauses: 644; decisions: 1064
+iteration: 6; vars: 2198; clauses: 1264; decisions: 1212
+iteration: 7; vars: 2452; clauses: 676; decisions: 1362
+iteration: 8; vars: 2706; clauses: 1296; decisions: 1509
+iteration: 9; vars: 2960; clauses: 654; decisions: 1662
+iteration: 10; vars: 3214; clauses: 1274; decisions: 1810
+iteration: 11; vars: 3468; clauses: 650; decisions: 1960
+iteration: 12; vars: 3722; clauses: 1270; decisions: 2107
+iteration: 13; vars: 3976; clauses: 668; decisions: 2257
+iteration: 14; vars: 4230; clauses: 1288; decisions: 2404
+iteration: 15; vars: 4484; clauses: 682; decisions: 2553
+iteration: 16; vars: 4738; clauses: 1302; decisions: 2699
+iteration: 17; vars: 4992; clauses: 708; decisions: 3220
+iteration: 18; vars: 5246; clauses: 1328; decisions: 3369
+iteration: 19; vars: 5500; clauses: 696; decisions: 3522
+iteration: 20; vars: 5754; clauses: 1316; decisions: 3670
+iteration: 21; vars: 6008; clauses: 660; decisions: 3820
+iteration: 22; vars: 6262; clauses: 1280; decisions: 3967
+iteration: 23; vars: 6516; clauses: 684; decisions: 4117
+iteration: 24; vars: 6770; clauses: 1304; decisions: 4264
+iteration: 25; vars: 7024; clauses: 714; decisions: 4413
+iteration: 26; vars: 7278; clauses: 1334; decisions: 4559
+iteration: 27; vars: 7532; clauses: 726; decisions: 4708
+iteration: 28; vars: 7786; clauses: 1346; decisions: 4854
+iteration: 29; vars: 8040; clauses: 730; decisions: 5004
+iteration: 30; vars: 8294; clauses: 1352; decisions: 5322
+iteration: 31; vars: 8548; clauses: 567; decisions: 5460
+iteration: 32; vars: 8802; clauses: 569; decisions: 5667
+iteration: 33; vars: 9056; clauses: 539; decisions: 5802
+iteration: 34; vars: 9310; clauses: 558; decisions: 5938
+iteration: 35; vars: 9564; clauses: 1142; decisions: 6063
+iteration: 36; vars: 9818; clauses: 541; decisions: 6188
+iteration: 37; vars: 10072; clauses: 559; decisions: 6311
+iteration: 38; vars: 10326; clauses: 559; decisions: 6435
+iteration: 39; vars: 10580; clauses: 559; decisions: 6559
+iteration: 40; vars: 10834; clauses: 559; decisions: 6682
+iteration: 41; vars: 11088; clauses: 577; decisions: 6804
+iteration: 42; vars: 11342; clauses: 577; decisions: 6927
+iteration: 43; vars: 11596; clauses: 577; decisions: 7049
+iteration: 44; vars: 11850; clauses: 595; decisions: 7171
+iteration: 45; vars: 12104; clauses: 595; decisions: 7293
+iteration: 46; vars: 12358; clauses: 613; decisions: 7417
+iteration: 47; vars: 12612; clauses: 613; decisions: 7539
+iteration: 48; vars: 12866; clauses: 596; decisions: 7661
+iteration: 49; vars: 13120; clauses: 596; decisions: 7782
+iteration: 50; vars: 13374; clauses: 595; decisions: 7904
+iteration: 51; vars: 13628; clauses: 595; decisions: 8025
+iteration: 52; vars: 13882; clauses: 613; decisions: 8146
+iteration: 53; vars: 14136; clauses: 614; decisions: 8266
+iteration: 54; vars: 14390; clauses: 631; decisions: 8390
+iteration: 55; vars: 14644; clauses: 631; decisions: 8513
+iteration: 56; vars: 14898; clauses: 631; decisions: 8635
+iteration: 57; vars: 15152; clauses: 631; decisions: 8756
+iteration: 58; vars: 15406; clauses: 613; decisions: 8878
+iteration: 59; vars: 15660; clauses: 614; decisions: 8999
+iteration: 60; vars: 15914; clauses: 613; decisions: 9120
+iteration: 61; vars: 16168; clauses: 613; decisions: 9240
+iteration: 62; vars: 16422; clauses: 631; decisions: 9362
+iteration: 63; vars: 16676; clauses: 631; decisions: 9483
+iteration: 64; vars: 16930; clauses: 631; decisions: 9605
+iteration: 65; vars: 17184; clauses: 622; decisions: 9727
+iteration: 66; vars: 17438; clauses: 631; decisions: 9850
+iteration: 67; vars: 17692; clauses: 649; decisions: 9971
+iteration: 68; vars: 17946; clauses: 649; decisions: 10092
+iteration: 69; vars: 18200; clauses: 649; decisions: 10212
+iteration: 70; vars: 18454; clauses: 667; decisions: 10337
+iteration: 71; vars: 18708; clauses: 662; decisions: 10460
+iteration: 72; vars: 18962; clauses: 671; decisions: 10583
+iteration: 73; vars: 19216; clauses: 627; decisions: 10705
+iteration: 74; vars: 19470; clauses: 619; decisions: 10828
+iteration: 75; vars: 19724; clauses: 619; decisions: 10951
+iteration: 76; vars: 19978; clauses: 621; decisions: 11073
+iteration: 77; vars: 20232; clauses: 621; decisions: 11194
+iteration: 78; vars: 20486; clauses: 631; decisions: 11318
+iteration: 79; vars: 20740; clauses: 631; decisions: 11440
+iteration: 80; vars: 20994; clauses: 614; decisions: 11562
+iteration: 81; vars: 21248; clauses: 614; decisions: 11683
+iteration: 82; vars: 21502; clauses: 623; decisions: 11805
+iteration: 83; vars: 21756; clauses: 628; decisions: 11926
+iteration: 84; vars: 22010; clauses: 619; decisions: 12047
+iteration: 85; vars: 22264; clauses: 627; decisions: 12168
+iteration: 86; vars: 22518; clauses: 593; decisions: 12292
+iteration: 87; vars: 22772; clauses: 603; decisions: 12417
+iteration: 88; vars: 23026; clauses: 595; decisions: 12536
+iteration: 89; vars: 23280; clauses: 613; decisions: 12654
+iteration: 90; vars: 23534; clauses: 613; decisions: 12772
+iteration: 91; vars: 23788; clauses: 613; decisions: 12889
+iteration: 92; vars: 24042; clauses: 631; decisions: 13006
+iteration: 93; vars: 24296; clauses: 631; decisions: 13122
+iteration: 94; vars: 24550; clauses: 649; decisions: 13241
+iteration: 95; vars: 24804; clauses: 649; decisions: 13359
+iteration: 96; vars: 25058; clauses: 631; decisions: 13476
+iteration: 97; vars: 25312; clauses: 631; decisions: 13592
+iteration: 98; vars: 25566; clauses: 631; decisions: 13709
+iteration: 99; vars: 25820; clauses: 631; decisions: 13825
+iteration: 100; vars: 26074; clauses: 631; decisions: 13941
+iteration: 101; vars: 26328; clauses: 649; decisions: 14056
+iteration: 102; vars: 26582; clauses: 649; decisions: 14174
+iteration: 103; vars: 26836; clauses: 649; decisions: 14290
+iteration: 104; vars: 27090; clauses: 648; decisions: 14406
+iteration: 105; vars: 27344; clauses: 666; decisions: 14522
+iteration: 106; vars: 27598; clauses: 666; decisions: 14639
+iteration: 107; vars: 27852; clauses: 666; decisions: 14755
+iteration: 108; vars: 28106; clauses: 666; decisions: 14871
+iteration: 109; vars: 28360; clauses: 666; decisions: 14986
+iteration: 110; vars: 28614; clauses: 684; decisions: 15102
+iteration: 111; vars: 28868; clauses: 1256; decisions: 15208
+iteration: 112; vars: 29122; clauses: 484; decisions: 15315
+iteration: 113; vars: 29376; clauses: 1014; decisions: 15419
+iteration: 114; vars: 29630; clauses: 484; decisions: 15526
+iteration: 115; vars: 29884; clauses: 1014; decisions: 15630
+iteration: 116; vars: 30138; clauses: 498; decisions: 15735
+iteration: 117; vars: 30392; clauses: 1028; decisions: 15837
+iteration: 118; vars: 30646; clauses: 500; decisions: 15947
+iteration: 119; vars: 30900; clauses: 1030; decisions: 16051
+iteration: 120; vars: 31154; clauses: 498; decisions: 16156
+iteration: 121; vars: 31408; clauses: 1028; decisions: 16258
+iteration: 122; vars: 31662; clauses: 499; decisions: 16363
+iteration: 123; vars: 31916; clauses: 1029; decisions: 16465
+iteration: 124; vars: 32170; clauses: 512; decisions: 16569
+iteration: 125; vars: 32424; clauses: 1042; decisions: 16671
+iteration: 126; vars: 32678; clauses: 509; decisions: 16791
+iteration: 127; vars: 32932; clauses: 1039; decisions: 16894
+iteration: 128; vars: 33186; clauses: 511; decisions: 16999
+iteration: 129; vars: 33440; clauses: 1041; decisions: 17101
+iteration: 130; vars: 33694; clauses: 512; decisions: 17206
+iteration: 131; vars: 33948; clauses: 1042; decisions: 17308
+iteration: 132; vars: 34202; clauses: 512; decisions: 17412
+iteration: 133; vars: 34456; clauses: 1042; decisions: 17513
+iteration: 134; vars: 34710; clauses: 525; decisions: 17618
+iteration: 135; vars: 34964; clauses: 1055; decisions: 17721
+iteration: 136; vars: 35218; clauses: 523; decisions: 17825
+iteration: 137; vars: 35472; clauses: 1053; decisions: 17926
+iteration: 138; vars: 35726; clauses: 525; decisions: 18030
+iteration: 139; vars: 35980; clauses: 1055; decisions: 18131
+iteration: 140; vars: 36234; clauses: 538; decisions: 18234
+iteration: 141; vars: 36488; clauses: 1068; decisions: 18334
+iteration: 142; vars: 36742; clauses: 522; decisions: 18438
+iteration: 143; vars: 36996; clauses: 1040; decisions: 18541
+iteration: 144; vars: 37250; clauses: 514; decisions: 18644
+iteration: 145; vars: 37504; clauses: 1032; decisions: 18747
+iteration: 146; vars: 37758; clauses: 496; decisions: 18850
+iteration: 147; vars: 38012; clauses: 1014; decisions: 18952
+iteration: 148; vars: 38266; clauses: 478; decisions: 19054
+iteration: 149; vars: 38520; clauses: 996; decisions: 19155
+iteration: 150; vars: 38774; clauses: 475; decisions: 19257
+iteration: 151; vars: 39028; clauses: 993; decisions: 19358
+iteration: 152; vars: 39282; clauses: 477; decisions: 19459
+iteration: 153; vars: 39536; clauses: 995; decisions: 19559
+iteration: 154; vars: 39790; clauses: 477; decisions: 19660
+iteration: 155; vars: 40044; clauses: 995; decisions: 19761
+iteration: 156; vars: 40298; clauses: 479; decisions: 19861
+iteration: 157; vars: 40552; clauses: 997; decisions: 19960
+iteration: 158; vars: 40806; clauses: 467; decisions: 20062
+iteration: 159; vars: 41060; clauses: 975; decisions: 20163
+iteration: 160; vars: 41314; clauses: 469; decisions: 20264
+iteration: 161; vars: 41568; clauses: 977; decisions: 20364
+iteration: 162; vars: 41822; clauses: 469; decisions: 20465
+iteration: 163; vars: 42076; clauses: 977; decisions: 20565
+iteration: 164; vars: 42330; clauses: 471; decisions: 20665
+iteration: 165; vars: 42584; clauses: 979; decisions: 20765
+iteration: 166; vars: 42838; clauses: 437; decisions: 20867
+iteration: 167; vars: 43092; clauses: 931; decisions: 20959
+iteration: 168; vars: 43346; clauses: 449; decisions: 21058
+iteration: 169; vars: 43600; clauses: 943; decisions: 21191
+iteration: 170; vars: 43854; clauses: 428; decisions: 21308
+iteration: 171; vars: 44108; clauses: 410; decisions: 21386
+iteration: 172; vars: 44362; clauses: 395; decisions: 21461
+iteration: 173; vars: 44616; clauses: 395; decisions: 21536
+iteration: 174; vars: 44870; clauses: 865; decisions: 21538
+finished solver loop. fail_count = 0
+key=1110111001101111110111000111001000000000000000000000000000000001
+iteration=174; backbones_count=0; cube_count=111128; cpu_time=1.2738; maxrss=4.98828
+equivalent

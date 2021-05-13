@@ -1,0 +1,2957 @@
+Benchmark: b17_C
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version M-2016.12-SP2 for linux64 - Feb 23, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+date
+Fri May 14 00:11:56 2021
+set_host_options -max_cores 8
+1
+set compile_seqmap_propagate_constants     false
+false
+set compile_seqmap_propagate_high_effort   false
+false
+set compile_enable_register_merging        false
+false
+set timing_separate_clock_gating_group     true
+true
+set design   [getenv "DESIGN"]
+b17_C
+set search_path [concat * $search_path]
+* . /opt/programs/synopsys/dc/libraries/syn /opt/programs/synopsys/dc/minpower/syn /opt/programs/synopsys/dc/dw/syn_ver /opt/programs/synopsys/dc/dw/sim_ver
+define_design_lib WORK -path ./work
+1
+set target_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set link_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set_dont_use [get_lib_cells NangateOpenCellLibrary/*]
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+1
+set_attribute [get_lib_cells NangateOpenCellLibrary/NAND2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/NAND2_X1 NangateOpenCellLibrary/NAND2_X2 NangateOpenCellLibrary/NAND2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/AND2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/AND2_X1 NangateOpenCellLibrary/AND2_X2 NangateOpenCellLibrary/AND2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/NOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/NOR2_X1 NangateOpenCellLibrary/NOR2_X2 NangateOpenCellLibrary/NOR2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/OR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/OR2_X1 NangateOpenCellLibrary/OR2_X2 NangateOpenCellLibrary/OR2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/XOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 2 objects. (UID-186)
+NangateOpenCellLibrary/XOR2_X1 NangateOpenCellLibrary/XOR2_X2
+set_attribute [get_lib_cells NangateOpenCellLibrary/XNOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 2 objects. (UID-186)
+NangateOpenCellLibrary/XNOR2_X1 NangateOpenCellLibrary/XNOR2_X2
+set_attribute [get_lib_cells NangateOpenCellLibrary/INV_*] dont_use false
+Information: Attribute 'dont_use' is set on 6 objects. (UID-186)
+NangateOpenCellLibrary/INV_X1 NangateOpenCellLibrary/INV_X2 NangateOpenCellLibrary/INV_X4 NangateOpenCellLibrary/INV_X8 NangateOpenCellLibrary/INV_X16 NangateOpenCellLibrary/INV_X32
+analyze -library WORK -format sverilog ../Results/$design/${design}_lock.v
+Running PRESTO HDLC
+Compiling source file ../Results/b17_C/b17_C_lock.v
+Presto compilation completed successfully.
+1
+elaborate ${design}_lock
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/gtech.db'
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/standard.sldb'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'b17_C_lock'.
+1
+create_clock -name VCLK -period 10  -waveform {0 5}
+Warning: Creating virtual clock named 'VCLK' with no sources. (UID-348)
+1
+set input_ports  [all_inputs]
+{READY12_REG_SCAN_IN READY21_REG_SCAN_IN P2_STATE_REG_2__SCAN_IN P2_STATE_REG_1__SCAN_IN P2_STATE_REG_0__SCAN_IN P2_STATE2_REG_3__SCAN_IN P2_STATE2_REG_2__SCAN_IN P2_STATE2_REG_1__SCAN_IN P2_STATE2_REG_0__SCAN_IN P2_INSTQUEUE_REG_15__7__SCAN_IN P2_INSTQUEUE_REG_15__6__SCAN_IN P2_INSTQUEUE_REG_15__5__SCAN_IN P2_INSTQUEUE_REG_15__4__SCAN_IN P2_INSTQUEUE_REG_15__3__SCAN_IN P2_INSTQUEUE_REG_15__2__SCAN_IN P2_INSTQUEUE_REG_15__1__SCAN_IN P2_INSTQUEUE_REG_15__0__SCAN_IN P2_INSTQUEUE_REG_14__7__SCAN_IN P2_INSTQUEUE_REG_14__6__SCAN_IN P2_INSTQUEUE_REG_14__5__SCAN_IN P2_INSTQUEUE_REG_14__4__SCAN_IN P2_INSTQUEUE_REG_14__3__SCAN_IN P2_INSTQUEUE_REG_14__2__SCAN_IN P2_INSTQUEUE_REG_14__1__SCAN_IN P2_INSTQUEUE_REG_14__0__SCAN_IN P2_INSTQUEUE_REG_13__7__SCAN_IN P2_INSTQUEUE_REG_13__6__SCAN_IN P2_INSTQUEUE_REG_13__5__SCAN_IN P2_INSTQUEUE_REG_13__4__SCAN_IN P2_INSTQUEUE_REG_13__3__SCAN_IN P2_INSTQUEUE_REG_13__2__SCAN_IN P2_INSTQUEUE_REG_13__1__SCAN_IN P2_INSTQUEUE_REG_13__0__SCAN_IN P2_INSTQUEUE_REG_12__7__SCAN_IN P2_INSTQUEUE_REG_12__6__SCAN_IN P2_INSTQUEUE_REG_12__5__SCAN_IN P2_INSTQUEUE_REG_12__4__SCAN_IN P2_INSTQUEUE_REG_12__3__SCAN_IN P2_INSTQUEUE_REG_12__2__SCAN_IN P2_INSTQUEUE_REG_12__1__SCAN_IN P2_INSTQUEUE_REG_12__0__SCAN_IN P2_INSTQUEUE_REG_11__7__SCAN_IN P2_INSTQUEUE_REG_11__6__SCAN_IN P2_INSTQUEUE_REG_11__5__SCAN_IN P2_INSTQUEUE_REG_11__4__SCAN_IN P2_INSTQUEUE_REG_11__3__SCAN_IN P2_INSTQUEUE_REG_11__2__SCAN_IN P2_INSTQUEUE_REG_11__1__SCAN_IN P2_INSTQUEUE_REG_11__0__SCAN_IN P2_INSTQUEUE_REG_10__7__SCAN_IN P2_INSTQUEUE_REG_10__6__SCAN_IN P2_INSTQUEUE_REG_10__5__SCAN_IN P2_INSTQUEUE_REG_10__4__SCAN_IN P2_INSTQUEUE_REG_10__3__SCAN_IN P2_INSTQUEUE_REG_10__2__SCAN_IN P2_INSTQUEUE_REG_10__1__SCAN_IN P2_INSTQUEUE_REG_10__0__SCAN_IN P2_INSTQUEUE_REG_9__7__SCAN_IN P2_INSTQUEUE_REG_9__6__SCAN_IN P2_INSTQUEUE_REG_9__5__SCAN_IN P2_INSTQUEUE_REG_9__4__SCAN_IN P2_INSTQUEUE_REG_9__3__SCAN_IN P2_INSTQUEUE_REG_9__2__SCAN_IN P2_INSTQUEUE_REG_9__1__SCAN_IN P2_INSTQUEUE_REG_9__0__SCAN_IN P2_INSTQUEUE_REG_8__7__SCAN_IN P2_INSTQUEUE_REG_8__6__SCAN_IN P2_INSTQUEUE_REG_8__5__SCAN_IN P2_INSTQUEUE_REG_8__4__SCAN_IN P2_INSTQUEUE_REG_8__3__SCAN_IN P2_INSTQUEUE_REG_8__2__SCAN_IN P2_INSTQUEUE_REG_8__1__SCAN_IN P2_INSTQUEUE_REG_8__0__SCAN_IN P2_INSTQUEUE_REG_7__7__SCAN_IN P2_INSTQUEUE_REG_7__6__SCAN_IN P2_INSTQUEUE_REG_7__5__SCAN_IN P2_INSTQUEUE_REG_7__4__SCAN_IN P2_INSTQUEUE_REG_7__3__SCAN_IN P2_INSTQUEUE_REG_7__2__SCAN_IN P2_INSTQUEUE_REG_7__1__SCAN_IN P2_INSTQUEUE_REG_7__0__SCAN_IN P2_INSTQUEUE_REG_6__7__SCAN_IN P2_INSTQUEUE_REG_6__6__SCAN_IN P2_INSTQUEUE_REG_6__5__SCAN_IN P2_INSTQUEUE_REG_6__4__SCAN_IN P2_INSTQUEUE_REG_6__3__SCAN_IN P2_INSTQUEUE_REG_6__2__SCAN_IN P2_INSTQUEUE_REG_6__1__SCAN_IN P2_INSTQUEUE_REG_6__0__SCAN_IN P2_INSTQUEUE_REG_5__7__SCAN_IN P2_INSTQUEUE_REG_5__6__SCAN_IN P2_INSTQUEUE_REG_5__5__SCAN_IN P2_INSTQUEUE_REG_5__4__SCAN_IN P2_INSTQUEUE_REG_5__3__SCAN_IN P2_INSTQUEUE_REG_5__2__SCAN_IN P2_INSTQUEUE_REG_5__1__SCAN_IN P2_INSTQUEUE_REG_5__0__SCAN_IN P2_INSTQUEUE_REG_4__7__SCAN_IN P2_INSTQUEUE_REG_4__6__SCAN_IN P2_INSTQUEUE_REG_4__5__SCAN_IN ...}
+set output_ports [all_outputs]
+{P2_U3015}
+set_input_delay -max 1 [get_ports $input_ports ] -clock VCLK
+1
+set_input_delay -min 0 [get_ports $input_ports ] -clock VCLK
+1
+set_output_delay -max 2 [get_ports $output_ports ] -clock VCLK
+1
+set_output_delay -min 1 [get_ports $output_ports ] -clock VCLK
+1
+ungroup -flatten -all
+Warning: Design has no hierarchy.  No cells can be ungrouped. (UID-228)
+0
+compile_ultra
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 8 cores. (OPT-1500)
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/dw_foundation.sldb'
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | M-2016.12-DWBB_201612.2 |     *     |
+| Licensed DW Building Blocks        | M-2016.12-DWBB_201612.2 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+  Simplifying Design 'b17_C_lock'
+
+Loaded alib file './alib-52/Nangate_Library_slow_ccs.db.alib'
+  Building model 'DW01_NAND2'
+Information: Ungrouping 0 of 1 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'b17_C_lock'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:06    1003.9      0.75       0.7     144.5                           15070.0371
+    0:00:06    1035.3      0.00       0.0     126.6                           15889.5400
+    0:00:06    1035.3      0.00       0.0     126.6                           15889.5400
+    0:00:06    1035.3      0.00       0.0     126.6                           15889.5400
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:07    1012.1      0.00       0.0     126.6                           15267.9658
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+    0:00:08    1019.6      0.00       0.0       0.0                           15447.5635
+    0:00:08    1019.6      0.00       0.0       0.0                           15447.5635
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:08    1019.6      0.00       0.0       0.0                           15447.5635
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:08    1012.4      0.00       0.0       0.0                           15267.4756
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+compile_ultra -increment 
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 8 cores. (OPT-1500)
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+
+Information: There are 128 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+
+  Beginning Mapping Optimizations  (Ultra High effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:01    1012.4      0.00       0.0       0.0                           15267.4756
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+compile_ultra -increment 
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 8 cores. (OPT-1500)
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+
+Information: There are 128 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+
+  Beginning Mapping Optimizations  (Ultra High effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+    0:00:00    1012.4      0.00       0.0       0.0                           15267.4756
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+set bus_naming_style "%s_%d"
+%s_%d
+define_name_rules verilog -target_bus_naming_style "%s_%d"
+1
+change_names -rules verilog -hier
+1
+write -format verilog -hierarchy -output ../Results/$design/${design}_lock_synth_2ip.v 
+Writing verilog file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/b17_C/b17_C_lock_synth_2ip.v'.
+Warning: Bus naming style currently specified as %s_%d, verilog syntax requires bus naming style to be "[]".  (VO-13)
+1
+exit
+
+Thank you...
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version M-2016.12-SP2 for linux64 - Feb 23, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+set start [clock seconds]
+1620936736
+date
+Fri May 14 00:12:16 2021
+set_host_options -max_cores 8
+1
+set compile_seqmap_propagate_constants     false
+false
+set compile_seqmap_propagate_high_effort   false
+false
+set compile_enable_register_merging        false
+false
+set timing_separate_clock_gating_group     true
+true
+set design   [getenv "DESIGN"]
+b17_C
+set keysize  [getenv "KEYSIZE"]
+80
+define_design_lib WORK -path ./work
+1
+set target_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set link_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+read_verilog -netlist ../Results/$design/${design}_lock_synth_2ip.v
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/gtech.db'
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Loading verilog file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/b17_C/b17_C_lock_synth_2ip.v'
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/b17_C/b17_C_lock_synth_2ip.v
+Verilog netlist reader completed successfully.
+Current design is now '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/b17_C/b17_C_lock.db:b17_C_lock'
+Loaded 1 design.
+Current design is 'b17_C_lock'.
+b17_C_lock
+set netList [get_attribute [get_nets] full_name]
+READY12_REG_SCAN_IN READY21_REG_SCAN_IN P2_STATE_REG_2__SCAN_IN P2_STATE_REG_1__SCAN_IN P2_STATE_REG_0__SCAN_IN P2_STATE2_REG_3__SCAN_IN P2_STATE2_REG_2__SCAN_IN P2_STATE2_REG_1__SCAN_IN P2_STATE2_REG_0__SCAN_IN P2_INSTQUEUE_REG_15__7__SCAN_IN P2_INSTQUEUE_REG_15__6__SCAN_IN P2_INSTQUEUE_REG_15__5__SCAN_IN P2_INSTQUEUE_REG_15__4__SCAN_IN P2_INSTQUEUE_REG_15__3__SCAN_IN P2_INSTQUEUE_REG_15__2__SCAN_IN P2_INSTQUEUE_REG_15__1__SCAN_IN P2_INSTQUEUE_REG_15__0__SCAN_IN P2_INSTQUEUE_REG_14__7__SCAN_IN P2_INSTQUEUE_REG_14__6__SCAN_IN P2_INSTQUEUE_REG_14__5__SCAN_IN P2_INSTQUEUE_REG_14__4__SCAN_IN P2_INSTQUEUE_REG_14__3__SCAN_IN P2_INSTQUEUE_REG_14__2__SCAN_IN P2_INSTQUEUE_REG_14__1__SCAN_IN P2_INSTQUEUE_REG_14__0__SCAN_IN P2_INSTQUEUE_REG_13__7__SCAN_IN P2_INSTQUEUE_REG_13__6__SCAN_IN P2_INSTQUEUE_REG_13__5__SCAN_IN P2_INSTQUEUE_REG_13__4__SCAN_IN P2_INSTQUEUE_REG_13__3__SCAN_IN P2_INSTQUEUE_REG_13__2__SCAN_IN P2_INSTQUEUE_REG_13__1__SCAN_IN P2_INSTQUEUE_REG_13__0__SCAN_IN P2_INSTQUEUE_REG_12__7__SCAN_IN P2_INSTQUEUE_REG_12__6__SCAN_IN P2_INSTQUEUE_REG_12__5__SCAN_IN P2_INSTQUEUE_REG_12__4__SCAN_IN P2_INSTQUEUE_REG_12__3__SCAN_IN P2_INSTQUEUE_REG_12__2__SCAN_IN P2_INSTQUEUE_REG_12__1__SCAN_IN P2_INSTQUEUE_REG_12__0__SCAN_IN P2_INSTQUEUE_REG_11__7__SCAN_IN P2_INSTQUEUE_REG_11__6__SCAN_IN P2_INSTQUEUE_REG_11__5__SCAN_IN P2_INSTQUEUE_REG_11__4__SCAN_IN P2_INSTQUEUE_REG_11__3__SCAN_IN P2_INSTQUEUE_REG_11__2__SCAN_IN P2_INSTQUEUE_REG_11__1__SCAN_IN P2_INSTQUEUE_REG_11__0__SCAN_IN P2_INSTQUEUE_REG_10__7__SCAN_IN P2_INSTQUEUE_REG_10__6__SCAN_IN P2_INSTQUEUE_REG_10__5__SCAN_IN P2_INSTQUEUE_REG_10__4__SCAN_IN P2_INSTQUEUE_REG_10__3__SCAN_IN P2_INSTQUEUE_REG_10__2__SCAN_IN P2_INSTQUEUE_REG_10__1__SCAN_IN P2_INSTQUEUE_REG_10__0__SCAN_IN P2_INSTQUEUE_REG_9__7__SCAN_IN P2_INSTQUEUE_REG_9__6__SCAN_IN P2_INSTQUEUE_REG_9__5__SCAN_IN P2_INSTQUEUE_REG_9__4__SCAN_IN P2_INSTQUEUE_REG_9__3__SCAN_IN P2_INSTQUEUE_REG_9__2__SCAN_IN P2_INSTQUEUE_REG_9__1__SCAN_IN P2_INSTQUEUE_REG_9__0__SCAN_IN P2_INSTQUEUE_REG_8__7__SCAN_IN P2_INSTQUEUE_REG_8__6__SCAN_IN P2_INSTQUEUE_REG_8__5__SCAN_IN P2_INSTQUEUE_REG_8__4__SCAN_IN P2_INSTQUEUE_REG_8__3__SCAN_IN P2_INSTQUEUE_REG_8__2__SCAN_IN P2_INSTQUEUE_REG_8__1__SCAN_IN P2_INSTQUEUE_REG_8__0__SCAN_IN P2_INSTQUEUE_REG_7__7__SCAN_IN P2_INSTQUEUE_REG_7__6__SCAN_IN P2_INSTQUEUE_REG_7__5__SCAN_IN P2_INSTQUEUE_REG_7__4__SCAN_IN P2_INSTQUEUE_REG_7__3__SCAN_IN P2_INSTQUEUE_REG_7__2__SCAN_IN P2_INSTQUEUE_REG_7__1__SCAN_IN P2_INSTQUEUE_REG_7__0__SCAN_IN P2_INSTQUEUE_REG_6__7__SCAN_IN P2_INSTQUEUE_REG_6__6__SCAN_IN P2_INSTQUEUE_REG_6__5__SCAN_IN P2_INSTQUEUE_REG_6__4__SCAN_IN P2_INSTQUEUE_REG_6__3__SCAN_IN P2_INSTQUEUE_REG_6__2__SCAN_IN P2_INSTQUEUE_REG_6__1__SCAN_IN P2_INSTQUEUE_REG_6__0__SCAN_IN P2_INSTQUEUE_REG_5__7__SCAN_IN P2_INSTQUEUE_REG_5__6__SCAN_IN P2_INSTQUEUE_REG_5__5__SCAN_IN P2_INSTQUEUE_REG_5__4__SCAN_IN P2_INSTQUEUE_REG_5__3__SCAN_IN P2_INSTQUEUE_REG_5__2__SCAN_IN P2_INSTQUEUE_REG_5__1__SCAN_IN P2_INSTQUEUE_REG_5__0__SCAN_IN P2_INSTQUEUE_REG_4__7__SCAN_IN P2_INSTQUEUE_REG_4__6__SCAN_IN P2_INSTQUEUE_REG_4__5__SCAN_IN P2_INSTQUEUE_REG_4__4__SCAN_IN P2_INSTQUEUE_REG_4__3__SCAN_IN P2_INSTQUEUE_REG_4__2__SCAN_IN P2_INSTQUEUE_REG_4__1__SCAN_IN P2_INSTQUEUE_REG_4__0__SCAN_IN P2_INSTQUEUE_REG_3__7__SCAN_IN P2_INSTQUEUE_REG_3__6__SCAN_IN P2_INSTQUEUE_REG_3__5__SCAN_IN P2_INSTQUEUE_REG_3__4__SCAN_IN P2_INSTQUEUE_REG_3__3__SCAN_IN P2_INSTQUEUE_REG_3__2__SCAN_IN P2_INSTQUEUE_REG_3__1__SCAN_IN P2_INSTQUEUE_REG_3__0__SCAN_IN P2_INSTQUEUE_REG_2__7__SCAN_IN P2_INSTQUEUE_REG_2__6__SCAN_IN P2_INSTQUEUE_REG_2__5__SCAN_IN P2_INSTQUEUE_REG_2__4__SCAN_IN P2_INSTQUEUE_REG_2__3__SCAN_IN P2_INSTQUEUE_REG_2__2__SCAN_IN P2_INSTQUEUE_REG_2__1__SCAN_IN P2_INSTQUEUE_REG_2__0__SCAN_IN P2_INSTQUEUE_REG_1__7__SCAN_IN P2_INSTQUEUE_REG_1__6__SCAN_IN P2_INSTQUEUE_REG_1__5__SCAN_IN P2_INSTQUEUE_REG_1__4__SCAN_IN P2_INSTQUEUE_REG_1__3__SCAN_IN P2_INSTQUEUE_REG_1__2__SCAN_IN P2_INSTQUEUE_REG_1__1__SCAN_IN P2_INSTQUEUE_REG_1__0__SCAN_IN P2_INSTQUEUE_REG_0__7__SCAN_IN P2_INSTQUEUE_REG_0__6__SCAN_IN P2_INSTQUEUE_REG_0__5__SCAN_IN P2_INSTQUEUE_REG_0__4__SCAN_IN P2_INSTQUEUE_REG_0__3__SCAN_IN P2_INSTQUEUE_REG_0__2__SCAN_IN P2_INSTQUEUE_REG_0__1__SCAN_IN P2_INSTQUEUE_REG_0__0__SCAN_IN P2_INSTQUEUERD_ADDR_REG_4__SCAN_IN P2_INSTQUEUERD_ADDR_REG_3__SCAN_IN P2_INSTQUEUERD_ADDR_REG_2__SCAN_IN P2_INSTQUEUERD_ADDR_REG_1__SCAN_IN P2_INSTQUEUERD_ADDR_REG_0__SCAN_IN P2_INSTQUEUEWR_ADDR_REG_4__SCAN_IN P2_INSTQUEUEWR_ADDR_REG_3__SCAN_IN P2_INSTQUEUEWR_ADDR_REG_2__SCAN_IN P2_INSTQUEUEWR_ADDR_REG_1__SCAN_IN P2_INSTQUEUEWR_ADDR_REG_0__SCAN_IN P2_INSTADDRPOINTER_REG_0__SCAN_IN P2_INSTADDRPOINTER_REG_1__SCAN_IN P2_INSTADDRPOINTER_REG_2__SCAN_IN P2_INSTADDRPOINTER_REG_3__SCAN_IN P2_INSTADDRPOINTER_REG_4__SCAN_IN P2_INSTADDRPOINTER_REG_5__SCAN_IN P2_INSTADDRPOINTER_REG_6__SCAN_IN P2_INSTADDRPOINTER_REG_7__SCAN_IN P2_INSTADDRPOINTER_REG_8__SCAN_IN P2_INSTADDRPOINTER_REG_9__SCAN_IN P2_INSTADDRPOINTER_REG_10__SCAN_IN P2_INSTADDRPOINTER_REG_11__SCAN_IN P2_INSTADDRPOINTER_REG_12__SCAN_IN P2_INSTADDRPOINTER_REG_13__SCAN_IN P2_INSTADDRPOINTER_REG_14__SCAN_IN P2_INSTADDRPOINTER_REG_15__SCAN_IN P2_INSTADDRPOINTER_REG_16__SCAN_IN P2_INSTADDRPOINTER_REG_17__SCAN_IN P2_INSTADDRPOINTER_REG_18__SCAN_IN P2_INSTADDRPOINTER_REG_19__SCAN_IN P2_INSTADDRPOINTER_REG_20__SCAN_IN P2_INSTADDRPOINTER_REG_21__SCAN_IN P2_INSTADDRPOINTER_REG_22__SCAN_IN P2_INSTADDRPOINTER_REG_23__SCAN_IN P2_INSTADDRPOINTER_REG_24__SCAN_IN P2_INSTADDRPOINTER_REG_25__SCAN_IN P2_INSTADDRPOINTER_REG_26__SCAN_IN P2_INSTADDRPOINTER_REG_27__SCAN_IN P2_INSTADDRPOINTER_REG_28__SCAN_IN P2_INSTADDRPOINTER_REG_29__SCAN_IN P2_INSTADDRPOINTER_REG_30__SCAN_IN P2_INSTADDRPOINTER_REG_31__SCAN_IN P2_REIP_REG_31__SCAN_IN P2_U3015 n2238 n2239 n2240 n2241 n2242 n2243 n2244 n2245 n2246 n2247 n2248 n2249 n2250 n2251 n2252 n2253 n2254 n2255 n2256 n2257 n2258 n2259 n2260 n2261 n2262 n2263 n2264 n2265 n2266 n2267 n2268 n2269 n2270 n2271 n2272 n2273 n2274 n2275 n2276 n2277 n2278 n2279 n2280 n2281 n2282 n2283 n2284 n2285 n2286 n2287 n2288 n2289 n2290 n2291 n2292 n2293 n2294 n2295 n2296 n2297 n2298 n2299 n2300 n2301 n2302 n2303 n2304 n2305 n2306 n2307 n2308 n2309 n2310 n2311 n2312 n2313 n2314 n2315 n2316 n2317 n2318 n2319 n2320 n2321 n2322 n2323 n2324 n2325 n2326 n2327 n2328 n2329 n2330 n2331 n2332 n2333 n2334 n2335 n2336 n2337 n2338 n2339 n2340 n2341 n2342 n2343 n2344 n2345 n2346 n2347 n2348 n2349 n2350 n2351 n2352 n2353 n2354 n2355 n2356 n2357 n2358 n2359 n2360 n2361 n2362 n2363 n2364 n2365 n2366 n2367 n2368 n2369 n2370 n2371 n2372 n2373 n2374 n2375 n2376 n2377 n2378 n2379 n2380 n2381 n2382 n2383 n2384 n2385 n2386 n2387 n2388 n2389 n2390 n2391 n2392 n2393 n2394 n2395 n2396 n2397 n2398 n2399 n2400 n2401 n2402 n2403 n2404 n2405 n2406 n2407 n2408 n2409 n2410 n2411 n2412 n2413 n2414 n2415 n2416 n2417 n2418 n2419 n2420 n2421 n2422 n2423 n2424 n2425 n2426 n2427 n2428 n2429 n2430 n2431 n2432 n2433 n2434 n2435 n2436 n2437 n2438 n2439 n2440 n2441 n2442 n2443 n2444 n2445 n2446 n2447 n2448 n2449 n2450 n2451 n2452 n2453 n2454 n2455 n2456 n2457 n2458 n2459 n2460 n2461 n2462 n2463 n2464 n2465 n2466 n2467 n2468 n2469 n2470 n2471 n2472 n2473 n2474 n2475 n2476 n2477 n2478 n2479 n2480 n2481 n2482 n2483 n2484 n2485 n2486 n2487 n2488 n2489 n2490 n2491 n2492 n2493 n2494 n2495 n2496 n2497 n2498 n2499 n2500 n2501 n2502 n2503 n2504 n2505 n2506 n2507 n2508 n2509 n2510 n2511 n2512 n2513 n2514 n2515 n2516 n2517 n2518 n2519 n2520 n2521 n2522 n2523 n2524 n2525 n2526 n2527 n2528 n2529 n2530 n2531 n2532 n2533 n2534 n2535 n2536 n2537 n2538 n2539 n2540 n2541 n2542 n2543 n2544 n2545 n2546 n2547 n2548 n2549 n2550 n2551 n2552 n2553 n2554 n2555 n2556 n2557 n2558 n2559 n2560 n2561 n2562 n2563 n2564 n2565 n2566 n2567 n2568 n2569 n2570 n2571 n2572 n2573 n2574 n2575 n2576 n2577 n2578 n2579 n2580 n2581 n2582 n2583 n2584 n2585 n2586 n2587 n2588 n2589 n2590 n2591 n2592 n2593 n2594 n2595 n2596 n2597 n2598 n2599 n2600 n2601 n2602 n2603 n2604 n2605 n2606 n2607 n2608 n2609 n2610 n2611 n2612 n2613 n2614 n2615 n2616 n2617 n2618 n2619 n2620 n2621 n2622 n2623 n2624 n2625 n2626 n2627 n2628 n2629 n2630 n2631 n2632 n2633 n2634 n2635 n2636 n2637 n2638 n2639 n2640 n2641 n2642 n2643 n2644 n2645 n2646 n2647 n2648 n2649 n2650 n2651 n2652 n2653 n2654 n2655 n2656 n2657 n2658 n2659 n2660 n2661 n2662 n2663 n2664 n2665 n2666 n2667 n2668 n2669 n2670 n2671 n2672 n2673 n2674 n2675 n2676 n2677 n2678 n2679 n2680 n2681 n2682 n2683 n2684 n2685 n2686 n2687 n2688 n2689 n2690 n2691 n2692 n2693 n2694 n2695 n2696 n2697 n2698 n2699 n2700 n2701 n2702 n2703 n2704 n2705 n2706 n2707 n2708 n2709 n2710 n2711 n2712 n2713 n2714 n2715 n2716 n2717 n2718 n2719 n2720 n2721 n2722 n2723 n2724 n2725 n2726 n2727 n2728 n2729 n2730 n2731 n2732 n2733 n2734 n2735 n2736 n2737 n2738 n2739 n2740 n2741 n2742 n2743 n2744 n2745 n2746 n2747 n2748 n2749 n2750 n2751 n2752 n2753 n2754 n2755 n2756 n2757 n2758 n2759 n2760 n2761 n2762 n2763 n2764 n2765 n2766 n2767 n2768 n2769 n2770 n2771 n2772 n2773 n2774 n2775 n2776 n2777 n2778 n2779 n2780 n2781 n2782 n2783 n2784 n2785 n2786 n2787 n2788 n2789 n2790 n2791 n2792 n2793 n2794 n2795 n2796 n2797 n2798 n2799 n2800 n2801 n2802 n2803 n2804 n2805 n2806 n2807 n2808 n2809 n2810 n2811 n2812 n2813 n2814 n2815 n2816 n2817 n2818 n2819 n2820 n2821 n2822 n2823 n2824 n2825 n2826 n2827 n2828 n2829 n2830 n2831 n2832 n2833 n2834 n2835 n2836 n2837 n2838 n2839 n2840 n2841 n2842 n2843 n2844 n2845 n2846 n2847 n2848 n2849 n2850 n2851 n2852 n2853 n2854 n2855 n2856 n2857 n2858 n2859 n2860 n2861 n2862 n2863 n2864 n2865 n2866 n2867 n2868 n2869 n2870 n2871 n2872 n2873 n2874 n2875 n2876 n2877 n2878 n2879 n2880 n2881 n2882 n2883 n2884 n2885 n2886 n2887 n2888 n2889 n2890 n2891 n2892 n2893 n2894 n2895 n2896 n2897 n2898 n2899 n2900 n2901 n2902 n2903 n2904 n2905 n2906 n2907 n2908 n2909 n2910 n2911 n2912 n2913 n2914 n2915 n2916 n2917 n2918 n2919 n2920 n2921 n2922 n2923 n2924 n2925 n2926 n2927 n2928 n2929 n2930 n2931 n2932 n2933 n2934 n2935 n2936 n2937 n2938 n2939 n2940 n2941 n2942 n2943 n2944 n2945 n2946 n2947 n2948 n2949 
+n2950 n2951 n2952 n2953 n2954 n2955 n2956 n2957 n2958 n2959 n2960 n2961 n2962 n2963 n2964 n2965 n2966 n2967 n2968 n2969 n2970 n2971 n2972 n2973 n2974 n2975 n2976 n2977 n2978 n2979 n2980 n2981 n2982 n2983 n2984 n2985 n2986 n2987 n2988 n2989 n2990 n2991 n2992 n2993 n2994 n2995 n2996 n2997 n2998 n2999 n3000 n3001 n3002 n3003 n3004 n3005 n3006 n3007 n3008 n3009 n3010 n3011 n3012 n3013 n3014 n3015 n3016 n3017 n3018 n3019 n3020 n3021 n3022 n3023 n3024 n3025 n3026 n3027 n3028 n3029 n3030 n3031 n3032 n3033 n3034 n3035 n3036 n3037 n3038 n3039 n3040 n3041 n3042 n3043 n3044 n3045 n3046 n3047 n3048 n3049 n3050 n3051 n3052 n3053 n3054 n3055 n3056 n3057 n3058 n3059 n3060 n3061 n3062 n3063 n3064 n3065 n3066 n3067 n3068 n3069 n3070 n3071 n3072 n3073 n3074 n3075 n3076 n3077 n3078 n3079 n3080 n3081 n3082 n3083 n3084 n3085 n3086 n3087 n3088 n3089 n3090 n3091 n3092 n3093 n3094 n3095 n3096 n3097 n3098 n3099 n3100 n3101 n3102 n3103 n3104 n3105 n3106 n3107 n3108 n3109 n3110 n3111 n3112 n3113 n3114 n3115 n3116 n3117 n3118 n3119 n3120 n3121 n3122 n3123 n3124 n3125 n3126 n3127 n3128 n3129 n3130 n3131 n3132 n3133 n3134 n3135 n3136 n3137 n3138 n3139 n3140 n3141 n3142 n3143 n3144 n3145 n3146 n3147 n3148 n3149 n3150 n3151 n3152 n3153 n3154 n3155 n3156 n3157 n3158 n3159 n3160 n3161 n3162 n3163 n3164 n3165 n3166 n3167 n3168 n3169 n3170 n3171 n3172 n3173 n3174 n3175 n3176 n3177 n3178 n3179 n3180 n3181 n3182 n3183 n3184 n3185 n3186 n3187 n3188 n3189 n3190 n3191 n3192 n3193 n3194 n3195 n3196 n3197 n3198 n3199 n3200 n3201 n3202 n3203 n3204 n3205 n3206 n3207 n3208 n3209 n3210 n3211 n3212 n3213 n3214 n3215 n3216 n3217 n3218 n3219 n3220 n3221 n3222 n3223 n3224 n3225 n3226 n3227 n3228 n3229 n3230 n3231 n3232 n3233 n3234 n3235 n3236 n3237 n3238 n3239 n3240 n3241 n3242 n3243 n3244 n3245 n3246 n3247 n3248 n3249 n3250 n3251 n3252 n3253 n3254 n3255 n3256 n3257 n3258 n3259 n3260 n3261 n3262 n3263 n3264 n3265 n3266 n3267 n3268 n3269 n3270 n3271 n3272 n3273 n3274 n3275 n3276 n3277 n3278 n3279 n3280 n3281 n3282 n3283 n3284 n3285 n3286 n3287 n3288 n3289 n3290 n3291 n3292 n3293 n3294 n3295 n3296 n3297 n3298 n3299 n3300 n3301 n3302 n3303 n3304 n3305 n3306 n3307 n3308 n3309 n3310 n3311 n3312 n3313 n3314 n3315 n3316 n3317 n3318 n3319 n3320 n3321 n3322 n3323 n3324 n3325 n3326 n3327 n3328 n3329 n3330 n3331 n3332 n3333 n3334 n3335 n3336 n3337 n3338 n3339 n3340 n3341 n3342 n3343 n3344 n3345 n3346 n3347 n3348 n3349 n3350 n3351 n3352 n3353 n3354 n3355 n3356 n3357 n3358 n3359 n3360 n3361 n3362 n3363 n3364 n3365 n3366 n3367 n3368 n3369 n3370 n3371 n3372 n3373 n3374 n3375 n3376 n3377 n3378 n3379 n3380 n3381 n3382 n3383 n3384 n3385 n3386 n3387 n3388 n3389 n3390 n3391 n3392 n3393 n3394 n3395 n3396 n3397 n3398 n3399 n3400 n3401 n3402 n3403 n3404 n3405 n3406 n3407 n3408 n3409 n3410 n3411 n3412 n3413 n3414 n3415 n3416 n3417 n3418 n3419 n3420 n3421 n3422 n3423 n3424 n3425 n3426 n3427 n3428 n3429 n3430 n3431 n3432 n3433 n3434 n3435 n3436 n3437 n3438 n3439 n3440 n3441 n3442 n3443 n3444 n3445 n3446 n3447 n3448 n3449 n3450 n3451 n3452 n3453 n3454 n3455 n3456 n3457 n3458 n3459 n3460 n3461 n3462 n3463 n3464 n3465 n3466 n3467 n3468 n3469 n3470 n3471 n3472
+echo -n "" > ../Results/$design/mcas_nets.txt
+foreach n $netList {
+    set cellSize [sizeof_collection [all_fanin -to $n -only_cells]]
+    set inSize [sizeof_collection [all_fanin -to $n -startpoints_only]]
+
+    if { $keysize == $inSize  && $cellSize < [expr $keysize*2]} {
+        echo "net: $n, size: $cellSize"
+	echo $n >> ../Results/$design/mcas_nets.txt
+    }
+}
+net: n2243, size: 89
+set end [clock seconds]
+1620936738
+puts "Time: [expr ($end - $start)]"
+Time: 2
+exit
+
+Thank you...
+Flipsignal is: n2243
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version M-2016.12-SP2 for linux64 - Feb 23, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+#!/usr/bin/tclsh
+set design [getenv "DESIGN"]
+b17_C
+set flipsignal [getenv "FLIPSIGNAL"]
+n2243
+set lib [getenv LIB]
+2ip
+set target_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set link_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+sh mkdir -p ../Results
+sh mkdir -p ../Results/$design
+#read_verilog -netlist ../Results/${design}/CASlock_${design}_lock_synth_${lib}.v
+read_verilog -netlist ../Results/${design}/${design}_lock_synth_${lib}.v
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/gtech.db'
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Loading verilog file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/b17_C/b17_C_lock_synth_2ip.v'
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/b17_C/b17_C_lock_synth_2ip.v
+Verilog netlist reader completed successfully.
+Current design is now '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/b17_C/b17_C_lock.db:b17_C_lock'
+Loaded 1 design.
+Current design is 'b17_C_lock'.
+b17_C_lock
+create_port CASOP -direction "out"
+Creating port 'CASOP' in design 'b17_C_lock'.
+1
+connect_net $flipsignal CASOP
+Connecting net 'n2243' to port 'CASOP'.
+1
+proc listdiff {a b} {
+    set diff {}
+    foreach i $a {
+        if { [lsearch -exact $b $i]==-1} {
+            lappend diff $i
+        }
+    }
+    return $diff
+}
+set all_ports [get_attribute [get_ports * -filter "direction == out"] full_name]
+P2_U3015 CASOP
+set rem_ports [listdiff $all_ports CASOP]
+P2_U3015
+foreach f $rem_ports {
+    remove_port $f
+}
+Removing port 'P2_U3015' in design 'b17_C_lock'.
+set all_cells [get_attribute [get_cells] full_name]
+U2241 U2242 U2243 U2244 U2245 U2246 U2247 U2248 U2249 U2250 U2251 U2252 U2253 U2254 U2255 U2256 U2257 U2258 U2259 U2260 U2261 U2262 U2263 U2264 U2265 U2266 U2267 U2268 U2269 U2270 U2271 U2272 U2273 U2274 U2275 U2276 U2277 U2278 U2279 U2280 U2281 U2282 U2283 U2284 U2285 U2286 U2287 U2288 U2289 U2290 U2291 U2292 U2293 U2294 U2295 U2296 U2297 U2298 U2299 U2300 U2301 U2302 U2303 U2304 U2305 U2306 U2307 U2308 U2309 U2310 U2311 U2312 U2313 U2314 U2315 U2316 U2317 U2318 U2319 U2320 U2321 U2322 U2323 U2324 U2325 U2326 U2327 U2328 U2329 U2330 U2331 U2332 U2333 U2334 U2335 U2336 U2337 U2338 U2339 U2340 U2341 U2342 U2343 U2344 U2345 U2346 U2347 U2348 U2349 U2350 U2351 U2352 U2353 U2354 U2355 U2356 U2357 U2358 U2359 U2360 U2361 U2362 U2363 U2364 U2365 U2366 U2367 U2368 U2369 U2370 U2371 U2372 U2373 U2374 U2375 U2376 U2377 U2378 U2379 U2380 U2381 U2382 U2383 U2384 U2385 U2386 U2387 U2388 U2389 U2390 U2391 U2392 U2393 U2394 U2395 U2396 U2397 U2398 U2399 U2400 U2401 U2402 U2403 U2404 U2405 U2406 U2407 U2408 U2409 U2410 U2411 U2412 U2413 U2414 U2415 U2416 U2417 U2418 U2419 U2420 U2421 U2422 U2423 U2424 U2425 U2426 U2427 U2428 U2429 U2430 U2431 U2432 U2433 U2434 U2435 U2436 U2437 U2438 U2439 U2440 U2441 U2442 U2443 U2444 U2445 U2446 U2447 U2448 U2449 U2450 U2451 U2452 U2453 U2454 U2455 U2456 U2457 U2458 U2459 U2460 U2461 U2462 U2463 U2464 U2465 U2466 U2467 U2468 U2469 U2470 U2471 U2472 U2473 U2474 U2475 U2476 U2477 U2478 U2479 U2480 U2481 U2482 U2483 U2484 U2485 U2486 U2487 U2488 U2489 U2490 U2491 U2492 U2493 U2494 U2495 U2496 U2497 U2498 U2499 U2500 U2501 U2502 U2503 U2504 U2505 U2506 U2507 U2508 U2509 U2510 U2511 U2512 U2513 U2514 U2515 U2516 U2517 U2518 U2519 U2520 U2521 U2522 U2523 U2524 U2525 U2526 U2527 U2528 U2529 U2530 U2531 U2532 U2533 U2534 U2535 U2536 U2537 U2538 U2539 U2540 U2541 U2542 U2543 U2544 U2545 U2546 U2547 U2548 U2549 U2550 U2551 U2552 U2553 U2554 U2555 U2556 U2557 U2558 U2559 U2560 U2561 U2562 U2563 U2564 U2565 U2566 U2567 U2568 U2569 U2570 U2571 U2572 U2573 U2574 U2575 U2576 U2577 U2578 U2579 U2580 U2581 U2582 U2583 U2584 U2585 U2586 U2587 U2588 U2589 U2590 U2591 U2592 U2593 U2594 U2595 U2596 U2597 U2598 U2599 U2600 U2601 U2602 U2603 U2604 U2605 U2606 U2607 U2608 U2609 U2610 U2611 U2612 U2613 U2614 U2615 U2616 U2617 U2618 U2619 U2620 U2621 U2622 U2623 U2624 U2625 U2626 U2627 U2628 U2629 U2630 U2631 U2632 U2633 U2634 U2635 U2636 U2637 U2638 U2639 U2640 U2641 U2642 U2643 U2644 U2645 U2646 U2647 U2648 U2649 U2650 U2651 U2652 U2653 U2654 U2655 U2656 U2657 U2658 U2659 U2660 U2661 U2662 U2663 U2664 U2665 U2666 U2667 U2668 U2669 U2670 U2671 U2672 U2673 U2674 U2675 U2676 U2677 U2678 U2679 U2680 U2681 U2682 U2683 U2684 U2685 U2686 U2687 U2688 U2689 U2690 U2691 U2692 U2693 U2694 U2695 U2696 U2697 U2698 U2699 U2700 U2701 U2702 U2703 U2704 U2705 U2706 U2707 U2708 U2709 U2710 U2711 U2712 U2713 U2714 U2715 U2716 U2717 U2718 U2719 U2720 U2721 U2722 U2723 U2724 U2725 U2726 U2727 U2728 U2729 U2730 U2731 U2732 U2733 U2734 U2735 U2736 U2737 U2738 U2739 U2740 U2741 U2742 U2743 U2744 U2745 U2746 U2747 U2748 U2749 U2750 U2751 U2752 U2753 U2754 U2755 U2756 U2757 U2758 U2759 U2760 U2761 U2762 U2763 U2764 U2765 U2766 U2767 U2768 U2769 U2770 U2771 U2772 U2773 U2774 U2775 U2776 U2777 U2778 U2779 U2780 U2781 U2782 U2783 U2784 U2785 U2786 U2787 U2788 U2789 U2790 U2791 U2792 U2793 U2794 U2795 U2796 U2797 U2798 U2799 U2800 U2801 U2802 U2803 U2804 U2805 U2806 U2807 U2808 U2809 U2810 U2811 U2812 U2813 U2814 U2815 U2816 U2817 U2818 U2819 U2820 U2821 U2822 U2823 U2824 U2825 U2826 U2827 U2828 U2829 U2830 U2831 U2832 U2833 U2834 U2835 U2836 U2837 U2838 U2839 U2840 U2841 U2842 U2843 U2844 U2845 U2846 U2847 U2848 U2849 U2850 U2851 U2852 U2853 U2854 U2855 U2856 U2857 U2858 U2859 U2860 U2861 U2862 U2863 U2864 U2865 U2866 U2867 U2868 U2869 U2870 U2871 U2872 U2873 U2874 U2875 U2876 U2877 U2878 U2879 U2880 U2881 U2882 U2883 U2884 U2885 U2886 U2887 U2888 U2889 U2890 U2891 U2892 U2893 U2894 U2895 U2896 U2897 U2898 U2899 U2900 U2901 U2902 U2903 U2904 U2905 U2906 U2907 U2908 U2909 U2910 U2911 U2912 U2913 U2914 U2915 U2916 U2917 U2918 U2919 U2920 U2921 U2922 U2923 U2924 U2925 U2926 U2927 U2928 U2929 U2930 U2931 U2932 U2933 U2934 U2935 U2936 U2937 U2938 U2939 U2940 U2941 U2942 U2943 U2944 U2945 U2946 U2947 U2948 U2949 U2950 U2951 U2952 U2953 U2954 U2955 U2956 U2957 U2958 U2959 U2960 U2961 U2962 U2963 U2964 U2965 U2966 U2967 U2968 U2969 U2970 U2971 U2972 U2973 U2974 U2975 U2976 U2977 U2978 U2979 U2980 U2981 U2982 U2983 U2984 U2985 U2986 U2987 U2988 U2989 U2990 U2991 U2992 U2993 U2994 U2995 U2996 U2997 U2998 U2999 U3000 U3001 U3002 U3003 U3004 U3005 U3006 U3007 U3008 U3009 U3010 U3011 U3012 U3013 U3014 U3015 U3016 U3017 U3018 U3019 U3020 U3021 U3022 U3023 U3024 U3025 U3026 U3027 U3028 U3029 U3030 U3031 U3032 U3033 U3034 U3035 U3036 U3037 U3038 U3039 U3040 U3041 U3042 U3043 U3044 U3045 U3046 U3047 U3048 U3049 U3050 U3051 U3052 U3053 U3054 U3055 U3056 U3057 U3058 U3059 U3060 U3061 U3062 U3063 U3064 U3065 U3066 U3067 U3068 U3069 U3070 U3071 U3072 U3073 U3074 U3075 U3076 U3077 U3078 U3079 U3080 U3081 U3082 U3083 U3084 U3085 U3086 U3087 U3088 U3089 U3090 U3091 U3092 U3093 U3094 U3095 U3096 U3097 U3098 U3099 U3100 U3101 U3102 U3103 U3104 U3105 U3106 U3107 U3108 U3109 U3110 U3111 U3112 U3113 U3114 U3115 U3116 U3117 U3118 U3119 U3120 U3121 U3122 U3123 U3124 U3125 U3126 U3127 U3128 U3129 U3130 U3131 U3132 U3133 U3134 U3135 U3136 U3137 U3138 U3139 U3140 U3141 U3142 U3143 U3144 U3145 U3146 U3147 U3148 U3149 U3150 U3151 U3152 U3153 U3154 U3155 U3156 U3157 U3158 U3159 U3160 U3161 U3162 U3163 U3164 U3165 U3166 U3167 U3168 U3169 U3170 U3171 U3172 U3173 U3174 U3175 U3176 U3177 U3178 U3179 U3180 U3181 U3182 U3183 U3184 U3185 U3186 U3187 U3188 U3189 U3190 U3191 U3192 U3193 U3194 U3195 U3196 U3197 U3198 U3199 U3200 U3201 U3202 U3203 U3204 U3205 U3206 U3207 U3208 U3209 U3210 U3211 U3212 U3213 U3214 U3215 U3216 U3217 U3218 U3219 U3220 U3221 U3222 U3223 U3224 U3225 U3226 U3227 U3228 U3229 U3230 U3231 U3232 U3233 U3234 U3235 U3236 U3237 U3238 U3239 U3240 U3241 U3242 U3243 U3244 U3245 U3246 U3247 U3248 U3249 U3250 U3251 U3252 U3253 U3254 U3255 U3256 U3257 U3258 U3259 U3260 U3261 U3262 U3263 U3264 U3265 U3266 U3267 U3268 U3269 U3270 U3271 U3272 U3273 U3274 U3275 U3276 U3277 U3278 U3279 U3280 U3281 U3282 U3283 U3284 U3285 U3286 U3287 U3288 U3289 U3290 U3291 U3292 U3293 U3294 U3295 U3296 U3297 U3298 U3299 U3300 U3301 U3302 U3303 U3304 U3305 U3306 U3307 U3308 U3309 U3310 U3311 U3312 U3313 U3314 U3315 U3316 U3317 U3318 U3319 U3320 U3321 U3322 U3323 U3324 U3325 U3326 U3327 U3328 U3329 U3330 U3331 U3332 U3333 U3334 U3335 U3336 U3337 U3338 U3339 U3340 U3341 U3342 U3343 U3344 U3345 U3346 U3347 U3348 U3349 U3350 U3351 U3352 U3353 U3354 U3355 U3356 U3357 U3358 U3359 U3360 U3361 U3362 U3363 U3364 U3365 U3366 U3367 U3368 U3369 U3370 U3371 U3372 U3373 U3374 U3375 U3376 U3377 U3378 U3379 U3380 U3381 U3382 U3383 U3384 U3385 U3386 U3387 U3388 U3389 U3390 U3391 U3392 U3393 U3394 U3395 U3396 U3397 U3398 U3399 U3400 U3401 U3402 U3403 U3404 U3405 U3406 U3407 U3408 U3409 U3410 U3411 U3412 U3413 U3414 U3415 U3416 U3417 U3418 U3419 U3420 U3421 U3422 U3423 U3424 U3425 U3426 U3427 U3428 U3429 U3430 U3431 U3432 U3433 U3434 U3435 U3436 U3437 U3438 U3439 U3440 U3441 U3442 U3443 U3444 U3445 U3446 U3447 U3448 U3449 U3450 U3451 U3452 U3453 U3454 U3455 U3456 U3457 U3458 U3459 U3460 U3461 U3462 U3463 U3464 U3465 U3466 U3467 U3468 U3469 U3470 U3471 U3472 U3473 U3474 U3475 U3476
+set cur_cells [get_attribute [all_fanin -to CASOP -only_cells] full_name]
+U3401 U3402 U3223 U3403 U3284 U3404 U3400 U3405 U3409 U3407 U3406 U3410 U3408 U3398 U3397 U3411 U3399 U3413 U3412 U3414 U3415 U3396 U3417 U3416 U3418 U3419 U3420 U3421 U3422 U3424 U3423 U3425 U3426 U3428 U3427 U3429 U3430 U3431 U3432 U3395 U3433 U3393 U3434 U3394 U3435 U3436 U3437 U3438 U3440 U3439 U3441 U3442 U3392 U3445 U3443 U3391 U3446 U3444 U3447 U3448 U3449 U3450 U3451 U3452 U3454 U3453 U3456 U3455 U3459 U3457 U3390 U3460 U3458 U3461 U3465 U3463 U3462 U3466 U3464 U3468 U3467 U3469 U3470 U3471 U3472 U3473 U3474 U3475 U2271
+echo $cur_cells
+U3401 U3402 U3223 U3403 U3284 U3404 U3400 U3405 U3409 U3407 U3406 U3410 U3408 U3398 U3397 U3411 U3399 U3413 U3412 U3414 U3415 U3396 U3417 U3416 U3418 U3419 U3420 U3421 U3422 U3424 U3423 U3425 U3426 U3428 U3427 U3429 U3430 U3431 U3432 U3395 U3433 U3393 U3434 U3394 U3435 U3436 U3437 U3438 U3440 U3439 U3441 U3442 U3392 U3445 U3443 U3391 U3446 U3444 U3447 U3448 U3449 U3450 U3451 U3452 U3454 U3453 U3456 U3455 U3459 U3457 U3390 U3460 U3458 U3461 U3465 U3463 U3462 U3466 U3464 U3468 U3467 U3469 U3470 U3471 U3472 U3473 U3474 U3475 U2271
+set rem_cells [listdiff $all_cells $cur_cells]
+U2241 U2242 U2243 U2244 U2245 U2246 U2247 U2248 U2249 U2250 U2251 U2252 U2253 U2254 U2255 U2256 U2257 U2258 U2259 U2260 U2261 U2262 U2263 U2264 U2265 U2266 U2267 U2268 U2269 U2270 U2272 U2273 U2274 U2275 U2276 U2277 U2278 U2279 U2280 U2281 U2282 U2283 U2284 U2285 U2286 U2287 U2288 U2289 U2290 U2291 U2292 U2293 U2294 U2295 U2296 U2297 U2298 U2299 U2300 U2301 U2302 U2303 U2304 U2305 U2306 U2307 U2308 U2309 U2310 U2311 U2312 U2313 U2314 U2315 U2316 U2317 U2318 U2319 U2320 U2321 U2322 U2323 U2324 U2325 U2326 U2327 U2328 U2329 U2330 U2331 U2332 U2333 U2334 U2335 U2336 U2337 U2338 U2339 U2340 U2341 U2342 U2343 U2344 U2345 U2346 U2347 U2348 U2349 U2350 U2351 U2352 U2353 U2354 U2355 U2356 U2357 U2358 U2359 U2360 U2361 U2362 U2363 U2364 U2365 U2366 U2367 U2368 U2369 U2370 U2371 U2372 U2373 U2374 U2375 U2376 U2377 U2378 U2379 U2380 U2381 U2382 U2383 U2384 U2385 U2386 U2387 U2388 U2389 U2390 U2391 U2392 U2393 U2394 U2395 U2396 U2397 U2398 U2399 U2400 U2401 U2402 U2403 U2404 U2405 U2406 U2407 U2408 U2409 U2410 U2411 U2412 U2413 U2414 U2415 U2416 U2417 U2418 U2419 U2420 U2421 U2422 U2423 U2424 U2425 U2426 U2427 U2428 U2429 U2430 U2431 U2432 U2433 U2434 U2435 U2436 U2437 U2438 U2439 U2440 U2441 U2442 U2443 U2444 U2445 U2446 U2447 U2448 U2449 U2450 U2451 U2452 U2453 U2454 U2455 U2456 U2457 U2458 U2459 U2460 U2461 U2462 U2463 U2464 U2465 U2466 U2467 U2468 U2469 U2470 U2471 U2472 U2473 U2474 U2475 U2476 U2477 U2478 U2479 U2480 U2481 U2482 U2483 U2484 U2485 U2486 U2487 U2488 U2489 U2490 U2491 U2492 U2493 U2494 U2495 U2496 U2497 U2498 U2499 U2500 U2501 U2502 U2503 U2504 U2505 U2506 U2507 U2508 U2509 U2510 U2511 U2512 U2513 U2514 U2515 U2516 U2517 U2518 U2519 U2520 U2521 U2522 U2523 U2524 U2525 U2526 U2527 U2528 U2529 U2530 U2531 U2532 U2533 U2534 U2535 U2536 U2537 U2538 U2539 U2540 U2541 U2542 U2543 U2544 U2545 U2546 U2547 U2548 U2549 U2550 U2551 U2552 U2553 U2554 U2555 U2556 U2557 U2558 U2559 U2560 U2561 U2562 U2563 U2564 U2565 U2566 U2567 U2568 U2569 U2570 U2571 U2572 U2573 U2574 U2575 U2576 U2577 U2578 U2579 U2580 U2581 U2582 U2583 U2584 U2585 U2586 U2587 U2588 U2589 U2590 U2591 U2592 U2593 U2594 U2595 U2596 U2597 U2598 U2599 U2600 U2601 U2602 U2603 U2604 U2605 U2606 U2607 U2608 U2609 U2610 U2611 U2612 U2613 U2614 U2615 U2616 U2617 U2618 U2619 U2620 U2621 U2622 U2623 U2624 U2625 U2626 U2627 U2628 U2629 U2630 U2631 U2632 U2633 U2634 U2635 U2636 U2637 U2638 U2639 U2640 U2641 U2642 U2643 U2644 U2645 U2646 U2647 U2648 U2649 U2650 U2651 U2652 U2653 U2654 U2655 U2656 U2657 U2658 U2659 U2660 U2661 U2662 U2663 U2664 U2665 U2666 U2667 U2668 U2669 U2670 U2671 U2672 U2673 U2674 U2675 U2676 U2677 U2678 U2679 U2680 U2681 U2682 U2683 U2684 U2685 U2686 U2687 U2688 U2689 U2690 U2691 U2692 U2693 U2694 U2695 U2696 U2697 U2698 U2699 U2700 U2701 U2702 U2703 U2704 U2705 U2706 U2707 U2708 U2709 U2710 U2711 U2712 U2713 U2714 U2715 U2716 U2717 U2718 U2719 U2720 U2721 U2722 U2723 U2724 U2725 U2726 U2727 U2728 U2729 U2730 U2731 U2732 U2733 U2734 U2735 U2736 U2737 U2738 U2739 U2740 U2741 U2742 U2743 U2744 U2745 U2746 U2747 U2748 U2749 U2750 U2751 U2752 U2753 U2754 U2755 U2756 U2757 U2758 U2759 U2760 U2761 U2762 U2763 U2764 U2765 U2766 U2767 U2768 U2769 U2770 U2771 U2772 U2773 U2774 U2775 U2776 U2777 U2778 U2779 U2780 U2781 U2782 U2783 U2784 U2785 U2786 U2787 U2788 U2789 U2790 U2791 U2792 U2793 U2794 U2795 U2796 U2797 U2798 U2799 U2800 U2801 U2802 U2803 U2804 U2805 U2806 U2807 U2808 U2809 U2810 U2811 U2812 U2813 U2814 U2815 U2816 U2817 U2818 U2819 U2820 U2821 U2822 U2823 U2824 U2825 U2826 U2827 U2828 U2829 U2830 U2831 U2832 U2833 U2834 U2835 U2836 U2837 U2838 U2839 U2840 U2841 U2842 U2843 U2844 U2845 U2846 U2847 U2848 U2849 U2850 U2851 U2852 U2853 U2854 U2855 U2856 U2857 U2858 U2859 U2860 U2861 U2862 U2863 U2864 U2865 U2866 U2867 U2868 U2869 U2870 U2871 U2872 U2873 U2874 U2875 U2876 U2877 U2878 U2879 U2880 U2881 U2882 U2883 U2884 U2885 U2886 U2887 U2888 U2889 U2890 U2891 U2892 U2893 U2894 U2895 U2896 U2897 U2898 U2899 U2900 U2901 U2902 U2903 U2904 U2905 U2906 U2907 U2908 U2909 U2910 U2911 U2912 U2913 U2914 U2915 U2916 U2917 U2918 U2919 U2920 U2921 U2922 U2923 U2924 U2925 U2926 U2927 U2928 U2929 U2930 U2931 U2932 U2933 U2934 U2935 U2936 U2937 U2938 U2939 U2940 U2941 U2942 U2943 U2944 U2945 U2946 U2947 U2948 U2949 U2950 U2951 U2952 U2953 U2954 U2955 U2956 U2957 U2958 U2959 U2960 U2961 U2962 U2963 U2964 U2965 U2966 U2967 U2968 U2969 U2970 U2971 U2972 U2973 U2974 U2975 U2976 U2977 U2978 U2979 U2980 U2981 U2982 U2983 U2984 U2985 U2986 U2987 U2988 U2989 U2990 U2991 U2992 U2993 U2994 U2995 U2996 U2997 U2998 U2999 U3000 U3001 U3002 U3003 U3004 U3005 U3006 U3007 U3008 U3009 U3010 U3011 U3012 U3013 U3014 U3015 U3016 U3017 U3018 U3019 U3020 U3021 U3022 U3023 U3024 U3025 U3026 U3027 U3028 U3029 U3030 U3031 U3032 U3033 U3034 U3035 U3036 U3037 U3038 U3039 U3040 U3041 U3042 U3043 U3044 U3045 U3046 U3047 U3048 U3049 U3050 U3051 U3052 U3053 U3054 U3055 U3056 U3057 U3058 U3059 U3060 U3061 U3062 U3063 U3064 U3065 U3066 U3067 U3068 U3069 U3070 U3071 U3072 U3073 U3074 U3075 U3076 U3077 U3078 U3079 U3080 U3081 U3082 U3083 U3084 U3085 U3086 U3087 U3088 U3089 U3090 U3091 U3092 U3093 U3094 U3095 U3096 U3097 U3098 U3099 U3100 U3101 U3102 U3103 U3104 U3105 U3106 U3107 U3108 U3109 U3110 U3111 U3112 U3113 U3114 U3115 U3116 U3117 U3118 U3119 U3120 U3121 U3122 U3123 U3124 U3125 U3126 U3127 U3128 U3129 U3130 U3131 U3132 U3133 U3134 U3135 U3136 U3137 U3138 U3139 U3140 U3141 U3142 U3143 U3144 U3145 U3146 U3147 U3148 U3149 U3150 U3151 U3152 U3153 U3154 U3155 U3156 U3157 U3158 U3159 U3160 U3161 U3162 U3163 U3164 U3165 U3166 U3167 U3168 U3169 U3170 U3171 U3172 U3173 U3174 U3175 U3176 U3177 U3178 U3179 U3180 U3181 U3182 U3183 U3184 U3185 U3186 U3187 U3188 U3189 U3190 U3191 U3192 U3193 U3194 U3195 U3196 U3197 U3198 U3199 U3200 U3201 U3202 U3203 U3204 U3205 U3206 U3207 U3208 U3209 U3210 U3211 U3212 U3213 U3214 U3215 U3216 U3217 U3218 U3219 U3220 U3221 U3222 U3224 U3225 U3226 U3227 U3228 U3229 U3230 U3231 U3232 U3233 U3234 U3235 U3236 U3237 U3238 U3239 U3240 U3241 U3242 U3243 U3244 U3245 U3246 U3247 U3248 U3249 U3250 U3251 U3252 U3253 U3254 U3255 U3256 U3257 U3258 U3259 U3260 U3261 U3262 U3263 U3264 U3265 U3266 U3267 U3268 U3269 U3270 U3271 U3272 U3273 U3274 U3275 U3276 U3277 U3278 U3279 U3280 U3281 U3282 U3283 U3285 U3286 U3287 U3288 U3289 U3290 U3291 U3292 U3293 U3294 U3295 U3296 U3297 U3298 U3299 U3300 U3301 U3302 U3303 U3304 U3305 U3306 U3307 U3308 U3309 U3310 U3311 U3312 U3313 U3314 U3315 U3316 U3317 U3318 U3319 U3320 U3321 U3322 U3323 U3324 U3325 U3326 U3327 U3328 U3329 U3330 U3331 U3332 U3333 U3334 U3335 U3336 U3337 U3338 U3339 U3340 U3341 U3342 U3343 U3344 U3345 U3346 U3347 U3348 U3349 U3350 U3351 U3352 U3353 U3354 U3355 U3356 U3357 U3358 U3359 U3360 U3361 U3362 U3363 U3364 U3365 U3366 U3367 U3368 U3369 U3370 U3371 U3372 U3373 U3374 U3375 U3376 U3377 U3378 U3379 U3380 U3381 U3382 U3383 U3384 U3385 U3386 U3387 U3388 U3389 U3476
+echo $rem_cells
+U2241 U2242 U2243 U2244 U2245 U2246 U2247 U2248 U2249 U2250 U2251 U2252 U2253 U2254 U2255 U2256 U2257 U2258 U2259 U2260 U2261 U2262 U2263 U2264 U2265 U2266 U2267 U2268 U2269 U2270 U2272 U2273 U2274 U2275 U2276 U2277 U2278 U2279 U2280 U2281 U2282 U2283 U2284 U2285 U2286 U2287 U2288 U2289 U2290 U2291 U2292 U2293 U2294 U2295 U2296 U2297 U2298 U2299 U2300 U2301 U2302 U2303 U2304 U2305 U2306 U2307 U2308 U2309 U2310 U2311 U2312 U2313 U2314 U2315 U2316 U2317 U2318 U2319 U2320 U2321 U2322 U2323 U2324 U2325 U2326 U2327 U2328 U2329 U2330 U2331 U2332 U2333 U2334 U2335 U2336 U2337 U2338 U2339 U2340 U2341 U2342 U2343 U2344 U2345 U2346 U2347 U2348 U2349 U2350 U2351 U2352 U2353 U2354 U2355 U2356 U2357 U2358 U2359 U2360 U2361 U2362 U2363 U2364 U2365 U2366 U2367 U2368 U2369 U2370 U2371 U2372 U2373 U2374 U2375 U2376 U2377 U2378 U2379 U2380 U2381 U2382 U2383 U2384 U2385 U2386 U2387 U2388 U2389 U2390 U2391 U2392 U2393 U2394 U2395 U2396 U2397 U2398 U2399 U2400 U2401 U2402 U2403 U2404 U2405 U2406 U2407 U2408 U2409 U2410 U2411 U2412 U2413 U2414 U2415 U2416 U2417 U2418 U2419 U2420 U2421 U2422 U2423 U2424 U2425 U2426 U2427 U2428 U2429 U2430 U2431 U2432 U2433 U2434 U2435 U2436 U2437 U2438 U2439 U2440 U2441 U2442 U2443 U2444 U2445 U2446 U2447 U2448 U2449 U2450 U2451 U2452 U2453 U2454 U2455 U2456 U2457 U2458 U2459 U2460 U2461 U2462 U2463 U2464 U2465 U2466 U2467 U2468 U2469 U2470 U2471 U2472 U2473 U2474 U2475 U2476 U2477 U2478 U2479 U2480 U2481 U2482 U2483 U2484 U2485 U2486 U2487 U2488 U2489 U2490 U2491 U2492 U2493 U2494 U2495 U2496 U2497 U2498 U2499 U2500 U2501 U2502 U2503 U2504 U2505 U2506 U2507 U2508 U2509 U2510 U2511 U2512 U2513 U2514 U2515 U2516 U2517 U2518 U2519 U2520 U2521 U2522 U2523 U2524 U2525 U2526 U2527 U2528 U2529 U2530 U2531 U2532 U2533 U2534 U2535 U2536 U2537 U2538 U2539 U2540 U2541 U2542 U2543 U2544 U2545 U2546 U2547 U2548 U2549 U2550 U2551 U2552 U2553 U2554 U2555 U2556 U2557 U2558 U2559 U2560 U2561 U2562 U2563 U2564 U2565 U2566 U2567 U2568 U2569 U2570 U2571 U2572 U2573 U2574 U2575 U2576 U2577 U2578 U2579 U2580 U2581 U2582 U2583 U2584 U2585 U2586 U2587 U2588 U2589 U2590 U2591 U2592 U2593 U2594 U2595 U2596 U2597 U2598 U2599 U2600 U2601 U2602 U2603 U2604 U2605 U2606 U2607 U2608 U2609 U2610 U2611 U2612 U2613 U2614 U2615 U2616 U2617 U2618 U2619 U2620 U2621 U2622 U2623 U2624 U2625 U2626 U2627 U2628 U2629 U2630 U2631 U2632 U2633 U2634 U2635 U2636 U2637 U2638 U2639 U2640 U2641 U2642 U2643 U2644 U2645 U2646 U2647 U2648 U2649 U2650 U2651 U2652 U2653 U2654 U2655 U2656 U2657 U2658 U2659 U2660 U2661 U2662 U2663 U2664 U2665 U2666 U2667 U2668 U2669 U2670 U2671 U2672 U2673 U2674 U2675 U2676 U2677 U2678 U2679 U2680 U2681 U2682 U2683 U2684 U2685 U2686 U2687 U2688 U2689 U2690 U2691 U2692 U2693 U2694 U2695 U2696 U2697 U2698 U2699 U2700 U2701 U2702 U2703 U2704 U2705 U2706 U2707 U2708 U2709 U2710 U2711 U2712 U2713 U2714 U2715 U2716 U2717 U2718 U2719 U2720 U2721 U2722 U2723 U2724 U2725 U2726 U2727 U2728 U2729 U2730 U2731 U2732 U2733 U2734 U2735 U2736 U2737 U2738 U2739 U2740 U2741 U2742 U2743 U2744 U2745 U2746 U2747 U2748 U2749 U2750 U2751 U2752 U2753 U2754 U2755 U2756 U2757 U2758 U2759 U2760 U2761 U2762 U2763 U2764 U2765 U2766 U2767 U2768 U2769 U2770 U2771 U2772 U2773 U2774 U2775 U2776 U2777 U2778 U2779 U2780 U2781 U2782 U2783 U2784 U2785 U2786 U2787 U2788 U2789 U2790 U2791 U2792 U2793 U2794 U2795 U2796 U2797 U2798 U2799 U2800 U2801 U2802 U2803 U2804 U2805 U2806 U2807 U2808 U2809 U2810 U2811 U2812 U2813 U2814 U2815 U2816 U2817 U2818 U2819 U2820 U2821 U2822 U2823 U2824 U2825 U2826 U2827 U2828 U2829 U2830 U2831 U2832 U2833 U2834 U2835 U2836 U2837 U2838 U2839 U2840 U2841 U2842 U2843 U2844 U2845 U2846 U2847 U2848 U2849 U2850 U2851 U2852 U2853 U2854 U2855 U2856 U2857 U2858 U2859 U2860 U2861 U2862 U2863 U2864 U2865 U2866 U2867 U2868 U2869 U2870 U2871 U2872 U2873 U2874 U2875 U2876 U2877 U2878 U2879 U2880 U2881 U2882 U2883 U2884 U2885 U2886 U2887 U2888 U2889 U2890 U2891 U2892 U2893 U2894 U2895 U2896 U2897 U2898 U2899 U2900 U2901 U2902 U2903 U2904 U2905 U2906 U2907 U2908 U2909 U2910 U2911 U2912 U2913 U2914 U2915 U2916 U2917 U2918 U2919 U2920 U2921 U2922 U2923 U2924 U2925 U2926 U2927 U2928 U2929 U2930 U2931 U2932 U2933 U2934 U2935 U2936 U2937 U2938 U2939 U2940 U2941 U2942 U2943 U2944 U2945 U2946 U2947 U2948 U2949 U2950 U2951 U2952 U2953 U2954 U2955 U2956 U2957 U2958 U2959 U2960 U2961 U2962 U2963 U2964 U2965 U2966 U2967 U2968 U2969 U2970 U2971 U2972 U2973 U2974 U2975 U2976 U2977 U2978 U2979 U2980 U2981 U2982 U2983 U2984 U2985 U2986 U2987 U2988 U2989 U2990 U2991 U2992 U2993 U2994 U2995 U2996 U2997 U2998 U2999 U3000 U3001 U3002 U3003 U3004 U3005 U3006 U3007 U3008 U3009 U3010 U3011 U3012 U3013 U3014 U3015 U3016 U3017 U3018 U3019 U3020 U3021 U3022 U3023 U3024 U3025 U3026 U3027 U3028 U3029 U3030 U3031 U3032 U3033 U3034 U3035 U3036 U3037 U3038 U3039 U3040 U3041 U3042 U3043 U3044 U3045 U3046 U3047 U3048 U3049 U3050 U3051 U3052 U3053 U3054 U3055 U3056 U3057 U3058 U3059 U3060 U3061 U3062 U3063 U3064 U3065 U3066 U3067 U3068 U3069 U3070 U3071 U3072 U3073 U3074 U3075 U3076 U3077 U3078 U3079 U3080 U3081 U3082 U3083 U3084 U3085 U3086 U3087 U3088 U3089 U3090 U3091 U3092 U3093 U3094 U3095 U3096 U3097 U3098 U3099 U3100 U3101 U3102 U3103 U3104 U3105 U3106 U3107 U3108 U3109 U3110 U3111 U3112 U3113 U3114 U3115 U3116 U3117 U3118 U3119 U3120 U3121 U3122 U3123 U3124 U3125 U3126 U3127 U3128 U3129 U3130 U3131 U3132 U3133 U3134 U3135 U3136 U3137 U3138 U3139 U3140 U3141 U3142 U3143 U3144 U3145 U3146 U3147 U3148 U3149 U3150 U3151 U3152 U3153 U3154 U3155 U3156 U3157 U3158 U3159 U3160 U3161 U3162 U3163 U3164 U3165 U3166 U3167 U3168 U3169 U3170 U3171 U3172 U3173 U3174 U3175 U3176 U3177 U3178 U3179 U3180 U3181 U3182 U3183 U3184 U3185 U3186 U3187 U3188 U3189 U3190 U3191 U3192 U3193 U3194 U3195 U3196 U3197 U3198 U3199 U3200 U3201 U3202 U3203 U3204 U3205 U3206 U3207 U3208 U3209 U3210 U3211 U3212 U3213 U3214 U3215 U3216 U3217 U3218 U3219 U3220 U3221 U3222 U3224 U3225 U3226 U3227 U3228 U3229 U3230 U3231 U3232 U3233 U3234 U3235 U3236 U3237 U3238 U3239 U3240 U3241 U3242 U3243 U3244 U3245 U3246 U3247 U3248 U3249 U3250 U3251 U3252 U3253 U3254 U3255 U3256 U3257 U3258 U3259 U3260 U3261 U3262 U3263 U3264 U3265 U3266 U3267 U3268 U3269 U3270 U3271 U3272 U3273 U3274 U3275 U3276 U3277 U3278 U3279 U3280 U3281 U3282 U3283 U3285 U3286 U3287 U3288 U3289 U3290 U3291 U3292 U3293 U3294 U3295 U3296 U3297 U3298 U3299 U3300 U3301 U3302 U3303 U3304 U3305 U3306 U3307 U3308 U3309 U3310 U3311 U3312 U3313 U3314 U3315 U3316 U3317 U3318 U3319 U3320 U3321 U3322 U3323 U3324 U3325 U3326 U3327 U3328 U3329 U3330 U3331 U3332 U3333 U3334 U3335 U3336 U3337 U3338 U3339 U3340 U3341 U3342 U3343 U3344 U3345 U3346 U3347 U3348 U3349 U3350 U3351 U3352 U3353 U3354 U3355 U3356 U3357 U3358 U3359 U3360 U3361 U3362 U3363 U3364 U3365 U3366 U3367 U3368 U3369 U3370 U3371 U3372 U3373 U3374 U3375 U3376 U3377 U3378 U3379 U3380 U3381 U3382 U3383 U3384 U3385 U3386 U3387 U3388 U3389 U3476
+foreach c $rem_cells {
+    remove_cell $c
+}
+Removing cell 'U2241' in design 'b17_C_lock'.
+Removing cell 'U2242' in design 'b17_C_lock'.
+Removing cell 'U2243' in design 'b17_C_lock'.
+Removing cell 'U2244' in design 'b17_C_lock'.
+Removing cell 'U2245' in design 'b17_C_lock'.
+Removing cell 'U2246' in design 'b17_C_lock'.
+Removing cell 'U2247' in design 'b17_C_lock'.
+Removing cell 'U2248' in design 'b17_C_lock'.
+Removing cell 'U2249' in design 'b17_C_lock'.
+Removing cell 'U2250' in design 'b17_C_lock'.
+Removing cell 'U2251' in design 'b17_C_lock'.
+Removing cell 'U2252' in design 'b17_C_lock'.
+Removing cell 'U2253' in design 'b17_C_lock'.
+Removing cell 'U2254' in design 'b17_C_lock'.
+Removing cell 'U2255' in design 'b17_C_lock'.
+Removing cell 'U2256' in design 'b17_C_lock'.
+Removing cell 'U2257' in design 'b17_C_lock'.
+Removing cell 'U2258' in design 'b17_C_lock'.
+Removing cell 'U2259' in design 'b17_C_lock'.
+Removing cell 'U2260' in design 'b17_C_lock'.
+Removing cell 'U2261' in design 'b17_C_lock'.
+Removing cell 'U2262' in design 'b17_C_lock'.
+Removing cell 'U2263' in design 'b17_C_lock'.
+Removing cell 'U2264' in design 'b17_C_lock'.
+Removing cell 'U2265' in design 'b17_C_lock'.
+Removing cell 'U2266' in design 'b17_C_lock'.
+Removing cell 'U2267' in design 'b17_C_lock'.
+Removing cell 'U2268' in design 'b17_C_lock'.
+Removing cell 'U2269' in design 'b17_C_lock'.
+Removing cell 'U2270' in design 'b17_C_lock'.
+Removing cell 'U2272' in design 'b17_C_lock'.
+Removing cell 'U2273' in design 'b17_C_lock'.
+Removing cell 'U2274' in design 'b17_C_lock'.
+Removing cell 'U2275' in design 'b17_C_lock'.
+Removing cell 'U2276' in design 'b17_C_lock'.
+Removing cell 'U2277' in design 'b17_C_lock'.
+Removing cell 'U2278' in design 'b17_C_lock'.
+Removing cell 'U2279' in design 'b17_C_lock'.
+Removing cell 'U2280' in design 'b17_C_lock'.
+Removing cell 'U2281' in design 'b17_C_lock'.
+Removing cell 'U2282' in design 'b17_C_lock'.
+Removing cell 'U2283' in design 'b17_C_lock'.
+Removing cell 'U2284' in design 'b17_C_lock'.
+Removing cell 'U2285' in design 'b17_C_lock'.
+Removing cell 'U2286' in design 'b17_C_lock'.
+Removing cell 'U2287' in design 'b17_C_lock'.
+Removing cell 'U2288' in design 'b17_C_lock'.
+Removing cell 'U2289' in design 'b17_C_lock'.
+Removing cell 'U2290' in design 'b17_C_lock'.
+Removing cell 'U2291' in design 'b17_C_lock'.
+Removing cell 'U2292' in design 'b17_C_lock'.
+Removing cell 'U2293' in design 'b17_C_lock'.
+Removing cell 'U2294' in design 'b17_C_lock'.
+Removing cell 'U2295' in design 'b17_C_lock'.
+Removing cell 'U2296' in design 'b17_C_lock'.
+Removing cell 'U2297' in design 'b17_C_lock'.
+Removing cell 'U2298' in design 'b17_C_lock'.
+Removing cell 'U2299' in design 'b17_C_lock'.
+Removing cell 'U2300' in design 'b17_C_lock'.
+Removing cell 'U2301' in design 'b17_C_lock'.
+Removing cell 'U2302' in design 'b17_C_lock'.
+Removing cell 'U2303' in design 'b17_C_lock'.
+Removing cell 'U2304' in design 'b17_C_lock'.
+Removing cell 'U2305' in design 'b17_C_lock'.
+Removing cell 'U2306' in design 'b17_C_lock'.
+Removing cell 'U2307' in design 'b17_C_lock'.
+Removing cell 'U2308' in design 'b17_C_lock'.
+Removing cell 'U2309' in design 'b17_C_lock'.
+Removing cell 'U2310' in design 'b17_C_lock'.
+Removing cell 'U2311' in design 'b17_C_lock'.
+Removing cell 'U2312' in design 'b17_C_lock'.
+Removing cell 'U2313' in design 'b17_C_lock'.
+Removing cell 'U2314' in design 'b17_C_lock'.
+Removing cell 'U2315' in design 'b17_C_lock'.
+Removing cell 'U2316' in design 'b17_C_lock'.
+Removing cell 'U2317' in design 'b17_C_lock'.
+Removing cell 'U2318' in design 'b17_C_lock'.
+Removing cell 'U2319' in design 'b17_C_lock'.
+Removing cell 'U2320' in design 'b17_C_lock'.
+Removing cell 'U2321' in design 'b17_C_lock'.
+Removing cell 'U2322' in design 'b17_C_lock'.
+Removing cell 'U2323' in design 'b17_C_lock'.
+Removing cell 'U2324' in design 'b17_C_lock'.
+Removing cell 'U2325' in design 'b17_C_lock'.
+Removing cell 'U2326' in design 'b17_C_lock'.
+Removing cell 'U2327' in design 'b17_C_lock'.
+Removing cell 'U2328' in design 'b17_C_lock'.
+Removing cell 'U2329' in design 'b17_C_lock'.
+Removing cell 'U2330' in design 'b17_C_lock'.
+Removing cell 'U2331' in design 'b17_C_lock'.
+Removing cell 'U2332' in design 'b17_C_lock'.
+Removing cell 'U2333' in design 'b17_C_lock'.
+Removing cell 'U2334' in design 'b17_C_lock'.
+Removing cell 'U2335' in design 'b17_C_lock'.
+Removing cell 'U2336' in design 'b17_C_lock'.
+Removing cell 'U2337' in design 'b17_C_lock'.
+Removing cell 'U2338' in design 'b17_C_lock'.
+Removing cell 'U2339' in design 'b17_C_lock'.
+Removing cell 'U2340' in design 'b17_C_lock'.
+Removing cell 'U2341' in design 'b17_C_lock'.
+Removing cell 'U2342' in design 'b17_C_lock'.
+Removing cell 'U2343' in design 'b17_C_lock'.
+Removing cell 'U2344' in design 'b17_C_lock'.
+Removing cell 'U2345' in design 'b17_C_lock'.
+Removing cell 'U2346' in design 'b17_C_lock'.
+Removing cell 'U2347' in design 'b17_C_lock'.
+Removing cell 'U2348' in design 'b17_C_lock'.
+Removing cell 'U2349' in design 'b17_C_lock'.
+Removing cell 'U2350' in design 'b17_C_lock'.
+Removing cell 'U2351' in design 'b17_C_lock'.
+Removing cell 'U2352' in design 'b17_C_lock'.
+Removing cell 'U2353' in design 'b17_C_lock'.
+Removing cell 'U2354' in design 'b17_C_lock'.
+Removing cell 'U2355' in design 'b17_C_lock'.
+Removing cell 'U2356' in design 'b17_C_lock'.
+Removing cell 'U2357' in design 'b17_C_lock'.
+Removing cell 'U2358' in design 'b17_C_lock'.
+Removing cell 'U2359' in design 'b17_C_lock'.
+Removing cell 'U2360' in design 'b17_C_lock'.
+Removing cell 'U2361' in design 'b17_C_lock'.
+Removing cell 'U2362' in design 'b17_C_lock'.
+Removing cell 'U2363' in design 'b17_C_lock'.
+Removing cell 'U2364' in design 'b17_C_lock'.
+Removing cell 'U2365' in design 'b17_C_lock'.
+Removing cell 'U2366' in design 'b17_C_lock'.
+Removing cell 'U2367' in design 'b17_C_lock'.
+Removing cell 'U2368' in design 'b17_C_lock'.
+Removing cell 'U2369' in design 'b17_C_lock'.
+Removing cell 'U2370' in design 'b17_C_lock'.
+Removing cell 'U2371' in design 'b17_C_lock'.
+Removing cell 'U2372' in design 'b17_C_lock'.
+Removing cell 'U2373' in design 'b17_C_lock'.
+Removing cell 'U2374' in design 'b17_C_lock'.
+Removing cell 'U2375' in design 'b17_C_lock'.
+Removing cell 'U2376' in design 'b17_C_lock'.
+Removing cell 'U2377' in design 'b17_C_lock'.
+Removing cell 'U2378' in design 'b17_C_lock'.
+Removing cell 'U2379' in design 'b17_C_lock'.
+Removing cell 'U2380' in design 'b17_C_lock'.
+Removing cell 'U2381' in design 'b17_C_lock'.
+Removing cell 'U2382' in design 'b17_C_lock'.
+Removing cell 'U2383' in design 'b17_C_lock'.
+Removing cell 'U2384' in design 'b17_C_lock'.
+Removing cell 'U2385' in design 'b17_C_lock'.
+Removing cell 'U2386' in design 'b17_C_lock'.
+Removing cell 'U2387' in design 'b17_C_lock'.
+Removing cell 'U2388' in design 'b17_C_lock'.
+Removing cell 'U2389' in design 'b17_C_lock'.
+Removing cell 'U2390' in design 'b17_C_lock'.
+Removing cell 'U2391' in design 'b17_C_lock'.
+Removing cell 'U2392' in design 'b17_C_lock'.
+Removing cell 'U2393' in design 'b17_C_lock'.
+Removing cell 'U2394' in design 'b17_C_lock'.
+Removing cell 'U2395' in design 'b17_C_lock'.
+Removing cell 'U2396' in design 'b17_C_lock'.
+Removing cell 'U2397' in design 'b17_C_lock'.
+Removing cell 'U2398' in design 'b17_C_lock'.
+Removing cell 'U2399' in design 'b17_C_lock'.
+Removing cell 'U2400' in design 'b17_C_lock'.
+Removing cell 'U2401' in design 'b17_C_lock'.
+Removing cell 'U2402' in design 'b17_C_lock'.
+Removing cell 'U2403' in design 'b17_C_lock'.
+Removing cell 'U2404' in design 'b17_C_lock'.
+Removing cell 'U2405' in design 'b17_C_lock'.
+Removing cell 'U2406' in design 'b17_C_lock'.
+Removing cell 'U2407' in design 'b17_C_lock'.
+Removing cell 'U2408' in design 'b17_C_lock'.
+Removing cell 'U2409' in design 'b17_C_lock'.
+Removing cell 'U2410' in design 'b17_C_lock'.
+Removing cell 'U2411' in design 'b17_C_lock'.
+Removing cell 'U2412' in design 'b17_C_lock'.
+Removing cell 'U2413' in design 'b17_C_lock'.
+Removing cell 'U2414' in design 'b17_C_lock'.
+Removing cell 'U2415' in design 'b17_C_lock'.
+Removing cell 'U2416' in design 'b17_C_lock'.
+Removing cell 'U2417' in design 'b17_C_lock'.
+Removing cell 'U2418' in design 'b17_C_lock'.
+Removing cell 'U2419' in design 'b17_C_lock'.
+Removing cell 'U2420' in design 'b17_C_lock'.
+Removing cell 'U2421' in design 'b17_C_lock'.
+Removing cell 'U2422' in design 'b17_C_lock'.
+Removing cell 'U2423' in design 'b17_C_lock'.
+Removing cell 'U2424' in design 'b17_C_lock'.
+Removing cell 'U2425' in design 'b17_C_lock'.
+Removing cell 'U2426' in design 'b17_C_lock'.
+Removing cell 'U2427' in design 'b17_C_lock'.
+Removing cell 'U2428' in design 'b17_C_lock'.
+Removing cell 'U2429' in design 'b17_C_lock'.
+Removing cell 'U2430' in design 'b17_C_lock'.
+Removing cell 'U2431' in design 'b17_C_lock'.
+Removing cell 'U2432' in design 'b17_C_lock'.
+Removing cell 'U2433' in design 'b17_C_lock'.
+Removing cell 'U2434' in design 'b17_C_lock'.
+Removing cell 'U2435' in design 'b17_C_lock'.
+Removing cell 'U2436' in design 'b17_C_lock'.
+Removing cell 'U2437' in design 'b17_C_lock'.
+Removing cell 'U2438' in design 'b17_C_lock'.
+Removing cell 'U2439' in design 'b17_C_lock'.
+Removing cell 'U2440' in design 'b17_C_lock'.
+Removing cell 'U2441' in design 'b17_C_lock'.
+Removing cell 'U2442' in design 'b17_C_lock'.
+Removing cell 'U2443' in design 'b17_C_lock'.
+Removing cell 'U2444' in design 'b17_C_lock'.
+Removing cell 'U2445' in design 'b17_C_lock'.
+Removing cell 'U2446' in design 'b17_C_lock'.
+Removing cell 'U2447' in design 'b17_C_lock'.
+Removing cell 'U2448' in design 'b17_C_lock'.
+Removing cell 'U2449' in design 'b17_C_lock'.
+Removing cell 'U2450' in design 'b17_C_lock'.
+Removing cell 'U2451' in design 'b17_C_lock'.
+Removing cell 'U2452' in design 'b17_C_lock'.
+Removing cell 'U2453' in design 'b17_C_lock'.
+Removing cell 'U2454' in design 'b17_C_lock'.
+Removing cell 'U2455' in design 'b17_C_lock'.
+Removing cell 'U2456' in design 'b17_C_lock'.
+Removing cell 'U2457' in design 'b17_C_lock'.
+Removing cell 'U2458' in design 'b17_C_lock'.
+Removing cell 'U2459' in design 'b17_C_lock'.
+Removing cell 'U2460' in design 'b17_C_lock'.
+Removing cell 'U2461' in design 'b17_C_lock'.
+Removing cell 'U2462' in design 'b17_C_lock'.
+Removing cell 'U2463' in design 'b17_C_lock'.
+Removing cell 'U2464' in design 'b17_C_lock'.
+Removing cell 'U2465' in design 'b17_C_lock'.
+Removing cell 'U2466' in design 'b17_C_lock'.
+Removing cell 'U2467' in design 'b17_C_lock'.
+Removing cell 'U2468' in design 'b17_C_lock'.
+Removing cell 'U2469' in design 'b17_C_lock'.
+Removing cell 'U2470' in design 'b17_C_lock'.
+Removing cell 'U2471' in design 'b17_C_lock'.
+Removing cell 'U2472' in design 'b17_C_lock'.
+Removing cell 'U2473' in design 'b17_C_lock'.
+Removing cell 'U2474' in design 'b17_C_lock'.
+Removing cell 'U2475' in design 'b17_C_lock'.
+Removing cell 'U2476' in design 'b17_C_lock'.
+Removing cell 'U2477' in design 'b17_C_lock'.
+Removing cell 'U2478' in design 'b17_C_lock'.
+Removing cell 'U2479' in design 'b17_C_lock'.
+Removing cell 'U2480' in design 'b17_C_lock'.
+Removing cell 'U2481' in design 'b17_C_lock'.
+Removing cell 'U2482' in design 'b17_C_lock'.
+Removing cell 'U2483' in design 'b17_C_lock'.
+Removing cell 'U2484' in design 'b17_C_lock'.
+Removing cell 'U2485' in design 'b17_C_lock'.
+Removing cell 'U2486' in design 'b17_C_lock'.
+Removing cell 'U2487' in design 'b17_C_lock'.
+Removing cell 'U2488' in design 'b17_C_lock'.
+Removing cell 'U2489' in design 'b17_C_lock'.
+Removing cell 'U2490' in design 'b17_C_lock'.
+Removing cell 'U2491' in design 'b17_C_lock'.
+Removing cell 'U2492' in design 'b17_C_lock'.
+Removing cell 'U2493' in design 'b17_C_lock'.
+Removing cell 'U2494' in design 'b17_C_lock'.
+Removing cell 'U2495' in design 'b17_C_lock'.
+Removing cell 'U2496' in design 'b17_C_lock'.
+Removing cell 'U2497' in design 'b17_C_lock'.
+Removing cell 'U2498' in design 'b17_C_lock'.
+Removing cell 'U2499' in design 'b17_C_lock'.
+Removing cell 'U2500' in design 'b17_C_lock'.
+Removing cell 'U2501' in design 'b17_C_lock'.
+Removing cell 'U2502' in design 'b17_C_lock'.
+Removing cell 'U2503' in design 'b17_C_lock'.
+Removing cell 'U2504' in design 'b17_C_lock'.
+Removing cell 'U2505' in design 'b17_C_lock'.
+Removing cell 'U2506' in design 'b17_C_lock'.
+Removing cell 'U2507' in design 'b17_C_lock'.
+Removing cell 'U2508' in design 'b17_C_lock'.
+Removing cell 'U2509' in design 'b17_C_lock'.
+Removing cell 'U2510' in design 'b17_C_lock'.
+Removing cell 'U2511' in design 'b17_C_lock'.
+Removing cell 'U2512' in design 'b17_C_lock'.
+Removing cell 'U2513' in design 'b17_C_lock'.
+Removing cell 'U2514' in design 'b17_C_lock'.
+Removing cell 'U2515' in design 'b17_C_lock'.
+Removing cell 'U2516' in design 'b17_C_lock'.
+Removing cell 'U2517' in design 'b17_C_lock'.
+Removing cell 'U2518' in design 'b17_C_lock'.
+Removing cell 'U2519' in design 'b17_C_lock'.
+Removing cell 'U2520' in design 'b17_C_lock'.
+Removing cell 'U2521' in design 'b17_C_lock'.
+Removing cell 'U2522' in design 'b17_C_lock'.
+Removing cell 'U2523' in design 'b17_C_lock'.
+Removing cell 'U2524' in design 'b17_C_lock'.
+Removing cell 'U2525' in design 'b17_C_lock'.
+Removing cell 'U2526' in design 'b17_C_lock'.
+Removing cell 'U2527' in design 'b17_C_lock'.
+Removing cell 'U2528' in design 'b17_C_lock'.
+Removing cell 'U2529' in design 'b17_C_lock'.
+Removing cell 'U2530' in design 'b17_C_lock'.
+Removing cell 'U2531' in design 'b17_C_lock'.
+Removing cell 'U2532' in design 'b17_C_lock'.
+Removing cell 'U2533' in design 'b17_C_lock'.
+Removing cell 'U2534' in design 'b17_C_lock'.
+Removing cell 'U2535' in design 'b17_C_lock'.
+Removing cell 'U2536' in design 'b17_C_lock'.
+Removing cell 'U2537' in design 'b17_C_lock'.
+Removing cell 'U2538' in design 'b17_C_lock'.
+Removing cell 'U2539' in design 'b17_C_lock'.
+Removing cell 'U2540' in design 'b17_C_lock'.
+Removing cell 'U2541' in design 'b17_C_lock'.
+Removing cell 'U2542' in design 'b17_C_lock'.
+Removing cell 'U2543' in design 'b17_C_lock'.
+Removing cell 'U2544' in design 'b17_C_lock'.
+Removing cell 'U2545' in design 'b17_C_lock'.
+Removing cell 'U2546' in design 'b17_C_lock'.
+Removing cell 'U2547' in design 'b17_C_lock'.
+Removing cell 'U2548' in design 'b17_C_lock'.
+Removing cell 'U2549' in design 'b17_C_lock'.
+Removing cell 'U2550' in design 'b17_C_lock'.
+Removing cell 'U2551' in design 'b17_C_lock'.
+Removing cell 'U2552' in design 'b17_C_lock'.
+Removing cell 'U2553' in design 'b17_C_lock'.
+Removing cell 'U2554' in design 'b17_C_lock'.
+Removing cell 'U2555' in design 'b17_C_lock'.
+Removing cell 'U2556' in design 'b17_C_lock'.
+Removing cell 'U2557' in design 'b17_C_lock'.
+Removing cell 'U2558' in design 'b17_C_lock'.
+Removing cell 'U2559' in design 'b17_C_lock'.
+Removing cell 'U2560' in design 'b17_C_lock'.
+Removing cell 'U2561' in design 'b17_C_lock'.
+Removing cell 'U2562' in design 'b17_C_lock'.
+Removing cell 'U2563' in design 'b17_C_lock'.
+Removing cell 'U2564' in design 'b17_C_lock'.
+Removing cell 'U2565' in design 'b17_C_lock'.
+Removing cell 'U2566' in design 'b17_C_lock'.
+Removing cell 'U2567' in design 'b17_C_lock'.
+Removing cell 'U2568' in design 'b17_C_lock'.
+Removing cell 'U2569' in design 'b17_C_lock'.
+Removing cell 'U2570' in design 'b17_C_lock'.
+Removing cell 'U2571' in design 'b17_C_lock'.
+Removing cell 'U2572' in design 'b17_C_lock'.
+Removing cell 'U2573' in design 'b17_C_lock'.
+Removing cell 'U2574' in design 'b17_C_lock'.
+Removing cell 'U2575' in design 'b17_C_lock'.
+Removing cell 'U2576' in design 'b17_C_lock'.
+Removing cell 'U2577' in design 'b17_C_lock'.
+Removing cell 'U2578' in design 'b17_C_lock'.
+Removing cell 'U2579' in design 'b17_C_lock'.
+Removing cell 'U2580' in design 'b17_C_lock'.
+Removing cell 'U2581' in design 'b17_C_lock'.
+Removing cell 'U2582' in design 'b17_C_lock'.
+Removing cell 'U2583' in design 'b17_C_lock'.
+Removing cell 'U2584' in design 'b17_C_lock'.
+Removing cell 'U2585' in design 'b17_C_lock'.
+Removing cell 'U2586' in design 'b17_C_lock'.
+Removing cell 'U2587' in design 'b17_C_lock'.
+Removing cell 'U2588' in design 'b17_C_lock'.
+Removing cell 'U2589' in design 'b17_C_lock'.
+Removing cell 'U2590' in design 'b17_C_lock'.
+Removing cell 'U2591' in design 'b17_C_lock'.
+Removing cell 'U2592' in design 'b17_C_lock'.
+Removing cell 'U2593' in design 'b17_C_lock'.
+Removing cell 'U2594' in design 'b17_C_lock'.
+Removing cell 'U2595' in design 'b17_C_lock'.
+Removing cell 'U2596' in design 'b17_C_lock'.
+Removing cell 'U2597' in design 'b17_C_lock'.
+Removing cell 'U2598' in design 'b17_C_lock'.
+Removing cell 'U2599' in design 'b17_C_lock'.
+Removing cell 'U2600' in design 'b17_C_lock'.
+Removing cell 'U2601' in design 'b17_C_lock'.
+Removing cell 'U2602' in design 'b17_C_lock'.
+Removing cell 'U2603' in design 'b17_C_lock'.
+Removing cell 'U2604' in design 'b17_C_lock'.
+Removing cell 'U2605' in design 'b17_C_lock'.
+Removing cell 'U2606' in design 'b17_C_lock'.
+Removing cell 'U2607' in design 'b17_C_lock'.
+Removing cell 'U2608' in design 'b17_C_lock'.
+Removing cell 'U2609' in design 'b17_C_lock'.
+Removing cell 'U2610' in design 'b17_C_lock'.
+Removing cell 'U2611' in design 'b17_C_lock'.
+Removing cell 'U2612' in design 'b17_C_lock'.
+Removing cell 'U2613' in design 'b17_C_lock'.
+Removing cell 'U2614' in design 'b17_C_lock'.
+Removing cell 'U2615' in design 'b17_C_lock'.
+Removing cell 'U2616' in design 'b17_C_lock'.
+Removing cell 'U2617' in design 'b17_C_lock'.
+Removing cell 'U2618' in design 'b17_C_lock'.
+Removing cell 'U2619' in design 'b17_C_lock'.
+Removing cell 'U2620' in design 'b17_C_lock'.
+Removing cell 'U2621' in design 'b17_C_lock'.
+Removing cell 'U2622' in design 'b17_C_lock'.
+Removing cell 'U2623' in design 'b17_C_lock'.
+Removing cell 'U2624' in design 'b17_C_lock'.
+Removing cell 'U2625' in design 'b17_C_lock'.
+Removing cell 'U2626' in design 'b17_C_lock'.
+Removing cell 'U2627' in design 'b17_C_lock'.
+Removing cell 'U2628' in design 'b17_C_lock'.
+Removing cell 'U2629' in design 'b17_C_lock'.
+Removing cell 'U2630' in design 'b17_C_lock'.
+Removing cell 'U2631' in design 'b17_C_lock'.
+Removing cell 'U2632' in design 'b17_C_lock'.
+Removing cell 'U2633' in design 'b17_C_lock'.
+Removing cell 'U2634' in design 'b17_C_lock'.
+Removing cell 'U2635' in design 'b17_C_lock'.
+Removing cell 'U2636' in design 'b17_C_lock'.
+Removing cell 'U2637' in design 'b17_C_lock'.
+Removing cell 'U2638' in design 'b17_C_lock'.
+Removing cell 'U2639' in design 'b17_C_lock'.
+Removing cell 'U2640' in design 'b17_C_lock'.
+Removing cell 'U2641' in design 'b17_C_lock'.
+Removing cell 'U2642' in design 'b17_C_lock'.
+Removing cell 'U2643' in design 'b17_C_lock'.
+Removing cell 'U2644' in design 'b17_C_lock'.
+Removing cell 'U2645' in design 'b17_C_lock'.
+Removing cell 'U2646' in design 'b17_C_lock'.
+Removing cell 'U2647' in design 'b17_C_lock'.
+Removing cell 'U2648' in design 'b17_C_lock'.
+Removing cell 'U2649' in design 'b17_C_lock'.
+Removing cell 'U2650' in design 'b17_C_lock'.
+Removing cell 'U2651' in design 'b17_C_lock'.
+Removing cell 'U2652' in design 'b17_C_lock'.
+Removing cell 'U2653' in design 'b17_C_lock'.
+Removing cell 'U2654' in design 'b17_C_lock'.
+Removing cell 'U2655' in design 'b17_C_lock'.
+Removing cell 'U2656' in design 'b17_C_lock'.
+Removing cell 'U2657' in design 'b17_C_lock'.
+Removing cell 'U2658' in design 'b17_C_lock'.
+Removing cell 'U2659' in design 'b17_C_lock'.
+Removing cell 'U2660' in design 'b17_C_lock'.
+Removing cell 'U2661' in design 'b17_C_lock'.
+Removing cell 'U2662' in design 'b17_C_lock'.
+Removing cell 'U2663' in design 'b17_C_lock'.
+Removing cell 'U2664' in design 'b17_C_lock'.
+Removing cell 'U2665' in design 'b17_C_lock'.
+Removing cell 'U2666' in design 'b17_C_lock'.
+Removing cell 'U2667' in design 'b17_C_lock'.
+Removing cell 'U2668' in design 'b17_C_lock'.
+Removing cell 'U2669' in design 'b17_C_lock'.
+Removing cell 'U2670' in design 'b17_C_lock'.
+Removing cell 'U2671' in design 'b17_C_lock'.
+Removing cell 'U2672' in design 'b17_C_lock'.
+Removing cell 'U2673' in design 'b17_C_lock'.
+Removing cell 'U2674' in design 'b17_C_lock'.
+Removing cell 'U2675' in design 'b17_C_lock'.
+Removing cell 'U2676' in design 'b17_C_lock'.
+Removing cell 'U2677' in design 'b17_C_lock'.
+Removing cell 'U2678' in design 'b17_C_lock'.
+Removing cell 'U2679' in design 'b17_C_lock'.
+Removing cell 'U2680' in design 'b17_C_lock'.
+Removing cell 'U2681' in design 'b17_C_lock'.
+Removing cell 'U2682' in design 'b17_C_lock'.
+Removing cell 'U2683' in design 'b17_C_lock'.
+Removing cell 'U2684' in design 'b17_C_lock'.
+Removing cell 'U2685' in design 'b17_C_lock'.
+Removing cell 'U2686' in design 'b17_C_lock'.
+Removing cell 'U2687' in design 'b17_C_lock'.
+Removing cell 'U2688' in design 'b17_C_lock'.
+Removing cell 'U2689' in design 'b17_C_lock'.
+Removing cell 'U2690' in design 'b17_C_lock'.
+Removing cell 'U2691' in design 'b17_C_lock'.
+Removing cell 'U2692' in design 'b17_C_lock'.
+Removing cell 'U2693' in design 'b17_C_lock'.
+Removing cell 'U2694' in design 'b17_C_lock'.
+Removing cell 'U2695' in design 'b17_C_lock'.
+Removing cell 'U2696' in design 'b17_C_lock'.
+Removing cell 'U2697' in design 'b17_C_lock'.
+Removing cell 'U2698' in design 'b17_C_lock'.
+Removing cell 'U2699' in design 'b17_C_lock'.
+Removing cell 'U2700' in design 'b17_C_lock'.
+Removing cell 'U2701' in design 'b17_C_lock'.
+Removing cell 'U2702' in design 'b17_C_lock'.
+Removing cell 'U2703' in design 'b17_C_lock'.
+Removing cell 'U2704' in design 'b17_C_lock'.
+Removing cell 'U2705' in design 'b17_C_lock'.
+Removing cell 'U2706' in design 'b17_C_lock'.
+Removing cell 'U2707' in design 'b17_C_lock'.
+Removing cell 'U2708' in design 'b17_C_lock'.
+Removing cell 'U2709' in design 'b17_C_lock'.
+Removing cell 'U2710' in design 'b17_C_lock'.
+Removing cell 'U2711' in design 'b17_C_lock'.
+Removing cell 'U2712' in design 'b17_C_lock'.
+Removing cell 'U2713' in design 'b17_C_lock'.
+Removing cell 'U2714' in design 'b17_C_lock'.
+Removing cell 'U2715' in design 'b17_C_lock'.
+Removing cell 'U2716' in design 'b17_C_lock'.
+Removing cell 'U2717' in design 'b17_C_lock'.
+Removing cell 'U2718' in design 'b17_C_lock'.
+Removing cell 'U2719' in design 'b17_C_lock'.
+Removing cell 'U2720' in design 'b17_C_lock'.
+Removing cell 'U2721' in design 'b17_C_lock'.
+Removing cell 'U2722' in design 'b17_C_lock'.
+Removing cell 'U2723' in design 'b17_C_lock'.
+Removing cell 'U2724' in design 'b17_C_lock'.
+Removing cell 'U2725' in design 'b17_C_lock'.
+Removing cell 'U2726' in design 'b17_C_lock'.
+Removing cell 'U2727' in design 'b17_C_lock'.
+Removing cell 'U2728' in design 'b17_C_lock'.
+Removing cell 'U2729' in design 'b17_C_lock'.
+Removing cell 'U2730' in design 'b17_C_lock'.
+Removing cell 'U2731' in design 'b17_C_lock'.
+Removing cell 'U2732' in design 'b17_C_lock'.
+Removing cell 'U2733' in design 'b17_C_lock'.
+Removing cell 'U2734' in design 'b17_C_lock'.
+Removing cell 'U2735' in design 'b17_C_lock'.
+Removing cell 'U2736' in design 'b17_C_lock'.
+Removing cell 'U2737' in design 'b17_C_lock'.
+Removing cell 'U2738' in design 'b17_C_lock'.
+Removing cell 'U2739' in design 'b17_C_lock'.
+Removing cell 'U2740' in design 'b17_C_lock'.
+Removing cell 'U2741' in design 'b17_C_lock'.
+Removing cell 'U2742' in design 'b17_C_lock'.
+Removing cell 'U2743' in design 'b17_C_lock'.
+Removing cell 'U2744' in design 'b17_C_lock'.
+Removing cell 'U2745' in design 'b17_C_lock'.
+Removing cell 'U2746' in design 'b17_C_lock'.
+Removing cell 'U2747' in design 'b17_C_lock'.
+Removing cell 'U2748' in design 'b17_C_lock'.
+Removing cell 'U2749' in design 'b17_C_lock'.
+Removing cell 'U2750' in design 'b17_C_lock'.
+Removing cell 'U2751' in design 'b17_C_lock'.
+Removing cell 'U2752' in design 'b17_C_lock'.
+Removing cell 'U2753' in design 'b17_C_lock'.
+Removing cell 'U2754' in design 'b17_C_lock'.
+Removing cell 'U2755' in design 'b17_C_lock'.
+Removing cell 'U2756' in design 'b17_C_lock'.
+Removing cell 'U2757' in design 'b17_C_lock'.
+Removing cell 'U2758' in design 'b17_C_lock'.
+Removing cell 'U2759' in design 'b17_C_lock'.
+Removing cell 'U2760' in design 'b17_C_lock'.
+Removing cell 'U2761' in design 'b17_C_lock'.
+Removing cell 'U2762' in design 'b17_C_lock'.
+Removing cell 'U2763' in design 'b17_C_lock'.
+Removing cell 'U2764' in design 'b17_C_lock'.
+Removing cell 'U2765' in design 'b17_C_lock'.
+Removing cell 'U2766' in design 'b17_C_lock'.
+Removing cell 'U2767' in design 'b17_C_lock'.
+Removing cell 'U2768' in design 'b17_C_lock'.
+Removing cell 'U2769' in design 'b17_C_lock'.
+Removing cell 'U2770' in design 'b17_C_lock'.
+Removing cell 'U2771' in design 'b17_C_lock'.
+Removing cell 'U2772' in design 'b17_C_lock'.
+Removing cell 'U2773' in design 'b17_C_lock'.
+Removing cell 'U2774' in design 'b17_C_lock'.
+Removing cell 'U2775' in design 'b17_C_lock'.
+Removing cell 'U2776' in design 'b17_C_lock'.
+Removing cell 'U2777' in design 'b17_C_lock'.
+Removing cell 'U2778' in design 'b17_C_lock'.
+Removing cell 'U2779' in design 'b17_C_lock'.
+Removing cell 'U2780' in design 'b17_C_lock'.
+Removing cell 'U2781' in design 'b17_C_lock'.
+Removing cell 'U2782' in design 'b17_C_lock'.
+Removing cell 'U2783' in design 'b17_C_lock'.
+Removing cell 'U2784' in design 'b17_C_lock'.
+Removing cell 'U2785' in design 'b17_C_lock'.
+Removing cell 'U2786' in design 'b17_C_lock'.
+Removing cell 'U2787' in design 'b17_C_lock'.
+Removing cell 'U2788' in design 'b17_C_lock'.
+Removing cell 'U2789' in design 'b17_C_lock'.
+Removing cell 'U2790' in design 'b17_C_lock'.
+Removing cell 'U2791' in design 'b17_C_lock'.
+Removing cell 'U2792' in design 'b17_C_lock'.
+Removing cell 'U2793' in design 'b17_C_lock'.
+Removing cell 'U2794' in design 'b17_C_lock'.
+Removing cell 'U2795' in design 'b17_C_lock'.
+Removing cell 'U2796' in design 'b17_C_lock'.
+Removing cell 'U2797' in design 'b17_C_lock'.
+Removing cell 'U2798' in design 'b17_C_lock'.
+Removing cell 'U2799' in design 'b17_C_lock'.
+Removing cell 'U2800' in design 'b17_C_lock'.
+Removing cell 'U2801' in design 'b17_C_lock'.
+Removing cell 'U2802' in design 'b17_C_lock'.
+Removing cell 'U2803' in design 'b17_C_lock'.
+Removing cell 'U2804' in design 'b17_C_lock'.
+Removing cell 'U2805' in design 'b17_C_lock'.
+Removing cell 'U2806' in design 'b17_C_lock'.
+Removing cell 'U2807' in design 'b17_C_lock'.
+Removing cell 'U2808' in design 'b17_C_lock'.
+Removing cell 'U2809' in design 'b17_C_lock'.
+Removing cell 'U2810' in design 'b17_C_lock'.
+Removing cell 'U2811' in design 'b17_C_lock'.
+Removing cell 'U2812' in design 'b17_C_lock'.
+Removing cell 'U2813' in design 'b17_C_lock'.
+Removing cell 'U2814' in design 'b17_C_lock'.
+Removing cell 'U2815' in design 'b17_C_lock'.
+Removing cell 'U2816' in design 'b17_C_lock'.
+Removing cell 'U2817' in design 'b17_C_lock'.
+Removing cell 'U2818' in design 'b17_C_lock'.
+Removing cell 'U2819' in design 'b17_C_lock'.
+Removing cell 'U2820' in design 'b17_C_lock'.
+Removing cell 'U2821' in design 'b17_C_lock'.
+Removing cell 'U2822' in design 'b17_C_lock'.
+Removing cell 'U2823' in design 'b17_C_lock'.
+Removing cell 'U2824' in design 'b17_C_lock'.
+Removing cell 'U2825' in design 'b17_C_lock'.
+Removing cell 'U2826' in design 'b17_C_lock'.
+Removing cell 'U2827' in design 'b17_C_lock'.
+Removing cell 'U2828' in design 'b17_C_lock'.
+Removing cell 'U2829' in design 'b17_C_lock'.
+Removing cell 'U2830' in design 'b17_C_lock'.
+Removing cell 'U2831' in design 'b17_C_lock'.
+Removing cell 'U2832' in design 'b17_C_lock'.
+Removing cell 'U2833' in design 'b17_C_lock'.
+Removing cell 'U2834' in design 'b17_C_lock'.
+Removing cell 'U2835' in design 'b17_C_lock'.
+Removing cell 'U2836' in design 'b17_C_lock'.
+Removing cell 'U2837' in design 'b17_C_lock'.
+Removing cell 'U2838' in design 'b17_C_lock'.
+Removing cell 'U2839' in design 'b17_C_lock'.
+Removing cell 'U2840' in design 'b17_C_lock'.
+Removing cell 'U2841' in design 'b17_C_lock'.
+Removing cell 'U2842' in design 'b17_C_lock'.
+Removing cell 'U2843' in design 'b17_C_lock'.
+Removing cell 'U2844' in design 'b17_C_lock'.
+Removing cell 'U2845' in design 'b17_C_lock'.
+Removing cell 'U2846' in design 'b17_C_lock'.
+Removing cell 'U2847' in design 'b17_C_lock'.
+Removing cell 'U2848' in design 'b17_C_lock'.
+Removing cell 'U2849' in design 'b17_C_lock'.
+Removing cell 'U2850' in design 'b17_C_lock'.
+Removing cell 'U2851' in design 'b17_C_lock'.
+Removing cell 'U2852' in design 'b17_C_lock'.
+Removing cell 'U2853' in design 'b17_C_lock'.
+Removing cell 'U2854' in design 'b17_C_lock'.
+Removing cell 'U2855' in design 'b17_C_lock'.
+Removing cell 'U2856' in design 'b17_C_lock'.
+Removing cell 'U2857' in design 'b17_C_lock'.
+Removing cell 'U2858' in design 'b17_C_lock'.
+Removing cell 'U2859' in design 'b17_C_lock'.
+Removing cell 'U2860' in design 'b17_C_lock'.
+Removing cell 'U2861' in design 'b17_C_lock'.
+Removing cell 'U2862' in design 'b17_C_lock'.
+Removing cell 'U2863' in design 'b17_C_lock'.
+Removing cell 'U2864' in design 'b17_C_lock'.
+Removing cell 'U2865' in design 'b17_C_lock'.
+Removing cell 'U2866' in design 'b17_C_lock'.
+Removing cell 'U2867' in design 'b17_C_lock'.
+Removing cell 'U2868' in design 'b17_C_lock'.
+Removing cell 'U2869' in design 'b17_C_lock'.
+Removing cell 'U2870' in design 'b17_C_lock'.
+Removing cell 'U2871' in design 'b17_C_lock'.
+Removing cell 'U2872' in design 'b17_C_lock'.
+Removing cell 'U2873' in design 'b17_C_lock'.
+Removing cell 'U2874' in design 'b17_C_lock'.
+Removing cell 'U2875' in design 'b17_C_lock'.
+Removing cell 'U2876' in design 'b17_C_lock'.
+Removing cell 'U2877' in design 'b17_C_lock'.
+Removing cell 'U2878' in design 'b17_C_lock'.
+Removing cell 'U2879' in design 'b17_C_lock'.
+Removing cell 'U2880' in design 'b17_C_lock'.
+Removing cell 'U2881' in design 'b17_C_lock'.
+Removing cell 'U2882' in design 'b17_C_lock'.
+Removing cell 'U2883' in design 'b17_C_lock'.
+Removing cell 'U2884' in design 'b17_C_lock'.
+Removing cell 'U2885' in design 'b17_C_lock'.
+Removing cell 'U2886' in design 'b17_C_lock'.
+Removing cell 'U2887' in design 'b17_C_lock'.
+Removing cell 'U2888' in design 'b17_C_lock'.
+Removing cell 'U2889' in design 'b17_C_lock'.
+Removing cell 'U2890' in design 'b17_C_lock'.
+Removing cell 'U2891' in design 'b17_C_lock'.
+Removing cell 'U2892' in design 'b17_C_lock'.
+Removing cell 'U2893' in design 'b17_C_lock'.
+Removing cell 'U2894' in design 'b17_C_lock'.
+Removing cell 'U2895' in design 'b17_C_lock'.
+Removing cell 'U2896' in design 'b17_C_lock'.
+Removing cell 'U2897' in design 'b17_C_lock'.
+Removing cell 'U2898' in design 'b17_C_lock'.
+Removing cell 'U2899' in design 'b17_C_lock'.
+Removing cell 'U2900' in design 'b17_C_lock'.
+Removing cell 'U2901' in design 'b17_C_lock'.
+Removing cell 'U2902' in design 'b17_C_lock'.
+Removing cell 'U2903' in design 'b17_C_lock'.
+Removing cell 'U2904' in design 'b17_C_lock'.
+Removing cell 'U2905' in design 'b17_C_lock'.
+Removing cell 'U2906' in design 'b17_C_lock'.
+Removing cell 'U2907' in design 'b17_C_lock'.
+Removing cell 'U2908' in design 'b17_C_lock'.
+Removing cell 'U2909' in design 'b17_C_lock'.
+Removing cell 'U2910' in design 'b17_C_lock'.
+Removing cell 'U2911' in design 'b17_C_lock'.
+Removing cell 'U2912' in design 'b17_C_lock'.
+Removing cell 'U2913' in design 'b17_C_lock'.
+Removing cell 'U2914' in design 'b17_C_lock'.
+Removing cell 'U2915' in design 'b17_C_lock'.
+Removing cell 'U2916' in design 'b17_C_lock'.
+Removing cell 'U2917' in design 'b17_C_lock'.
+Removing cell 'U2918' in design 'b17_C_lock'.
+Removing cell 'U2919' in design 'b17_C_lock'.
+Removing cell 'U2920' in design 'b17_C_lock'.
+Removing cell 'U2921' in design 'b17_C_lock'.
+Removing cell 'U2922' in design 'b17_C_lock'.
+Removing cell 'U2923' in design 'b17_C_lock'.
+Removing cell 'U2924' in design 'b17_C_lock'.
+Removing cell 'U2925' in design 'b17_C_lock'.
+Removing cell 'U2926' in design 'b17_C_lock'.
+Removing cell 'U2927' in design 'b17_C_lock'.
+Removing cell 'U2928' in design 'b17_C_lock'.
+Removing cell 'U2929' in design 'b17_C_lock'.
+Removing cell 'U2930' in design 'b17_C_lock'.
+Removing cell 'U2931' in design 'b17_C_lock'.
+Removing cell 'U2932' in design 'b17_C_lock'.
+Removing cell 'U2933' in design 'b17_C_lock'.
+Removing cell 'U2934' in design 'b17_C_lock'.
+Removing cell 'U2935' in design 'b17_C_lock'.
+Removing cell 'U2936' in design 'b17_C_lock'.
+Removing cell 'U2937' in design 'b17_C_lock'.
+Removing cell 'U2938' in design 'b17_C_lock'.
+Removing cell 'U2939' in design 'b17_C_lock'.
+Removing cell 'U2940' in design 'b17_C_lock'.
+Removing cell 'U2941' in design 'b17_C_lock'.
+Removing cell 'U2942' in design 'b17_C_lock'.
+Removing cell 'U2943' in design 'b17_C_lock'.
+Removing cell 'U2944' in design 'b17_C_lock'.
+Removing cell 'U2945' in design 'b17_C_lock'.
+Removing cell 'U2946' in design 'b17_C_lock'.
+Removing cell 'U2947' in design 'b17_C_lock'.
+Removing cell 'U2948' in design 'b17_C_lock'.
+Removing cell 'U2949' in design 'b17_C_lock'.
+Removing cell 'U2950' in design 'b17_C_lock'.
+Removing cell 'U2951' in design 'b17_C_lock'.
+Removing cell 'U2952' in design 'b17_C_lock'.
+Removing cell 'U2953' in design 'b17_C_lock'.
+Removing cell 'U2954' in design 'b17_C_lock'.
+Removing cell 'U2955' in design 'b17_C_lock'.
+Removing cell 'U2956' in design 'b17_C_lock'.
+Removing cell 'U2957' in design 'b17_C_lock'.
+Removing cell 'U2958' in design 'b17_C_lock'.
+Removing cell 'U2959' in design 'b17_C_lock'.
+Removing cell 'U2960' in design 'b17_C_lock'.
+Removing cell 'U2961' in design 'b17_C_lock'.
+Removing cell 'U2962' in design 'b17_C_lock'.
+Removing cell 'U2963' in design 'b17_C_lock'.
+Removing cell 'U2964' in design 'b17_C_lock'.
+Removing cell 'U2965' in design 'b17_C_lock'.
+Removing cell 'U2966' in design 'b17_C_lock'.
+Removing cell 'U2967' in design 'b17_C_lock'.
+Removing cell 'U2968' in design 'b17_C_lock'.
+Removing cell 'U2969' in design 'b17_C_lock'.
+Removing cell 'U2970' in design 'b17_C_lock'.
+Removing cell 'U2971' in design 'b17_C_lock'.
+Removing cell 'U2972' in design 'b17_C_lock'.
+Removing cell 'U2973' in design 'b17_C_lock'.
+Removing cell 'U2974' in design 'b17_C_lock'.
+Removing cell 'U2975' in design 'b17_C_lock'.
+Removing cell 'U2976' in design 'b17_C_lock'.
+Removing cell 'U2977' in design 'b17_C_lock'.
+Removing cell 'U2978' in design 'b17_C_lock'.
+Removing cell 'U2979' in design 'b17_C_lock'.
+Removing cell 'U2980' in design 'b17_C_lock'.
+Removing cell 'U2981' in design 'b17_C_lock'.
+Removing cell 'U2982' in design 'b17_C_lock'.
+Removing cell 'U2983' in design 'b17_C_lock'.
+Removing cell 'U2984' in design 'b17_C_lock'.
+Removing cell 'U2985' in design 'b17_C_lock'.
+Removing cell 'U2986' in design 'b17_C_lock'.
+Removing cell 'U2987' in design 'b17_C_lock'.
+Removing cell 'U2988' in design 'b17_C_lock'.
+Removing cell 'U2989' in design 'b17_C_lock'.
+Removing cell 'U2990' in design 'b17_C_lock'.
+Removing cell 'U2991' in design 'b17_C_lock'.
+Removing cell 'U2992' in design 'b17_C_lock'.
+Removing cell 'U2993' in design 'b17_C_lock'.
+Removing cell 'U2994' in design 'b17_C_lock'.
+Removing cell 'U2995' in design 'b17_C_lock'.
+Removing cell 'U2996' in design 'b17_C_lock'.
+Removing cell 'U2997' in design 'b17_C_lock'.
+Removing cell 'U2998' in design 'b17_C_lock'.
+Removing cell 'U2999' in design 'b17_C_lock'.
+Removing cell 'U3000' in design 'b17_C_lock'.
+Removing cell 'U3001' in design 'b17_C_lock'.
+Removing cell 'U3002' in design 'b17_C_lock'.
+Removing cell 'U3003' in design 'b17_C_lock'.
+Removing cell 'U3004' in design 'b17_C_lock'.
+Removing cell 'U3005' in design 'b17_C_lock'.
+Removing cell 'U3006' in design 'b17_C_lock'.
+Removing cell 'U3007' in design 'b17_C_lock'.
+Removing cell 'U3008' in design 'b17_C_lock'.
+Removing cell 'U3009' in design 'b17_C_lock'.
+Removing cell 'U3010' in design 'b17_C_lock'.
+Removing cell 'U3011' in design 'b17_C_lock'.
+Removing cell 'U3012' in design 'b17_C_lock'.
+Removing cell 'U3013' in design 'b17_C_lock'.
+Removing cell 'U3014' in design 'b17_C_lock'.
+Removing cell 'U3015' in design 'b17_C_lock'.
+Removing cell 'U3016' in design 'b17_C_lock'.
+Removing cell 'U3017' in design 'b17_C_lock'.
+Removing cell 'U3018' in design 'b17_C_lock'.
+Removing cell 'U3019' in design 'b17_C_lock'.
+Removing cell 'U3020' in design 'b17_C_lock'.
+Removing cell 'U3021' in design 'b17_C_lock'.
+Removing cell 'U3022' in design 'b17_C_lock'.
+Removing cell 'U3023' in design 'b17_C_lock'.
+Removing cell 'U3024' in design 'b17_C_lock'.
+Removing cell 'U3025' in design 'b17_C_lock'.
+Removing cell 'U3026' in design 'b17_C_lock'.
+Removing cell 'U3027' in design 'b17_C_lock'.
+Removing cell 'U3028' in design 'b17_C_lock'.
+Removing cell 'U3029' in design 'b17_C_lock'.
+Removing cell 'U3030' in design 'b17_C_lock'.
+Removing cell 'U3031' in design 'b17_C_lock'.
+Removing cell 'U3032' in design 'b17_C_lock'.
+Removing cell 'U3033' in design 'b17_C_lock'.
+Removing cell 'U3034' in design 'b17_C_lock'.
+Removing cell 'U3035' in design 'b17_C_lock'.
+Removing cell 'U3036' in design 'b17_C_lock'.
+Removing cell 'U3037' in design 'b17_C_lock'.
+Removing cell 'U3038' in design 'b17_C_lock'.
+Removing cell 'U3039' in design 'b17_C_lock'.
+Removing cell 'U3040' in design 'b17_C_lock'.
+Removing cell 'U3041' in design 'b17_C_lock'.
+Removing cell 'U3042' in design 'b17_C_lock'.
+Removing cell 'U3043' in design 'b17_C_lock'.
+Removing cell 'U3044' in design 'b17_C_lock'.
+Removing cell 'U3045' in design 'b17_C_lock'.
+Removing cell 'U3046' in design 'b17_C_lock'.
+Removing cell 'U3047' in design 'b17_C_lock'.
+Removing cell 'U3048' in design 'b17_C_lock'.
+Removing cell 'U3049' in design 'b17_C_lock'.
+Removing cell 'U3050' in design 'b17_C_lock'.
+Removing cell 'U3051' in design 'b17_C_lock'.
+Removing cell 'U3052' in design 'b17_C_lock'.
+Removing cell 'U3053' in design 'b17_C_lock'.
+Removing cell 'U3054' in design 'b17_C_lock'.
+Removing cell 'U3055' in design 'b17_C_lock'.
+Removing cell 'U3056' in design 'b17_C_lock'.
+Removing cell 'U3057' in design 'b17_C_lock'.
+Removing cell 'U3058' in design 'b17_C_lock'.
+Removing cell 'U3059' in design 'b17_C_lock'.
+Removing cell 'U3060' in design 'b17_C_lock'.
+Removing cell 'U3061' in design 'b17_C_lock'.
+Removing cell 'U3062' in design 'b17_C_lock'.
+Removing cell 'U3063' in design 'b17_C_lock'.
+Removing cell 'U3064' in design 'b17_C_lock'.
+Removing cell 'U3065' in design 'b17_C_lock'.
+Removing cell 'U3066' in design 'b17_C_lock'.
+Removing cell 'U3067' in design 'b17_C_lock'.
+Removing cell 'U3068' in design 'b17_C_lock'.
+Removing cell 'U3069' in design 'b17_C_lock'.
+Removing cell 'U3070' in design 'b17_C_lock'.
+Removing cell 'U3071' in design 'b17_C_lock'.
+Removing cell 'U3072' in design 'b17_C_lock'.
+Removing cell 'U3073' in design 'b17_C_lock'.
+Removing cell 'U3074' in design 'b17_C_lock'.
+Removing cell 'U3075' in design 'b17_C_lock'.
+Removing cell 'U3076' in design 'b17_C_lock'.
+Removing cell 'U3077' in design 'b17_C_lock'.
+Removing cell 'U3078' in design 'b17_C_lock'.
+Removing cell 'U3079' in design 'b17_C_lock'.
+Removing cell 'U3080' in design 'b17_C_lock'.
+Removing cell 'U3081' in design 'b17_C_lock'.
+Removing cell 'U3082' in design 'b17_C_lock'.
+Removing cell 'U3083' in design 'b17_C_lock'.
+Removing cell 'U3084' in design 'b17_C_lock'.
+Removing cell 'U3085' in design 'b17_C_lock'.
+Removing cell 'U3086' in design 'b17_C_lock'.
+Removing cell 'U3087' in design 'b17_C_lock'.
+Removing cell 'U3088' in design 'b17_C_lock'.
+Removing cell 'U3089' in design 'b17_C_lock'.
+Removing cell 'U3090' in design 'b17_C_lock'.
+Removing cell 'U3091' in design 'b17_C_lock'.
+Removing cell 'U3092' in design 'b17_C_lock'.
+Removing cell 'U3093' in design 'b17_C_lock'.
+Removing cell 'U3094' in design 'b17_C_lock'.
+Removing cell 'U3095' in design 'b17_C_lock'.
+Removing cell 'U3096' in design 'b17_C_lock'.
+Removing cell 'U3097' in design 'b17_C_lock'.
+Removing cell 'U3098' in design 'b17_C_lock'.
+Removing cell 'U3099' in design 'b17_C_lock'.
+Removing cell 'U3100' in design 'b17_C_lock'.
+Removing cell 'U3101' in design 'b17_C_lock'.
+Removing cell 'U3102' in design 'b17_C_lock'.
+Removing cell 'U3103' in design 'b17_C_lock'.
+Removing cell 'U3104' in design 'b17_C_lock'.
+Removing cell 'U3105' in design 'b17_C_lock'.
+Removing cell 'U3106' in design 'b17_C_lock'.
+Removing cell 'U3107' in design 'b17_C_lock'.
+Removing cell 'U3108' in design 'b17_C_lock'.
+Removing cell 'U3109' in design 'b17_C_lock'.
+Removing cell 'U3110' in design 'b17_C_lock'.
+Removing cell 'U3111' in design 'b17_C_lock'.
+Removing cell 'U3112' in design 'b17_C_lock'.
+Removing cell 'U3113' in design 'b17_C_lock'.
+Removing cell 'U3114' in design 'b17_C_lock'.
+Removing cell 'U3115' in design 'b17_C_lock'.
+Removing cell 'U3116' in design 'b17_C_lock'.
+Removing cell 'U3117' in design 'b17_C_lock'.
+Removing cell 'U3118' in design 'b17_C_lock'.
+Removing cell 'U3119' in design 'b17_C_lock'.
+Removing cell 'U3120' in design 'b17_C_lock'.
+Removing cell 'U3121' in design 'b17_C_lock'.
+Removing cell 'U3122' in design 'b17_C_lock'.
+Removing cell 'U3123' in design 'b17_C_lock'.
+Removing cell 'U3124' in design 'b17_C_lock'.
+Removing cell 'U3125' in design 'b17_C_lock'.
+Removing cell 'U3126' in design 'b17_C_lock'.
+Removing cell 'U3127' in design 'b17_C_lock'.
+Removing cell 'U3128' in design 'b17_C_lock'.
+Removing cell 'U3129' in design 'b17_C_lock'.
+Removing cell 'U3130' in design 'b17_C_lock'.
+Removing cell 'U3131' in design 'b17_C_lock'.
+Removing cell 'U3132' in design 'b17_C_lock'.
+Removing cell 'U3133' in design 'b17_C_lock'.
+Removing cell 'U3134' in design 'b17_C_lock'.
+Removing cell 'U3135' in design 'b17_C_lock'.
+Removing cell 'U3136' in design 'b17_C_lock'.
+Removing cell 'U3137' in design 'b17_C_lock'.
+Removing cell 'U3138' in design 'b17_C_lock'.
+Removing cell 'U3139' in design 'b17_C_lock'.
+Removing cell 'U3140' in design 'b17_C_lock'.
+Removing cell 'U3141' in design 'b17_C_lock'.
+Removing cell 'U3142' in design 'b17_C_lock'.
+Removing cell 'U3143' in design 'b17_C_lock'.
+Removing cell 'U3144' in design 'b17_C_lock'.
+Removing cell 'U3145' in design 'b17_C_lock'.
+Removing cell 'U3146' in design 'b17_C_lock'.
+Removing cell 'U3147' in design 'b17_C_lock'.
+Removing cell 'U3148' in design 'b17_C_lock'.
+Removing cell 'U3149' in design 'b17_C_lock'.
+Removing cell 'U3150' in design 'b17_C_lock'.
+Removing cell 'U3151' in design 'b17_C_lock'.
+Removing cell 'U3152' in design 'b17_C_lock'.
+Removing cell 'U3153' in design 'b17_C_lock'.
+Removing cell 'U3154' in design 'b17_C_lock'.
+Removing cell 'U3155' in design 'b17_C_lock'.
+Removing cell 'U3156' in design 'b17_C_lock'.
+Removing cell 'U3157' in design 'b17_C_lock'.
+Removing cell 'U3158' in design 'b17_C_lock'.
+Removing cell 'U3159' in design 'b17_C_lock'.
+Removing cell 'U3160' in design 'b17_C_lock'.
+Removing cell 'U3161' in design 'b17_C_lock'.
+Removing cell 'U3162' in design 'b17_C_lock'.
+Removing cell 'U3163' in design 'b17_C_lock'.
+Removing cell 'U3164' in design 'b17_C_lock'.
+Removing cell 'U3165' in design 'b17_C_lock'.
+Removing cell 'U3166' in design 'b17_C_lock'.
+Removing cell 'U3167' in design 'b17_C_lock'.
+Removing cell 'U3168' in design 'b17_C_lock'.
+Removing cell 'U3169' in design 'b17_C_lock'.
+Removing cell 'U3170' in design 'b17_C_lock'.
+Removing cell 'U3171' in design 'b17_C_lock'.
+Removing cell 'U3172' in design 'b17_C_lock'.
+Removing cell 'U3173' in design 'b17_C_lock'.
+Removing cell 'U3174' in design 'b17_C_lock'.
+Removing cell 'U3175' in design 'b17_C_lock'.
+Removing cell 'U3176' in design 'b17_C_lock'.
+Removing cell 'U3177' in design 'b17_C_lock'.
+Removing cell 'U3178' in design 'b17_C_lock'.
+Removing cell 'U3179' in design 'b17_C_lock'.
+Removing cell 'U3180' in design 'b17_C_lock'.
+Removing cell 'U3181' in design 'b17_C_lock'.
+Removing cell 'U3182' in design 'b17_C_lock'.
+Removing cell 'U3183' in design 'b17_C_lock'.
+Removing cell 'U3184' in design 'b17_C_lock'.
+Removing cell 'U3185' in design 'b17_C_lock'.
+Removing cell 'U3186' in design 'b17_C_lock'.
+Removing cell 'U3187' in design 'b17_C_lock'.
+Removing cell 'U3188' in design 'b17_C_lock'.
+Removing cell 'U3189' in design 'b17_C_lock'.
+Removing cell 'U3190' in design 'b17_C_lock'.
+Removing cell 'U3191' in design 'b17_C_lock'.
+Removing cell 'U3192' in design 'b17_C_lock'.
+Removing cell 'U3193' in design 'b17_C_lock'.
+Removing cell 'U3194' in design 'b17_C_lock'.
+Removing cell 'U3195' in design 'b17_C_lock'.
+Removing cell 'U3196' in design 'b17_C_lock'.
+Removing cell 'U3197' in design 'b17_C_lock'.
+Removing cell 'U3198' in design 'b17_C_lock'.
+Removing cell 'U3199' in design 'b17_C_lock'.
+Removing cell 'U3200' in design 'b17_C_lock'.
+Removing cell 'U3201' in design 'b17_C_lock'.
+Removing cell 'U3202' in design 'b17_C_lock'.
+Removing cell 'U3203' in design 'b17_C_lock'.
+Removing cell 'U3204' in design 'b17_C_lock'.
+Removing cell 'U3205' in design 'b17_C_lock'.
+Removing cell 'U3206' in design 'b17_C_lock'.
+Removing cell 'U3207' in design 'b17_C_lock'.
+Removing cell 'U3208' in design 'b17_C_lock'.
+Removing cell 'U3209' in design 'b17_C_lock'.
+Removing cell 'U3210' in design 'b17_C_lock'.
+Removing cell 'U3211' in design 'b17_C_lock'.
+Removing cell 'U3212' in design 'b17_C_lock'.
+Removing cell 'U3213' in design 'b17_C_lock'.
+Removing cell 'U3214' in design 'b17_C_lock'.
+Removing cell 'U3215' in design 'b17_C_lock'.
+Removing cell 'U3216' in design 'b17_C_lock'.
+Removing cell 'U3217' in design 'b17_C_lock'.
+Removing cell 'U3218' in design 'b17_C_lock'.
+Removing cell 'U3219' in design 'b17_C_lock'.
+Removing cell 'U3220' in design 'b17_C_lock'.
+Removing cell 'U3221' in design 'b17_C_lock'.
+Removing cell 'U3222' in design 'b17_C_lock'.
+Removing cell 'U3224' in design 'b17_C_lock'.
+Removing cell 'U3225' in design 'b17_C_lock'.
+Removing cell 'U3226' in design 'b17_C_lock'.
+Removing cell 'U3227' in design 'b17_C_lock'.
+Removing cell 'U3228' in design 'b17_C_lock'.
+Removing cell 'U3229' in design 'b17_C_lock'.
+Removing cell 'U3230' in design 'b17_C_lock'.
+Removing cell 'U3231' in design 'b17_C_lock'.
+Removing cell 'U3232' in design 'b17_C_lock'.
+Removing cell 'U3233' in design 'b17_C_lock'.
+Removing cell 'U3234' in design 'b17_C_lock'.
+Removing cell 'U3235' in design 'b17_C_lock'.
+Removing cell 'U3236' in design 'b17_C_lock'.
+Removing cell 'U3237' in design 'b17_C_lock'.
+Removing cell 'U3238' in design 'b17_C_lock'.
+Removing cell 'U3239' in design 'b17_C_lock'.
+Removing cell 'U3240' in design 'b17_C_lock'.
+Removing cell 'U3241' in design 'b17_C_lock'.
+Removing cell 'U3242' in design 'b17_C_lock'.
+Removing cell 'U3243' in design 'b17_C_lock'.
+Removing cell 'U3244' in design 'b17_C_lock'.
+Removing cell 'U3245' in design 'b17_C_lock'.
+Removing cell 'U3246' in design 'b17_C_lock'.
+Removing cell 'U3247' in design 'b17_C_lock'.
+Removing cell 'U3248' in design 'b17_C_lock'.
+Removing cell 'U3249' in design 'b17_C_lock'.
+Removing cell 'U3250' in design 'b17_C_lock'.
+Removing cell 'U3251' in design 'b17_C_lock'.
+Removing cell 'U3252' in design 'b17_C_lock'.
+Removing cell 'U3253' in design 'b17_C_lock'.
+Removing cell 'U3254' in design 'b17_C_lock'.
+Removing cell 'U3255' in design 'b17_C_lock'.
+Removing cell 'U3256' in design 'b17_C_lock'.
+Removing cell 'U3257' in design 'b17_C_lock'.
+Removing cell 'U3258' in design 'b17_C_lock'.
+Removing cell 'U3259' in design 'b17_C_lock'.
+Removing cell 'U3260' in design 'b17_C_lock'.
+Removing cell 'U3261' in design 'b17_C_lock'.
+Removing cell 'U3262' in design 'b17_C_lock'.
+Removing cell 'U3263' in design 'b17_C_lock'.
+Removing cell 'U3264' in design 'b17_C_lock'.
+Removing cell 'U3265' in design 'b17_C_lock'.
+Removing cell 'U3266' in design 'b17_C_lock'.
+Removing cell 'U3267' in design 'b17_C_lock'.
+Removing cell 'U3268' in design 'b17_C_lock'.
+Removing cell 'U3269' in design 'b17_C_lock'.
+Removing cell 'U3270' in design 'b17_C_lock'.
+Removing cell 'U3271' in design 'b17_C_lock'.
+Removing cell 'U3272' in design 'b17_C_lock'.
+Removing cell 'U3273' in design 'b17_C_lock'.
+Removing cell 'U3274' in design 'b17_C_lock'.
+Removing cell 'U3275' in design 'b17_C_lock'.
+Removing cell 'U3276' in design 'b17_C_lock'.
+Removing cell 'U3277' in design 'b17_C_lock'.
+Removing cell 'U3278' in design 'b17_C_lock'.
+Removing cell 'U3279' in design 'b17_C_lock'.
+Removing cell 'U3280' in design 'b17_C_lock'.
+Removing cell 'U3281' in design 'b17_C_lock'.
+Removing cell 'U3282' in design 'b17_C_lock'.
+Removing cell 'U3283' in design 'b17_C_lock'.
+Removing cell 'U3285' in design 'b17_C_lock'.
+Removing cell 'U3286' in design 'b17_C_lock'.
+Removing cell 'U3287' in design 'b17_C_lock'.
+Removing cell 'U3288' in design 'b17_C_lock'.
+Removing cell 'U3289' in design 'b17_C_lock'.
+Removing cell 'U3290' in design 'b17_C_lock'.
+Removing cell 'U3291' in design 'b17_C_lock'.
+Removing cell 'U3292' in design 'b17_C_lock'.
+Removing cell 'U3293' in design 'b17_C_lock'.
+Removing cell 'U3294' in design 'b17_C_lock'.
+Removing cell 'U3295' in design 'b17_C_lock'.
+Removing cell 'U3296' in design 'b17_C_lock'.
+Removing cell 'U3297' in design 'b17_C_lock'.
+Removing cell 'U3298' in design 'b17_C_lock'.
+Removing cell 'U3299' in design 'b17_C_lock'.
+Removing cell 'U3300' in design 'b17_C_lock'.
+Removing cell 'U3301' in design 'b17_C_lock'.
+Removing cell 'U3302' in design 'b17_C_lock'.
+Removing cell 'U3303' in design 'b17_C_lock'.
+Removing cell 'U3304' in design 'b17_C_lock'.
+Removing cell 'U3305' in design 'b17_C_lock'.
+Removing cell 'U3306' in design 'b17_C_lock'.
+Removing cell 'U3307' in design 'b17_C_lock'.
+Removing cell 'U3308' in design 'b17_C_lock'.
+Removing cell 'U3309' in design 'b17_C_lock'.
+Removing cell 'U3310' in design 'b17_C_lock'.
+Removing cell 'U3311' in design 'b17_C_lock'.
+Removing cell 'U3312' in design 'b17_C_lock'.
+Removing cell 'U3313' in design 'b17_C_lock'.
+Removing cell 'U3314' in design 'b17_C_lock'.
+Removing cell 'U3315' in design 'b17_C_lock'.
+Removing cell 'U3316' in design 'b17_C_lock'.
+Removing cell 'U3317' in design 'b17_C_lock'.
+Removing cell 'U3318' in design 'b17_C_lock'.
+Removing cell 'U3319' in design 'b17_C_lock'.
+Removing cell 'U3320' in design 'b17_C_lock'.
+Removing cell 'U3321' in design 'b17_C_lock'.
+Removing cell 'U3322' in design 'b17_C_lock'.
+Removing cell 'U3323' in design 'b17_C_lock'.
+Removing cell 'U3324' in design 'b17_C_lock'.
+Removing cell 'U3325' in design 'b17_C_lock'.
+Removing cell 'U3326' in design 'b17_C_lock'.
+Removing cell 'U3327' in design 'b17_C_lock'.
+Removing cell 'U3328' in design 'b17_C_lock'.
+Removing cell 'U3329' in design 'b17_C_lock'.
+Removing cell 'U3330' in design 'b17_C_lock'.
+Removing cell 'U3331' in design 'b17_C_lock'.
+Removing cell 'U3332' in design 'b17_C_lock'.
+Removing cell 'U3333' in design 'b17_C_lock'.
+Removing cell 'U3334' in design 'b17_C_lock'.
+Removing cell 'U3335' in design 'b17_C_lock'.
+Removing cell 'U3336' in design 'b17_C_lock'.
+Removing cell 'U3337' in design 'b17_C_lock'.
+Removing cell 'U3338' in design 'b17_C_lock'.
+Removing cell 'U3339' in design 'b17_C_lock'.
+Removing cell 'U3340' in design 'b17_C_lock'.
+Removing cell 'U3341' in design 'b17_C_lock'.
+Removing cell 'U3342' in design 'b17_C_lock'.
+Removing cell 'U3343' in design 'b17_C_lock'.
+Removing cell 'U3344' in design 'b17_C_lock'.
+Removing cell 'U3345' in design 'b17_C_lock'.
+Removing cell 'U3346' in design 'b17_C_lock'.
+Removing cell 'U3347' in design 'b17_C_lock'.
+Removing cell 'U3348' in design 'b17_C_lock'.
+Removing cell 'U3349' in design 'b17_C_lock'.
+Removing cell 'U3350' in design 'b17_C_lock'.
+Removing cell 'U3351' in design 'b17_C_lock'.
+Removing cell 'U3352' in design 'b17_C_lock'.
+Removing cell 'U3353' in design 'b17_C_lock'.
+Removing cell 'U3354' in design 'b17_C_lock'.
+Removing cell 'U3355' in design 'b17_C_lock'.
+Removing cell 'U3356' in design 'b17_C_lock'.
+Removing cell 'U3357' in design 'b17_C_lock'.
+Removing cell 'U3358' in design 'b17_C_lock'.
+Removing cell 'U3359' in design 'b17_C_lock'.
+Removing cell 'U3360' in design 'b17_C_lock'.
+Removing cell 'U3361' in design 'b17_C_lock'.
+Removing cell 'U3362' in design 'b17_C_lock'.
+Removing cell 'U3363' in design 'b17_C_lock'.
+Removing cell 'U3364' in design 'b17_C_lock'.
+Removing cell 'U3365' in design 'b17_C_lock'.
+Removing cell 'U3366' in design 'b17_C_lock'.
+Removing cell 'U3367' in design 'b17_C_lock'.
+Removing cell 'U3368' in design 'b17_C_lock'.
+Removing cell 'U3369' in design 'b17_C_lock'.
+Removing cell 'U3370' in design 'b17_C_lock'.
+Removing cell 'U3371' in design 'b17_C_lock'.
+Removing cell 'U3372' in design 'b17_C_lock'.
+Removing cell 'U3373' in design 'b17_C_lock'.
+Removing cell 'U3374' in design 'b17_C_lock'.
+Removing cell 'U3375' in design 'b17_C_lock'.
+Removing cell 'U3376' in design 'b17_C_lock'.
+Removing cell 'U3377' in design 'b17_C_lock'.
+Removing cell 'U3378' in design 'b17_C_lock'.
+Removing cell 'U3379' in design 'b17_C_lock'.
+Removing cell 'U3380' in design 'b17_C_lock'.
+Removing cell 'U3381' in design 'b17_C_lock'.
+Removing cell 'U3382' in design 'b17_C_lock'.
+Removing cell 'U3383' in design 'b17_C_lock'.
+Removing cell 'U3384' in design 'b17_C_lock'.
+Removing cell 'U3385' in design 'b17_C_lock'.
+Removing cell 'U3386' in design 'b17_C_lock'.
+Removing cell 'U3387' in design 'b17_C_lock'.
+Removing cell 'U3388' in design 'b17_C_lock'.
+Removing cell 'U3389' in design 'b17_C_lock'.
+Removing cell 'U3476' in design 'b17_C_lock'.
+set PI [get_attribute  [get_ports * -filter "direction == in"] full_name]
+READY12_REG_SCAN_IN READY21_REG_SCAN_IN P2_STATE_REG_2__SCAN_IN P2_STATE_REG_1__SCAN_IN P2_STATE_REG_0__SCAN_IN P2_STATE2_REG_3__SCAN_IN P2_STATE2_REG_2__SCAN_IN P2_STATE2_REG_1__SCAN_IN P2_STATE2_REG_0__SCAN_IN P2_INSTQUEUE_REG_15__7__SCAN_IN P2_INSTQUEUE_REG_15__6__SCAN_IN P2_INSTQUEUE_REG_15__5__SCAN_IN P2_INSTQUEUE_REG_15__4__SCAN_IN P2_INSTQUEUE_REG_15__3__SCAN_IN P2_INSTQUEUE_REG_15__2__SCAN_IN P2_INSTQUEUE_REG_15__1__SCAN_IN P2_INSTQUEUE_REG_15__0__SCAN_IN P2_INSTQUEUE_REG_14__7__SCAN_IN P2_INSTQUEUE_REG_14__6__SCAN_IN P2_INSTQUEUE_REG_14__5__SCAN_IN P2_INSTQUEUE_REG_14__4__SCAN_IN P2_INSTQUEUE_REG_14__3__SCAN_IN P2_INSTQUEUE_REG_14__2__SCAN_IN P2_INSTQUEUE_REG_14__1__SCAN_IN P2_INSTQUEUE_REG_14__0__SCAN_IN P2_INSTQUEUE_REG_13__7__SCAN_IN P2_INSTQUEUE_REG_13__6__SCAN_IN P2_INSTQUEUE_REG_13__5__SCAN_IN P2_INSTQUEUE_REG_13__4__SCAN_IN P2_INSTQUEUE_REG_13__3__SCAN_IN P2_INSTQUEUE_REG_13__2__SCAN_IN P2_INSTQUEUE_REG_13__1__SCAN_IN P2_INSTQUEUE_REG_13__0__SCAN_IN P2_INSTQUEUE_REG_12__7__SCAN_IN P2_INSTQUEUE_REG_12__6__SCAN_IN P2_INSTQUEUE_REG_12__5__SCAN_IN P2_INSTQUEUE_REG_12__4__SCAN_IN P2_INSTQUEUE_REG_12__3__SCAN_IN P2_INSTQUEUE_REG_12__2__SCAN_IN P2_INSTQUEUE_REG_12__1__SCAN_IN P2_INSTQUEUE_REG_12__0__SCAN_IN P2_INSTQUEUE_REG_11__7__SCAN_IN P2_INSTQUEUE_REG_11__6__SCAN_IN P2_INSTQUEUE_REG_11__5__SCAN_IN P2_INSTQUEUE_REG_11__4__SCAN_IN P2_INSTQUEUE_REG_11__3__SCAN_IN P2_INSTQUEUE_REG_11__2__SCAN_IN P2_INSTQUEUE_REG_11__1__SCAN_IN P2_INSTQUEUE_REG_11__0__SCAN_IN P2_INSTQUEUE_REG_10__7__SCAN_IN P2_INSTQUEUE_REG_10__6__SCAN_IN P2_INSTQUEUE_REG_10__5__SCAN_IN P2_INSTQUEUE_REG_10__4__SCAN_IN P2_INSTQUEUE_REG_10__3__SCAN_IN P2_INSTQUEUE_REG_10__2__SCAN_IN P2_INSTQUEUE_REG_10__1__SCAN_IN P2_INSTQUEUE_REG_10__0__SCAN_IN P2_INSTQUEUE_REG_9__7__SCAN_IN P2_INSTQUEUE_REG_9__6__SCAN_IN P2_INSTQUEUE_REG_9__5__SCAN_IN P2_INSTQUEUE_REG_9__4__SCAN_IN P2_INSTQUEUE_REG_9__3__SCAN_IN P2_INSTQUEUE_REG_9__2__SCAN_IN P2_INSTQUEUE_REG_9__1__SCAN_IN P2_INSTQUEUE_REG_9__0__SCAN_IN P2_INSTQUEUE_REG_8__7__SCAN_IN P2_INSTQUEUE_REG_8__6__SCAN_IN P2_INSTQUEUE_REG_8__5__SCAN_IN P2_INSTQUEUE_REG_8__4__SCAN_IN P2_INSTQUEUE_REG_8__3__SCAN_IN P2_INSTQUEUE_REG_8__2__SCAN_IN P2_INSTQUEUE_REG_8__1__SCAN_IN P2_INSTQUEUE_REG_8__0__SCAN_IN P2_INSTQUEUE_REG_7__7__SCAN_IN P2_INSTQUEUE_REG_7__6__SCAN_IN P2_INSTQUEUE_REG_7__5__SCAN_IN P2_INSTQUEUE_REG_7__4__SCAN_IN P2_INSTQUEUE_REG_7__3__SCAN_IN P2_INSTQUEUE_REG_7__2__SCAN_IN P2_INSTQUEUE_REG_7__1__SCAN_IN P2_INSTQUEUE_REG_7__0__SCAN_IN P2_INSTQUEUE_REG_6__7__SCAN_IN P2_INSTQUEUE_REG_6__6__SCAN_IN P2_INSTQUEUE_REG_6__5__SCAN_IN P2_INSTQUEUE_REG_6__4__SCAN_IN P2_INSTQUEUE_REG_6__3__SCAN_IN P2_INSTQUEUE_REG_6__2__SCAN_IN P2_INSTQUEUE_REG_6__1__SCAN_IN P2_INSTQUEUE_REG_6__0__SCAN_IN P2_INSTQUEUE_REG_5__7__SCAN_IN P2_INSTQUEUE_REG_5__6__SCAN_IN P2_INSTQUEUE_REG_5__5__SCAN_IN P2_INSTQUEUE_REG_5__4__SCAN_IN P2_INSTQUEUE_REG_5__3__SCAN_IN P2_INSTQUEUE_REG_5__2__SCAN_IN P2_INSTQUEUE_REG_5__1__SCAN_IN P2_INSTQUEUE_REG_5__0__SCAN_IN P2_INSTQUEUE_REG_4__7__SCAN_IN P2_INSTQUEUE_REG_4__6__SCAN_IN P2_INSTQUEUE_REG_4__5__SCAN_IN P2_INSTQUEUE_REG_4__4__SCAN_IN P2_INSTQUEUE_REG_4__3__SCAN_IN P2_INSTQUEUE_REG_4__2__SCAN_IN P2_INSTQUEUE_REG_4__1__SCAN_IN P2_INSTQUEUE_REG_4__0__SCAN_IN P2_INSTQUEUE_REG_3__7__SCAN_IN P2_INSTQUEUE_REG_3__6__SCAN_IN P2_INSTQUEUE_REG_3__5__SCAN_IN P2_INSTQUEUE_REG_3__4__SCAN_IN P2_INSTQUEUE_REG_3__3__SCAN_IN P2_INSTQUEUE_REG_3__2__SCAN_IN P2_INSTQUEUE_REG_3__1__SCAN_IN P2_INSTQUEUE_REG_3__0__SCAN_IN P2_INSTQUEUE_REG_2__7__SCAN_IN P2_INSTQUEUE_REG_2__6__SCAN_IN P2_INSTQUEUE_REG_2__5__SCAN_IN P2_INSTQUEUE_REG_2__4__SCAN_IN P2_INSTQUEUE_REG_2__3__SCAN_IN P2_INSTQUEUE_REG_2__2__SCAN_IN P2_INSTQUEUE_REG_2__1__SCAN_IN P2_INSTQUEUE_REG_2__0__SCAN_IN P2_INSTQUEUE_REG_1__7__SCAN_IN P2_INSTQUEUE_REG_1__6__SCAN_IN P2_INSTQUEUE_REG_1__5__SCAN_IN P2_INSTQUEUE_REG_1__4__SCAN_IN P2_INSTQUEUE_REG_1__3__SCAN_IN P2_INSTQUEUE_REG_1__2__SCAN_IN P2_INSTQUEUE_REG_1__1__SCAN_IN P2_INSTQUEUE_REG_1__0__SCAN_IN P2_INSTQUEUE_REG_0__7__SCAN_IN P2_INSTQUEUE_REG_0__6__SCAN_IN P2_INSTQUEUE_REG_0__5__SCAN_IN P2_INSTQUEUE_REG_0__4__SCAN_IN P2_INSTQUEUE_REG_0__3__SCAN_IN P2_INSTQUEUE_REG_0__2__SCAN_IN P2_INSTQUEUE_REG_0__1__SCAN_IN P2_INSTQUEUE_REG_0__0__SCAN_IN P2_INSTQUEUERD_ADDR_REG_4__SCAN_IN P2_INSTQUEUERD_ADDR_REG_3__SCAN_IN P2_INSTQUEUERD_ADDR_REG_2__SCAN_IN P2_INSTQUEUERD_ADDR_REG_1__SCAN_IN P2_INSTQUEUERD_ADDR_REG_0__SCAN_IN P2_INSTQUEUEWR_ADDR_REG_4__SCAN_IN P2_INSTQUEUEWR_ADDR_REG_3__SCAN_IN P2_INSTQUEUEWR_ADDR_REG_2__SCAN_IN P2_INSTQUEUEWR_ADDR_REG_1__SCAN_IN P2_INSTQUEUEWR_ADDR_REG_0__SCAN_IN P2_INSTADDRPOINTER_REG_0__SCAN_IN P2_INSTADDRPOINTER_REG_1__SCAN_IN P2_INSTADDRPOINTER_REG_2__SCAN_IN P2_INSTADDRPOINTER_REG_3__SCAN_IN P2_INSTADDRPOINTER_REG_4__SCAN_IN P2_INSTADDRPOINTER_REG_5__SCAN_IN P2_INSTADDRPOINTER_REG_6__SCAN_IN P2_INSTADDRPOINTER_REG_7__SCAN_IN P2_INSTADDRPOINTER_REG_8__SCAN_IN P2_INSTADDRPOINTER_REG_9__SCAN_IN P2_INSTADDRPOINTER_REG_10__SCAN_IN P2_INSTADDRPOINTER_REG_11__SCAN_IN P2_INSTADDRPOINTER_REG_12__SCAN_IN P2_INSTADDRPOINTER_REG_13__SCAN_IN P2_INSTADDRPOINTER_REG_14__SCAN_IN P2_INSTADDRPOINTER_REG_15__SCAN_IN P2_INSTADDRPOINTER_REG_16__SCAN_IN P2_INSTADDRPOINTER_REG_17__SCAN_IN P2_INSTADDRPOINTER_REG_18__SCAN_IN P2_INSTADDRPOINTER_REG_19__SCAN_IN P2_INSTADDRPOINTER_REG_20__SCAN_IN P2_INSTADDRPOINTER_REG_21__SCAN_IN P2_INSTADDRPOINTER_REG_22__SCAN_IN P2_INSTADDRPOINTER_REG_23__SCAN_IN P2_INSTADDRPOINTER_REG_24__SCAN_IN P2_INSTADDRPOINTER_REG_25__SCAN_IN P2_INSTADDRPOINTER_REG_26__SCAN_IN P2_INSTADDRPOINTER_REG_27__SCAN_IN P2_INSTADDRPOINTER_REG_28__SCAN_IN P2_INSTADDRPOINTER_REG_29__SCAN_IN P2_INSTADDRPOINTER_REG_30__SCAN_IN P2_INSTADDRPOINTER_REG_31__SCAN_IN P2_PHYADDRPOINTER_REG_0__SCAN_IN P2_PHYADDRPOINTER_REG_1__SCAN_IN P2_PHYADDRPOINTER_REG_2__SCAN_IN P2_PHYADDRPOINTER_REG_3__SCAN_IN P2_PHYADDRPOINTER_REG_4__SCAN_IN P2_PHYADDRPOINTER_REG_5__SCAN_IN P2_PHYADDRPOINTER_REG_6__SCAN_IN P2_PHYADDRPOINTER_REG_7__SCAN_IN P2_PHYADDRPOINTER_REG_8__SCAN_IN P2_PHYADDRPOINTER_REG_9__SCAN_IN P2_PHYADDRPOINTER_REG_10__SCAN_IN P2_PHYADDRPOINTER_REG_11__SCAN_IN P2_PHYADDRPOINTER_REG_12__SCAN_IN P2_PHYADDRPOINTER_REG_13__SCAN_IN P2_PHYADDRPOINTER_REG_14__SCAN_IN P2_PHYADDRPOINTER_REG_15__SCAN_IN P2_PHYADDRPOINTER_REG_16__SCAN_IN P2_PHYADDRPOINTER_REG_17__SCAN_IN P2_PHYADDRPOINTER_REG_18__SCAN_IN P2_PHYADDRPOINTER_REG_19__SCAN_IN P2_PHYADDRPOINTER_REG_20__SCAN_IN P2_PHYADDRPOINTER_REG_21__SCAN_IN P2_PHYADDRPOINTER_REG_22__SCAN_IN P2_PHYADDRPOINTER_REG_23__SCAN_IN P2_PHYADDRPOINTER_REG_24__SCAN_IN P2_PHYADDRPOINTER_REG_25__SCAN_IN P2_PHYADDRPOINTER_REG_26__SCAN_IN P2_PHYADDRPOINTER_REG_27__SCAN_IN P2_PHYADDRPOINTER_REG_28__SCAN_IN P2_PHYADDRPOINTER_REG_29__SCAN_IN P2_PHYADDRPOINTER_REG_30__SCAN_IN P2_PHYADDRPOINTER_REG_31__SCAN_IN P2_EAX_REG_0__SCAN_IN P2_EAX_REG_1__SCAN_IN P2_EAX_REG_2__SCAN_IN P2_EAX_REG_3__SCAN_IN P2_EAX_REG_4__SCAN_IN P2_EAX_REG_5__SCAN_IN P2_EAX_REG_6__SCAN_IN P2_EAX_REG_7__SCAN_IN P2_EAX_REG_8__SCAN_IN P2_EAX_REG_9__SCAN_IN P2_EAX_REG_10__SCAN_IN P2_EAX_REG_11__SCAN_IN P2_EAX_REG_12__SCAN_IN P2_EAX_REG_13__SCAN_IN P2_EAX_REG_14__SCAN_IN P2_EAX_REG_15__SCAN_IN P2_EAX_REG_16__SCAN_IN P2_EAX_REG_17__SCAN_IN P2_EAX_REG_18__SCAN_IN P2_EAX_REG_19__SCAN_IN P2_EAX_REG_20__SCAN_IN P2_EAX_REG_21__SCAN_IN P2_EAX_REG_22__SCAN_IN P2_EAX_REG_23__SCAN_IN P2_EAX_REG_24__SCAN_IN P2_EAX_REG_25__SCAN_IN P2_EAX_REG_26__SCAN_IN P2_EAX_REG_27__SCAN_IN P2_EAX_REG_28__SCAN_IN P2_EAX_REG_29__SCAN_IN P2_EAX_REG_30__SCAN_IN P2_EAX_REG_31__SCAN_IN P2_EBX_REG_0__SCAN_IN P2_EBX_REG_1__SCAN_IN P2_EBX_REG_2__SCAN_IN P2_EBX_REG_3__SCAN_IN P2_EBX_REG_4__SCAN_IN P2_EBX_REG_5__SCAN_IN P2_EBX_REG_6__SCAN_IN P2_EBX_REG_7__SCAN_IN P2_EBX_REG_8__SCAN_IN P2_EBX_REG_9__SCAN_IN P2_EBX_REG_10__SCAN_IN P2_EBX_REG_11__SCAN_IN P2_EBX_REG_12__SCAN_IN P2_EBX_REG_13__SCAN_IN P2_EBX_REG_14__SCAN_IN P2_EBX_REG_15__SCAN_IN P2_EBX_REG_16__SCAN_IN P2_EBX_REG_17__SCAN_IN P2_EBX_REG_18__SCAN_IN P2_EBX_REG_19__SCAN_IN P2_EBX_REG_20__SCAN_IN P2_EBX_REG_21__SCAN_IN P2_EBX_REG_22__SCAN_IN P2_EBX_REG_23__SCAN_IN P2_EBX_REG_24__SCAN_IN P2_EBX_REG_25__SCAN_IN P2_EBX_REG_26__SCAN_IN P2_EBX_REG_27__SCAN_IN P2_EBX_REG_28__SCAN_IN P2_EBX_REG_29__SCAN_IN P2_EBX_REG_30__SCAN_IN P2_EBX_REG_31__SCAN_IN P2_REIP_REG_0__SCAN_IN P2_REIP_REG_1__SCAN_IN P2_REIP_REG_2__SCAN_IN P2_REIP_REG_3__SCAN_IN P2_REIP_REG_4__SCAN_IN P2_REIP_REG_5__SCAN_IN P2_REIP_REG_6__SCAN_IN P2_REIP_REG_7__SCAN_IN P2_REIP_REG_8__SCAN_IN P2_REIP_REG_9__SCAN_IN P2_REIP_REG_10__SCAN_IN P2_REIP_REG_11__SCAN_IN P2_REIP_REG_12__SCAN_IN P2_REIP_REG_13__SCAN_IN P2_REIP_REG_14__SCAN_IN P2_REIP_REG_15__SCAN_IN P2_REIP_REG_16__SCAN_IN P2_REIP_REG_17__SCAN_IN P2_REIP_REG_18__SCAN_IN P2_REIP_REG_19__SCAN_IN P2_REIP_REG_20__SCAN_IN P2_REIP_REG_21__SCAN_IN P2_REIP_REG_22__SCAN_IN P2_REIP_REG_23__SCAN_IN P2_REIP_REG_24__SCAN_IN P2_REIP_REG_25__SCAN_IN P2_REIP_REG_26__SCAN_IN P2_REIP_REG_27__SCAN_IN P2_REIP_REG_28__SCAN_IN P2_REIP_REG_29__SCAN_IN P2_REIP_REG_30__SCAN_IN P2_REIP_REG_31__SCAN_IN P2_FLUSH_REG_SCAN_IN
+foreach p $PI {
+    set len [sizeof_collection  [all_connected $p]]
+    echo $len
+    if {$len < 2} {
+        echo $p
+        remove_port $p
+    }
+}
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+P2_INSTQUEUE_REG_7__0__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_7__0__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_6__7__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_6__7__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_6__6__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_6__6__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_6__5__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_6__5__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_6__4__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_6__4__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_6__3__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_6__3__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_6__2__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_6__2__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_6__1__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_6__1__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_6__0__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_6__0__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_5__7__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_5__7__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_5__6__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_5__6__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_5__5__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_5__5__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_5__4__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_5__4__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_5__3__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_5__3__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_5__2__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_5__2__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_5__1__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_5__1__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_5__0__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_5__0__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_4__7__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_4__7__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_4__6__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_4__6__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_4__5__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_4__5__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_4__4__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_4__4__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_4__3__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_4__3__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_4__2__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_4__2__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_4__1__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_4__1__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_4__0__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_4__0__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_3__7__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_3__7__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_3__6__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_3__6__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_3__5__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_3__5__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_3__4__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_3__4__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_3__3__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_3__3__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_3__2__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_3__2__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_3__1__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_3__1__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_3__0__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_3__0__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_2__7__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_2__7__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_2__6__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_2__6__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_2__5__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_2__5__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_2__4__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_2__4__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_2__3__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_2__3__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_2__2__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_2__2__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_2__1__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_2__1__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_2__0__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_2__0__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_1__7__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_1__7__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_1__6__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_1__6__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_1__5__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_1__5__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_1__4__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_1__4__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_1__3__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_1__3__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_1__2__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_1__2__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_1__1__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_1__1__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_1__0__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_1__0__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_0__7__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_0__7__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_0__6__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_0__6__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_0__5__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_0__5__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_0__4__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_0__4__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_0__3__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_0__3__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_0__2__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_0__2__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_0__1__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_0__1__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUE_REG_0__0__SCAN_IN
+Removing port 'P2_INSTQUEUE_REG_0__0__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUERD_ADDR_REG_4__SCAN_IN
+Removing port 'P2_INSTQUEUERD_ADDR_REG_4__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUERD_ADDR_REG_3__SCAN_IN
+Removing port 'P2_INSTQUEUERD_ADDR_REG_3__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUERD_ADDR_REG_2__SCAN_IN
+Removing port 'P2_INSTQUEUERD_ADDR_REG_2__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUERD_ADDR_REG_1__SCAN_IN
+Removing port 'P2_INSTQUEUERD_ADDR_REG_1__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUERD_ADDR_REG_0__SCAN_IN
+Removing port 'P2_INSTQUEUERD_ADDR_REG_0__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUEWR_ADDR_REG_4__SCAN_IN
+Removing port 'P2_INSTQUEUEWR_ADDR_REG_4__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUEWR_ADDR_REG_3__SCAN_IN
+Removing port 'P2_INSTQUEUEWR_ADDR_REG_3__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUEWR_ADDR_REG_2__SCAN_IN
+Removing port 'P2_INSTQUEUEWR_ADDR_REG_2__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUEWR_ADDR_REG_1__SCAN_IN
+Removing port 'P2_INSTQUEUEWR_ADDR_REG_1__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTQUEUEWR_ADDR_REG_0__SCAN_IN
+Removing port 'P2_INSTQUEUEWR_ADDR_REG_0__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_0__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_0__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_1__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_1__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_2__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_2__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_3__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_3__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_4__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_4__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_5__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_5__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_6__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_6__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_7__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_7__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_8__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_8__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_9__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_9__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_10__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_10__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_11__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_11__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_12__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_12__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_13__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_13__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_14__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_14__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_15__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_15__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_16__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_16__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_17__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_17__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_18__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_18__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_19__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_19__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_20__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_20__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_21__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_21__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_22__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_22__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_23__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_23__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_24__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_24__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_25__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_25__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_26__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_26__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_27__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_27__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_28__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_28__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_29__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_29__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_30__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_30__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_INSTADDRPOINTER_REG_31__SCAN_IN
+Removing port 'P2_INSTADDRPOINTER_REG_31__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_0__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_0__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_1__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_1__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_2__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_2__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_3__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_3__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_4__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_4__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_5__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_5__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_6__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_6__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_7__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_7__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_8__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_8__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_9__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_9__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_10__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_10__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_11__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_11__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_12__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_12__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_13__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_13__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_14__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_14__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_15__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_15__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_16__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_16__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_17__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_17__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_18__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_18__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_19__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_19__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_20__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_20__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_21__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_21__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_22__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_22__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_23__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_23__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_24__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_24__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_25__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_25__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_26__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_26__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_27__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_27__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_28__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_28__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_29__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_29__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_30__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_30__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_PHYADDRPOINTER_REG_31__SCAN_IN
+Removing port 'P2_PHYADDRPOINTER_REG_31__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_0__SCAN_IN
+Removing port 'P2_EAX_REG_0__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_1__SCAN_IN
+Removing port 'P2_EAX_REG_1__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_2__SCAN_IN
+Removing port 'P2_EAX_REG_2__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_3__SCAN_IN
+Removing port 'P2_EAX_REG_3__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_4__SCAN_IN
+Removing port 'P2_EAX_REG_4__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_5__SCAN_IN
+Removing port 'P2_EAX_REG_5__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_6__SCAN_IN
+Removing port 'P2_EAX_REG_6__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_7__SCAN_IN
+Removing port 'P2_EAX_REG_7__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_8__SCAN_IN
+Removing port 'P2_EAX_REG_8__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_9__SCAN_IN
+Removing port 'P2_EAX_REG_9__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_10__SCAN_IN
+Removing port 'P2_EAX_REG_10__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_11__SCAN_IN
+Removing port 'P2_EAX_REG_11__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_12__SCAN_IN
+Removing port 'P2_EAX_REG_12__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_13__SCAN_IN
+Removing port 'P2_EAX_REG_13__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_14__SCAN_IN
+Removing port 'P2_EAX_REG_14__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_15__SCAN_IN
+Removing port 'P2_EAX_REG_15__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_16__SCAN_IN
+Removing port 'P2_EAX_REG_16__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_17__SCAN_IN
+Removing port 'P2_EAX_REG_17__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_18__SCAN_IN
+Removing port 'P2_EAX_REG_18__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_19__SCAN_IN
+Removing port 'P2_EAX_REG_19__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_20__SCAN_IN
+Removing port 'P2_EAX_REG_20__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_21__SCAN_IN
+Removing port 'P2_EAX_REG_21__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_22__SCAN_IN
+Removing port 'P2_EAX_REG_22__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_23__SCAN_IN
+Removing port 'P2_EAX_REG_23__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_24__SCAN_IN
+Removing port 'P2_EAX_REG_24__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_25__SCAN_IN
+Removing port 'P2_EAX_REG_25__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_26__SCAN_IN
+Removing port 'P2_EAX_REG_26__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_27__SCAN_IN
+Removing port 'P2_EAX_REG_27__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_28__SCAN_IN
+Removing port 'P2_EAX_REG_28__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_29__SCAN_IN
+Removing port 'P2_EAX_REG_29__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_30__SCAN_IN
+Removing port 'P2_EAX_REG_30__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EAX_REG_31__SCAN_IN
+Removing port 'P2_EAX_REG_31__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_0__SCAN_IN
+Removing port 'P2_EBX_REG_0__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_1__SCAN_IN
+Removing port 'P2_EBX_REG_1__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_2__SCAN_IN
+Removing port 'P2_EBX_REG_2__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_3__SCAN_IN
+Removing port 'P2_EBX_REG_3__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_4__SCAN_IN
+Removing port 'P2_EBX_REG_4__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_5__SCAN_IN
+Removing port 'P2_EBX_REG_5__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_6__SCAN_IN
+Removing port 'P2_EBX_REG_6__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_7__SCAN_IN
+Removing port 'P2_EBX_REG_7__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_8__SCAN_IN
+Removing port 'P2_EBX_REG_8__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_9__SCAN_IN
+Removing port 'P2_EBX_REG_9__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_10__SCAN_IN
+Removing port 'P2_EBX_REG_10__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_11__SCAN_IN
+Removing port 'P2_EBX_REG_11__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_12__SCAN_IN
+Removing port 'P2_EBX_REG_12__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_13__SCAN_IN
+Removing port 'P2_EBX_REG_13__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_14__SCAN_IN
+Removing port 'P2_EBX_REG_14__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_15__SCAN_IN
+Removing port 'P2_EBX_REG_15__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_16__SCAN_IN
+Removing port 'P2_EBX_REG_16__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_17__SCAN_IN
+Removing port 'P2_EBX_REG_17__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_18__SCAN_IN
+Removing port 'P2_EBX_REG_18__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_19__SCAN_IN
+Removing port 'P2_EBX_REG_19__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_20__SCAN_IN
+Removing port 'P2_EBX_REG_20__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_21__SCAN_IN
+Removing port 'P2_EBX_REG_21__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_22__SCAN_IN
+Removing port 'P2_EBX_REG_22__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_23__SCAN_IN
+Removing port 'P2_EBX_REG_23__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_24__SCAN_IN
+Removing port 'P2_EBX_REG_24__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_25__SCAN_IN
+Removing port 'P2_EBX_REG_25__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_26__SCAN_IN
+Removing port 'P2_EBX_REG_26__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_27__SCAN_IN
+Removing port 'P2_EBX_REG_27__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_28__SCAN_IN
+Removing port 'P2_EBX_REG_28__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_29__SCAN_IN
+Removing port 'P2_EBX_REG_29__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_30__SCAN_IN
+Removing port 'P2_EBX_REG_30__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_EBX_REG_31__SCAN_IN
+Removing port 'P2_EBX_REG_31__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_0__SCAN_IN
+Removing port 'P2_REIP_REG_0__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_1__SCAN_IN
+Removing port 'P2_REIP_REG_1__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_2__SCAN_IN
+Removing port 'P2_REIP_REG_2__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_3__SCAN_IN
+Removing port 'P2_REIP_REG_3__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_4__SCAN_IN
+Removing port 'P2_REIP_REG_4__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_5__SCAN_IN
+Removing port 'P2_REIP_REG_5__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_6__SCAN_IN
+Removing port 'P2_REIP_REG_6__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_7__SCAN_IN
+Removing port 'P2_REIP_REG_7__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_8__SCAN_IN
+Removing port 'P2_REIP_REG_8__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_9__SCAN_IN
+Removing port 'P2_REIP_REG_9__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_10__SCAN_IN
+Removing port 'P2_REIP_REG_10__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_11__SCAN_IN
+Removing port 'P2_REIP_REG_11__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_12__SCAN_IN
+Removing port 'P2_REIP_REG_12__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_13__SCAN_IN
+Removing port 'P2_REIP_REG_13__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_14__SCAN_IN
+Removing port 'P2_REIP_REG_14__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_15__SCAN_IN
+Removing port 'P2_REIP_REG_15__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_16__SCAN_IN
+Removing port 'P2_REIP_REG_16__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_17__SCAN_IN
+Removing port 'P2_REIP_REG_17__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_18__SCAN_IN
+Removing port 'P2_REIP_REG_18__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_19__SCAN_IN
+Removing port 'P2_REIP_REG_19__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_20__SCAN_IN
+Removing port 'P2_REIP_REG_20__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_21__SCAN_IN
+Removing port 'P2_REIP_REG_21__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_22__SCAN_IN
+Removing port 'P2_REIP_REG_22__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_23__SCAN_IN
+Removing port 'P2_REIP_REG_23__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_24__SCAN_IN
+Removing port 'P2_REIP_REG_24__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_25__SCAN_IN
+Removing port 'P2_REIP_REG_25__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_26__SCAN_IN
+Removing port 'P2_REIP_REG_26__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_27__SCAN_IN
+Removing port 'P2_REIP_REG_27__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_28__SCAN_IN
+Removing port 'P2_REIP_REG_28__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_29__SCAN_IN
+Removing port 'P2_REIP_REG_29__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_REIP_REG_30__SCAN_IN
+Removing port 'P2_REIP_REG_30__SCAN_IN' in design 'b17_C_lock'.
+1
+P2_REIP_REG_31__SCAN_IN
+Removing port 'P2_REIP_REG_31__SCAN_IN' in design 'b17_C_lock'.
+0
+P2_FLUSH_REG_SCAN_IN
+Removing port 'P2_FLUSH_REG_SCAN_IN' in design 'b17_C_lock'.
+write -format verilog -hierarchy -output ../Results/$design/CASlock_${design}_${flipsignal}_${lib}.v
+Writing verilog file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS-SAT_attack/Attack/Results/b17_C/CASlock_b17_C_n2243_2ip.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+exit
+
+Thank you...
+  OR2_X1 U2271 ( .A1(P2_INSTQUEUE_REG_7__1__SCAN_IN), .A2(n3471), .ZN(n2243)         );
+  INV_X1 U3223 ( .A(P2_STATE_REG_1__SCAN_IN), .ZN(n3390) );
+  NOR2_X1 U3284 ( .A1(P2_STATE2_REG_0__SCAN_IN), .A2(P2_STATE2_REG_3__SCAN_IN),         .ZN(n3387) );
+  NAND2_X1 U3390 ( .A1(P2_INSTQUEUE_REG_9__0__SCAN_IN), .A2(        P2_INSTQUEUE_REG_9__1__SCAN_IN), .ZN(n3453) );
+  NOR2_X1 U3391 ( .A1(P2_INSTQUEUE_REG_10__6__SCAN_IN), .A2(        P2_INSTQUEUE_REG_10__5__SCAN_IN), .ZN(n3438) );
+  INV_X1 U3392 ( .A(P2_INSTQUEUE_REG_11__2__SCAN_IN), .ZN(n3436) );
+  NOR2_X1 U3393 ( .A1(P2_INSTQUEUE_REG_12__1__SCAN_IN), .A2(        P2_INSTQUEUE_REG_11__7__SCAN_IN), .ZN(n3384) );
+  NAND2_X1 U3394 ( .A1(P2_INSTQUEUE_REG_12__3__SCAN_IN), .A2(n3384), .ZN(n3427) );
+  INV_X1 U3395 ( .A(P2_INSTQUEUE_REG_12__5__SCAN_IN), .ZN(n3424) );
+  INV_X1 U3396 ( .A(P2_INSTQUEUE_REG_14__5__SCAN_IN), .ZN(n3406) );
+  NOR2_X1 U3397 ( .A1(P2_INSTQUEUE_REG_15__6__SCAN_IN), .A2(        P2_INSTQUEUE_REG_15__5__SCAN_IN), .ZN(n3386) );
+  NOR2_X1 U3398 ( .A1(P2_INSTQUEUE_REG_15__0__SCAN_IN), .A2(        P2_INSTQUEUE_REG_14__6__SCAN_IN), .ZN(n3385) );
+  NAND2_X1 U3399 ( .A1(n3386), .A2(n3385), .ZN(n3401) );
+  NAND2_X1 U3400 ( .A1(P2_STATE2_REG_1__SCAN_IN), .A2(n3387), .ZN(n3393) );
+  NAND2_X1 U3401 ( .A1(READY12_REG_SCAN_IN), .A2(P2_STATE_REG_2__SCAN_IN),         .ZN(n3388) );
+  NOR2_X1 U3402 ( .A1(READY21_REG_SCAN_IN), .A2(n3388), .ZN(n3389) );
+  NOR2_X1 U3403 ( .A1(n3390), .A2(n3389), .ZN(n3391) );
+  NOR2_X1 U3404 ( .A1(P2_STATE_REG_0__SCAN_IN), .A2(n3391), .ZN(n3392) );
+  NOR2_X1 U3405 ( .A1(n3393), .A2(n3392), .ZN(n3394) );
+  NAND2_X1 U3406 ( .A1(n3394), .A2(P2_STATE2_REG_2__SCAN_IN), .ZN(n3396) );
+  INV_X1 U3407 ( .A(P2_INSTQUEUE_REG_15__7__SCAN_IN), .ZN(n3395) );
+  NAND2_X1 U3408 ( .A1(n3396), .A2(n3395), .ZN(n3399) );
+  INV_X1 U3409 ( .A(P2_INSTQUEUE_REG_15__2__SCAN_IN), .ZN(n3397) );
+  NOR2_X1 U3410 ( .A1(P2_INSTQUEUE_REG_15__3__SCAN_IN), .A2(n3397), .ZN(n3398)         );
+  NAND2_X1 U3411 ( .A1(n3399), .A2(n3398), .ZN(n3400) );
+  NOR2_X1 U3412 ( .A1(n3401), .A2(n3400), .ZN(n3403) );
+  NOR2_X1 U3413 ( .A1(P2_INSTQUEUE_REG_14__7__SCAN_IN), .A2(        P2_INSTQUEUE_REG_15__1__SCAN_IN), .ZN(n3402) );
+  NAND2_X1 U3414 ( .A1(n3403), .A2(n3402), .ZN(n3404) );
+  NOR2_X1 U3415 ( .A1(P2_INSTQUEUE_REG_15__4__SCAN_IN), .A2(n3404), .ZN(n3405)         );
+  NOR2_X1 U3416 ( .A1(n3406), .A2(n3405), .ZN(n3408) );
+  NAND2_X1 U3417 ( .A1(P2_INSTQUEUE_REG_14__4__SCAN_IN), .A2(        P2_INSTQUEUE_REG_14__1__SCAN_IN), .ZN(n3407) );
+  NOR2_X1 U3418 ( .A1(n3408), .A2(n3407), .ZN(n3409) );
+  NAND2_X1 U3419 ( .A1(P2_INSTQUEUE_REG_14__3__SCAN_IN), .A2(n3409), .ZN(n3410) );
+  NOR2_X1 U3420 ( .A1(P2_INSTQUEUE_REG_14__2__SCAN_IN), .A2(n3410), .ZN(n3411)         );
+  NOR2_X1 U3421 ( .A1(P2_INSTQUEUE_REG_13__7__SCAN_IN), .A2(n3411), .ZN(n3412)         );
+  NAND2_X1 U3422 ( .A1(P2_INSTQUEUE_REG_14__0__SCAN_IN), .A2(n3412), .ZN(n3413) );
+  NAND2_X1 U3423 ( .A1(n3413), .A2(P2_INSTQUEUE_REG_13__6__SCAN_IN), .ZN(n3415) );
+  NOR2_X1 U3424 ( .A1(P2_INSTQUEUE_REG_13__4__SCAN_IN), .A2(        P2_INSTQUEUE_REG_13__5__SCAN_IN), .ZN(n3414) );
+  NAND2_X1 U3425 ( .A1(n3415), .A2(n3414), .ZN(n3416) );
+  NAND2_X1 U3426 ( .A1(n3416), .A2(P2_INSTQUEUE_REG_13__3__SCAN_IN), .ZN(n3417) );
+  NAND2_X1 U3427 ( .A1(n3417), .A2(P2_INSTQUEUE_REG_13__2__SCAN_IN), .ZN(n3419) );
+  INV_X1 U3428 ( .A(P2_INSTQUEUE_REG_13__1__SCAN_IN), .ZN(n3418) );
+  NAND2_X1 U3429 ( .A1(n3419), .A2(n3418), .ZN(n3420) );
+  NAND2_X1 U3430 ( .A1(P2_INSTQUEUE_REG_13__0__SCAN_IN), .A2(n3420), .ZN(n3421) );
+  NAND2_X1 U3431 ( .A1(P2_INSTQUEUE_REG_12__7__SCAN_IN), .A2(n3421), .ZN(n3422) );
+  NOR2_X1 U3432 ( .A1(P2_INSTQUEUE_REG_12__6__SCAN_IN), .A2(n3422), .ZN(n3423)         );
+  NOR2_X1 U3433 ( .A1(n3424), .A2(n3423), .ZN(n3425) );
+  NOR2_X1 U3434 ( .A1(P2_INSTQUEUE_REG_12__4__SCAN_IN), .A2(n3425), .ZN(n3426)         );
+  NOR2_X1 U3435 ( .A1(n3427), .A2(n3426), .ZN(n3428) );
+  NAND2_X1 U3436 ( .A1(P2_INSTQUEUE_REG_12__0__SCAN_IN), .A2(n3428), .ZN(n3429) );
+  NOR2_X1 U3437 ( .A1(P2_INSTQUEUE_REG_12__2__SCAN_IN), .A2(n3429), .ZN(n3430)         );
+  NOR2_X1 U3438 ( .A1(P2_INSTQUEUE_REG_11__5__SCAN_IN), .A2(n3430), .ZN(n3431)         );
+  NAND2_X1 U3439 ( .A1(n3431), .A2(P2_INSTQUEUE_REG_11__6__SCAN_IN), .ZN(n3433) );
+  INV_X1 U3440 ( .A(P2_INSTQUEUE_REG_11__4__SCAN_IN), .ZN(n3432) );
+  NAND2_X1 U3441 ( .A1(n3433), .A2(n3432), .ZN(n3434) );
+  NAND2_X1 U3442 ( .A1(n3434), .A2(P2_INSTQUEUE_REG_11__3__SCAN_IN), .ZN(n3435) );
+  NAND2_X1 U3443 ( .A1(n3436), .A2(n3435), .ZN(n3437) );
+  NAND2_X1 U3444 ( .A1(n3438), .A2(n3437), .ZN(n3441) );
+  NOR2_X1 U3445 ( .A1(P2_INSTQUEUE_REG_11__1__SCAN_IN), .A2(        P2_INSTQUEUE_REG_11__0__SCAN_IN), .ZN(n3439) );
+  NAND2_X1 U3446 ( .A1(P2_INSTQUEUE_REG_10__7__SCAN_IN), .A2(n3439), .ZN(n3440) );
+  NOR2_X1 U3447 ( .A1(n3441), .A2(n3440), .ZN(n3442) );
+  NOR2_X1 U3448 ( .A1(P2_INSTQUEUE_REG_10__4__SCAN_IN), .A2(n3442), .ZN(n3443)         );
+  NOR2_X1 U3449 ( .A1(P2_INSTQUEUE_REG_10__3__SCAN_IN), .A2(n3443), .ZN(n3444)         );
+  NOR2_X1 U3450 ( .A1(P2_INSTQUEUE_REG_10__2__SCAN_IN), .A2(n3444), .ZN(n3445)         );
+  NOR2_X1 U3451 ( .A1(P2_INSTQUEUE_REG_10__0__SCAN_IN), .A2(n3445), .ZN(n3446)         );
+  NAND2_X1 U3452 ( .A1(P2_INSTQUEUE_REG_10__1__SCAN_IN), .A2(n3446), .ZN(n3447) );
+  NAND2_X1 U3453 ( .A1(n3447), .A2(P2_INSTQUEUE_REG_9__7__SCAN_IN), .ZN(n3449)         );
+  NOR2_X1 U3454 ( .A1(P2_INSTQUEUE_REG_9__4__SCAN_IN), .A2(        P2_INSTQUEUE_REG_9__6__SCAN_IN), .ZN(n3448) );
+  NAND2_X1 U3455 ( .A1(n3449), .A2(n3448), .ZN(n3451) );
+  NAND2_X1 U3456 ( .A1(P2_INSTQUEUE_REG_9__3__SCAN_IN), .A2(        P2_INSTQUEUE_REG_9__5__SCAN_IN), .ZN(n3450) );
+  NOR2_X1 U3457 ( .A1(n3451), .A2(n3450), .ZN(n3452) );
+  NOR2_X1 U3458 ( .A1(n3453), .A2(n3452), .ZN(n3456) );
+  INV_X1 U3459 ( .A(P2_INSTQUEUE_REG_9__2__SCAN_IN), .ZN(n3454) );
+  NOR2_X1 U3460 ( .A1(n3454), .A2(P2_INSTQUEUE_REG_8__7__SCAN_IN), .ZN(n3455)         );
+  NAND2_X1 U3461 ( .A1(n3456), .A2(n3455), .ZN(n3457) );
+  NAND2_X1 U3462 ( .A1(P2_INSTQUEUE_REG_8__6__SCAN_IN), .A2(n3457), .ZN(n3459)         );
+  NOR2_X1 U3463 ( .A1(P2_INSTQUEUE_REG_8__4__SCAN_IN), .A2(        P2_INSTQUEUE_REG_8__5__SCAN_IN), .ZN(n3458) );
+  NAND2_X1 U3464 ( .A1(n3459), .A2(n3458), .ZN(n3462) );
+  NAND2_X1 U3465 ( .A1(P2_INSTQUEUE_REG_8__1__SCAN_IN), .A2(        P2_INSTQUEUE_REG_8__2__SCAN_IN), .ZN(n3460) );
+  NOR2_X1 U3466 ( .A1(P2_INSTQUEUE_REG_8__3__SCAN_IN), .A2(n3460), .ZN(n3461)         );
+  NAND2_X1 U3467 ( .A1(n3462), .A2(n3461), .ZN(n3464) );
+  INV_X1 U3468 ( .A(P2_INSTQUEUE_REG_8__0__SCAN_IN), .ZN(n3463) );
+  NAND2_X1 U3469 ( .A1(n3464), .A2(n3463), .ZN(n3465) );
+  NAND2_X1 U3470 ( .A1(n3465), .A2(P2_INSTQUEUE_REG_7__6__SCAN_IN), .ZN(n3466)         );
+  NOR2_X1 U3471 ( .A1(P2_INSTQUEUE_REG_7__7__SCAN_IN), .A2(n3466), .ZN(n3467)         );
+  NOR2_X1 U3472 ( .A1(P2_INSTQUEUE_REG_7__5__SCAN_IN), .A2(n3467), .ZN(n3468)         );
+  NOR2_X1 U3473 ( .A1(n3468), .A2(P2_INSTQUEUE_REG_7__3__SCAN_IN), .ZN(n3469)         );
+  NAND2_X1 U3474 ( .A1(P2_INSTQUEUE_REG_7__4__SCAN_IN), .A2(n3469), .ZN(n3470)         );
+  NAND2_X1 U3475 ( .A1(P2_INSTQUEUE_REG_7__2__SCAN_IN), .A2(n3470), .ZN(n3471)         );
+inputs=80 keys=160 outputs=1 gates=320
+iteration: 1; vars: 2320; clauses: 5428; decisions: 0
+UNSAT model!
+finished solver loop. fail_count = -1
+key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+iteration=1; backbones_count=0; cube_count=3192; cpu_time=0.009997; maxrss=2.95312
+inputs=80 keys=160 outputs=1 gates=320
+iteration: 1; vars: 2320; clauses: 2017; decisions: 397
+iteration: 2; vars: 2958; clauses: 3611; decisions: 1423
+iteration: 3; vars: 3596; clauses: 2285; decisions: 2458
+iteration: 4; vars: 4234; clauses: 3877; decisions: 3097
+iteration: 5; vars: 4872; clauses: 1600; decisions: 3732
+iteration: 6; vars: 5510; clauses: 3180; decisions: 4275
+iteration: 7; vars: 6148; clauses: 1548; decisions: 4666
+iteration: 8; vars: 6786; clauses: 3116; decisions: 5059
+iteration: 9; vars: 7424; clauses: 1538; decisions: 5450
+iteration: 10; vars: 8062; clauses: 3096; decisions: 5836
+iteration: 11; vars: 8700; clauses: 1518; decisions: 6220
+iteration: 12; vars: 9338; clauses: 3080; decisions: 6603
+iteration: 13; vars: 9976; clauses: 1509; decisions: 6985
+iteration: 14; vars: 10614; clauses: 1491; decisions: 7359
+iteration: 15; vars: 11252; clauses: 3035; decisions: 7735
+iteration: 16; vars: 11890; clauses: 1548; decisions: 8109
+iteration: 17; vars: 12528; clauses: 3092; decisions: 8485
+iteration: 18; vars: 13166; clauses: 1605; decisions: 8858
+iteration: 19; vars: 13804; clauses: 3149; decisions: 9230
+iteration: 20; vars: 14442; clauses: 1611; decisions: 9602
+iteration: 21; vars: 15080; clauses: 3155; decisions: 10448
+iteration: 22; vars: 15718; clauses: 1562; decisions: 10818
+iteration: 23; vars: 16356; clauses: 3084; decisions: 11188
+iteration: 24; vars: 16994; clauses: 1517; decisions: 11557
+iteration: 25; vars: 17632; clauses: 1442; decisions: 11918
+iteration: 26; vars: 18270; clauses: 1459; decisions: 12341
+iteration: 27; vars: 18908; clauses: 1458; decisions: 12698
+iteration: 28; vars: 19546; clauses: 1536; decisions: 13052
+iteration: 29; vars: 20184; clauses: 1542; decisions: 13408
+iteration: 30; vars: 20822; clauses: 1532; decisions: 13764
+iteration: 31; vars: 21460; clauses: 1610; decisions: 14120
+iteration: 32; vars: 22098; clauses: 1608; decisions: 14475
+iteration: 33; vars: 22736; clauses: 1594; decisions: 14954
+iteration: 34; vars: 23374; clauses: 1592; decisions: 15304
+iteration: 35; vars: 24012; clauses: 1190; decisions: 15657
+iteration: 36; vars: 24650; clauses: 1192; decisions: 16010
+iteration: 37; vars: 25288; clauses: 1192; decisions: 16361
+iteration: 38; vars: 25926; clauses: 1194; decisions: 16710
+iteration: 39; vars: 26564; clauses: 1191; decisions: 17060
+iteration: 40; vars: 27202; clauses: 1193; decisions: 17409
+iteration: 41; vars: 27840; clauses: 1195; decisions: 17758
+iteration: 42; vars: 28478; clauses: 1197; decisions: 18106
+iteration: 43; vars: 29116; clauses: 1149; decisions: 18521
+iteration: 44; vars: 29754; clauses: 1183; decisions: 18872
+iteration: 45; vars: 30392; clauses: 1183; decisions: 19223
+iteration: 46; vars: 31030; clauses: 1047; decisions: 19566
+iteration: 47; vars: 31668; clauses: 1047; decisions: 19909
+iteration: 48; vars: 32306; clauses: 1093; decisions: 20251
+iteration: 49; vars: 32944; clauses: 1093; decisions: 20593
+iteration: 50; vars: 33582; clauses: 1139; decisions: 20935
+iteration: 51; vars: 34220; clauses: 1185; decisions: 21276
+iteration: 52; vars: 34858; clauses: 1187; decisions: 21617
+iteration: 53; vars: 35496; clauses: 1137; decisions: 21959
+iteration: 54; vars: 36134; clauses: 1139; decisions: 22301
+iteration: 55; vars: 36772; clauses: 1185; decisions: 22644
+iteration: 56; vars: 37410; clauses: 1231; decisions: 22985
+iteration: 57; vars: 38048; clauses: 1231; decisions: 23325
+iteration: 58; vars: 38686; clauses: 1227; decisions: 23666
+iteration: 59; vars: 39324; clauses: 1273; decisions: 24006
+iteration: 60; vars: 39962; clauses: 1229; decisions: 24345
+iteration: 61; vars: 40600; clauses: 1041; decisions: 24679
+iteration: 62; vars: 41238; clauses: 1007; decisions: 25012
+iteration: 63; vars: 41876; clauses: 1006; decisions: 25342
+iteration: 64; vars: 42514; clauses: 1050; decisions: 25671
+iteration: 65; vars: 43152; clauses: 1038; decisions: 25999
+iteration: 66; vars: 43790; clauses: 1000; decisions: 26327
+iteration: 67; vars: 44428; clauses: 981; decisions: 26705
+iteration: 68; vars: 45066; clauses: 971; decisions: 27025
+iteration: 69; vars: 45704; clauses: 963; decisions: 27337
+iteration: 70; vars: 46342; clauses: 963; decisions: 27649
+iteration: 71; vars: 46980; clauses: 1003; decisions: 27964
+iteration: 72; vars: 47618; clauses: 1003; decisions: 28276
+iteration: 73; vars: 48256; clauses: 1003; decisions: 28589
+iteration: 74; vars: 48894; clauses: 1003; decisions: 28900
+iteration: 75; vars: 49532; clauses: 1043; decisions: 29211
+iteration: 76; vars: 50170; clauses: 1083; decisions: 29523
+iteration: 77; vars: 50808; clauses: 1123; decisions: 29833
+iteration: 78; vars: 51446; clauses: 1123; decisions: 30144
+iteration: 79; vars: 52084; clauses: 1123; decisions: 30454
+iteration: 80; vars: 52722; clauses: 1123; decisions: 30764
+iteration: 81; vars: 53360; clauses: 1123; decisions: 31074
+iteration: 82; vars: 53998; clauses: 1163; decisions: 31383
+iteration: 83; vars: 54636; clauses: 1165; decisions: 31693
+iteration: 84; vars: 55274; clauses: 1117; decisions: 32004
+iteration: 85; vars: 55912; clauses: 1081; decisions: 32315
+iteration: 86; vars: 56550; clauses: 1083; decisions: 32626
+iteration: 87; vars: 57188; clauses: 1123; decisions: 32937
+iteration: 88; vars: 57826; clauses: 1125; decisions: 33247
+iteration: 89; vars: 58464; clauses: 1125; decisions: 33557
+iteration: 90; vars: 59102; clauses: 1163; decisions: 33867
+iteration: 91; vars: 59740; clauses: 1203; decisions: 34177
+iteration: 92; vars: 60378; clauses: 1243; decisions: 34486
+iteration: 93; vars: 61016; clauses: 1241; decisions: 34795
+iteration: 94; vars: 61654; clauses: 1197; decisions: 35104
+iteration: 95; vars: 62292; clauses: 1162; decisions: 35414
+iteration: 96; vars: 62930; clauses: 1192; decisions: 35723
+iteration: 97; vars: 63568; clauses: 1160; decisions: 36032
+iteration: 98; vars: 64206; clauses: 1162; decisions: 36340
+iteration: 99; vars: 64844; clauses: 1159; decisions: 36647
+iteration: 100; vars: 65482; clauses: 1140; decisions: 36958
+iteration: 101; vars: 66120; clauses: 1098; decisions: 37268
+iteration: 102; vars: 66758; clauses: 1062; decisions: 37578
+iteration: 103; vars: 67396; clauses: 992; decisions: 37889
+iteration: 104; vars: 68034; clauses: 958; decisions: 38199
+iteration: 105; vars: 68672; clauses: 958; decisions: 38509
+iteration: 106; vars: 69310; clauses: 914; decisions: 38854
+iteration: 107; vars: 69948; clauses: 908; decisions: 39150
+iteration: 108; vars: 70586; clauses: 898; decisions: 39441
+iteration: 109; vars: 71224; clauses: 900; decisions: 39731
+iteration: 110; vars: 71862; clauses: 934; decisions: 40020
+iteration: 111; vars: 72500; clauses: 896; decisions: 40303
+iteration: 112; vars: 73138; clauses: 896; decisions: 40587
+iteration: 113; vars: 73776; clauses: 946; decisions: 40869
+iteration: 114; vars: 74414; clauses: 946; decisions: 41156
+iteration: 115; vars: 75052; clauses: 946; decisions: 41438
+iteration: 116; vars: 75690; clauses: 996; decisions: 41719
+iteration: 117; vars: 76328; clauses: 996; decisions: 42000
+iteration: 118; vars: 76966; clauses: 1046; decisions: 42280
+iteration: 119; vars: 77604; clauses: 1046; decisions: 42561
+iteration: 120; vars: 78242; clauses: 1046; decisions: 42841
+iteration: 121; vars: 78880; clauses: 1046; decisions: 43121
+iteration: 122; vars: 79518; clauses: 1046; decisions: 43402
+iteration: 123; vars: 80156; clauses: 1096; decisions: 43682
+iteration: 124; vars: 80794; clauses: 1146; decisions: 43961
+iteration: 125; vars: 81432; clauses: 1148; decisions: 44240
+iteration: 126; vars: 82070; clauses: 1090; decisions: 44521
+iteration: 127; vars: 82708; clauses: 1044; decisions: 44802
+iteration: 128; vars: 83346; clauses: 996; decisions: 45083
+iteration: 129; vars: 83984; clauses: 1046; decisions: 45364
+iteration: 130; vars: 84622; clauses: 1046; decisions: 45644
+iteration: 131; vars: 85260; clauses: 1048; decisions: 45924
+iteration: 132; vars: 85898; clauses: 1050; decisions: 46205
+iteration: 133; vars: 86536; clauses: 1096; decisions: 46485
+iteration: 134; vars: 87174; clauses: 1098; decisions: 46764
+iteration: 135; vars: 87812; clauses: 1146; decisions: 47042
+iteration: 136; vars: 88450; clauses: 1144; decisions: 47321
+iteration: 137; vars: 89088; clauses: 1178; decisions: 47600
+iteration: 138; vars: 89726; clauses: 1140; decisions: 47879
+iteration: 139; vars: 90364; clauses: 1091; decisions: 48158
+iteration: 140; vars: 91002; clauses: 1095; decisions: 48436
+iteration: 141; vars: 91640; clauses: 1096; decisions: 48713
+iteration: 142; vars: 92278; clauses: 1064; decisions: 48994
+iteration: 143; vars: 92916; clauses: 1014; decisions: 49274
+iteration: 144; vars: 93554; clauses: 930; decisions: 49554
+iteration: 145; vars: 94192; clauses: 890; decisions: 49834
+iteration: 146; vars: 94830; clauses: 890; decisions: 50114
+iteration: 147; vars: 95468; clauses: 892; decisions: 50393
+iteration: 148; vars: 96106; clauses: 894; decisions: 50672
+iteration: 149; vars: 96744; clauses: 896; decisions: 50951
+iteration: 150; vars: 97382; clauses: 898; decisions: 51230
+iteration: 151; vars: 98020; clauses: 900; decisions: 51508
+iteration: 152; vars: 98658; clauses: 898; decisions: 51788
+iteration: 153; vars: 99296; clauses: 900; decisions: 52067
+iteration: 154; vars: 99934; clauses: 902; decisions: 52345
+iteration: 155; vars: 100572; clauses: 898; decisions: 52623
+iteration: 156; vars: 101210; clauses: 898; decisions: 52901
+iteration: 157; vars: 101848; clauses: 900; decisions: 53179
+iteration: 158; vars: 102486; clauses: 902; decisions: 53456
+iteration: 159; vars: 103124; clauses: 898; decisions: 53770
+iteration: 160; vars: 103762; clauses: 900; decisions: 54047
+iteration: 161; vars: 104400; clauses: 892; decisions: 54326
+iteration: 162; vars: 105038; clauses: 892; decisions: 54605
+iteration: 163; vars: 105676; clauses: 888; decisions: 54883
+iteration: 164; vars: 106314; clauses: 888; decisions: 55161
+iteration: 165; vars: 106952; clauses: 890; decisions: 55439
+iteration: 166; vars: 107590; clauses: 890; decisions: 55716
+iteration: 167; vars: 108228; clauses: 892; decisions: 55992
+iteration: 168; vars: 108866; clauses: 870; decisions: 56305
+iteration: 169; vars: 109504; clauses: 871; decisions: 56581
+iteration: 170; vars: 110142; clauses: 872; decisions: 56856
+iteration: 171; vars: 110780; clauses: 862; decisions: 57130
+iteration: 172; vars: 111418; clauses: 848; decisions: 57408
+iteration: 173; vars: 112056; clauses: 852; decisions: 57676
+iteration: 174; vars: 112694; clauses: 816; decisions: 57940
+iteration: 175; vars: 113332; clauses: 818; decisions: 58187
+iteration: 176; vars: 113970; clauses: 822; decisions: 58427
+iteration: 177; vars: 114608; clauses: 826; decisions: 58696
+iteration: 178; vars: 115246; clauses: 820; decisions: 58932
+iteration: 179; vars: 115884; clauses: 820; decisions: 59195
+iteration: 180; vars: 116522; clauses: 814; decisions: 59455
+iteration: 181; vars: 117160; clauses: 802; decisions: 59712
+iteration: 182; vars: 117798; clauses: 771; decisions: 59947
+iteration: 183; vars: 118436; clauses: 771; decisions: 60201
+iteration: 184; vars: 119074; clauses: 744; decisions: 60451
+iteration: 185; vars: 119712; clauses: 743; decisions: 60697
+iteration: 186; vars: 120350; clauses: 720; decisions: 60938
+iteration: 187; vars: 120988; clauses: 758; decisions: 61158
+iteration: 188; vars: 121626; clauses: 758; decisions: 61399
+iteration: 189; vars: 122264; clauses: 761; decisions: 61635
+iteration: 190; vars: 122902; clauses: 799; decisions: 61871
+iteration: 191; vars: 123540; clauses: 716; decisions: 62084
+iteration: 192; vars: 124178; clauses: 716; decisions: 62314
+iteration: 193; vars: 124816; clauses: 718; decisions: 62543
+iteration: 194; vars: 125454; clauses: 730; decisions: 62772
+iteration: 195; vars: 126092; clauses: 730; decisions: 62984
+iteration: 196; vars: 126730; clauses: 730; decisions: 63212
+iteration: 197; vars: 127368; clauses: 740; decisions: 63440
+iteration: 198; vars: 128006; clauses: 750; decisions: 63667
+iteration: 199; vars: 128644; clauses: 705; decisions: 63876
+iteration: 200; vars: 129282; clauses: 717; decisions: 64078
+iteration: 201; vars: 129920; clauses: 719; decisions: 64286
+iteration: 202; vars: 130558; clauses: 718; decisions: 64490
+iteration: 203; vars: 131196; clauses: 667; decisions: 64698
+iteration: 204; vars: 131834; clauses: 677; decisions: 64901
+iteration: 205; vars: 132472; clauses: 677; decisions: 65110
+iteration: 206; vars: 133110; clauses: 679; decisions: 65319
+iteration: 207; vars: 133748; clauses: 687; decisions: 65527
+iteration: 208; vars: 134386; clauses: 687; decisions: 65736
+iteration: 209; vars: 135024; clauses: 696; decisions: 65939
+iteration: 210; vars: 135662; clauses: 695; decisions: 66142
+iteration: 211; vars: 136300; clauses: 692; decisions: 66344
+iteration: 212; vars: 136938; clauses: 683; decisions: 66548
+iteration: 213; vars: 137576; clauses: 689; decisions: 66751
+iteration: 214; vars: 138214; clauses: 688; decisions: 66954
+iteration: 215; vars: 138852; clauses: 689; decisions: 67156
+iteration: 216; vars: 139490; clauses: 685; decisions: 67358
+iteration: 217; vars: 140128; clauses: 693; decisions: 67560
+iteration: 218; vars: 140766; clauses: 693; decisions: 67762
+iteration: 219; vars: 141404; clauses: 691; decisions: 67963
+iteration: 220; vars: 142042; clauses: 691; decisions: 68168
+iteration: 221; vars: 142680; clauses: 697; decisions: 68371
+iteration: 222; vars: 143318; clauses: 695; decisions: 68574
+iteration: 223; vars: 143956; clauses: 694; decisions: 68776
+iteration: 224; vars: 144594; clauses: 692; decisions: 68979
+iteration: 225; vars: 145232; clauses: 698; decisions: 69181
+iteration: 226; vars: 145870; clauses: 695; decisions: 69383
+iteration: 227; vars: 146508; clauses: 698; decisions: 69584
+iteration: 228; vars: 147146; clauses: 693; decisions: 69787
+iteration: 229; vars: 147784; clauses: 701; decisions: 69989
+iteration: 230; vars: 148422; clauses: 698; decisions: 70191
+iteration: 231; vars: 149060; clauses: 699; decisions: 70392
+iteration: 232; vars: 149698; clauses: 698; decisions: 70594
+iteration: 233; vars: 150336; clauses: 704; decisions: 70795
+iteration: 234; vars: 150974; clauses: 702; decisions: 70996
+iteration: 235; vars: 151612; clauses: 704; decisions: 71196
+iteration: 236; vars: 152250; clauses: 698; decisions: 71401
+iteration: 237; vars: 152888; clauses: 610; decisions: 71585
+iteration: 238; vars: 153526; clauses: 610; decisions: 71776
+iteration: 239; vars: 154164; clauses: 612; decisions: 71963
+iteration: 240; vars: 154802; clauses: 598; decisions: 72160
+iteration: 241; vars: 155440; clauses: 606; decisions: 72343
+iteration: 242; vars: 156078; clauses: 606; decisions: 72526
+iteration: 243; vars: 156716; clauses: 608; decisions: 72708
+iteration: 244; vars: 157354; clauses: 610; decisions: 72891
+iteration: 245; vars: 157992; clauses: 608; decisions: 73073
+iteration: 246; vars: 158630; clauses: 610; decisions: 73255
+iteration: 247; vars: 159268; clauses: 610; decisions: 73436
+iteration: 248; vars: 159906; clauses: 600; decisions: 73619
+iteration: 249; vars: 160544; clauses: 608; decisions: 73800
+iteration: 250; vars: 161182; clauses: 610; decisions: 73982
+iteration: 251; vars: 161820; clauses: 610; decisions: 74163
+iteration: 252; vars: 162458; clauses: 612; decisions: 74345
+iteration: 253; vars: 163096; clauses: 610; decisions: 74525
+iteration: 254; vars: 163734; clauses: 604; decisions: 74705
+iteration: 255; vars: 164372; clauses: 612; decisions: 74884
+iteration: 256; vars: 165010; clauses: 614; decisions: 75069
+iteration: 257; vars: 165648; clauses: 590; decisions: 75243
+iteration: 258; vars: 166286; clauses: 592; decisions: 75424
+iteration: 259; vars: 166924; clauses: 596; decisions: 75605
+iteration: 260; vars: 167562; clauses: 563; decisions: 75780
+iteration: 261; vars: 168200; clauses: 553; decisions: 75953
+iteration: 262; vars: 168838; clauses: 545; decisions: 76120
+iteration: 263; vars: 169476; clauses: 544; decisions: 76287
+iteration: 264; vars: 170114; clauses: 545; decisions: 76453
+iteration: 265; vars: 170752; clauses: 535; decisions: 76619
+iteration: 266; vars: 171390; clauses: 535; decisions: 76784
+iteration: 267; vars: 172028; clauses: 535; decisions: 76947
+iteration: 268; vars: 172666; clauses: 525; decisions: 76949
+finished solver loop. fail_count = 0
+key=0101101101000010000011010111110001000011011011100100101100010100011110111011100100000000000000000000000000000000000000000000000000000000000000000000000000000010
+iteration=268; backbones_count=0; cube_count=429092; cpu_time=6.68598; maxrss=15.4727
+equivalent

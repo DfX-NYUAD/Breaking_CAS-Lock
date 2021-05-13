@@ -1,0 +1,139 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version M-2016.12-SP2 for linux64 - Feb 23, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+date
+Fri May 14 00:18:51 2021
+set_host_options -max_cores 8
+1
+set compile_seqmap_propagate_constants     false
+false
+set compile_seqmap_propagate_high_effort   false
+false
+set compile_enable_register_merging        false
+false
+set timing_separate_clock_gating_group     true
+true
+set design   [getenv "DESIGN"]
+c880
+set search_path [concat * $search_path]
+* . /opt/programs/synopsys/dc/libraries/syn /opt/programs/synopsys/dc/minpower/syn /opt/programs/synopsys/dc/dw/syn_ver /opt/programs/synopsys/dc/dw/sim_ver
+define_design_lib WORK -path ./work
+1
+set target_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set link_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set_dont_use [get_lib_cells NangateOpenCellLibrary/*]
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+1
+set_attribute [get_lib_cells NangateOpenCellLibrary/NAND2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/NAND2_X1 NangateOpenCellLibrary/NAND2_X2 NangateOpenCellLibrary/NAND2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/AND2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/AND2_X1 NangateOpenCellLibrary/AND2_X2 NangateOpenCellLibrary/AND2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/NOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/NOR2_X1 NangateOpenCellLibrary/NOR2_X2 NangateOpenCellLibrary/NOR2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/OR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/OR2_X1 NangateOpenCellLibrary/OR2_X2 NangateOpenCellLibrary/OR2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/XOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 2 objects. (UID-186)
+NangateOpenCellLibrary/XOR2_X1 NangateOpenCellLibrary/XOR2_X2
+set_attribute [get_lib_cells NangateOpenCellLibrary/XNOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 2 objects. (UID-186)
+NangateOpenCellLibrary/XNOR2_X1 NangateOpenCellLibrary/XNOR2_X2
+set_attribute [get_lib_cells NangateOpenCellLibrary/INV_*] dont_use false
+Information: Attribute 'dont_use' is set on 6 objects. (UID-186)
+NangateOpenCellLibrary/INV_X1 NangateOpenCellLibrary/INV_X2 NangateOpenCellLibrary/INV_X4 NangateOpenCellLibrary/INV_X8 NangateOpenCellLibrary/INV_X16 NangateOpenCellLibrary/INV_X32
+set_attribute [get_lib_cells NangateOpenCellLibrary/BUF_*] dont_use false
+Information: Attribute 'dont_use' is set on 6 objects. (UID-186)
+NangateOpenCellLibrary/BUF_X1 NangateOpenCellLibrary/BUF_X2 NangateOpenCellLibrary/BUF_X4 NangateOpenCellLibrary/BUF_X8 NangateOpenCellLibrary/BUF_X16 NangateOpenCellLibrary/BUF_X32
+analyze -library WORK -format sverilog ../Results/$design/${design}_lock.v
+Running PRESTO HDLC
+Compiling source file ../Results/c880/c880_lock.v
+Error:  Unable to open file `../Results/c880/c880_lock.v': No such file or directory. (VER-41)
+*** Presto compilation terminated with 1 errors. ***
+0
+elaborate ${design}_lock
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/gtech.db'
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/standard.sldb'
+  Loading link library 'gtech'
+Error: Cannot find the design 'c880_lock' in the library 'WORK'. (LBR-0)
+0
+create_clock -name VCLK -period 10  -waveform {0 5}
+Error: Current design is not defined. (UID-4)
+0
+set input_ports  [all_inputs]
+Error: Current design is not defined. (UID-4)
+set output_ports [all_outputs]
+Error: Current design is not defined. (UID-4)
+set_input_delay -max 1 [get_ports $input_ports ] -clock VCLK
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Error: Current design is not defined. (UID-4)
+Error: Can't find clock 'VCLK'. (UID-109)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+0
+set_input_delay -min 0 [get_ports $input_ports ] -clock VCLK
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Error: Current design is not defined. (UID-4)
+Error: Can't find clock 'VCLK'. (UID-109)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+0
+set_output_delay -max 2 [get_ports $output_ports ] -clock VCLK
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Error: Current design is not defined. (UID-4)
+Error: Can't find clock 'VCLK'. (UID-109)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+0
+set_output_delay -min 1 [get_ports $output_ports ] -clock VCLK
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+Error: Current design is not defined. (UID-4)
+Error: Can't find clock 'VCLK'. (UID-109)
+Error: Value for list '-clock' must have 1 elements. (CMD-036)
+0
+ungroup -flatten -all
+Error: Current design is not defined. (UID-4)
+0
+compile_ultra
+Error: Current design is not defined. (UID-4)
+0
+compile_ultra -increment 
+Error: Current design is not defined. (UID-4)
+0
+compile_ultra -increment 
+Error: Current design is not defined. (UID-4)
+0
+set bus_naming_style "%s_%d"
+%s_%d
+define_name_rules verilog -target_bus_naming_style "%s_%d"
+1
+change_names -rules verilog -hier
+Error: Current design is not defined. (UID-4)
+0
+write -format verilog -hierarchy -output ../Results/$design/${design}_lock_synth_2ip.v 
+Error: No files or designs were specified. (UID-22)
+0
+exit
+
+Thank you...

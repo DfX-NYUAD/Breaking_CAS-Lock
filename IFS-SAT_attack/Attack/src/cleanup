@@ -1,0 +1,1 @@
+rm -rf command.log default.svf alib-52/ work/ filename* clog*

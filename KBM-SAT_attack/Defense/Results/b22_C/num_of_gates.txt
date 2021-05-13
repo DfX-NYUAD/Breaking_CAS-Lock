@@ -1,0 +1,1 @@
+number of gates in P2_U3328 = 1528

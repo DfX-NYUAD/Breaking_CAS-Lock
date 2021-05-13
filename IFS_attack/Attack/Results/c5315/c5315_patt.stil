@@ -1,0 +1,137 @@
+STIL 1.0 { Design 2005; }
+Header {
+   Title "  TetraMAX(R)  M-2016.12-SP5-1-i20170831_145740 STIL output";
+   Date "Fri May 14 01:05:40 2021";
+   History {
+      Ann {*     Uncollapsed Stuck Fault Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* fault class                     code   #faults *}
+      Ann {* ------------------------------  ----  --------- *}
+      Ann {* Detected                         DT          2 *}
+      Ann {* Possibly detected                PT          0 *}
+      Ann {* Undetectable                     UD          0 *}
+      Ann {* ATPG untestable                  AU          0 *}
+      Ann {* Not detected                     ND          0 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* total faults                                 2 *}
+      Ann {* test coverage                           100.00% *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {*            Pattern Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* #internal patterns                           2 *}
+      Ann {*     #basic_scan patterns                     2 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {* rule  severity  #fails  description *}
+      Ann {* ----  --------  ------  --------------------------------- *}
+      Ann {* B9    warning      851  undriven module internal net *}
+      Ann {* B10   warning      851  unconnected module internal net *}
+      Ann {*  *}
+      Ann {* There are no clocks *}
+      Ann {* There are no constraint ports *}
+      Ann {* There are no equivalent pins *}
+      Ann {* There are no net connections *}
+      Ann {* top_module_name = c5315 *}
+      Ann {* Unified STIL Flow *}
+      Ann {* min_n_shifts = 1 *}
+      Ann {* serial_flag = 1 *}
+   }
+}
+Signals {
+   "G14" In; "G64" In; "G94" In; "G97" In; "G206" In; "G209" In; "G210" In; "G217" In;
+   "G218" In; "G225" In; "G226" In; "G233" In; "G234" In; "G241" In; "G242" In; "G248" In;
+   "G251" In; "G254" In; "G257" In; "G264" In; "G265" In; "G272" In; "G273" In; "G280" In;
+   "G281" In; "G288" In; "G293" In; "G299" In; "G302" In; "G307" In; "G308" In; "G315" In;
+   "G316" In; "G323" In; "G324" In; "G331" In; "G332" In; "G335" In; "G338" In; "G341" In;
+   "G348" In; "G351" In; "G358" In; "G361" In; "G366" In; "G374" In; "G389" In; "G400" In;
+   "G411" In; "G422" In; "G435" In; "G446" In; "G457" In; "G468" In; "G479" In; "G490" In;
+   "G503" In; "G514" In; "G523" In; "G534" In; "G1497" In; "G2174" In; "G4087" In;
+   "G4088" In; "G4091" In; "G4092" In; "G767" Out;
+}
+SignalGroups {
+   "_default_In_Timing_" = '"G14" + "G64" + "G94" + "G97" + "G206" + "G209" +
+   "G210" + "G217" + "G218" + "G225" + "G226" + "G233" + "G234" + "G241" +
+   "G242" + "G248" + "G251" + "G254" + "G257" + "G264" + "G265" + "G272" +
+   "G273" + "G280" + "G281" + "G288" + "G293" + "G299" + "G302" + "G307" +
+   "G308" + "G315" + "G316" + "G323" + "G324" + "G331" + "G332" + "G335" +
+   "G338" + "G341" + "G348" + "G351" + "G358" + "G361" + "G366" + "G374" +
+   "G389" + "G400" + "G411" + "G422" + "G435" + "G446" + "G457" + "G468" +
+   "G479" + "G490" + "G503" + "G514" + "G523" + "G534" + "G1497" + "G2174" +
+   "G4087" + "G4088" + "G4091" + "G4092"'; // #signals=66
+   "_pi" = '"G14" + "G64" + "G94" + "G97" + "G206" + "G209" + "G210" + "G217" +
+   "G218" + "G225" + "G226" + "G233" + "G234" + "G241" + "G242" + "G248" +
+   "G251" + "G254" + "G257" + "G264" + "G265" + "G272" + "G273" + "G280" +
+   "G281" + "G288" + "G293" + "G299" + "G302" + "G307" + "G308" + "G315" +
+   "G316" + "G323" + "G324" + "G331" + "G332" + "G335" + "G338" + "G341" +
+   "G348" + "G351" + "G358" + "G361" + "G366" + "G374" + "G389" + "G400" +
+   "G411" + "G422" + "G435" + "G446" + "G457" + "G468" + "G479" + "G490" +
+   "G503" + "G514" + "G523" + "G534" + "G1497" + "G2174" + "G4087" + "G4088" +
+   "G4091" + "G4092"'; // #signals=66
+   "_in" = '"G14" + "G64" + "G94" + "G97" + "G206" + "G209" + "G210" + "G217" +
+   "G218" + "G225" + "G226" + "G233" + "G234" + "G241" + "G242" + "G248" +
+   "G251" + "G254" + "G257" + "G264" + "G265" + "G272" + "G273" + "G280" +
+   "G281" + "G288" + "G293" + "G299" + "G302" + "G307" + "G308" + "G315" +
+   "G316" + "G323" + "G324" + "G331" + "G332" + "G335" + "G338" + "G341" +
+   "G348" + "G351" + "G358" + "G361" + "G366" + "G374" + "G389" + "G400" +
+   "G411" + "G422" + "G435" + "G446" + "G457" + "G468" + "G479" + "G490" +
+   "G503" + "G514" + "G523" + "G534" + "G1497" + "G2174" + "G4087" + "G4088" +
+   "G4091" + "G4092"'; // #signals=66
+   "_default_Out_Timing_" = '"G767"'; // #signals=1
+   "_po" = '"G767"'; // #signals=1
+   "_out" = '"G767"'; // #signals=1
+}
+Timing {
+   WaveformTable "_default_WFT_" {
+      Period '100ns';
+      Waveforms {
+         "_default_In_Timing_" { 0 { '0ns' D; } }
+         "_default_In_Timing_" { 1 { '0ns' U; } }
+         "_default_In_Timing_" { Z { '0ns' Z; } }
+         "_default_In_Timing_" { N { '0ns' N; } }
+         "_default_Out_Timing_" { X { '0ns' X; } }
+         "_default_Out_Timing_" { H { '0ns' X; '40ns' H; } }
+         "_default_Out_Timing_" { T { '0ns' X; '40ns' T; } }
+         "_default_Out_Timing_" { L { '0ns' X; '40ns' L; } }
+      }
+   }
+}
+ScanStructures {
+   // Uncomment and modify the following to suit your design
+   // ScanChain "chain_name" { ScanIn "chain_input_name"; ScanOut "chain_output_name"; }
+}
+PatternBurst "_burst_" {
+   PatList { "_pattern_" {
+   }
+}}
+PatternExec {
+   PatternBurst "_burst_";
+}
+Procedures {
+   "capture" {
+      W "_default_WFT_";
+      C { "_po"=X; }
+      "forcePI": V { "_pi"=\r66 # ; }
+      "measurePO": V { "_po"=#; }
+   }
+   // Uncomment and modify the following to suit your design
+   // load_unload {
+      // V { } // force clocks off and scan enable pins active
+      // Shift { V { _si=#; _so=#; }} // pulse shift clocks
+   // }
+}
+MacroDefs {
+}
+Pattern "_pattern_" {
+   W "_default_WFT_";
+   "precondition all Signals": C { "_pi"=\r66 0 ; 
+      "_po"=X; }
+   "pattern 0": Call "capture" { 
+      "_pi"=110000110011100011100100001101000111101001101010100111011110101010; 
+      "_po"=H; }
+   "pattern 1": Call "capture" { 
+      "_pi"=001000011001110001110010000010100010111100010101010011001011010010; 
+      "_po"=L; }
+}
+
+// Patterns reference 4 V statements, generating 4 test cycles

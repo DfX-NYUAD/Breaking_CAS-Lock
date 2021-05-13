@@ -1,0 +1,1895 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version M-2016.12-SP2 for linux64 - Feb 23, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+date
+Thu May 13 23:34:18 2021
+set_host_options -max_cores 8
+1
+set enable_keep_signal_dt_net              true
+true
+set compile_seqmap_propagate_constants     false
+false
+set compile_seqmap_propagate_high_effort   false
+false
+set compile_enable_register_merging        false
+false
+set write_sdc_output_net_resistance        false
+false
+set timing_separate_clock_gating_group     true
+true
+set design [getenv DESIGN]
+c7552
+set lib [getenv LIB]
+2ip
+sh mkdir -p ../Results/$design
+sh mkdir -p ../files/netlists/
+set search_path [concat * $search_path]
+* . /opt/programs/synopsys/dc/libraries/syn /opt/programs/synopsys/dc/minpower/syn /opt/programs/synopsys/dc/dw/syn_ver /opt/programs/synopsys/dc/dw/sim_ver
+define_design_lib WORK -path ./work
+1
+set target_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set link_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set_dont_use [get_lib_cells NangateOpenCellLibrary/*]
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+1
+set_attribute [get_lib_cells NangateOpenCellLibrary/NAND2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/NAND2_X1 NangateOpenCellLibrary/NAND2_X2 NangateOpenCellLibrary/NAND2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/AND2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/AND2_X1 NangateOpenCellLibrary/AND2_X2 NangateOpenCellLibrary/AND2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/NOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/NOR2_X1 NangateOpenCellLibrary/NOR2_X2 NangateOpenCellLibrary/NOR2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/OR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 3 objects. (UID-186)
+NangateOpenCellLibrary/OR2_X1 NangateOpenCellLibrary/OR2_X2 NangateOpenCellLibrary/OR2_X4
+set_attribute [get_lib_cells NangateOpenCellLibrary/XOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 2 objects. (UID-186)
+NangateOpenCellLibrary/XOR2_X1 NangateOpenCellLibrary/XOR2_X2
+set_attribute [get_lib_cells NangateOpenCellLibrary/XNOR2_*] dont_use false
+Information: Attribute 'dont_use' is set on 2 objects. (UID-186)
+NangateOpenCellLibrary/XNOR2_X1 NangateOpenCellLibrary/XNOR2_X2
+set_attribute [get_lib_cells NangateOpenCellLibrary/INV_*] dont_use false
+Information: Attribute 'dont_use' is set on 6 objects. (UID-186)
+NangateOpenCellLibrary/INV_X1 NangateOpenCellLibrary/INV_X2 NangateOpenCellLibrary/INV_X4 NangateOpenCellLibrary/INV_X8 NangateOpenCellLibrary/INV_X16 NangateOpenCellLibrary/INV_X32
+analyze -library WORK -format sverilog ../files/$design.v
+Running PRESTO HDLC
+Compiling source file ../files/c7552.v
+Presto compilation completed successfully.
+1
+elaborate $design
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/gtech.db'
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/standard.sldb'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'c7552'.
+1
+create_clock -name VCLK -period 10 -waveform {0 5}
+Warning: Creating virtual clock named 'VCLK' with no sources. (UID-348)
+1
+set input_ports  [all_inputs]
+{G1 G5 G9 G12 G15 G18 G23 G26 G29 G32 G35 G38 G41 G44 G47 G50 G53 G54 G55 G56 G57 G58 G59 G60 G61 G62 G63 G64 G65 G66 G69 G70 G73 G74 G75 G76 G77 G78 G79 G80 G81 G82 G83 G84 G85 G86 G87 G88 G89 G94 G97 G100 G103 G106 G109 G110 G111 G112 G113 G114 G115 G118 G121 G124 G127 G130 G133 G134 G135 G138 G141 G144 G147 G150 G151 G152 G153 G154 G155 G156 G157 G158 G159 G160 G161 G162 G163 G164 G165 G166 G167 G168 G169 G170 G171 G172 G173 G174 G175 G176 ...}
+set output_ports [all_outputs]
+{G2 G3 G450 G448 G444 G442 G440 G438 G496 G494 G492 G490 G488 G486 G484 G482 G480 G560 G542 G558 G556 G554 G552 G550 G548 G546 G544 G540 G538 G536 G534 G532 G530 G528 G526 G524 G279 G436 G478 G522 G402 G404 G406 G408 G410 G432 G446 G284 G286 G289 G292 G341 G281 G453 G278 G373 G246 G258 G264 G270 G388 G391 G394 G397 G376 G379 G382 G385 G412 G414 G416 G249 G295 G324 G252 G276 G310 G313 G316 G319 G327 G330 G333 G336 G418 G273 G298 G301 G304 G307 G344 G422 G469 G419 G471 G359 G362 G365 G368 G347 ...}
+set_input_delay -max 1 [get_ports $input_ports ] -clock [get_clocks VCLK]
+1
+set_input_delay -min 0 [get_ports $input_ports ] -clock [get_clocks VCLK]
+1
+set_output_delay -max 2 [get_ports $output_ports ] -clock [get_clocks VCLK]
+1
+set_output_delay -min 1 [get_ports $output_ports ] -clock [get_clocks VCLK]
+1
+check_design
+ 
+****************************************
+check_design summary:
+Version:     M-2016.12-SP2
+Date:        Thu May 13 23:34:20 2021
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     48
+    Unconnected ports (LINT-28)                                     1
+    Feedthrough (LINT-29)                                          42
+    Shorted outputs (LINT-31)                                       5
+--------------------------------------------------------------------------------
+
+Warning: In design 'c7552', port 'G339' is not connected to any nets. (LINT-28)
+Warning: In design 'c7552', input port 'G1' is connected directly to output port 'G453'. (LINT-29)
+Warning: In design 'c7552', input port 'G1' is connected directly to output port 'G432'. (LINT-29)
+Warning: In design 'c7552', input port 'G1' is connected directly to output port 'G3'. (LINT-29)
+Warning: In design 'c7552', input port 'G1' is connected directly to output port 'G2'. (LINT-29)
+Warning: In design 'c7552', input port 'G106' is connected directly to output port 'G446'. (LINT-29)
+Warning: In design 'c7552', input port 'G1459' is connected directly to output port 'G450'. (LINT-29)
+Warning: In design 'c7552', input port 'G1462' is connected directly to output port 'G436'. (LINT-29)
+Warning: In design 'c7552', input port 'G1469' is connected directly to output port 'G448'. (LINT-29)
+Warning: In design 'c7552', input port 'G1480' is connected directly to output port 'G444'. (LINT-29)
+Warning: In design 'c7552', input port 'G1486' is connected directly to output port 'G442'. (LINT-29)
+Warning: In design 'c7552', input port 'G1492' is connected directly to output port 'G440'. (LINT-29)
+Warning: In design 'c7552', input port 'G1496' is connected directly to output port 'G438'. (LINT-29)
+Warning: In design 'c7552', input port 'G2208' is connected directly to output port 'G496'. (LINT-29)
+Warning: In design 'c7552', input port 'G2211' is connected directly to output port 'G478'. (LINT-29)
+Warning: In design 'c7552', input port 'G2218' is connected directly to output port 'G494'. (LINT-29)
+Warning: In design 'c7552', input port 'G2224' is connected directly to output port 'G492'. (LINT-29)
+Warning: In design 'c7552', input port 'G2230' is connected directly to output port 'G490'. (LINT-29)
+Warning: In design 'c7552', input port 'G2236' is connected directly to output port 'G488'. (LINT-29)
+Warning: In design 'c7552', input port 'G2239' is connected directly to output port 'G486'. (LINT-29)
+Warning: In design 'c7552', input port 'G2247' is connected directly to output port 'G484'. (LINT-29)
+Warning: In design 'c7552', input port 'G2253' is connected directly to output port 'G482'. (LINT-29)
+Warning: In design 'c7552', input port 'G2256' is connected directly to output port 'G480'. (LINT-29)
+Warning: In design 'c7552', input port 'G3698' is connected directly to output port 'G560'. (LINT-29)
+Warning: In design 'c7552', input port 'G3701' is connected directly to output port 'G542'. (LINT-29)
+Warning: In design 'c7552', input port 'G3705' is connected directly to output port 'G558'. (LINT-29)
+Warning: In design 'c7552', input port 'G3711' is connected directly to output port 'G556'. (LINT-29)
+Warning: In design 'c7552', input port 'G3717' is connected directly to output port 'G554'. (LINT-29)
+Warning: In design 'c7552', input port 'G3723' is connected directly to output port 'G552'. (LINT-29)
+Warning: In design 'c7552', input port 'G3729' is connected directly to output port 'G550'. (LINT-29)
+Warning: In design 'c7552', input port 'G3737' is connected directly to output port 'G548'. (LINT-29)
+Warning: In design 'c7552', input port 'G3743' is connected directly to output port 'G546'. (LINT-29)
+Warning: In design 'c7552', input port 'G3749' is connected directly to output port 'G544'. (LINT-29)
+Warning: In design 'c7552', input port 'G4393' is connected directly to output port 'G540'. (LINT-29)
+Warning: In design 'c7552', input port 'G4394' is connected directly to output port 'G522'. (LINT-29)
+Warning: In design 'c7552', input port 'G4400' is connected directly to output port 'G538'. (LINT-29)
+Warning: In design 'c7552', input port 'G4405' is connected directly to output port 'G536'. (LINT-29)
+Warning: In design 'c7552', input port 'G4410' is connected directly to output port 'G534'. (LINT-29)
+Warning: In design 'c7552', input port 'G4415' is connected directly to output port 'G532'. (LINT-29)
+Warning: In design 'c7552', input port 'G4420' is connected directly to output port 'G530'. (LINT-29)
+Warning: In design 'c7552', input port 'G4427' is connected directly to output port 'G528'. (LINT-29)
+Warning: In design 'c7552', input port 'G4432' is connected directly to output port 'G526'. (LINT-29)
+Warning: In design 'c7552', input port 'G4437' is connected directly to output port 'G524'. (LINT-29)
+Warning: In design 'c7552', output port 'G2' is connected directly to output port 'G453'. (LINT-31)
+Warning: In design 'c7552', output port 'G2' is connected directly to output port 'G432'. (LINT-31)
+Warning: In design 'c7552', output port 'G2' is connected directly to output port 'G3'. (LINT-31)
+Warning: In design 'c7552', output port 'G422' is connected directly to output port 'G469'. (LINT-31)
+Warning: In design 'c7552', output port 'G419' is connected directly to output port 'G471'. (LINT-31)
+1
+date
+Thu May 13 23:34:20 2021
+compile_ultra -no_autoungroup -no_seq_output_inversion -no_boundary_optimization
+Warning: The value of variable 'compile_preserve_subdesign_interfaces' has been changed to true because '-no_boundary_optimization' is used. (OPT-133)
+Information: Starting from 2013.12 release, constant propagation is enabled even when boundary optimization is disabled. (OPT-1318)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 8 cores. (OPT-1500)
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/dw_foundation.sldb'
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | M-2016.12-DWBB_201612.2 |     *     |
+| Licensed DW Building Blocks        | M-2016.12-DWBB_201612.2 |     *     |
+============================================================================
+
+
+Information: There are 48 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'c7552'
+
+Loaded alib file './alib-52/Nangate_Library_slow_ccs.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'c7552'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:04    1048.8      0.00       0.0       0.0                           16017.6729
+    0:00:04    1048.8      0.00       0.0       0.0                           16017.6729
+    0:00:04    1048.8      0.00       0.0       0.0                           16017.6729
+    0:00:04    1048.8      0.00       0.0       0.0                           16017.6729
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+    0:00:04    1047.0      0.00       0.0       0.0                           15958.1162
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+write -format verilog -hierarchy -output ../files/netlists/${design}_${lib}.v
+Writing verilog file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS_attack/Defense/files/netlists/c7552_2ip.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+exit
+
+Thank you...
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version M-2016.12-SP2 for linux64 - Feb 23, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+#!/usr/bin/tclsh
+set design [getenv "DESIGN"]
+c7552
+set lib [getenv LIB]
+2ip
+set target_library {../../../library_files/Nangate_Library_slow_ccs.db}
+../../../library_files/Nangate_Library_slow_ccs.db
+set link_library {../../../library_files/Nangate_Library_slow_ccs.db }
+../../../library_files/Nangate_Library_slow_ccs.db 
+sh mkdir -p ../Results
+sh mkdir -p ../Results/$design
+read_verilog -netlist ../files/netlists/${design}_${lib}.v
+Loading db file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/library_files/Nangate_Library_slow_ccs.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/gtech.db'
+Loading db file '/opt/programs/synopsys/dc/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Loading verilog file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS_attack/Defense/files/netlists/c7552_2ip.v'
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS_attack/Defense/files/netlists/c7552_2ip.v
+Verilog netlist reader completed successfully.
+Current design is now '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS_attack/Defense/files/netlists/c7552.db:c7552'
+Loaded 1 design.
+Current design is 'c7552'.
+c7552
+set all_output_ports [get_attribute [all_outputs] full_name]
+G2 G3 G450 G448 G444 G442 G440 G438 G496 G494 G492 G490 G488 G486 G484 G482 G480 G560 G542 G558 G556 G554 G552 G550 G548 G546 G544 G540 G538 G536 G534 G532 G530 G528 G526 G524 G279 G436 G478 G522 G402 G404 G406 G408 G410 G432 G446 G284 G286 G289 G292 G341 G281 G453 G278 G373 G246 G258 G264 G270 G388 G391 G394 G397 G376 G379 G382 G385 G412 G414 G416 G249 G295 G324 G252 G276 G310 G313 G316 G319 G327 G330 G333 G336 G418 G273 G298 G301 G304 G307 G344 G422 G469 G419 G471 G359 G362 G365 G368 G347 G350 G353 G356 G321 G338 G370 G399
+set max 0
+0
+set PO U
+U
+foreach port $all_output_ports {
+    set size [sizeof_collection [all_fanin -to $port -only_cells]]
+    if {$size > $max} {
+        set max $size
+        set PO $port
+    }
+}
+echo "number of gates in $PO = $max" > ../Results/$design/num_of_gates.txt
+proc listdiff {a b} {
+    set diff {}
+    foreach i $a {
+        if { [lsearch -exact $b $i]==-1} {
+            lappend diff $i
+        }
+    }
+    return $diff
+}
+set all_ports [get_attribute [get_ports * -filter "direction == out"] full_name]
+G2 G3 G450 G448 G444 G442 G440 G438 G496 G494 G492 G490 G488 G486 G484 G482 G480 G560 G542 G558 G556 G554 G552 G550 G548 G546 G544 G540 G538 G536 G534 G532 G530 G528 G526 G524 G279 G436 G478 G522 G402 G404 G406 G408 G410 G432 G446 G284 G286 G289 G292 G341 G281 G453 G278 G373 G246 G258 G264 G270 G388 G391 G394 G397 G376 G379 G382 G385 G412 G414 G416 G249 G295 G324 G252 G276 G310 G313 G316 G319 G327 G330 G333 G336 G418 G273 G298 G301 G304 G307 G344 G422 G469 G419 G471 G359 G362 G365 G368 G347 G350 G353 G356 G321 G338 G370 G399
+set rem_ports [listdiff $all_ports $PO]
+G2 G3 G450 G448 G444 G442 G440 G438 G496 G494 G492 G490 G488 G486 G484 G482 G480 G560 G542 G558 G556 G554 G552 G550 G548 G546 G544 G540 G538 G536 G534 G532 G530 G528 G526 G524 G279 G436 G478 G522 G402 G404 G406 G408 G410 G432 G446 G284 G286 G289 G292 G341 G281 G453 G278 G373 G246 G258 G264 G270 G388 G391 G394 G397 G376 G379 G382 G385 G412 G414 G416 G249 G295 G324 G252 G276 G310 G313 G316 G319 G327 G330 G333 G336 G273 G298 G301 G304 G307 G344 G422 G469 G419 G471 G359 G362 G365 G368 G347 G350 G353 G356 G321 G338 G370 G399
+foreach f $rem_ports {
+    remove_port $f
+}
+Removing port 'G2' in design 'c7552'.
+Removing port 'G3' in design 'c7552'.
+Removing port 'G450' in design 'c7552'.
+Removing port 'G448' in design 'c7552'.
+Removing port 'G444' in design 'c7552'.
+Removing port 'G442' in design 'c7552'.
+Removing port 'G440' in design 'c7552'.
+Removing port 'G438' in design 'c7552'.
+Removing port 'G496' in design 'c7552'.
+Removing port 'G494' in design 'c7552'.
+Removing port 'G492' in design 'c7552'.
+Removing port 'G490' in design 'c7552'.
+Removing port 'G488' in design 'c7552'.
+Removing port 'G486' in design 'c7552'.
+Removing port 'G484' in design 'c7552'.
+Removing port 'G482' in design 'c7552'.
+Removing port 'G480' in design 'c7552'.
+Removing port 'G560' in design 'c7552'.
+Removing port 'G542' in design 'c7552'.
+Removing port 'G558' in design 'c7552'.
+Removing port 'G556' in design 'c7552'.
+Removing port 'G554' in design 'c7552'.
+Removing port 'G552' in design 'c7552'.
+Removing port 'G550' in design 'c7552'.
+Removing port 'G548' in design 'c7552'.
+Removing port 'G546' in design 'c7552'.
+Removing port 'G544' in design 'c7552'.
+Removing port 'G540' in design 'c7552'.
+Removing port 'G538' in design 'c7552'.
+Removing port 'G536' in design 'c7552'.
+Removing port 'G534' in design 'c7552'.
+Removing port 'G532' in design 'c7552'.
+Removing port 'G530' in design 'c7552'.
+Removing port 'G528' in design 'c7552'.
+Removing port 'G526' in design 'c7552'.
+Removing port 'G524' in design 'c7552'.
+Removing port 'G279' in design 'c7552'.
+Removing port 'G436' in design 'c7552'.
+Removing port 'G478' in design 'c7552'.
+Removing port 'G522' in design 'c7552'.
+Removing port 'G402' in design 'c7552'.
+Removing port 'G404' in design 'c7552'.
+Removing port 'G406' in design 'c7552'.
+Removing port 'G408' in design 'c7552'.
+Removing port 'G410' in design 'c7552'.
+Removing port 'G432' in design 'c7552'.
+Removing port 'G446' in design 'c7552'.
+Removing port 'G284' in design 'c7552'.
+Removing port 'G286' in design 'c7552'.
+Removing port 'G289' in design 'c7552'.
+Removing port 'G292' in design 'c7552'.
+Removing port 'G341' in design 'c7552'.
+Removing port 'G281' in design 'c7552'.
+Removing port 'G453' in design 'c7552'.
+Removing port 'G278' in design 'c7552'.
+Removing port 'G373' in design 'c7552'.
+Removing port 'G246' in design 'c7552'.
+Removing port 'G258' in design 'c7552'.
+Removing port 'G264' in design 'c7552'.
+Removing port 'G270' in design 'c7552'.
+Removing port 'G388' in design 'c7552'.
+Removing port 'G391' in design 'c7552'.
+Removing port 'G394' in design 'c7552'.
+Removing port 'G397' in design 'c7552'.
+Removing port 'G376' in design 'c7552'.
+Removing port 'G379' in design 'c7552'.
+Removing port 'G382' in design 'c7552'.
+Removing port 'G385' in design 'c7552'.
+Removing port 'G412' in design 'c7552'.
+Removing port 'G414' in design 'c7552'.
+Removing port 'G416' in design 'c7552'.
+Removing port 'G249' in design 'c7552'.
+Removing port 'G295' in design 'c7552'.
+Removing port 'G324' in design 'c7552'.
+Removing port 'G252' in design 'c7552'.
+Removing port 'G276' in design 'c7552'.
+Removing port 'G310' in design 'c7552'.
+Removing port 'G313' in design 'c7552'.
+Removing port 'G316' in design 'c7552'.
+Removing port 'G319' in design 'c7552'.
+Removing port 'G327' in design 'c7552'.
+Removing port 'G330' in design 'c7552'.
+Removing port 'G333' in design 'c7552'.
+Removing port 'G336' in design 'c7552'.
+Removing port 'G273' in design 'c7552'.
+Removing port 'G298' in design 'c7552'.
+Removing port 'G301' in design 'c7552'.
+Removing port 'G304' in design 'c7552'.
+Removing port 'G307' in design 'c7552'.
+Removing port 'G344' in design 'c7552'.
+Removing port 'G422' in design 'c7552'.
+Removing port 'G469' in design 'c7552'.
+Removing port 'G419' in design 'c7552'.
+Removing port 'G471' in design 'c7552'.
+Removing port 'G359' in design 'c7552'.
+Removing port 'G362' in design 'c7552'.
+Removing port 'G365' in design 'c7552'.
+Removing port 'G368' in design 'c7552'.
+Removing port 'G347' in design 'c7552'.
+Removing port 'G350' in design 'c7552'.
+Removing port 'G353' in design 'c7552'.
+Removing port 'G356' in design 'c7552'.
+Removing port 'G321' in design 'c7552'.
+Removing port 'G338' in design 'c7552'.
+Removing port 'G370' in design 'c7552'.
+Removing port 'G399' in design 'c7552'.
+set all_cells [get_attribute [get_cells] full_name]
+U1149 U1150 U1151 U1152 U1153 U1154 U1155 U1156 U1157 U1158 U1159 U1160 U1161 U1162 U1163 U1164 U1165 U1166 U1167 U1168 U1169 U1170 U1171 U1172 U1173 U1174 U1175 U1176 U1177 U1178 U1179 U1180 U1181 U1182 U1183 U1184 U1185 U1186 U1187 U1188 U1189 U1190 U1191 U1192 U1193 U1194 U1195 U1196 U1197 U1198 U1199 U1200 U1201 U1202 U1203 U1204 U1205 U1206 U1207 U1208 U1209 U1210 U1211 U1212 U1213 U1214 U1215 U1216 U1217 U1218 U1219 U1220 U1221 U1222 U1223 U1224 U1225 U1226 U1227 U1228 U1229 U1230 U1231 U1232 U1233 U1234 U1235 U1236 U1237 U1238 U1239 U1240 U1241 U1242 U1243 U1244 U1245 U1246 U1247 U1248 U1249 U1250 U1251 U1252 U1253 U1254 U1255 U1256 U1257 U1258 U1259 U1260 U1261 U1262 U1263 U1264 U1265 U1266 U1267 U1268 U1269 U1270 U1271 U1272 U1273 U1274 U1275 U1276 U1277 U1278 U1279 U1280 U1281 U1282 U1283 U1284 U1285 U1286 U1287 U1288 U1289 U1290 U1291 U1292 U1293 U1294 U1295 U1296 U1297 U1298 U1299 U1300 U1301 U1302 U1303 U1304 U1305 U1306 U1307 U1308 U1309 U1310 U1311 U1312 U1313 U1314 U1315 U1316 U1317 U1318 U1319 U1320 U1321 U1322 U1323 U1324 U1325 U1326 U1327 U1328 U1329 U1330 U1331 U1332 U1333 U1334 U1335 U1336 U1337 U1338 U1339 U1340 U1341 U1342 U1343 U1344 U1345 U1346 U1347 U1348 U1349 U1350 U1351 U1352 U1353 U1354 U1355 U1356 U1357 U1358 U1359 U1360 U1361 U1362 U1363 U1364 U1365 U1366 U1367 U1368 U1369 U1370 U1371 U1372 U1373 U1374 U1375 U1376 U1377 U1378 U1379 U1380 U1381 U1382 U1383 U1384 U1385 U1386 U1387 U1388 U1389 U1390 U1391 U1392 U1393 U1394 U1395 U1396 U1397 U1398 U1399 U1400 U1401 U1402 U1403 U1404 U1405 U1406 U1407 U1408 U1409 U1410 U1411 U1412 U1413 U1414 U1415 U1416 U1417 U1418 U1419 U1420 U1421 U1422 U1423 U1424 U1425 U1426 U1427 U1428 U1429 U1430 U1431 U1432 U1433 U1434 U1435 U1436 U1437 U1438 U1439 U1440 U1441 U1442 U1443 U1444 U1445 U1446 U1447 U1448 U1449 U1450 U1451 U1452 U1453 U1454 U1455 U1456 U1457 U1458 U1459 U1460 U1461 U1462 U1463 U1464 U1465 U1466 U1467 U1468 U1469 U1470 U1471 U1472 U1473 U1474 U1475 U1476 U1477 U1478 U1479 U1480 U1481 U1482 U1483 U1484 U1485 U1486 U1487 U1488 U1489 U1490 U1491 U1492 U1493 U1494 U1495 U1496 U1497 U1498 U1499 U1500 U1501 U1502 U1503 U1504 U1505 U1506 U1507 U1508 U1509 U1510 U1511 U1512 U1513 U1514 U1515 U1516 U1517 U1518 U1519 U1520 U1521 U1522 U1523 U1524 U1525 U1526 U1527 U1528 U1529 U1530 U1531 U1532 U1533 U1534 U1535 U1536 U1537 U1538 U1539 U1540 U1541 U1542 U1543 U1544 U1545 U1546 U1547 U1548 U1549 U1550 U1551 U1552 U1553 U1554 U1555 U1556 U1557 U1558 U1559 U1560 U1561 U1562 U1563 U1564 U1565 U1566 U1567 U1568 U1569 U1570 U1571 U1572 U1573 U1574 U1575 U1576 U1577 U1578 U1579 U1580 U1581 U1582 U1583 U1584 U1585 U1586 U1587 U1588 U1589 U1590 U1591 U1592 U1593 U1594 U1595 U1596 U1597 U1598 U1599 U1600 U1601 U1602 U1603 U1604 U1605 U1606 U1607 U1608 U1609 U1610 U1611 U1612 U1613 U1614 U1615 U1616 U1617 U1618 U1619 U1620 U1621 U1622 U1623 U1624 U1625 U1626 U1627 U1628 U1629 U1630 U1631 U1632 U1633 U1634 U1635 U1636 U1637 U1638 U1639 U1640 U1641 U1642 U1643 U1644 U1645 U1646 U1647 U1648 U1649 U1650 U1651 U1652 U1653 U1654 U1655 U1656 U1657 U1658 U1659 U1660 U1661 U1662 U1663 U1664 U1665 U1666 U1667 U1668 U1669 U1670 U1671 U1672 U1673 U1674 U1675 U1676 U1677 U1678 U1679 U1680 U1681 U1682 U1683 U1684 U1685 U1686 U1687 U1688 U1689 U1690 U1691 U1692 U1693 U1694 U1695 U1696 U1697 U1698 U1699 U1700 U1701 U1702 U1703 U1704 U1705 U1706 U1707 U1708 U1709 U1710 U1711 U1712 U1713 U1714 U1715 U1716 U1717 U1718 U1719 U1720 U1721 U1722 U1723 U1724 U1725 U1726 U1727 U1728 U1729 U1730 U1731 U1732 U1733 U1734 U1735 U1736 U1737 U1738 U1739 U1740 U1741 U1742 U1743 U1744 U1745 U1746 U1747 U1748 U1749 U1750 U1751 U1752 U1753 U1754 U1755 U1756 U1757 U1758 U1759 U1760 U1761 U1762 U1763 U1764 U1765 U1766 U1767 U1768 U1769 U1770 U1771 U1772 U1773 U1774 U1775 U1776 U1777 U1778 U1779 U1780 U1781 U1782 U1783 U1784 U1785 U1786 U1787 U1788 U1789 U1790 U1791 U1792 U1793 U1794 U1795 U1796 U1797 U1798 U1799 U1800 U1801 U1802 U1803 U1804 U1805 U1806 U1807 U1808 U1809 U1810 U1811 U1812 U1813 U1814 U1815 U1816 U1817 U1818 U1819 U1820 U1821 U1822 U1823 U1824 U1825 U1826 U1827 U1828 U1829 U1830 U1831 U1832 U1833 U1834 U1835 U1836 U1837 U1838 U1839 U1840 U1841 U1842 U1843 U1844 U1845 U1846 U1847 U1848 U1849 U1850 U1851 U1852 U1853 U1854 U1855 U1856 U1857 U1858 U1859 U1860 U1861 U1862 U1863 U1864 U1865 U1866 U1867 U1868 U1869 U1870 U1871 U1872 U1873 U1874 U1875 U1876 U1877 U1878 U1879 U1880 U1881 U1882 U1883 U1884 U1885 U1886 U1887 U1888 U1889 U1890 U1891 U1892 U1893 U1894 U1895 U1896 U1897 U1898 U1899 U1900 U1901 U1902 U1903 U1904 U1905 U1906 U1907 U1908 U1909 U1910 U1911 U1912 U1913 U1914 U1915 U1916 U1917 U1918 U1919 U1920 U1921 U1922 U1923 U1924 U1925 U1926 U1927 U1928 U1929 U1930 U1931 U1932 U1933 U1934 U1935 U1936 U1937 U1938 U1939 U1940 U1941 U1942 U1943 U1944 U1945 U1946 U1947 U1948 U1949 U1950 U1951 U1952 U1953 U1954 U1955 U1956 U1957 U1958 U1959 U1960 U1961 U1962 U1963 U1964 U1965 U1966 U1967 U1968 U1969 U1970 U1971 U1972 U1973 U1974 U1975 U1976 U1977 U1978 U1979 U1980 U1981 U1982 U1983 U1984 U1985 U1986 U1987 U1988 U1989 U1990 U1991 U1992 U1993 U1994 U1995 U1996 U1997 U1998 U1999 U2000 U2001 U2002 U2003 U2004 U2005 U2006 U2007 U2008 U2009 U2010 U2011 U2012 U2013 U2014 U2015 U2016 U2017 U2018 U2019 U2020 U2021 U2022 U2023 U2024 U2025 U2026 U2027 U2028 U2029 U2030 U2031 U2032 U2033 U2034 U2035 U2036 U2037 U2038 U2039 U2040 U2041 U2042 U2043 U2044 U2045 U2046 U2047 U2048 U2049 U2050 U2051 U2052 U2053 U2054 U2055 U2056 U2057 U2058 U2059 U2060 U2061 U2062 U2063 U2064 U2065 U2066 U2067 U2068 U2069 U2070 U2071 U2072 U2073 U2074 U2075 U2076 U2077 U2078 U2079 U2080 U2081 U2082 U2083 U2084 U2085 U2086 U2087 U2088 U2089 U2090 U2091 U2092 U2093 U2094 U2095 U2096 U2097 U2098 U2099 U2100 U2101 U2102 U2103 U2104 U2105 U2106 U2107 U2108 U2109 U2110 U2111 U2112 U2113 U2114 U2115 U2116 U2117 U2118 U2119 U2120 U2121 U2122 U2123 U2124 U2125 U2126 U2127 U2128 U2129 U2130 U2131 U2132 U2133 U2134 U2135 U2136 U2137 U2138 U2139 U2140 U2141 U2142 U2143 U2144 U2145 U2146 U2147 U2148 U2149 U2150 U2151 U2152 U2153 U2154 U2155 U2156 U2157 U2158 U2159 U2160 U2161 U2162 U2163 U2164 U2165 U2166 U2167 U2168 U2169 U2170 U2171 U2172 U2173 U2174 U2175 U2176 U2177 U2178 U2179 U2180 U2181 U2182 U2183 U2184 U2185 U2186 U2187 U2188 U2189 U2190 U2191 U2192 U2193 U2194 U2195 U2196 U2197 U2198 U2199 U2200 U2201 U2202 U2203 U2204 U2205 U2206 U2207 U2208 U2209 U2210 U2211 U2212 U2213 U2214 U2215 U2216 U2217 U2218 U2219 U2220 U2221 U2222 U2223 U2224 U2225 U2226 U2227 U2228 U2229 U2230 U2231 U2232 U2233 U2234 U2235 U2236 U2237 U2238 U2239
+set cur_cells [get_attribute [all_fanin -to $PO -only_cells] full_name]
+U1313 U1421 U1330 U1171 U2192 U1679 U1724 U1524 U1536 U1535 U1549 U1548 U1560 U1529 U1314 U1422 U1306 U1351 U1331 U2193 U1223 U1194 U1193 U1701 U1680 U1725 U1539 U1538 U1525 U1523 U1532 U1531 U1563 U1562 U1190 U1417 U1537 U1550 U1561 U1530 U1299 U1283 U2202 U1307 U1402 U1357 U1352 U2194 U2189 U2187 U1237 U1226 U1150 U1640 U1298 U1634 U1401 U1649 U1312 U1420 U1613 U1528 U1720 U1695 U1559 U1716 U1703 U2137 U1540 U1526 U1533 U1564 U1510 U2116 U2114 U1369 U1368 U1354 U1353 U1310 U1309 U1418 U1416 U1303 U1302 U1405 U1404 U1505 U2222 U2221 U1481 U1460 U1300 U1285 U2203 U1403 U1320 U1341 U1236 U1358 U2195 U2190 U2188 U1188 U1187 U1180 U1238 U2164 U1184 U1183 U1641 U1635 U1650 U1614 U2152 U1721 U1696 U1717 U2138 U1581 U1580 U2129 U2128 U1511 U1509 U1544 U1502 U2117 U2115 U1370 U1355 U1235 U1216 U1290 U1311 U1419 U1304 U1406 U2098 U2096 U1455 U1451 U1601 U1491 U1513 U1498 U1506 U2223 U1521 U1482 U1461 U1466 U1288 U2205 U2204 U1321 U1342 U2196 U2191 U2180 U1490 U1800 U1702 U1792 U2171 U2169 U1189 U1181 U2165 U1185 U1617 U1284 U1606 U2156 U2155 U2153 U1688 U1691 U2140 U2139 U1582 U2130 U1512 U1546 U1545 U1503 U1501 U1495 U1178 U1326 U1325 U2118 U2113 U1360 U1359 U1339 U1338 U1333 U1332 U1318 U1317 U1426 U1425 U1292 U1291 U2102 U2101 U2099 U2097 U1473 U1472 U1456 U1454 U1486 U1485 U1464 U1463 U2088 U2086 U2083 U2081 U2228 U1514 U1499 U2224 U1522 U2217 U1467 U1475 U2214 U2209 U2150 U1429 U1428 U1289 U2206 U2198 U2197 U1225 U1323 U1224 U2181 U1774 U1777 U1458 U1801 U1793 U1229 U1228 U1218 U1217 U2172 U2170 U2167 U2166 U1629 U1287 U1643 U1305 U1618 U1607 U2157 U2154 U2146 U1149 U2144 U1692 U2141 U1712 U1459 U1583 U2131 U1547 U1504 U1496 U1494 U2124 U2123 U1346 U1345 U1327 U2119 U1361 U1340 U1334 U1319 U1281 U1280 U1296 U1295 U1427 U1293 U2103 U2100 U1474 U1457 U1487 U1465 U2089 U2087 U2084 U2082 U2229 U2226 U2225 U2218 U1476 U2215 U2179 U2210 U2151 U1430 U2207 U2199 U1324 U1348 U1179 U2182 U1775 U1778 U2177 U1230 U1219 U2173 U2168 U1630 U1644 U2159 U2158 U2147 U2145 U2142 U1713 U2132 U2127 U1497 U2125 U1347 U2120 U2111 U2110 U1282 U1297 U2105 U2104 U2093 U2092 U2090 U2085 U2230 U2227 U2219 U2216 U2211 U2208 U2200 U1349 U2183 U2178 U2175 U2174 U2161 U2160 U2148 U2143 U1157 U1156 U1160 U1159 U1163 U1162 U1166 U1165 U2133 U2126 U2121 U2112 U2107 U2106 U2094 U2091 U2231 U2220 U2212 U2201 U2184 U2176 U2162 U2149 U1158 U1161 U1164 U1167 U2134 U2122 U2108 U2095 U2232 U2213 U2185 U2163 U2235 U2234 U2135 U2109 U2233 U2186 U2236 U2136 U2238 U2237 U2239
+set rem_cells [listdiff $all_cells $cur_cells]
+U1151 U1152 U1153 U1154 U1155 U1168 U1169 U1170 U1172 U1173 U1174 U1175 U1176 U1177 U1182 U1186 U1191 U1192 U1195 U1196 U1197 U1198 U1199 U1200 U1201 U1202 U1203 U1204 U1205 U1206 U1207 U1208 U1209 U1210 U1211 U1212 U1213 U1214 U1215 U1220 U1221 U1222 U1227 U1231 U1232 U1233 U1234 U1239 U1240 U1241 U1242 U1243 U1244 U1245 U1246 U1247 U1248 U1249 U1250 U1251 U1252 U1253 U1254 U1255 U1256 U1257 U1258 U1259 U1260 U1261 U1262 U1263 U1264 U1265 U1266 U1267 U1268 U1269 U1270 U1271 U1272 U1273 U1274 U1275 U1276 U1277 U1278 U1279 U1286 U1294 U1301 U1308 U1315 U1316 U1322 U1328 U1329 U1335 U1336 U1337 U1343 U1344 U1350 U1356 U1362 U1363 U1364 U1365 U1366 U1367 U1371 U1372 U1373 U1374 U1375 U1376 U1377 U1378 U1379 U1380 U1381 U1382 U1383 U1384 U1385 U1386 U1387 U1388 U1389 U1390 U1391 U1392 U1393 U1394 U1395 U1396 U1397 U1398 U1399 U1400 U1407 U1408 U1409 U1410 U1411 U1412 U1413 U1414 U1415 U1423 U1424 U1431 U1432 U1433 U1434 U1435 U1436 U1437 U1438 U1439 U1440 U1441 U1442 U1443 U1444 U1445 U1446 U1447 U1448 U1449 U1450 U1452 U1453 U1462 U1468 U1469 U1470 U1471 U1477 U1478 U1479 U1480 U1483 U1484 U1488 U1489 U1492 U1493 U1500 U1507 U1508 U1515 U1516 U1517 U1518 U1519 U1520 U1527 U1534 U1541 U1542 U1543 U1551 U1552 U1553 U1554 U1555 U1556 U1557 U1558 U1565 U1566 U1567 U1568 U1569 U1570 U1571 U1572 U1573 U1574 U1575 U1576 U1577 U1578 U1579 U1584 U1585 U1586 U1587 U1588 U1589 U1590 U1591 U1592 U1593 U1594 U1595 U1596 U1597 U1598 U1599 U1600 U1602 U1603 U1604 U1605 U1608 U1609 U1610 U1611 U1612 U1615 U1616 U1619 U1620 U1621 U1622 U1623 U1624 U1625 U1626 U1627 U1628 U1631 U1632 U1633 U1636 U1637 U1638 U1639 U1642 U1645 U1646 U1647 U1648 U1651 U1652 U1653 U1654 U1655 U1656 U1657 U1658 U1659 U1660 U1661 U1662 U1663 U1664 U1665 U1666 U1667 U1668 U1669 U1670 U1671 U1672 U1673 U1674 U1675 U1676 U1677 U1678 U1681 U1682 U1683 U1684 U1685 U1686 U1687 U1689 U1690 U1693 U1694 U1697 U1698 U1699 U1700 U1704 U1705 U1706 U1707 U1708 U1709 U1710 U1711 U1714 U1715 U1718 U1719 U1722 U1723 U1726 U1727 U1728 U1729 U1730 U1731 U1732 U1733 U1734 U1735 U1736 U1737 U1738 U1739 U1740 U1741 U1742 U1743 U1744 U1745 U1746 U1747 U1748 U1749 U1750 U1751 U1752 U1753 U1754 U1755 U1756 U1757 U1758 U1759 U1760 U1761 U1762 U1763 U1764 U1765 U1766 U1767 U1768 U1769 U1770 U1771 U1772 U1773 U1776 U1779 U1780 U1781 U1782 U1783 U1784 U1785 U1786 U1787 U1788 U1789 U1790 U1791 U1794 U1795 U1796 U1797 U1798 U1799 U1802 U1803 U1804 U1805 U1806 U1807 U1808 U1809 U1810 U1811 U1812 U1813 U1814 U1815 U1816 U1817 U1818 U1819 U1820 U1821 U1822 U1823 U1824 U1825 U1826 U1827 U1828 U1829 U1830 U1831 U1832 U1833 U1834 U1835 U1836 U1837 U1838 U1839 U1840 U1841 U1842 U1843 U1844 U1845 U1846 U1847 U1848 U1849 U1850 U1851 U1852 U1853 U1854 U1855 U1856 U1857 U1858 U1859 U1860 U1861 U1862 U1863 U1864 U1865 U1866 U1867 U1868 U1869 U1870 U1871 U1872 U1873 U1874 U1875 U1876 U1877 U1878 U1879 U1880 U1881 U1882 U1883 U1884 U1885 U1886 U1887 U1888 U1889 U1890 U1891 U1892 U1893 U1894 U1895 U1896 U1897 U1898 U1899 U1900 U1901 U1902 U1903 U1904 U1905 U1906 U1907 U1908 U1909 U1910 U1911 U1912 U1913 U1914 U1915 U1916 U1917 U1918 U1919 U1920 U1921 U1922 U1923 U1924 U1925 U1926 U1927 U1928 U1929 U1930 U1931 U1932 U1933 U1934 U1935 U1936 U1937 U1938 U1939 U1940 U1941 U1942 U1943 U1944 U1945 U1946 U1947 U1948 U1949 U1950 U1951 U1952 U1953 U1954 U1955 U1956 U1957 U1958 U1959 U1960 U1961 U1962 U1963 U1964 U1965 U1966 U1967 U1968 U1969 U1970 U1971 U1972 U1973 U1974 U1975 U1976 U1977 U1978 U1979 U1980 U1981 U1982 U1983 U1984 U1985 U1986 U1987 U1988 U1989 U1990 U1991 U1992 U1993 U1994 U1995 U1996 U1997 U1998 U1999 U2000 U2001 U2002 U2003 U2004 U2005 U2006 U2007 U2008 U2009 U2010 U2011 U2012 U2013 U2014 U2015 U2016 U2017 U2018 U2019 U2020 U2021 U2022 U2023 U2024 U2025 U2026 U2027 U2028 U2029 U2030 U2031 U2032 U2033 U2034 U2035 U2036 U2037 U2038 U2039 U2040 U2041 U2042 U2043 U2044 U2045 U2046 U2047 U2048 U2049 U2050 U2051 U2052 U2053 U2054 U2055 U2056 U2057 U2058 U2059 U2060 U2061 U2062 U2063 U2064 U2065 U2066 U2067 U2068 U2069 U2070 U2071 U2072 U2073 U2074 U2075 U2076 U2077 U2078 U2079 U2080
+foreach c $rem_cells {
+    remove_cell $c
+}
+Removing cell 'U1151' in design 'c7552'.
+Removing cell 'U1152' in design 'c7552'.
+Removing cell 'U1153' in design 'c7552'.
+Removing cell 'U1154' in design 'c7552'.
+Removing cell 'U1155' in design 'c7552'.
+Removing cell 'U1168' in design 'c7552'.
+Removing cell 'U1169' in design 'c7552'.
+Removing cell 'U1170' in design 'c7552'.
+Removing cell 'U1172' in design 'c7552'.
+Removing cell 'U1173' in design 'c7552'.
+Removing cell 'U1174' in design 'c7552'.
+Removing cell 'U1175' in design 'c7552'.
+Removing cell 'U1176' in design 'c7552'.
+Removing cell 'U1177' in design 'c7552'.
+Removing cell 'U1182' in design 'c7552'.
+Removing cell 'U1186' in design 'c7552'.
+Removing cell 'U1191' in design 'c7552'.
+Removing cell 'U1192' in design 'c7552'.
+Removing cell 'U1195' in design 'c7552'.
+Removing cell 'U1196' in design 'c7552'.
+Removing cell 'U1197' in design 'c7552'.
+Removing cell 'U1198' in design 'c7552'.
+Removing cell 'U1199' in design 'c7552'.
+Removing cell 'U1200' in design 'c7552'.
+Removing cell 'U1201' in design 'c7552'.
+Removing cell 'U1202' in design 'c7552'.
+Removing cell 'U1203' in design 'c7552'.
+Removing cell 'U1204' in design 'c7552'.
+Removing cell 'U1205' in design 'c7552'.
+Removing cell 'U1206' in design 'c7552'.
+Removing cell 'U1207' in design 'c7552'.
+Removing cell 'U1208' in design 'c7552'.
+Removing cell 'U1209' in design 'c7552'.
+Removing cell 'U1210' in design 'c7552'.
+Removing cell 'U1211' in design 'c7552'.
+Removing cell 'U1212' in design 'c7552'.
+Removing cell 'U1213' in design 'c7552'.
+Removing cell 'U1214' in design 'c7552'.
+Removing cell 'U1215' in design 'c7552'.
+Removing cell 'U1220' in design 'c7552'.
+Removing cell 'U1221' in design 'c7552'.
+Removing cell 'U1222' in design 'c7552'.
+Removing cell 'U1227' in design 'c7552'.
+Removing cell 'U1231' in design 'c7552'.
+Removing cell 'U1232' in design 'c7552'.
+Removing cell 'U1233' in design 'c7552'.
+Removing cell 'U1234' in design 'c7552'.
+Removing cell 'U1239' in design 'c7552'.
+Removing cell 'U1240' in design 'c7552'.
+Removing cell 'U1241' in design 'c7552'.
+Removing cell 'U1242' in design 'c7552'.
+Removing cell 'U1243' in design 'c7552'.
+Removing cell 'U1244' in design 'c7552'.
+Removing cell 'U1245' in design 'c7552'.
+Removing cell 'U1246' in design 'c7552'.
+Removing cell 'U1247' in design 'c7552'.
+Removing cell 'U1248' in design 'c7552'.
+Removing cell 'U1249' in design 'c7552'.
+Removing cell 'U1250' in design 'c7552'.
+Removing cell 'U1251' in design 'c7552'.
+Removing cell 'U1252' in design 'c7552'.
+Removing cell 'U1253' in design 'c7552'.
+Removing cell 'U1254' in design 'c7552'.
+Removing cell 'U1255' in design 'c7552'.
+Removing cell 'U1256' in design 'c7552'.
+Removing cell 'U1257' in design 'c7552'.
+Removing cell 'U1258' in design 'c7552'.
+Removing cell 'U1259' in design 'c7552'.
+Removing cell 'U1260' in design 'c7552'.
+Removing cell 'U1261' in design 'c7552'.
+Removing cell 'U1262' in design 'c7552'.
+Removing cell 'U1263' in design 'c7552'.
+Removing cell 'U1264' in design 'c7552'.
+Removing cell 'U1265' in design 'c7552'.
+Removing cell 'U1266' in design 'c7552'.
+Removing cell 'U1267' in design 'c7552'.
+Removing cell 'U1268' in design 'c7552'.
+Removing cell 'U1269' in design 'c7552'.
+Removing cell 'U1270' in design 'c7552'.
+Removing cell 'U1271' in design 'c7552'.
+Removing cell 'U1272' in design 'c7552'.
+Removing cell 'U1273' in design 'c7552'.
+Removing cell 'U1274' in design 'c7552'.
+Removing cell 'U1275' in design 'c7552'.
+Removing cell 'U1276' in design 'c7552'.
+Removing cell 'U1277' in design 'c7552'.
+Removing cell 'U1278' in design 'c7552'.
+Removing cell 'U1279' in design 'c7552'.
+Removing cell 'U1286' in design 'c7552'.
+Removing cell 'U1294' in design 'c7552'.
+Removing cell 'U1301' in design 'c7552'.
+Removing cell 'U1308' in design 'c7552'.
+Removing cell 'U1315' in design 'c7552'.
+Removing cell 'U1316' in design 'c7552'.
+Removing cell 'U1322' in design 'c7552'.
+Removing cell 'U1328' in design 'c7552'.
+Removing cell 'U1329' in design 'c7552'.
+Removing cell 'U1335' in design 'c7552'.
+Removing cell 'U1336' in design 'c7552'.
+Removing cell 'U1337' in design 'c7552'.
+Removing cell 'U1343' in design 'c7552'.
+Removing cell 'U1344' in design 'c7552'.
+Removing cell 'U1350' in design 'c7552'.
+Removing cell 'U1356' in design 'c7552'.
+Removing cell 'U1362' in design 'c7552'.
+Removing cell 'U1363' in design 'c7552'.
+Removing cell 'U1364' in design 'c7552'.
+Removing cell 'U1365' in design 'c7552'.
+Removing cell 'U1366' in design 'c7552'.
+Removing cell 'U1367' in design 'c7552'.
+Removing cell 'U1371' in design 'c7552'.
+Removing cell 'U1372' in design 'c7552'.
+Removing cell 'U1373' in design 'c7552'.
+Removing cell 'U1374' in design 'c7552'.
+Removing cell 'U1375' in design 'c7552'.
+Removing cell 'U1376' in design 'c7552'.
+Removing cell 'U1377' in design 'c7552'.
+Removing cell 'U1378' in design 'c7552'.
+Removing cell 'U1379' in design 'c7552'.
+Removing cell 'U1380' in design 'c7552'.
+Removing cell 'U1381' in design 'c7552'.
+Removing cell 'U1382' in design 'c7552'.
+Removing cell 'U1383' in design 'c7552'.
+Removing cell 'U1384' in design 'c7552'.
+Removing cell 'U1385' in design 'c7552'.
+Removing cell 'U1386' in design 'c7552'.
+Removing cell 'U1387' in design 'c7552'.
+Removing cell 'U1388' in design 'c7552'.
+Removing cell 'U1389' in design 'c7552'.
+Removing cell 'U1390' in design 'c7552'.
+Removing cell 'U1391' in design 'c7552'.
+Removing cell 'U1392' in design 'c7552'.
+Removing cell 'U1393' in design 'c7552'.
+Removing cell 'U1394' in design 'c7552'.
+Removing cell 'U1395' in design 'c7552'.
+Removing cell 'U1396' in design 'c7552'.
+Removing cell 'U1397' in design 'c7552'.
+Removing cell 'U1398' in design 'c7552'.
+Removing cell 'U1399' in design 'c7552'.
+Removing cell 'U1400' in design 'c7552'.
+Removing cell 'U1407' in design 'c7552'.
+Removing cell 'U1408' in design 'c7552'.
+Removing cell 'U1409' in design 'c7552'.
+Removing cell 'U1410' in design 'c7552'.
+Removing cell 'U1411' in design 'c7552'.
+Removing cell 'U1412' in design 'c7552'.
+Removing cell 'U1413' in design 'c7552'.
+Removing cell 'U1414' in design 'c7552'.
+Removing cell 'U1415' in design 'c7552'.
+Removing cell 'U1423' in design 'c7552'.
+Removing cell 'U1424' in design 'c7552'.
+Removing cell 'U1431' in design 'c7552'.
+Removing cell 'U1432' in design 'c7552'.
+Removing cell 'U1433' in design 'c7552'.
+Removing cell 'U1434' in design 'c7552'.
+Removing cell 'U1435' in design 'c7552'.
+Removing cell 'U1436' in design 'c7552'.
+Removing cell 'U1437' in design 'c7552'.
+Removing cell 'U1438' in design 'c7552'.
+Removing cell 'U1439' in design 'c7552'.
+Removing cell 'U1440' in design 'c7552'.
+Removing cell 'U1441' in design 'c7552'.
+Removing cell 'U1442' in design 'c7552'.
+Removing cell 'U1443' in design 'c7552'.
+Removing cell 'U1444' in design 'c7552'.
+Removing cell 'U1445' in design 'c7552'.
+Removing cell 'U1446' in design 'c7552'.
+Removing cell 'U1447' in design 'c7552'.
+Removing cell 'U1448' in design 'c7552'.
+Removing cell 'U1449' in design 'c7552'.
+Removing cell 'U1450' in design 'c7552'.
+Removing cell 'U1452' in design 'c7552'.
+Removing cell 'U1453' in design 'c7552'.
+Removing cell 'U1462' in design 'c7552'.
+Removing cell 'U1468' in design 'c7552'.
+Removing cell 'U1469' in design 'c7552'.
+Removing cell 'U1470' in design 'c7552'.
+Removing cell 'U1471' in design 'c7552'.
+Removing cell 'U1477' in design 'c7552'.
+Removing cell 'U1478' in design 'c7552'.
+Removing cell 'U1479' in design 'c7552'.
+Removing cell 'U1480' in design 'c7552'.
+Removing cell 'U1483' in design 'c7552'.
+Removing cell 'U1484' in design 'c7552'.
+Removing cell 'U1488' in design 'c7552'.
+Removing cell 'U1489' in design 'c7552'.
+Removing cell 'U1492' in design 'c7552'.
+Removing cell 'U1493' in design 'c7552'.
+Removing cell 'U1500' in design 'c7552'.
+Removing cell 'U1507' in design 'c7552'.
+Removing cell 'U1508' in design 'c7552'.
+Removing cell 'U1515' in design 'c7552'.
+Removing cell 'U1516' in design 'c7552'.
+Removing cell 'U1517' in design 'c7552'.
+Removing cell 'U1518' in design 'c7552'.
+Removing cell 'U1519' in design 'c7552'.
+Removing cell 'U1520' in design 'c7552'.
+Removing cell 'U1527' in design 'c7552'.
+Removing cell 'U1534' in design 'c7552'.
+Removing cell 'U1541' in design 'c7552'.
+Removing cell 'U1542' in design 'c7552'.
+Removing cell 'U1543' in design 'c7552'.
+Removing cell 'U1551' in design 'c7552'.
+Removing cell 'U1552' in design 'c7552'.
+Removing cell 'U1553' in design 'c7552'.
+Removing cell 'U1554' in design 'c7552'.
+Removing cell 'U1555' in design 'c7552'.
+Removing cell 'U1556' in design 'c7552'.
+Removing cell 'U1557' in design 'c7552'.
+Removing cell 'U1558' in design 'c7552'.
+Removing cell 'U1565' in design 'c7552'.
+Removing cell 'U1566' in design 'c7552'.
+Removing cell 'U1567' in design 'c7552'.
+Removing cell 'U1568' in design 'c7552'.
+Removing cell 'U1569' in design 'c7552'.
+Removing cell 'U1570' in design 'c7552'.
+Removing cell 'U1571' in design 'c7552'.
+Removing cell 'U1572' in design 'c7552'.
+Removing cell 'U1573' in design 'c7552'.
+Removing cell 'U1574' in design 'c7552'.
+Removing cell 'U1575' in design 'c7552'.
+Removing cell 'U1576' in design 'c7552'.
+Removing cell 'U1577' in design 'c7552'.
+Removing cell 'U1578' in design 'c7552'.
+Removing cell 'U1579' in design 'c7552'.
+Removing cell 'U1584' in design 'c7552'.
+Removing cell 'U1585' in design 'c7552'.
+Removing cell 'U1586' in design 'c7552'.
+Removing cell 'U1587' in design 'c7552'.
+Removing cell 'U1588' in design 'c7552'.
+Removing cell 'U1589' in design 'c7552'.
+Removing cell 'U1590' in design 'c7552'.
+Removing cell 'U1591' in design 'c7552'.
+Removing cell 'U1592' in design 'c7552'.
+Removing cell 'U1593' in design 'c7552'.
+Removing cell 'U1594' in design 'c7552'.
+Removing cell 'U1595' in design 'c7552'.
+Removing cell 'U1596' in design 'c7552'.
+Removing cell 'U1597' in design 'c7552'.
+Removing cell 'U1598' in design 'c7552'.
+Removing cell 'U1599' in design 'c7552'.
+Removing cell 'U1600' in design 'c7552'.
+Removing cell 'U1602' in design 'c7552'.
+Removing cell 'U1603' in design 'c7552'.
+Removing cell 'U1604' in design 'c7552'.
+Removing cell 'U1605' in design 'c7552'.
+Removing cell 'U1608' in design 'c7552'.
+Removing cell 'U1609' in design 'c7552'.
+Removing cell 'U1610' in design 'c7552'.
+Removing cell 'U1611' in design 'c7552'.
+Removing cell 'U1612' in design 'c7552'.
+Removing cell 'U1615' in design 'c7552'.
+Removing cell 'U1616' in design 'c7552'.
+Removing cell 'U1619' in design 'c7552'.
+Removing cell 'U1620' in design 'c7552'.
+Removing cell 'U1621' in design 'c7552'.
+Removing cell 'U1622' in design 'c7552'.
+Removing cell 'U1623' in design 'c7552'.
+Removing cell 'U1624' in design 'c7552'.
+Removing cell 'U1625' in design 'c7552'.
+Removing cell 'U1626' in design 'c7552'.
+Removing cell 'U1627' in design 'c7552'.
+Removing cell 'U1628' in design 'c7552'.
+Removing cell 'U1631' in design 'c7552'.
+Removing cell 'U1632' in design 'c7552'.
+Removing cell 'U1633' in design 'c7552'.
+Removing cell 'U1636' in design 'c7552'.
+Removing cell 'U1637' in design 'c7552'.
+Removing cell 'U1638' in design 'c7552'.
+Removing cell 'U1639' in design 'c7552'.
+Removing cell 'U1642' in design 'c7552'.
+Removing cell 'U1645' in design 'c7552'.
+Removing cell 'U1646' in design 'c7552'.
+Removing cell 'U1647' in design 'c7552'.
+Removing cell 'U1648' in design 'c7552'.
+Removing cell 'U1651' in design 'c7552'.
+Removing cell 'U1652' in design 'c7552'.
+Removing cell 'U1653' in design 'c7552'.
+Removing cell 'U1654' in design 'c7552'.
+Removing cell 'U1655' in design 'c7552'.
+Removing cell 'U1656' in design 'c7552'.
+Removing cell 'U1657' in design 'c7552'.
+Removing cell 'U1658' in design 'c7552'.
+Removing cell 'U1659' in design 'c7552'.
+Removing cell 'U1660' in design 'c7552'.
+Removing cell 'U1661' in design 'c7552'.
+Removing cell 'U1662' in design 'c7552'.
+Removing cell 'U1663' in design 'c7552'.
+Removing cell 'U1664' in design 'c7552'.
+Removing cell 'U1665' in design 'c7552'.
+Removing cell 'U1666' in design 'c7552'.
+Removing cell 'U1667' in design 'c7552'.
+Removing cell 'U1668' in design 'c7552'.
+Removing cell 'U1669' in design 'c7552'.
+Removing cell 'U1670' in design 'c7552'.
+Removing cell 'U1671' in design 'c7552'.
+Removing cell 'U1672' in design 'c7552'.
+Removing cell 'U1673' in design 'c7552'.
+Removing cell 'U1674' in design 'c7552'.
+Removing cell 'U1675' in design 'c7552'.
+Removing cell 'U1676' in design 'c7552'.
+Removing cell 'U1677' in design 'c7552'.
+Removing cell 'U1678' in design 'c7552'.
+Removing cell 'U1681' in design 'c7552'.
+Removing cell 'U1682' in design 'c7552'.
+Removing cell 'U1683' in design 'c7552'.
+Removing cell 'U1684' in design 'c7552'.
+Removing cell 'U1685' in design 'c7552'.
+Removing cell 'U1686' in design 'c7552'.
+Removing cell 'U1687' in design 'c7552'.
+Removing cell 'U1689' in design 'c7552'.
+Removing cell 'U1690' in design 'c7552'.
+Removing cell 'U1693' in design 'c7552'.
+Removing cell 'U1694' in design 'c7552'.
+Removing cell 'U1697' in design 'c7552'.
+Removing cell 'U1698' in design 'c7552'.
+Removing cell 'U1699' in design 'c7552'.
+Removing cell 'U1700' in design 'c7552'.
+Removing cell 'U1704' in design 'c7552'.
+Removing cell 'U1705' in design 'c7552'.
+Removing cell 'U1706' in design 'c7552'.
+Removing cell 'U1707' in design 'c7552'.
+Removing cell 'U1708' in design 'c7552'.
+Removing cell 'U1709' in design 'c7552'.
+Removing cell 'U1710' in design 'c7552'.
+Removing cell 'U1711' in design 'c7552'.
+Removing cell 'U1714' in design 'c7552'.
+Removing cell 'U1715' in design 'c7552'.
+Removing cell 'U1718' in design 'c7552'.
+Removing cell 'U1719' in design 'c7552'.
+Removing cell 'U1722' in design 'c7552'.
+Removing cell 'U1723' in design 'c7552'.
+Removing cell 'U1726' in design 'c7552'.
+Removing cell 'U1727' in design 'c7552'.
+Removing cell 'U1728' in design 'c7552'.
+Removing cell 'U1729' in design 'c7552'.
+Removing cell 'U1730' in design 'c7552'.
+Removing cell 'U1731' in design 'c7552'.
+Removing cell 'U1732' in design 'c7552'.
+Removing cell 'U1733' in design 'c7552'.
+Removing cell 'U1734' in design 'c7552'.
+Removing cell 'U1735' in design 'c7552'.
+Removing cell 'U1736' in design 'c7552'.
+Removing cell 'U1737' in design 'c7552'.
+Removing cell 'U1738' in design 'c7552'.
+Removing cell 'U1739' in design 'c7552'.
+Removing cell 'U1740' in design 'c7552'.
+Removing cell 'U1741' in design 'c7552'.
+Removing cell 'U1742' in design 'c7552'.
+Removing cell 'U1743' in design 'c7552'.
+Removing cell 'U1744' in design 'c7552'.
+Removing cell 'U1745' in design 'c7552'.
+Removing cell 'U1746' in design 'c7552'.
+Removing cell 'U1747' in design 'c7552'.
+Removing cell 'U1748' in design 'c7552'.
+Removing cell 'U1749' in design 'c7552'.
+Removing cell 'U1750' in design 'c7552'.
+Removing cell 'U1751' in design 'c7552'.
+Removing cell 'U1752' in design 'c7552'.
+Removing cell 'U1753' in design 'c7552'.
+Removing cell 'U1754' in design 'c7552'.
+Removing cell 'U1755' in design 'c7552'.
+Removing cell 'U1756' in design 'c7552'.
+Removing cell 'U1757' in design 'c7552'.
+Removing cell 'U1758' in design 'c7552'.
+Removing cell 'U1759' in design 'c7552'.
+Removing cell 'U1760' in design 'c7552'.
+Removing cell 'U1761' in design 'c7552'.
+Removing cell 'U1762' in design 'c7552'.
+Removing cell 'U1763' in design 'c7552'.
+Removing cell 'U1764' in design 'c7552'.
+Removing cell 'U1765' in design 'c7552'.
+Removing cell 'U1766' in design 'c7552'.
+Removing cell 'U1767' in design 'c7552'.
+Removing cell 'U1768' in design 'c7552'.
+Removing cell 'U1769' in design 'c7552'.
+Removing cell 'U1770' in design 'c7552'.
+Removing cell 'U1771' in design 'c7552'.
+Removing cell 'U1772' in design 'c7552'.
+Removing cell 'U1773' in design 'c7552'.
+Removing cell 'U1776' in design 'c7552'.
+Removing cell 'U1779' in design 'c7552'.
+Removing cell 'U1780' in design 'c7552'.
+Removing cell 'U1781' in design 'c7552'.
+Removing cell 'U1782' in design 'c7552'.
+Removing cell 'U1783' in design 'c7552'.
+Removing cell 'U1784' in design 'c7552'.
+Removing cell 'U1785' in design 'c7552'.
+Removing cell 'U1786' in design 'c7552'.
+Removing cell 'U1787' in design 'c7552'.
+Removing cell 'U1788' in design 'c7552'.
+Removing cell 'U1789' in design 'c7552'.
+Removing cell 'U1790' in design 'c7552'.
+Removing cell 'U1791' in design 'c7552'.
+Removing cell 'U1794' in design 'c7552'.
+Removing cell 'U1795' in design 'c7552'.
+Removing cell 'U1796' in design 'c7552'.
+Removing cell 'U1797' in design 'c7552'.
+Removing cell 'U1798' in design 'c7552'.
+Removing cell 'U1799' in design 'c7552'.
+Removing cell 'U1802' in design 'c7552'.
+Removing cell 'U1803' in design 'c7552'.
+Removing cell 'U1804' in design 'c7552'.
+Removing cell 'U1805' in design 'c7552'.
+Removing cell 'U1806' in design 'c7552'.
+Removing cell 'U1807' in design 'c7552'.
+Removing cell 'U1808' in design 'c7552'.
+Removing cell 'U1809' in design 'c7552'.
+Removing cell 'U1810' in design 'c7552'.
+Removing cell 'U1811' in design 'c7552'.
+Removing cell 'U1812' in design 'c7552'.
+Removing cell 'U1813' in design 'c7552'.
+Removing cell 'U1814' in design 'c7552'.
+Removing cell 'U1815' in design 'c7552'.
+Removing cell 'U1816' in design 'c7552'.
+Removing cell 'U1817' in design 'c7552'.
+Removing cell 'U1818' in design 'c7552'.
+Removing cell 'U1819' in design 'c7552'.
+Removing cell 'U1820' in design 'c7552'.
+Removing cell 'U1821' in design 'c7552'.
+Removing cell 'U1822' in design 'c7552'.
+Removing cell 'U1823' in design 'c7552'.
+Removing cell 'U1824' in design 'c7552'.
+Removing cell 'U1825' in design 'c7552'.
+Removing cell 'U1826' in design 'c7552'.
+Removing cell 'U1827' in design 'c7552'.
+Removing cell 'U1828' in design 'c7552'.
+Removing cell 'U1829' in design 'c7552'.
+Removing cell 'U1830' in design 'c7552'.
+Removing cell 'U1831' in design 'c7552'.
+Removing cell 'U1832' in design 'c7552'.
+Removing cell 'U1833' in design 'c7552'.
+Removing cell 'U1834' in design 'c7552'.
+Removing cell 'U1835' in design 'c7552'.
+Removing cell 'U1836' in design 'c7552'.
+Removing cell 'U1837' in design 'c7552'.
+Removing cell 'U1838' in design 'c7552'.
+Removing cell 'U1839' in design 'c7552'.
+Removing cell 'U1840' in design 'c7552'.
+Removing cell 'U1841' in design 'c7552'.
+Removing cell 'U1842' in design 'c7552'.
+Removing cell 'U1843' in design 'c7552'.
+Removing cell 'U1844' in design 'c7552'.
+Removing cell 'U1845' in design 'c7552'.
+Removing cell 'U1846' in design 'c7552'.
+Removing cell 'U1847' in design 'c7552'.
+Removing cell 'U1848' in design 'c7552'.
+Removing cell 'U1849' in design 'c7552'.
+Removing cell 'U1850' in design 'c7552'.
+Removing cell 'U1851' in design 'c7552'.
+Removing cell 'U1852' in design 'c7552'.
+Removing cell 'U1853' in design 'c7552'.
+Removing cell 'U1854' in design 'c7552'.
+Removing cell 'U1855' in design 'c7552'.
+Removing cell 'U1856' in design 'c7552'.
+Removing cell 'U1857' in design 'c7552'.
+Removing cell 'U1858' in design 'c7552'.
+Removing cell 'U1859' in design 'c7552'.
+Removing cell 'U1860' in design 'c7552'.
+Removing cell 'U1861' in design 'c7552'.
+Removing cell 'U1862' in design 'c7552'.
+Removing cell 'U1863' in design 'c7552'.
+Removing cell 'U1864' in design 'c7552'.
+Removing cell 'U1865' in design 'c7552'.
+Removing cell 'U1866' in design 'c7552'.
+Removing cell 'U1867' in design 'c7552'.
+Removing cell 'U1868' in design 'c7552'.
+Removing cell 'U1869' in design 'c7552'.
+Removing cell 'U1870' in design 'c7552'.
+Removing cell 'U1871' in design 'c7552'.
+Removing cell 'U1872' in design 'c7552'.
+Removing cell 'U1873' in design 'c7552'.
+Removing cell 'U1874' in design 'c7552'.
+Removing cell 'U1875' in design 'c7552'.
+Removing cell 'U1876' in design 'c7552'.
+Removing cell 'U1877' in design 'c7552'.
+Removing cell 'U1878' in design 'c7552'.
+Removing cell 'U1879' in design 'c7552'.
+Removing cell 'U1880' in design 'c7552'.
+Removing cell 'U1881' in design 'c7552'.
+Removing cell 'U1882' in design 'c7552'.
+Removing cell 'U1883' in design 'c7552'.
+Removing cell 'U1884' in design 'c7552'.
+Removing cell 'U1885' in design 'c7552'.
+Removing cell 'U1886' in design 'c7552'.
+Removing cell 'U1887' in design 'c7552'.
+Removing cell 'U1888' in design 'c7552'.
+Removing cell 'U1889' in design 'c7552'.
+Removing cell 'U1890' in design 'c7552'.
+Removing cell 'U1891' in design 'c7552'.
+Removing cell 'U1892' in design 'c7552'.
+Removing cell 'U1893' in design 'c7552'.
+Removing cell 'U1894' in design 'c7552'.
+Removing cell 'U1895' in design 'c7552'.
+Removing cell 'U1896' in design 'c7552'.
+Removing cell 'U1897' in design 'c7552'.
+Removing cell 'U1898' in design 'c7552'.
+Removing cell 'U1899' in design 'c7552'.
+Removing cell 'U1900' in design 'c7552'.
+Removing cell 'U1901' in design 'c7552'.
+Removing cell 'U1902' in design 'c7552'.
+Removing cell 'U1903' in design 'c7552'.
+Removing cell 'U1904' in design 'c7552'.
+Removing cell 'U1905' in design 'c7552'.
+Removing cell 'U1906' in design 'c7552'.
+Removing cell 'U1907' in design 'c7552'.
+Removing cell 'U1908' in design 'c7552'.
+Removing cell 'U1909' in design 'c7552'.
+Removing cell 'U1910' in design 'c7552'.
+Removing cell 'U1911' in design 'c7552'.
+Removing cell 'U1912' in design 'c7552'.
+Removing cell 'U1913' in design 'c7552'.
+Removing cell 'U1914' in design 'c7552'.
+Removing cell 'U1915' in design 'c7552'.
+Removing cell 'U1916' in design 'c7552'.
+Removing cell 'U1917' in design 'c7552'.
+Removing cell 'U1918' in design 'c7552'.
+Removing cell 'U1919' in design 'c7552'.
+Removing cell 'U1920' in design 'c7552'.
+Removing cell 'U1921' in design 'c7552'.
+Removing cell 'U1922' in design 'c7552'.
+Removing cell 'U1923' in design 'c7552'.
+Removing cell 'U1924' in design 'c7552'.
+Removing cell 'U1925' in design 'c7552'.
+Removing cell 'U1926' in design 'c7552'.
+Removing cell 'U1927' in design 'c7552'.
+Removing cell 'U1928' in design 'c7552'.
+Removing cell 'U1929' in design 'c7552'.
+Removing cell 'U1930' in design 'c7552'.
+Removing cell 'U1931' in design 'c7552'.
+Removing cell 'U1932' in design 'c7552'.
+Removing cell 'U1933' in design 'c7552'.
+Removing cell 'U1934' in design 'c7552'.
+Removing cell 'U1935' in design 'c7552'.
+Removing cell 'U1936' in design 'c7552'.
+Removing cell 'U1937' in design 'c7552'.
+Removing cell 'U1938' in design 'c7552'.
+Removing cell 'U1939' in design 'c7552'.
+Removing cell 'U1940' in design 'c7552'.
+Removing cell 'U1941' in design 'c7552'.
+Removing cell 'U1942' in design 'c7552'.
+Removing cell 'U1943' in design 'c7552'.
+Removing cell 'U1944' in design 'c7552'.
+Removing cell 'U1945' in design 'c7552'.
+Removing cell 'U1946' in design 'c7552'.
+Removing cell 'U1947' in design 'c7552'.
+Removing cell 'U1948' in design 'c7552'.
+Removing cell 'U1949' in design 'c7552'.
+Removing cell 'U1950' in design 'c7552'.
+Removing cell 'U1951' in design 'c7552'.
+Removing cell 'U1952' in design 'c7552'.
+Removing cell 'U1953' in design 'c7552'.
+Removing cell 'U1954' in design 'c7552'.
+Removing cell 'U1955' in design 'c7552'.
+Removing cell 'U1956' in design 'c7552'.
+Removing cell 'U1957' in design 'c7552'.
+Removing cell 'U1958' in design 'c7552'.
+Removing cell 'U1959' in design 'c7552'.
+Removing cell 'U1960' in design 'c7552'.
+Removing cell 'U1961' in design 'c7552'.
+Removing cell 'U1962' in design 'c7552'.
+Removing cell 'U1963' in design 'c7552'.
+Removing cell 'U1964' in design 'c7552'.
+Removing cell 'U1965' in design 'c7552'.
+Removing cell 'U1966' in design 'c7552'.
+Removing cell 'U1967' in design 'c7552'.
+Removing cell 'U1968' in design 'c7552'.
+Removing cell 'U1969' in design 'c7552'.
+Removing cell 'U1970' in design 'c7552'.
+Removing cell 'U1971' in design 'c7552'.
+Removing cell 'U1972' in design 'c7552'.
+Removing cell 'U1973' in design 'c7552'.
+Removing cell 'U1974' in design 'c7552'.
+Removing cell 'U1975' in design 'c7552'.
+Removing cell 'U1976' in design 'c7552'.
+Removing cell 'U1977' in design 'c7552'.
+Removing cell 'U1978' in design 'c7552'.
+Removing cell 'U1979' in design 'c7552'.
+Removing cell 'U1980' in design 'c7552'.
+Removing cell 'U1981' in design 'c7552'.
+Removing cell 'U1982' in design 'c7552'.
+Removing cell 'U1983' in design 'c7552'.
+Removing cell 'U1984' in design 'c7552'.
+Removing cell 'U1985' in design 'c7552'.
+Removing cell 'U1986' in design 'c7552'.
+Removing cell 'U1987' in design 'c7552'.
+Removing cell 'U1988' in design 'c7552'.
+Removing cell 'U1989' in design 'c7552'.
+Removing cell 'U1990' in design 'c7552'.
+Removing cell 'U1991' in design 'c7552'.
+Removing cell 'U1992' in design 'c7552'.
+Removing cell 'U1993' in design 'c7552'.
+Removing cell 'U1994' in design 'c7552'.
+Removing cell 'U1995' in design 'c7552'.
+Removing cell 'U1996' in design 'c7552'.
+Removing cell 'U1997' in design 'c7552'.
+Removing cell 'U1998' in design 'c7552'.
+Removing cell 'U1999' in design 'c7552'.
+Removing cell 'U2000' in design 'c7552'.
+Removing cell 'U2001' in design 'c7552'.
+Removing cell 'U2002' in design 'c7552'.
+Removing cell 'U2003' in design 'c7552'.
+Removing cell 'U2004' in design 'c7552'.
+Removing cell 'U2005' in design 'c7552'.
+Removing cell 'U2006' in design 'c7552'.
+Removing cell 'U2007' in design 'c7552'.
+Removing cell 'U2008' in design 'c7552'.
+Removing cell 'U2009' in design 'c7552'.
+Removing cell 'U2010' in design 'c7552'.
+Removing cell 'U2011' in design 'c7552'.
+Removing cell 'U2012' in design 'c7552'.
+Removing cell 'U2013' in design 'c7552'.
+Removing cell 'U2014' in design 'c7552'.
+Removing cell 'U2015' in design 'c7552'.
+Removing cell 'U2016' in design 'c7552'.
+Removing cell 'U2017' in design 'c7552'.
+Removing cell 'U2018' in design 'c7552'.
+Removing cell 'U2019' in design 'c7552'.
+Removing cell 'U2020' in design 'c7552'.
+Removing cell 'U2021' in design 'c7552'.
+Removing cell 'U2022' in design 'c7552'.
+Removing cell 'U2023' in design 'c7552'.
+Removing cell 'U2024' in design 'c7552'.
+Removing cell 'U2025' in design 'c7552'.
+Removing cell 'U2026' in design 'c7552'.
+Removing cell 'U2027' in design 'c7552'.
+Removing cell 'U2028' in design 'c7552'.
+Removing cell 'U2029' in design 'c7552'.
+Removing cell 'U2030' in design 'c7552'.
+Removing cell 'U2031' in design 'c7552'.
+Removing cell 'U2032' in design 'c7552'.
+Removing cell 'U2033' in design 'c7552'.
+Removing cell 'U2034' in design 'c7552'.
+Removing cell 'U2035' in design 'c7552'.
+Removing cell 'U2036' in design 'c7552'.
+Removing cell 'U2037' in design 'c7552'.
+Removing cell 'U2038' in design 'c7552'.
+Removing cell 'U2039' in design 'c7552'.
+Removing cell 'U2040' in design 'c7552'.
+Removing cell 'U2041' in design 'c7552'.
+Removing cell 'U2042' in design 'c7552'.
+Removing cell 'U2043' in design 'c7552'.
+Removing cell 'U2044' in design 'c7552'.
+Removing cell 'U2045' in design 'c7552'.
+Removing cell 'U2046' in design 'c7552'.
+Removing cell 'U2047' in design 'c7552'.
+Removing cell 'U2048' in design 'c7552'.
+Removing cell 'U2049' in design 'c7552'.
+Removing cell 'U2050' in design 'c7552'.
+Removing cell 'U2051' in design 'c7552'.
+Removing cell 'U2052' in design 'c7552'.
+Removing cell 'U2053' in design 'c7552'.
+Removing cell 'U2054' in design 'c7552'.
+Removing cell 'U2055' in design 'c7552'.
+Removing cell 'U2056' in design 'c7552'.
+Removing cell 'U2057' in design 'c7552'.
+Removing cell 'U2058' in design 'c7552'.
+Removing cell 'U2059' in design 'c7552'.
+Removing cell 'U2060' in design 'c7552'.
+Removing cell 'U2061' in design 'c7552'.
+Removing cell 'U2062' in design 'c7552'.
+Removing cell 'U2063' in design 'c7552'.
+Removing cell 'U2064' in design 'c7552'.
+Removing cell 'U2065' in design 'c7552'.
+Removing cell 'U2066' in design 'c7552'.
+Removing cell 'U2067' in design 'c7552'.
+Removing cell 'U2068' in design 'c7552'.
+Removing cell 'U2069' in design 'c7552'.
+Removing cell 'U2070' in design 'c7552'.
+Removing cell 'U2071' in design 'c7552'.
+Removing cell 'U2072' in design 'c7552'.
+Removing cell 'U2073' in design 'c7552'.
+Removing cell 'U2074' in design 'c7552'.
+Removing cell 'U2075' in design 'c7552'.
+Removing cell 'U2076' in design 'c7552'.
+Removing cell 'U2077' in design 'c7552'.
+Removing cell 'U2078' in design 'c7552'.
+Removing cell 'U2079' in design 'c7552'.
+Removing cell 'U2080' in design 'c7552'.
+set PI [get_attribute  [get_ports * -filter "direction == in"] full_name]
+G1 G5 G9 G12 G15 G18 G23 G26 G29 G32 G35 G38 G41 G44 G47 G50 G53 G54 G55 G56 G57 G58 G59 G60 G61 G62 G63 G64 G65 G66 G69 G70 G73 G74 G75 G76 G77 G78 G79 G80 G81 G82 G83 G84 G85 G86 G87 G88 G89 G94 G97 G100 G103 G106 G109 G110 G111 G112 G113 G114 G115 G118 G121 G124 G127 G130 G133 G134 G135 G138 G141 G144 G147 G150 G151 G152 G153 G154 G155 G156 G157 G158 G159 G160 G161 G162 G163 G164 G165 G166 G167 G168 G169 G170 G171 G172 G173 G174 G175 G176 G177 G178 G179 G180 G181 G182 G183 G184 G185 G186 G187 G188 G189 G190 G191 G192 G193 G194 G195 G196 G197 G198 G199 G200 G201 G202 G203 G204 G205 G206 G207 G208 G209 G210 G211 G212 G213 G214 G215 G216 G217 G218 G219 G220 G221 G222 G223 G224 G225 G226 G227 G228 G229 G230 G231 G232 G233 G234 G235 G236 G237 G238 G239 G240 G339 G1197 G1455 G1459 G1462 G1469 G1480 G1486 G1492 G1496 G2204 G2208 G2211 G2218 G2224 G2230 G2236 G2239 G2247 G2253 G2256 G3698 G3701 G3705 G3711 G3717 G3723 G3729 G3737 G3743 G3749 G4393 G4394 G4400 G4405 G4410 G4415 G4420 G4427 G4432 G4437 G4526 G4528
+foreach p $PI {
+    set len [sizeof_collection  [all_connected $p]]
+    echo $len
+    if {$len == 1} {
+        echo $p
+        remove_port $p
+    }
+}
+1
+G1
+Removing port 'G1' in design 'c7552'.
+1
+G5
+Removing port 'G5' in design 'c7552'.
+2
+2
+1
+G15
+Removing port 'G15' in design 'c7552'.
+98
+2
+2
+3
+2
+2
+1
+G38
+Removing port 'G38' in design 'c7552'.
+3
+3
+2
+2
+2
+2
+2
+2
+1
+G57
+Removing port 'G57' in design 'c7552'.
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+G89
+Removing port 'G89' in design 'c7552'.
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+G133
+Removing port 'G133' in design 'c7552'.
+1
+G134
+Removing port 'G134' in design 'c7552'.
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+G163
+Removing port 'G163' in design 'c7552'.
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+0
+1
+G1197
+Removing port 'G1197' in design 'c7552'.
+3
+2
+2
+2
+2
+2
+2
+2
+3
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+G4526
+Removing port 'G4526' in design 'c7552'.
+1
+G4528
+Removing port 'G4528' in design 'c7552'.
+write -format verilog -hierarchy -output ../Results/$design/${design}_${PO}.v
+Writing verilog file '/home/nsl278/from_newnano/CASLock_TCHES_Artifact/IFS_attack/Defense/Results/c7552/c7552_G418.v'.
+1
+exit
+
+Thank you...
+G418
+  INV_X1 U1149 ( .A(G18), .ZN(n1960) );
+  AND2_X1 U1150 ( .A1(n1123), .A2(n1220), .ZN(n2028) );
+  NAND2_X1 U1156 ( .A1(G152), .A2(G210), .ZN(n1111) );
+  NAND2_X1 U1157 ( .A1(G218), .A2(G230), .ZN(n1110) );
+  OR2_X1 U1158 ( .A1(n1111), .A2(n1110), .ZN(G406) );
+  NAND2_X1 U1159 ( .A1(G184), .A2(G150), .ZN(n1113) );
+  NAND2_X1 U1160 ( .A1(G228), .A2(G240), .ZN(n1112) );
+  OR2_X1 U1161 ( .A1(n1113), .A2(n1112), .ZN(G404) );
+  NAND2_X1 U1162 ( .A1(G182), .A2(G183), .ZN(n1115) );
+  NAND2_X1 U1163 ( .A1(G185), .A2(G186), .ZN(n1114) );
+  OR2_X1 U1164 ( .A1(n1115), .A2(n1114), .ZN(G408) );
+  NAND2_X1 U1165 ( .A1(G172), .A2(G162), .ZN(n1117) );
+  NAND2_X1 U1166 ( .A1(G188), .A2(G199), .ZN(n1116) );
+  OR2_X1 U1167 ( .A1(n1117), .A2(n1116), .ZN(G410) );
+  NAND2_X1 U1171 ( .A1(n2062), .A2(G41), .ZN(n2067) );
+  INV_X1 U1178 ( .A(G3723), .ZN(n1203) );
+  NAND2_X1 U1179 ( .A1(G103), .A2(n2062), .ZN(n1207) );
+  NAND2_X1 U1180 ( .A1(G18), .A2(G235), .ZN(n1120) );
+  NAND2_X1 U1181 ( .A1(n1207), .A2(n1120), .ZN(n2034) );
+  NAND2_X1 U1183 ( .A1(G236), .A2(G18), .ZN(n1121) );
+  NAND2_X1 U1184 ( .A1(G23), .A2(n2062), .ZN(n1214) );
+  AND2_X1 U1185 ( .A1(n1121), .A2(n1214), .ZN(n2032) );
+  NAND2_X1 U1187 ( .A1(G237), .A2(G18), .ZN(n1122) );
+  NAND2_X1 U1188 ( .A1(G26), .A2(n2062), .ZN(n1209) );
+  NAND2_X1 U1189 ( .A1(n1122), .A2(n1209), .ZN(n2033) );
+  INV_X1 U1190 ( .A(G3711), .ZN(n1210) );
+  NAND2_X1 U1193 ( .A1(G238), .A2(G18), .ZN(n1123) );
+  NAND2_X1 U1194 ( .A1(G29), .A2(n1960), .ZN(n1220) );
+  INV_X1 U1216 ( .A(G3749), .ZN(n1181) );
+  NAND2_X1 U1217 ( .A1(G100), .A2(n1960), .ZN(n1185) );
+  NAND2_X1 U1218 ( .A1(G18), .A2(G231), .ZN(n1134) );
+  NAND2_X1 U1219 ( .A1(n1185), .A2(n1134), .ZN(n2044) );
+  NAND2_X1 U1223 ( .A1(G232), .A2(G18), .ZN(n1135) );
+  INV_X2 U1224 ( .A(G18), .ZN(n2062) );
+  NAND2_X1 U1225 ( .A1(G124), .A2(n2062), .ZN(n1186) );
+  AND2_X1 U1226 ( .A1(n1135), .A2(n1186), .ZN(n2027) );
+  NAND2_X1 U1228 ( .A1(G233), .A2(G18), .ZN(n1136) );
+  NAND2_X1 U1229 ( .A1(G127), .A2(n1960), .ZN(n1190) );
+  AND2_X1 U1230 ( .A1(n1136), .A2(n1190), .ZN(n2043) );
+  INV_X1 U1235 ( .A(G3729), .ZN(n1196) );
+  NAND2_X1 U1236 ( .A1(G130), .A2(n1960), .ZN(n1200) );
+  NAND2_X1 U1237 ( .A1(G18), .A2(G234), .ZN(n1137) );
+  NAND2_X1 U1238 ( .A1(n1200), .A2(n1137), .ZN(n2029) );
+  NAND2_X1 U1280 ( .A1(G18), .A2(G4437), .ZN(n1165) );
+  OR2_X1 U1281 ( .A1(G18), .A2(G62), .ZN(n1164) );
+  AND2_X1 U1282 ( .A1(n1165), .A2(n1164), .ZN(n1934) );
+  NAND2_X1 U1283 ( .A1(G189), .A2(G18), .ZN(n1166) );
+  NAND2_X1 U1284 ( .A1(G66), .A2(n1960), .ZN(n1415) );
+  NAND2_X1 U1285 ( .A1(n1166), .A2(n1415), .ZN(n2092) );
+  NAND2_X1 U1287 ( .A1(G47), .A2(n1960), .ZN(n1430) );
+  NAND2_X1 U1288 ( .A1(G18), .A2(G193), .ZN(n1167) );
+  NAND2_X1 U1289 ( .A1(n1430), .A2(n1167), .ZN(n2095) );
+  INV_X1 U1290 ( .A(G4415), .ZN(n1449) );
+  NAND2_X1 U1291 ( .A1(G18), .A2(n1449), .ZN(n1169) );
+  NAND2_X1 U1292 ( .A1(G80), .A2(n1960), .ZN(n1168) );
+  NAND2_X1 U1293 ( .A1(n1169), .A2(n1168), .ZN(n1931) );
+  NOR2_X1 U1295 ( .A1(G18), .A2(G59), .ZN(n1171) );
+  AND2_X1 U1296 ( .A1(G4405), .A2(G18), .ZN(n1170) );
+  NOR2_X1 U1297 ( .A1(n1171), .A2(n1170), .ZN(n1935) );
+  NAND2_X1 U1298 ( .A1(G94), .A2(n1960), .ZN(n1438) );
+  NAND2_X1 U1299 ( .A1(G18), .A2(G195), .ZN(n1172) );
+  NAND2_X1 U1300 ( .A1(n1438), .A2(n1172), .ZN(n2091) );
+  NOR2_X1 U1302 ( .A1(G18), .A2(G78), .ZN(n1174) );
+  AND2_X1 U1303 ( .A1(G4400), .A2(G18), .ZN(n1173) );
+  NOR2_X1 U1304 ( .A1(n1174), .A2(n1173), .ZN(n1922) );
+  NAND2_X1 U1305 ( .A1(G97), .A2(n2062), .ZN(n1440) );
+  NAND2_X1 U1306 ( .A1(G18), .A2(G196), .ZN(n1175) );
+  NAND2_X1 U1307 ( .A1(n1440), .A2(n1175), .ZN(n2088) );
+  NOR2_X1 U1309 ( .A1(G18), .A2(G77), .ZN(n1177) );
+  AND2_X1 U1310 ( .A1(G4394), .A2(G18), .ZN(n1176) );
+  NOR2_X1 U1311 ( .A1(n1177), .A2(n1176), .ZN(n1924) );
+  NAND2_X1 U1312 ( .A1(G118), .A2(n2062), .ZN(n1442) );
+  NAND2_X1 U1313 ( .A1(G18), .A2(G187), .ZN(n1178) );
+  NAND2_X1 U1314 ( .A1(n1442), .A2(n1178), .ZN(n2085) );
+  NOR2_X1 U1317 ( .A1(G18), .A2(G56), .ZN(n1183) );
+  NOR2_X1 U1318 ( .A1(n1181), .A2(n2062), .ZN(n1182) );
+  NOR2_X1 U1319 ( .A1(n1183), .A2(n1182), .ZN(n1941) );
+  NAND2_X1 U1320 ( .A1(G18), .A2(G200), .ZN(n1184) );
+  NAND2_X1 U1321 ( .A1(n1185), .A2(n1184), .ZN(n2077) );
+  NAND2_X1 U1323 ( .A1(G201), .A2(G18), .ZN(n1187) );
+  AND2_X1 U1324 ( .A1(n1187), .A2(n1186), .ZN(n2082) );
+  NAND2_X1 U1325 ( .A1(G18), .A2(G3743), .ZN(n1189) );
+  OR2_X1 U1326 ( .A1(G18), .A2(G55), .ZN(n1188) );
+  NAND2_X1 U1327 ( .A1(n1189), .A2(n1188), .ZN(n1954) );
+  NAND2_X1 U1330 ( .A1(G202), .A2(G18), .ZN(n1191) );
+  NAND2_X1 U1331 ( .A1(n1191), .A2(n1190), .ZN(n2069) );
+  NAND2_X1 U1332 ( .A1(G18), .A2(G3737), .ZN(n1193) );
+  OR2_X1 U1333 ( .A1(G18), .A2(G54), .ZN(n1192) );
+  AND2_X1 U1334 ( .A1(n1193), .A2(n1192), .ZN(n1940) );
+  NOR2_X1 U1338 ( .A1(G18), .A2(G53), .ZN(n1198) );
+  NOR2_X1 U1339 ( .A1(n1196), .A2(n2062), .ZN(n1197) );
+  NOR2_X1 U1340 ( .A1(n1198), .A2(n1197), .ZN(n1943) );
+  NAND2_X1 U1341 ( .A1(G18), .A2(G203), .ZN(n1199) );
+  NAND2_X1 U1342 ( .A1(n1200), .A2(n1199), .ZN(n2078) );
+  NAND2_X1 U1345 ( .A1(G18), .A2(n1203), .ZN(n1205) );
+  NAND2_X1 U1346 ( .A1(G73), .A2(n2062), .ZN(n1204) );
+  NAND2_X1 U1347 ( .A1(n1205), .A2(n1204), .ZN(n1956) );
+  NAND2_X1 U1348 ( .A1(G18), .A2(G204), .ZN(n1206) );
+  NAND2_X1 U1349 ( .A1(n1207), .A2(n1206), .ZN(n2084) );
+  NAND2_X1 U1351 ( .A1(G18), .A2(G206), .ZN(n1208) );
+  NAND2_X1 U1352 ( .A1(n1209), .A2(n1208), .ZN(n2071) );
+  NOR2_X1 U1353 ( .A1(G18), .A2(G76), .ZN(n1212) );
+  NOR2_X1 U1354 ( .A1(n1210), .A2(n2062), .ZN(n1211) );
+  NOR2_X1 U1355 ( .A1(n1212), .A2(n1211), .ZN(n1947) );
+  NAND2_X1 U1357 ( .A1(G18), .A2(G205), .ZN(n1213) );
+  NAND2_X1 U1358 ( .A1(n1214), .A2(n1213), .ZN(n2073) );
+  NOR2_X1 U1359 ( .A1(G18), .A2(G75), .ZN(n1216) );
+  AND2_X1 U1360 ( .A1(G3717), .A2(G18), .ZN(n1215) );
+  NOR2_X1 U1361 ( .A1(n1216), .A2(n1215), .ZN(n1942) );
+  OR2_X1 U1368 ( .A1(n1960), .A2(G3705), .ZN(n1222) );
+  NAND2_X1 U1369 ( .A1(G74), .A2(n2062), .ZN(n1221) );
+  NAND2_X1 U1370 ( .A1(n1222), .A2(n1221), .ZN(n1946) );
+  NAND2_X1 U1401 ( .A1(G121), .A2(n2062), .ZN(n1436) );
+  NAND2_X1 U1402 ( .A1(G18), .A2(G194), .ZN(n1263) );
+  NAND2_X1 U1403 ( .A1(n1436), .A2(n1263), .ZN(n2090) );
+  NOR2_X1 U1404 ( .A1(G18), .A2(G81), .ZN(n1265) );
+  AND2_X1 U1405 ( .A1(G4410), .A2(G18), .ZN(n1264) );
+  NOR2_X1 U1406 ( .A1(n1265), .A2(n1264), .ZN(n1923) );
+  NOR2_X1 U1416 ( .A1(G18), .A2(G79), .ZN(n1277) );
+  INV_X1 U1417 ( .A(G4420), .ZN(n1428) );
+  NOR2_X1 U1418 ( .A1(n1428), .A2(n2062), .ZN(n1276) );
+  NOR2_X1 U1419 ( .A1(n1277), .A2(n1276), .ZN(n1925) );
+  NAND2_X1 U1420 ( .A1(G35), .A2(n2062), .ZN(n1419) );
+  NAND2_X1 U1421 ( .A1(G18), .A2(G192), .ZN(n1278) );
+  NAND2_X1 U1422 ( .A1(n1419), .A2(n1278), .ZN(n2086) );
+  NAND2_X1 U1425 ( .A1(G18), .A2(G4427), .ZN(n1282) );
+  OR2_X1 U1426 ( .A1(G18), .A2(G60), .ZN(n1281) );
+  NAND2_X1 U1427 ( .A1(n1282), .A2(n1281), .ZN(n1930) );
+  NAND2_X1 U1428 ( .A1(G191), .A2(G18), .ZN(n1283) );
+  NAND2_X1 U1429 ( .A1(G32), .A2(n2062), .ZN(n1421) );
+  AND2_X1 U1430 ( .A1(n1283), .A2(n1421), .ZN(n2097) );
+  NOR2_X1 U1451 ( .A1(G2204), .A2(G1455), .ZN(n1903) );
+  NOR2_X1 U1454 ( .A1(G18), .A2(G88), .ZN(n1305) );
+  INV_X1 U1455 ( .A(G1486), .ZN(n1520) );
+  NOR2_X1 U1456 ( .A1(n1520), .A2(n2062), .ZN(n1304) );
+  NOR2_X1 U1457 ( .A1(n1305), .A2(n1304), .ZN(n1913) );
+  NAND2_X1 U1458 ( .A1(G12), .A2(G9), .ZN(n2051) );
+  INV_X1 U1459 ( .A(n2051), .ZN(n1999) );
+  NOR2_X1 U1460 ( .A1(G166), .A2(n2062), .ZN(n1306) );
+  NOR2_X1 U1461 ( .A1(n1999), .A2(n1306), .ZN(n2110) );
+  NOR2_X1 U1463 ( .A1(G18), .A2(G112), .ZN(n1308) );
+  AND2_X1 U1464 ( .A1(G1480), .A2(G18), .ZN(n1307) );
+  NOR2_X1 U1465 ( .A1(n1308), .A2(n1307), .ZN(n1911) );
+  NOR2_X1 U1466 ( .A1(G167), .A2(n2062), .ZN(n1309) );
+  NOR2_X1 U1467 ( .A1(n1999), .A2(n1309), .ZN(n2112) );
+  NOR2_X1 U1472 ( .A1(G18), .A2(G111), .ZN(n1313) );
+  AND2_X1 U1473 ( .A1(G1469), .A2(G18), .ZN(n1312) );
+  NOR2_X1 U1474 ( .A1(n1313), .A2(n1312), .ZN(n1912) );
+  NOR2_X1 U1475 ( .A1(G169), .A2(n2062), .ZN(n1314) );
+  NOR2_X1 U1476 ( .A1(n1999), .A2(n1314), .ZN(n2114) );
+  NOR2_X1 U1481 ( .A1(G168), .A2(n2062), .ZN(n1317) );
+  NOR2_X1 U1482 ( .A1(n1999), .A2(n1317), .ZN(n2109) );
+  NAND2_X1 U1485 ( .A1(G18), .A2(G1462), .ZN(n1321) );
+  OR2_X1 U1486 ( .A1(G18), .A2(G113), .ZN(n1320) );
+  NAND2_X1 U1487 ( .A1(n1321), .A2(n1320), .ZN(n1910) );
+  NOR2_X1 U1490 ( .A1(G18), .A2(n1999), .ZN(n1506) );
+  AND2_X1 U1491 ( .A1(G173), .A2(n2051), .ZN(n2131) );
+  NOR2_X1 U1494 ( .A1(G18), .A2(G86), .ZN(n1324) );
+  INV_X1 U1495 ( .A(G2247), .ZN(n1464) );
+  NOR2_X1 U1496 ( .A1(n1464), .A2(n2062), .ZN(n1323) );
+  NOR2_X1 U1497 ( .A1(n1324), .A2(n1323), .ZN(n1963) );
+  NOR2_X1 U1498 ( .A1(G175), .A2(n2062), .ZN(n1325) );
+  NOR2_X1 U1499 ( .A1(n1999), .A2(n1325), .ZN(n2128) );
+  NOR2_X1 U1501 ( .A1(G18), .A2(G63), .ZN(n1327) );
+  INV_X1 U1502 ( .A(G2239), .ZN(n1470) );
+  NOR2_X1 U1503 ( .A1(n1470), .A2(n2062), .ZN(n1326) );
+  NOR2_X1 U1504 ( .A1(n1327), .A2(n1326), .ZN(n1966) );
+  NOR2_X1 U1505 ( .A1(G176), .A2(n2062), .ZN(n1328) );
+  NOR2_X1 U1506 ( .A1(n1999), .A2(n1328), .ZN(n2123) );
+  NOR2_X1 U1509 ( .A1(G18), .A2(G109), .ZN(n1332) );
+  INV_X1 U1510 ( .A(G2253), .ZN(n1462) );
+  NOR2_X1 U1511 ( .A1(n1462), .A2(n2062), .ZN(n1331) );
+  NOR2_X1 U1512 ( .A1(n1332), .A2(n1331), .ZN(n1974) );
+  NOR2_X1 U1513 ( .A1(G174), .A2(n2062), .ZN(n1333) );
+  NOR2_X1 U1514 ( .A1(n1999), .A2(n1333), .ZN(n2127) );
+  NOR2_X1 U1521 ( .A1(G177), .A2(n2062), .ZN(n1339) );
+  NOR2_X1 U1522 ( .A1(n1999), .A2(n1339), .ZN(n2126) );
+  NOR2_X1 U1523 ( .A1(G18), .A2(G64), .ZN(n1341) );
+  INV_X1 U1524 ( .A(G2236), .ZN(n1472) );
+  NOR2_X1 U1525 ( .A1(n1472), .A2(n2062), .ZN(n1340) );
+  NOR2_X1 U1526 ( .A1(n1341), .A2(n1340), .ZN(n1970) );
+  NAND2_X1 U1528 ( .A1(G144), .A2(n1960), .ZN(n1475) );
+  NAND2_X1 U1529 ( .A1(G18), .A2(G179), .ZN(n1342) );
+  NAND2_X1 U1530 ( .A1(n1475), .A2(n1342), .ZN(n2118) );
+  NOR2_X1 U1531 ( .A1(G18), .A2(G84), .ZN(n1344) );
+  AND2_X1 U1532 ( .A1(G2224), .A2(G18), .ZN(n1343) );
+  NOR2_X1 U1533 ( .A1(n1344), .A2(n1343), .ZN(n1967) );
+  NAND2_X1 U1535 ( .A1(G180), .A2(G18), .ZN(n1345) );
+  NAND2_X1 U1536 ( .A1(G138), .A2(n1960), .ZN(n1477) );
+  NAND2_X1 U1537 ( .A1(n1345), .A2(n1477), .ZN(n2119) );
+  NAND2_X1 U1538 ( .A1(G18), .A2(G2218), .ZN(n1347) );
+  OR2_X1 U1539 ( .A1(G18), .A2(G83), .ZN(n1346) );
+  AND2_X1 U1540 ( .A1(n1347), .A2(n1346), .ZN(n1969) );
+  INV_X1 U1544 ( .A(G2211), .ZN(n1460) );
+  NAND2_X1 U1545 ( .A1(G18), .A2(n1460), .ZN(n1351) );
+  NAND2_X1 U1546 ( .A1(G65), .A2(n1960), .ZN(n1350) );
+  NAND2_X1 U1547 ( .A1(n1351), .A2(n1350), .ZN(n1965) );
+  NAND2_X1 U1548 ( .A1(G147), .A2(n1960), .ZN(n1458) );
+  NAND2_X1 U1549 ( .A1(G18), .A2(G171), .ZN(n1352) );
+  NAND2_X1 U1550 ( .A1(n1458), .A2(n1352), .ZN(n2120) );
+  NAND2_X1 U1559 ( .A1(G135), .A2(n2062), .ZN(n1473) );
+  NAND2_X1 U1560 ( .A1(G18), .A2(G178), .ZN(n1361) );
+  NAND2_X1 U1561 ( .A1(n1473), .A2(n1361), .ZN(n2117) );
+  NOR2_X1 U1562 ( .A1(G18), .A2(G85), .ZN(n1363) );
+  AND2_X1 U1563 ( .A1(G2230), .A2(G18), .ZN(n1362) );
+  NOR2_X1 U1564 ( .A1(n1363), .A2(n1362), .ZN(n1968) );
+  NAND2_X1 U1580 ( .A1(G18), .A2(G2256), .ZN(n1384) );
+  OR2_X1 U1581 ( .A1(G18), .A2(G110), .ZN(n1383) );
+  NAND2_X1 U1582 ( .A1(n1384), .A2(n1383), .ZN(n1388) );
+  INV_X1 U1583 ( .A(n1388), .ZN(n1975) );
+  AND2_X1 U1601 ( .A1(G2204), .A2(G1455), .ZN(n1904) );
+  NAND2_X1 U1606 ( .A1(G219), .A2(G18), .ZN(n1416) );
+  NAND2_X1 U1607 ( .A1(n1416), .A2(n1415), .ZN(n2018) );
+  NAND2_X1 U1613 ( .A1(G222), .A2(G18), .ZN(n1420) );
+  NAND2_X1 U1614 ( .A1(n1420), .A2(n1419), .ZN(n2010) );
+  NAND2_X1 U1617 ( .A1(G221), .A2(G18), .ZN(n1422) );
+  AND2_X1 U1618 ( .A1(n1422), .A2(n1421), .ZN(n2017) );
+  NAND2_X1 U1629 ( .A1(G18), .A2(G223), .ZN(n1429) );
+  NAND2_X1 U1630 ( .A1(n1430), .A2(n1429), .ZN(n2021) );
+  NAND2_X1 U1634 ( .A1(G18), .A2(G224), .ZN(n1435) );
+  AND2_X1 U1635 ( .A1(n1436), .A2(n1435), .ZN(n2012) );
+  NAND2_X1 U1640 ( .A1(G18), .A2(G225), .ZN(n1437) );
+  AND2_X1 U1641 ( .A1(n1438), .A2(n1437), .ZN(n2011) );
+  NAND2_X1 U1643 ( .A1(G18), .A2(G226), .ZN(n1439) );
+  AND2_X1 U1644 ( .A1(n1440), .A2(n1439), .ZN(n2022) );
+  NAND2_X1 U1649 ( .A1(G18), .A2(G217), .ZN(n1441) );
+  AND2_X1 U1650 ( .A1(n1442), .A2(n1441), .ZN(n2009) );
+  NAND2_X1 U1679 ( .A1(G18), .A2(G151), .ZN(n1457) );
+  NAND2_X1 U1680 ( .A1(n1458), .A2(n1457), .ZN(n1985) );
+  AND2_X1 U1688 ( .A1(G153), .A2(n2051), .ZN(n2001) );
+  NOR2_X1 U1691 ( .A1(G154), .A2(n2062), .ZN(n1461) );
+  NOR2_X1 U1692 ( .A1(n1999), .A2(n1461), .ZN(n1995) );
+  NOR2_X1 U1695 ( .A1(G155), .A2(n2062), .ZN(n1463) );
+  NOR2_X1 U1696 ( .A1(n1999), .A2(n1463), .ZN(n1992) );
+  NAND2_X1 U1701 ( .A1(n2051), .A2(G156), .ZN(n1465) );
+  INV_X1 U1702 ( .A(n1506), .ZN(n1512) );
+  NAND2_X1 U1703 ( .A1(n1465), .A2(n1512), .ZN(n1987) );
+  NOR2_X1 U1712 ( .A1(G157), .A2(n2062), .ZN(n1471) );
+  NOR2_X1 U1713 ( .A1(n1999), .A2(n1471), .ZN(n1998) );
+  NAND2_X1 U1716 ( .A1(G158), .A2(G18), .ZN(n1474) );
+  NAND2_X1 U1717 ( .A1(n1474), .A2(n1473), .ZN(n1989) );
+  NAND2_X1 U1720 ( .A1(G159), .A2(G18), .ZN(n1476) );
+  NAND2_X1 U1721 ( .A1(n1476), .A2(n1475), .ZN(n1991) );
+  NAND2_X1 U1724 ( .A1(G160), .A2(G18), .ZN(n1478) );
+  AND2_X1 U1725 ( .A1(n1478), .A2(n1477), .ZN(n1986) );
+  OR2_X1 U1774 ( .A1(n1506), .A2(G215), .ZN(n1505) );
+  NAND2_X1 U1775 ( .A1(n2051), .A2(n1505), .ZN(n2055) );
+  OR2_X1 U1777 ( .A1(n1506), .A2(G216), .ZN(n1507) );
+  NAND2_X1 U1778 ( .A1(n2051), .A2(n1507), .ZN(n2049) );
+  NAND2_X1 U1792 ( .A1(n2051), .A2(G214), .ZN(n1513) );
+  AND2_X1 U1793 ( .A1(n1513), .A2(n1512), .ZN(n2048) );
+  NOR2_X1 U1800 ( .A1(G213), .A2(n2062), .ZN(n1515) );
+  NOR2_X1 U1801 ( .A1(n1999), .A2(n1515), .ZN(n2047) );
+  XNOR2_X1 U2081 ( .A(G1459), .B(G106), .ZN(n1898) );
+  NAND2_X1 U2082 ( .A1(n1898), .A2(G18), .ZN(n1901) );
+  XNOR2_X1 U2083 ( .A(G87), .B(G114), .ZN(n1899) );
+  NAND2_X1 U2084 ( .A1(n1960), .A2(n1899), .ZN(n1900) );
+  NAND2_X1 U2085 ( .A1(n1901), .A2(n1900), .ZN(n1909) );
+  XOR2_X1 U2086 ( .A(G1492), .B(G1496), .Z(n1902) );
+  NOR2_X1 U2087 ( .A1(n2062), .A2(n1902), .ZN(n1907) );
+  NOR2_X1 U2088 ( .A1(n1904), .A2(n1903), .ZN(n1905) );
+  NOR2_X1 U2089 ( .A1(G18), .A2(n1905), .ZN(n1906) );
+  NOR2_X1 U2090 ( .A1(n1907), .A2(n1906), .ZN(n1908) );
+  XNOR2_X1 U2091 ( .A(n1909), .B(n1908), .ZN(n1917) );
+  XNOR2_X1 U2092 ( .A(n1911), .B(n1910), .ZN(n1915) );
+  XNOR2_X1 U2093 ( .A(n1913), .B(n1912), .ZN(n1914) );
+  XNOR2_X1 U2094 ( .A(n1915), .B(n1914), .ZN(n1916) );
+  XNOR2_X1 U2095 ( .A(n1917), .B(n1916), .ZN(n1939) );
+  XOR2_X1 U2096 ( .A(G4432), .B(G4393), .Z(n1918) );
+  NAND2_X1 U2097 ( .A1(n1918), .A2(G18), .ZN(n1921) );
+  XOR2_X1 U2098 ( .A(G61), .B(G58), .Z(n1919) );
+  NAND2_X1 U2099 ( .A1(n2062), .A2(n1919), .ZN(n1920) );
+  NAND2_X1 U2100 ( .A1(n1921), .A2(n1920), .ZN(n1929) );
+  XOR2_X1 U2101 ( .A(n1923), .B(n1922), .Z(n1927) );
+  XNOR2_X1 U2102 ( .A(n1925), .B(n1924), .ZN(n1926) );
+  XNOR2_X1 U2103 ( .A(n1927), .B(n1926), .ZN(n1928) );
+  XNOR2_X1 U2104 ( .A(n1929), .B(n1928), .ZN(n1933) );
+  XOR2_X1 U2105 ( .A(n1931), .B(n1930), .Z(n1932) );
+  XNOR2_X1 U2106 ( .A(n1933), .B(n1932), .ZN(n1937) );
+  XNOR2_X1 U2107 ( .A(n1935), .B(n1934), .ZN(n1936) );
+  XNOR2_X1 U2108 ( .A(n1937), .B(n1936), .ZN(n1938) );
+  NOR2_X1 U2109 ( .A1(n1939), .A2(n1938), .ZN(n1984) );
+  XOR2_X1 U2110 ( .A(n1941), .B(n1940), .Z(n1945) );
+  XNOR2_X1 U2111 ( .A(n1943), .B(n1942), .ZN(n1944) );
+  XNOR2_X1 U2112 ( .A(n1945), .B(n1944), .ZN(n1959) );
+  XNOR2_X1 U2113 ( .A(n1947), .B(n1946), .ZN(n1953) );
+  XNOR2_X1 U2114 ( .A(G3698), .B(G3701), .ZN(n1948) );
+  NAND2_X1 U2115 ( .A1(n1948), .A2(G18), .ZN(n1951) );
+  XNOR2_X1 U2116 ( .A(G70), .B(G69), .ZN(n1949) );
+  NAND2_X1 U2117 ( .A1(n2062), .A2(n1949), .ZN(n1950) );
+  NAND2_X1 U2118 ( .A1(n1951), .A2(n1950), .ZN(n1952) );
+  XNOR2_X1 U2119 ( .A(n1953), .B(n1952), .ZN(n1955) );
+  XNOR2_X1 U2120 ( .A(n1955), .B(n1954), .ZN(n1957) );
+  XNOR2_X1 U2121 ( .A(n1957), .B(n1956), .ZN(n1958) );
+  XNOR2_X1 U2122 ( .A(n1959), .B(n1958), .ZN(n1982) );
+  OR2_X1 U2123 ( .A1(G2208), .A2(n1960), .ZN(n1962) );
+  NAND2_X1 U2124 ( .A1(G82), .A2(n2062), .ZN(n1961) );
+  NAND2_X1 U2125 ( .A1(n1962), .A2(n1961), .ZN(n1964) );
+  XNOR2_X1 U2126 ( .A(n1964), .B(n1963), .ZN(n1980) );
+  XNOR2_X1 U2127 ( .A(n1966), .B(n1965), .ZN(n1978) );
+  XOR2_X1 U2128 ( .A(n1968), .B(n1967), .Z(n1972) );
+  XNOR2_X1 U2129 ( .A(n1970), .B(n1969), .ZN(n1971) );
+  XNOR2_X1 U2130 ( .A(n1972), .B(n1971), .ZN(n1973) );
+  XNOR2_X1 U2131 ( .A(n1974), .B(n1973), .ZN(n1976) );
+  XOR2_X1 U2132 ( .A(n1976), .B(n1975), .Z(n1977) );
+  XNOR2_X1 U2133 ( .A(n1978), .B(n1977), .ZN(n1979) );
+  XNOR2_X1 U2134 ( .A(n1980), .B(n1979), .ZN(n1981) );
+  NOR2_X1 U2135 ( .A1(n1982), .A2(n1981), .ZN(n1983) );
+  NAND2_X1 U2136 ( .A1(n1984), .A2(n1983), .ZN(G414) );
+  XOR2_X1 U2137 ( .A(n1986), .B(n1985), .Z(n1988) );
+  XOR2_X1 U2138 ( .A(n1988), .B(n1987), .Z(n1990) );
+  XNOR2_X1 U2139 ( .A(n1990), .B(n1989), .ZN(n1994) );
+  XOR2_X1 U2140 ( .A(n1992), .B(n1991), .Z(n1993) );
+  XNOR2_X1 U2141 ( .A(n1994), .B(n1993), .ZN(n1996) );
+  XOR2_X1 U2142 ( .A(n1996), .B(n1995), .Z(n1997) );
+  XNOR2_X1 U2143 ( .A(n1998), .B(n1997), .ZN(n2005) );
+  XOR2_X1 U2144 ( .A(G141), .B(n1999), .Z(n2000) );
+  NOR2_X1 U2145 ( .A1(G18), .A2(n2000), .ZN(n2134) );
+  XNOR2_X1 U2146 ( .A(G161), .B(n2001), .ZN(n2002) );
+  NOR2_X1 U2147 ( .A1(n1960), .A2(n2002), .ZN(n2003) );
+  NOR2_X1 U2148 ( .A1(n2134), .A2(n2003), .ZN(n2004) );
+  XOR2_X1 U2149 ( .A(n2005), .B(n2004), .Z(n2026) );
+  XNOR2_X1 U2150 ( .A(G50), .B(G115), .ZN(n2006) );
+  NAND2_X1 U2151 ( .A1(n2006), .A2(n2062), .ZN(n2101) );
+  XNOR2_X1 U2152 ( .A(G220), .B(G227), .ZN(n2007) );
+  NAND2_X1 U2153 ( .A1(G18), .A2(n2007), .ZN(n2008) );
+  NAND2_X1 U2154 ( .A1(n2101), .A2(n2008), .ZN(n2016) );
+  XNOR2_X1 U2155 ( .A(n2010), .B(n2009), .ZN(n2014) );
+  XNOR2_X1 U2156 ( .A(n2012), .B(n2011), .ZN(n2013) );
+  XNOR2_X1 U2157 ( .A(n2014), .B(n2013), .ZN(n2015) );
+  XNOR2_X1 U2158 ( .A(n2016), .B(n2015), .ZN(n2020) );
+  XOR2_X1 U2159 ( .A(n2018), .B(n2017), .Z(n2019) );
+  XNOR2_X1 U2160 ( .A(n2020), .B(n2019), .ZN(n2024) );
+  XNOR2_X1 U2161 ( .A(n2022), .B(n2021), .ZN(n2023) );
+  XNOR2_X1 U2162 ( .A(n2024), .B(n2023), .ZN(n2025) );
+  NOR2_X1 U2163 ( .A1(n2026), .A2(n2025), .ZN(n2061) );
+  XOR2_X1 U2164 ( .A(n2028), .B(n2027), .Z(n2030) );
+  XNOR2_X1 U2165 ( .A(n2030), .B(n2029), .ZN(n2031) );
+  XNOR2_X1 U2166 ( .A(n2032), .B(n2031), .ZN(n2036) );
+  XOR2_X1 U2167 ( .A(n2034), .B(n2033), .Z(n2035) );
+  XNOR2_X1 U2168 ( .A(n2036), .B(n2035), .ZN(n2042) );
+  XNOR2_X1 U2169 ( .A(G41), .B(G44), .ZN(n2037) );
+  NAND2_X1 U2170 ( .A1(n2037), .A2(n2062), .ZN(n2040) );
+  XNOR2_X1 U2171 ( .A(G229), .B(G239), .ZN(n2038) );
+  NAND2_X1 U2172 ( .A1(G18), .A2(n2038), .ZN(n2039) );
+  NAND2_X1 U2173 ( .A1(n2040), .A2(n2039), .ZN(n2041) );
+  XOR2_X1 U2174 ( .A(n2042), .B(n2041), .Z(n2046) );
+  XOR2_X1 U2175 ( .A(n2044), .B(n2043), .Z(n2045) );
+  XNOR2_X1 U2176 ( .A(n2046), .B(n2045), .ZN(n2059) );
+  XNOR2_X1 U2177 ( .A(n2048), .B(n2047), .ZN(n2050) );
+  XNOR2_X1 U2178 ( .A(n2050), .B(n2049), .ZN(n2057) );
+  NAND2_X1 U2179 ( .A1(G18), .A2(n2051), .ZN(n2108) );
+  XNOR2_X1 U2180 ( .A(G212), .B(G209), .ZN(n2052) );
+  XNOR2_X1 U2181 ( .A(G211), .B(n2052), .ZN(n2053) );
+  NOR2_X1 U2182 ( .A1(n2108), .A2(n2053), .ZN(n2054) );
+  XOR2_X1 U2183 ( .A(n2055), .B(n2054), .Z(n2056) );
+  XNOR2_X1 U2184 ( .A(n2057), .B(n2056), .ZN(n2058) );
+  NOR2_X1 U2185 ( .A1(n2059), .A2(n2058), .ZN(n2060) );
+  NAND2_X1 U2186 ( .A1(n2061), .A2(n2060), .ZN(G412) );
+  XNOR2_X1 U2187 ( .A(G29), .B(G44), .ZN(n2063) );
+  NAND2_X1 U2188 ( .A1(n2063), .A2(n2062), .ZN(n2066) );
+  XNOR2_X1 U2189 ( .A(G207), .B(G208), .ZN(n2064) );
+  NAND2_X1 U2190 ( .A1(G18), .A2(n2064), .ZN(n2065) );
+  NAND2_X1 U2191 ( .A1(n2066), .A2(n2065), .ZN(n2076) );
+  NAND2_X1 U2192 ( .A1(G198), .A2(G18), .ZN(n2068) );
+  NAND2_X1 U2193 ( .A1(n2068), .A2(n2067), .ZN(n2070) );
+  XOR2_X1 U2194 ( .A(n2070), .B(n2069), .Z(n2072) );
+  XNOR2_X1 U2195 ( .A(n2072), .B(n2071), .ZN(n2074) );
+  XNOR2_X1 U2196 ( .A(n2074), .B(n2073), .ZN(n2075) );
+  XNOR2_X1 U2197 ( .A(n2076), .B(n2075), .ZN(n2080) );
+  XOR2_X1 U2198 ( .A(n2078), .B(n2077), .Z(n2079) );
+  XNOR2_X1 U2199 ( .A(n2080), .B(n2079), .ZN(n2081) );
+  XOR2_X1 U2200 ( .A(n2082), .B(n2081), .Z(n2083) );
+  XNOR2_X1 U2201 ( .A(n2084), .B(n2083), .ZN(n2105) );
+  XOR2_X1 U2202 ( .A(n2086), .B(n2085), .Z(n2087) );
+  XNOR2_X1 U2203 ( .A(n2088), .B(n2087), .ZN(n2089) );
+  XNOR2_X1 U2204 ( .A(n2090), .B(n2089), .ZN(n2094) );
+  XNOR2_X1 U2205 ( .A(n2092), .B(n2091), .ZN(n2093) );
+  XNOR2_X1 U2206 ( .A(n2094), .B(n2093), .ZN(n2096) );
+  XNOR2_X1 U2207 ( .A(n2096), .B(n2095), .ZN(n2098) );
+  XOR2_X1 U2208 ( .A(n2098), .B(n2097), .Z(n2103) );
+  XNOR2_X1 U2209 ( .A(G190), .B(G197), .ZN(n2099) );
+  NAND2_X1 U2210 ( .A1(G18), .A2(n2099), .ZN(n2100) );
+  NAND2_X1 U2211 ( .A1(n2101), .A2(n2100), .ZN(n2102) );
+  XOR2_X1 U2212 ( .A(n2103), .B(n2102), .Z(n2104) );
+  NOR2_X1 U2213 ( .A1(n2105), .A2(n2104), .ZN(n2140) );
+  XNOR2_X1 U2214 ( .A(G170), .B(G164), .ZN(n2106) );
+  XNOR2_X1 U2215 ( .A(n2106), .B(G165), .ZN(n2107) );
+  NOR2_X1 U2216 ( .A1(n2108), .A2(n2107), .ZN(n2116) );
+  XOR2_X1 U2217 ( .A(n2110), .B(n2109), .Z(n2111) );
+  XNOR2_X1 U2218 ( .A(n2112), .B(n2111), .ZN(n2113) );
+  XOR2_X1 U2219 ( .A(n2114), .B(n2113), .Z(n2115) );
+  XNOR2_X1 U2220 ( .A(n2116), .B(n2115), .ZN(n2138) );
+  XNOR2_X1 U2221 ( .A(n2118), .B(n2117), .ZN(n2122) );
+  XOR2_X1 U2222 ( .A(n2120), .B(n2119), .Z(n2121) );
+  XNOR2_X1 U2223 ( .A(n2122), .B(n2121), .ZN(n2124) );
+  XOR2_X1 U2224 ( .A(n2124), .B(n2123), .Z(n2125) );
+  XNOR2_X1 U2225 ( .A(n2126), .B(n2125), .ZN(n2130) );
+  XOR2_X1 U2226 ( .A(n2128), .B(n2127), .Z(n2129) );
+  XNOR2_X1 U2227 ( .A(n2130), .B(n2129), .ZN(n2136) );
+  XNOR2_X1 U2228 ( .A(G181), .B(n2131), .ZN(n2132) );
+  NOR2_X1 U2229 ( .A1(n2062), .A2(n2132), .ZN(n2133) );
+  NOR2_X1 U2230 ( .A1(n2134), .A2(n2133), .ZN(n2135) );
+  XOR2_X1 U2231 ( .A(n2136), .B(n2135), .Z(n2137) );
+  NOR2_X1 U2232 ( .A1(n2138), .A2(n2137), .ZN(n2139) );
+  NAND2_X1 U2233 ( .A1(n2140), .A2(n2139), .ZN(G416) );
+  NOR2_X1 U2234 ( .A1(G410), .A2(G408), .ZN(n2142) );
+  NOR2_X1 U2235 ( .A1(G404), .A2(G406), .ZN(n2141) );
+  NAND2_X1 U2236 ( .A1(n2142), .A2(n2141), .ZN(n2143) );
+  NOR2_X1 U2237 ( .A1(G414), .A2(n2143), .ZN(n2145) );
+  NOR2_X1 U2238 ( .A1(G412), .A2(G416), .ZN(n2144) );
+  NAND2_X1 U2239 ( .A1(n2145), .A2(n2144), .ZN(G418) );
+G418 c7552
+Locked O/P: G418
+('AND(1)/OR(0) combination (R-->L): ', '0b11110110100100010010100110010111')
+('XOR(0)/XNOR(1) combination for K1 R-->L :', '0b00111110011010110110010100011111')
+('XOR(0)/XNOR(1) combination for K2 R-->L :', '0b00010110011000011101011010000011')
+('K1 ^ K2: ', '0b00101000000010101011001110011100')
+ABC command line: "read_bench c7552_lock.bench; write_verilog c7552_lock.v;".
+
