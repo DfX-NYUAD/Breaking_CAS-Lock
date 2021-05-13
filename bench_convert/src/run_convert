@@ -1,1 +1,0 @@
-./convert ../files/verilog/${design}.v ../Results/${design}.bench | tee log_${design}
