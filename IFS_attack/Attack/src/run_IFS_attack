@@ -17,11 +17,6 @@ for ((i=0; i<2; i++)); do
 	dc_shell-t -f dc_IFS_gen.tcl
 	tmax -shell tmax_patt.tcl
 	tmax -shell tmax_verif.tcl |tee log_tmax_verif
-	if (grep "#fail_pats=0(0)" "log_tmax_verif"); then
-		echo "##################################### VERIFICATION STEP #################################"
-		./run_IFS_verify.sh
-		break
-	fi
 done
 rm -rf ${design}_*
 fi

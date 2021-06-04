@@ -50,6 +50,6 @@ foreach in $allins {
 }
 
 
-write -format verilog -hierarchy -output ../Results/$design/${design}_lock_synth_${lib}_fault_${TIE_PIN}.v
+write -format verilog -hierarchy -output ../Results/$design/${design}_lock_synth_${lib}_flip_${TIE_PIN}.v
 
 exit
