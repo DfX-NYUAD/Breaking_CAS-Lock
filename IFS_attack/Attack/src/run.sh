@@ -6,7 +6,7 @@ export KEYSIZE=32
 
 export DESIGN=c432
 sh run_IFS_attack |tee log_IFS_$DESIGN
-
+exit
 export DESIGN=c499
 sh run_IFS_attack |tee log_IFS_$DESIGN
 

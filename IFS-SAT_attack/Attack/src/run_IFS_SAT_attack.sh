@@ -8,10 +8,13 @@ for ((i=0; i<$len; i++));do
 	export FLIPSIGNAL=${net[$i]}
 	echo "Flipsignal is: $FLIPSIGNAL"
 	dc_shell-t -x "source -echo -verbose ./CASlock_oracle_dc_fanin_cone.tcl"
+	chmod +x ../../../bench_convert/src/convert
 	../../../bench_convert/src/convert ../Results/$DESIGN/CASlock_${DESIGN}_${FLIPSIGNAL}_2ip.v ../Results/$DESIGN/CASlock_${DESIGN}_${FLIPSIGNAL}_2ip.bench
+	chmod +x ../../../SAT_attack/bin/sld
 	timeout 10s ../../../SAT_attack/bin/sld ../Results/$DESIGN/casblock.bench ../Results/$DESIGN/CASlock_${DESIGN}_${FLIPSIGNAL}_2ip.bench | tee ${DESIGN}_key.txt
 	key_value=$( grep "key=" ${DESIGN}_key.txt)
 	if [[ ($key_value != *"x"*) || ($key_value != *"Error"*) ]]; then
+		chmod +x ../../../SAT_attack/bin/lcmp
 		../../../SAT_attack/bin/lcmp ../Results/$DESIGN/CASlock_${DESIGN}_${FLIPSIGNAL}_2ip.bench ../Results/$DESIGN/casblock.bench $key_value
 		break
 	fi

@@ -1,0 +1,177 @@
+/////////////////////////////////////////////////////////////
+// Created by: Synopsys DC Ultra(TM) in wire load mode
+// Version   : M-2016.12-SP2
+// Date      : Fri Jun 11 22:18:33 2021
+/////////////////////////////////////////////////////////////
+
+
+module c432_lock ( G1GAT, G4GAT, G8GAT, G11GAT, G14GAT, G17GAT, G21GAT, G24GAT, 
+        G27GAT, G30GAT, G34GAT, G37GAT, G40GAT, G43GAT, G47GAT, G50GAT, G53GAT, 
+        G56GAT, G60GAT, G63GAT, G66GAT, G69GAT, G73GAT, G76GAT, G79GAT, G82GAT, 
+        G86GAT, G89GAT, G92GAT, G95GAT, G99GAT, G102GAT, G105GAT, G108GAT, 
+        G112GAT, G115GAT, G421GAT );
+  input G1GAT, G4GAT, G8GAT, G11GAT, G14GAT, G17GAT, G21GAT, G24GAT, G27GAT,
+         G30GAT, G34GAT, G37GAT, G40GAT, G43GAT, G47GAT, G50GAT, G53GAT,
+         G56GAT, G60GAT, G63GAT, G66GAT, G69GAT, G73GAT, G76GAT, G79GAT,
+         G82GAT, G86GAT, G89GAT, G92GAT, G95GAT, G99GAT, G102GAT, G105GAT,
+         G108GAT, G112GAT, G115GAT;
+  output G421GAT;
+  wire   n164, n165, n166, n167, n168, n169, n170, n171, n172, n173, n174,
+         n175, n176, n177, n178, n179, n180, n181, n182, n183, n184, n185,
+         n186, n187, n188, n189, n190, n191, n192, n193, n194, n195, n196,
+         n197, n198, n199, n200, n201, n202, n203, n204, n205, n206, n207,
+         n208, n209, n210, n211, n212, n213, n214, n215, n216, n217, n218,
+         n219, n220, n221, n222, n223, n224, n225, n226, n227, n228, n229,
+         n230, n231, n232, n233, n234, n235, n236, n237, n238, n239, n240,
+         n241, n242, n243, n244, n245, n246, n247, n248, n249, n250, n251,
+         n252, n253, n254, n255, n256, n257, n258, n259, n260, n261, n262,
+         n263, n264, n265, n266, n267, n268, n269, n270, n271, n272, n273,
+         n274, n275, n276, n277, n278, n279, n280, n281, n282, n283, n284,
+         n285, n286, n287, n288, n289, n290, n291, n292, n293, n294, n295,
+         n296, n297, n298, n299, n300, n301, n302, n303, n304, n305;
+
+  INV_X1 U167 ( .A(G69GAT), .ZN(n164) );
+  NOR2_X1 U168 ( .A1(G63GAT), .A2(n164), .ZN(n166) );
+  INV_X1 U169 ( .A(G89GAT), .ZN(n272) );
+  AND2_X1 U170 ( .A1(n272), .A2(G95GAT), .ZN(n165) );
+  NOR2_X1 U171 ( .A1(n166), .A2(n165), .ZN(n185) );
+  INV_X1 U172 ( .A(G37GAT), .ZN(n167) );
+  NAND2_X1 U173 ( .A1(G43GAT), .A2(n167), .ZN(n170) );
+  INV_X1 U174 ( .A(G50GAT), .ZN(n168) );
+  NAND2_X1 U175 ( .A1(G56GAT), .A2(n168), .ZN(n169) );
+  NAND2_X1 U176 ( .A1(n170), .A2(n169), .ZN(n183) );
+  INV_X1 U177 ( .A(G4GAT), .ZN(n171) );
+  NOR2_X1 U178 ( .A1(G1GAT), .A2(n171), .ZN(n273) );
+  INV_X1 U179 ( .A(G17GAT), .ZN(n172) );
+  NOR2_X1 U180 ( .A1(G11GAT), .A2(n172), .ZN(n173) );
+  NOR2_X1 U181 ( .A1(n273), .A2(n173), .ZN(n181) );
+  INV_X1 U182 ( .A(G30GAT), .ZN(n174) );
+  NOR2_X1 U183 ( .A1(G24GAT), .A2(n174), .ZN(n276) );
+  INV_X1 U184 ( .A(G102GAT), .ZN(n175) );
+  NAND2_X1 U185 ( .A1(G108GAT), .A2(n175), .ZN(n178) );
+  INV_X1 U186 ( .A(G76GAT), .ZN(n176) );
+  NAND2_X1 U187 ( .A1(G82GAT), .A2(n176), .ZN(n177) );
+  NAND2_X1 U188 ( .A1(n178), .A2(n177), .ZN(n179) );
+  NOR2_X1 U189 ( .A1(n276), .A2(n179), .ZN(n180) );
+  NAND2_X1 U190 ( .A1(n181), .A2(n180), .ZN(n182) );
+  NOR2_X1 U191 ( .A1(n183), .A2(n182), .ZN(n184) );
+  NAND2_X1 U192 ( .A1(n185), .A2(n184), .ZN(n199) );
+  NAND2_X1 U193 ( .A1(G1GAT), .A2(n199), .ZN(n186) );
+  NAND2_X1 U194 ( .A1(G4GAT), .A2(n186), .ZN(n255) );
+  NAND2_X1 U195 ( .A1(G37GAT), .A2(n199), .ZN(n187) );
+  NAND2_X1 U196 ( .A1(G43GAT), .A2(n187), .ZN(n241) );
+  NOR2_X1 U197 ( .A1(G47GAT), .A2(n241), .ZN(n189) );
+  NOR2_X1 U198 ( .A1(G8GAT), .A2(n255), .ZN(n188) );
+  NOR2_X1 U199 ( .A1(n189), .A2(n188), .ZN(n206) );
+  NAND2_X1 U200 ( .A1(G50GAT), .A2(n199), .ZN(n190) );
+  NAND2_X1 U201 ( .A1(G56GAT), .A2(n190), .ZN(n236) );
+  NOR2_X1 U202 ( .A1(G60GAT), .A2(n236), .ZN(n193) );
+  NAND2_X1 U203 ( .A1(G24GAT), .A2(n199), .ZN(n191) );
+  NAND2_X1 U204 ( .A1(G30GAT), .A2(n191), .ZN(n256) );
+  NOR2_X1 U205 ( .A1(G34GAT), .A2(n256), .ZN(n192) );
+  NOR2_X1 U206 ( .A1(n193), .A2(n192), .ZN(n195) );
+  NAND2_X1 U207 ( .A1(G76GAT), .A2(n199), .ZN(n194) );
+  NAND2_X1 U208 ( .A1(G82GAT), .A2(n194), .ZN(n262) );
+  OR2_X1 U209 ( .A1(G86GAT), .A2(n262), .ZN(n213) );
+  NAND2_X1 U210 ( .A1(n195), .A2(n213), .ZN(n204) );
+  NAND2_X1 U211 ( .A1(G63GAT), .A2(n199), .ZN(n196) );
+  NAND2_X1 U212 ( .A1(G69GAT), .A2(n196), .ZN(n259) );
+  NOR2_X1 U213 ( .A1(G73GAT), .A2(n259), .ZN(n232) );
+  NAND2_X1 U214 ( .A1(G102GAT), .A2(n199), .ZN(n197) );
+  NAND2_X1 U215 ( .A1(G108GAT), .A2(n197), .ZN(n258) );
+  NOR2_X1 U216 ( .A1(G112GAT), .A2(n258), .ZN(n209) );
+  NOR2_X1 U217 ( .A1(n232), .A2(n209), .ZN(n202) );
+  NAND2_X1 U218 ( .A1(G11GAT), .A2(n199), .ZN(n198) );
+  NAND2_X1 U219 ( .A1(G17GAT), .A2(n198), .ZN(n257) );
+  NOR2_X1 U220 ( .A1(G21GAT), .A2(n257), .ZN(n207) );
+  NAND2_X1 U221 ( .A1(G89GAT), .A2(n199), .ZN(n200) );
+  NAND2_X1 U222 ( .A1(G95GAT), .A2(n200), .ZN(n263) );
+  NOR2_X1 U223 ( .A1(G99GAT), .A2(n263), .ZN(n214) );
+  NOR2_X1 U224 ( .A1(n207), .A2(n214), .ZN(n201) );
+  NAND2_X1 U225 ( .A1(n202), .A2(n201), .ZN(n203) );
+  NOR2_X1 U226 ( .A1(n204), .A2(n203), .ZN(n205) );
+  NAND2_X1 U227 ( .A1(n206), .A2(n205), .ZN(n243) );
+  NAND2_X1 U228 ( .A1(G8GAT), .A2(n243), .ZN(n253) );
+  INV_X1 U229 ( .A(n207), .ZN(n208) );
+  NOR2_X1 U230 ( .A1(G27GAT), .A2(n208), .ZN(n212) );
+  INV_X1 U231 ( .A(n209), .ZN(n210) );
+  NOR2_X1 U232 ( .A1(G115GAT), .A2(n210), .ZN(n211) );
+  NOR2_X1 U233 ( .A1(n212), .A2(n211), .ZN(n219) );
+  NOR2_X1 U234 ( .A1(G92GAT), .A2(n213), .ZN(n217) );
+  INV_X1 U235 ( .A(n214), .ZN(n215) );
+  NOR2_X1 U236 ( .A1(G105GAT), .A2(n215), .ZN(n216) );
+  NOR2_X1 U237 ( .A1(n217), .A2(n216), .ZN(n218) );
+  NAND2_X1 U238 ( .A1(n219), .A2(n218), .ZN(n230) );
+  NOR2_X1 U239 ( .A1(G27GAT), .A2(n257), .ZN(n221) );
+  NOR2_X1 U240 ( .A1(G79GAT), .A2(n259), .ZN(n220) );
+  NOR2_X1 U241 ( .A1(n221), .A2(n220), .ZN(n225) );
+  NOR2_X1 U242 ( .A1(G92GAT), .A2(n262), .ZN(n223) );
+  NOR2_X1 U243 ( .A1(G105GAT), .A2(n263), .ZN(n222) );
+  NOR2_X1 U244 ( .A1(n223), .A2(n222), .ZN(n224) );
+  NAND2_X1 U245 ( .A1(n225), .A2(n224), .ZN(n227) );
+  NOR2_X1 U246 ( .A1(G115GAT), .A2(n258), .ZN(n226) );
+  NOR2_X1 U247 ( .A1(n227), .A2(n226), .ZN(n228) );
+  NOR2_X1 U248 ( .A1(n228), .A2(n243), .ZN(n229) );
+  NOR2_X1 U249 ( .A1(n230), .A2(n229), .ZN(n234) );
+  INV_X1 U250 ( .A(G79GAT), .ZN(n231) );
+  NAND2_X1 U251 ( .A1(n232), .A2(n231), .ZN(n233) );
+  NAND2_X1 U252 ( .A1(n234), .A2(n233), .ZN(n239) );
+  AND2_X1 U253 ( .A1(G60GAT), .A2(n243), .ZN(n235) );
+  NOR2_X1 U254 ( .A1(n236), .A2(n235), .ZN(n265) );
+  INV_X1 U255 ( .A(n265), .ZN(n237) );
+  NOR2_X1 U256 ( .A1(G66GAT), .A2(n237), .ZN(n238) );
+  NOR2_X1 U257 ( .A1(n239), .A2(n238), .ZN(n250) );
+  AND2_X1 U258 ( .A1(G47GAT), .A2(n243), .ZN(n240) );
+  NOR2_X1 U259 ( .A1(n241), .A2(n240), .ZN(n269) );
+  INV_X1 U260 ( .A(n269), .ZN(n242) );
+  NOR2_X1 U261 ( .A1(G53GAT), .A2(n242), .ZN(n248) );
+  NAND2_X1 U262 ( .A1(G34GAT), .A2(n243), .ZN(n245) );
+  INV_X1 U263 ( .A(n256), .ZN(n244) );
+  NAND2_X1 U264 ( .A1(n245), .A2(n244), .ZN(n246) );
+  NOR2_X1 U265 ( .A1(G40GAT), .A2(n246), .ZN(n247) );
+  NOR2_X1 U266 ( .A1(n248), .A2(n247), .ZN(n249) );
+  NAND2_X1 U267 ( .A1(n250), .A2(n249), .ZN(n251) );
+  NAND2_X1 U268 ( .A1(G14GAT), .A2(n251), .ZN(n252) );
+  NAND2_X1 U269 ( .A1(n253), .A2(n252), .ZN(n254) );
+  NOR2_X1 U270 ( .A1(n255), .A2(n254), .ZN(n271) );
+  NAND2_X1 U271 ( .A1(n257), .A2(n256), .ZN(n261) );
+  NAND2_X1 U272 ( .A1(n259), .A2(n258), .ZN(n260) );
+  NOR2_X1 U273 ( .A1(n261), .A2(n260), .ZN(n267) );
+  NAND2_X1 U274 ( .A1(n263), .A2(n262), .ZN(n264) );
+  NOR2_X1 U275 ( .A1(n265), .A2(n264), .ZN(n266) );
+  NAND2_X1 U276 ( .A1(n267), .A2(n266), .ZN(n268) );
+  NOR2_X1 U277 ( .A1(n269), .A2(n268), .ZN(n270) );
+  NOR2_X1 U278 ( .A1(n271), .A2(n270), .ZN(n305) );
+  NOR2_X1 U279 ( .A1(G82GAT), .A2(n272), .ZN(n298) );
+  NAND2_X1 U280 ( .A1(G69GAT), .A2(G66GAT), .ZN(n293) );
+  NOR2_X1 U281 ( .A1(n273), .A2(G8GAT), .ZN(n274) );
+  NAND2_X1 U282 ( .A1(n274), .A2(G11GAT), .ZN(n280) );
+  NAND2_X1 U283 ( .A1(G17GAT), .A2(G21GAT), .ZN(n278) );
+  NOR2_X1 U284 ( .A1(G27GAT), .A2(G14GAT), .ZN(n275) );
+  NAND2_X1 U285 ( .A1(n276), .A2(n275), .ZN(n277) );
+  NOR2_X1 U286 ( .A1(n278), .A2(n277), .ZN(n279) );
+  NAND2_X1 U287 ( .A1(n280), .A2(n279), .ZN(n282) );
+  INV_X1 U288 ( .A(G34GAT), .ZN(n281) );
+  NAND2_X1 U289 ( .A1(n282), .A2(n281), .ZN(n283) );
+  NAND2_X1 U290 ( .A1(G37GAT), .A2(n283), .ZN(n284) );
+  NAND2_X1 U291 ( .A1(G40GAT), .A2(n284), .ZN(n285) );
+  NOR2_X1 U292 ( .A1(G43GAT), .A2(n285), .ZN(n286) );
+  NAND2_X1 U293 ( .A1(n286), .A2(G47GAT), .ZN(n287) );
+  AND2_X1 U294 ( .A1(n287), .A2(G50GAT), .ZN(n288) );
+  NOR2_X1 U295 ( .A1(G53GAT), .A2(n288), .ZN(n289) );
+  NOR2_X1 U296 ( .A1(G56GAT), .A2(n289), .ZN(n290) );
+  NOR2_X1 U297 ( .A1(G60GAT), .A2(n290), .ZN(n291) );
+  NOR2_X1 U298 ( .A1(G63GAT), .A2(n291), .ZN(n292) );
+  NOR2_X1 U299 ( .A1(n293), .A2(n292), .ZN(n294) );
+  NOR2_X1 U300 ( .A1(G73GAT), .A2(n294), .ZN(n295) );
+  NOR2_X1 U301 ( .A1(G76GAT), .A2(n295), .ZN(n296) );
+  NOR2_X1 U302 ( .A1(G79GAT), .A2(n296), .ZN(n297) );
+  NAND2_X1 U303 ( .A1(n298), .A2(n297), .ZN(n300) );
+  NAND2_X1 U304 ( .A1(G86GAT), .A2(G92GAT), .ZN(n299) );
+  NOR2_X1 U305 ( .A1(n300), .A2(n299), .ZN(n301) );
+  NOR2_X1 U306 ( .A1(G99GAT), .A2(n301), .ZN(n302) );
+  NAND2_X1 U307 ( .A1(G95GAT), .A2(n302), .ZN(n303) );
+  NOR2_X1 U308 ( .A1(G102GAT), .A2(n303), .ZN(n304) );
+  XOR2_X1 U309 ( .A(n305), .B(n304), .Z(G421GAT) );
+endmodule
+

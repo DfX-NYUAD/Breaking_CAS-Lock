@@ -1,0 +1,71 @@
+
+                                  TetraMAX(R) 
+
+
+              Version M-2016.12-SP5-1 for linux64 - Aug 31, 2017  
+
+                    Copyright (c) 1996 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+
+ Tcl mode is on by default. Use -notcl to run in native mode.
+ Executing startup file "/opt/programs/synopsys/txs/M-2016.12-SP5-1/admin/setup/tmaxtcl.rc".
+set design [getenv DESIGN]
+c432
+set lib [getenv LIB]
+2ip
+set tie_pin [getenv TIE_PIN]
+0
+read_netlist ../Results/$design/${design}_lock_synth_${lib}_flip_${tie_pin}.v
+ Begin reading netlist ( ../Results/c432/c432_lock_synth_2ip_flip_0.v )...
+ End parsing Verilog file ../Results/c432/c432_lock_synth_2ip_flip_0.v with 0 errors.
+ End reading netlist: #modules=8, top=c432_lock, #lines=299, CPU_time=0.00 sec, Memory=0MB
+read_netlist ../../../library_files/NangateOpenCellLibrary.v
+ Begin reading netlist ( ../../../library_files/NangateOpenCellLibrary.v )...
+ End parsing Verilog file ../../../library_files/NangateOpenCellLibrary.v with 0 errors.
+ End reading netlist: #modules=156, top=XOR2_X2, #lines=5391, CPU_time=0.02 sec, Memory=0MB
+run_build_model ${design}_lock
+ ------------------------------------------------------------------------------
+ Begin build model for topcut = c432_lock ...
+ ------------------------------------------------------------------------------
+ There were 329 primitives and 381 faultable pins removed during model optimizations
+ Warning: Rule B9 (undriven module internal net) was violated 64 times.
+ Warning: Rule B10 (unconnected module internal net) was violated 1 times.
+ End build model: #primitives=153, CPU_time=0.01 sec, Memory=0MB
+ ------------------------------------------------------------------------------
+ Begin learning analyses...
+ End learning analyses, total learning CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+run_drc
+ ------------------------------------------------------------------------------
+ Begin scan design rules checking...
+ ------------------------------------------------------------------------------
+ Begin simulating test protocol procedures...
+ Test protocol simulation completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin scan chain operation checking...
+ Scan chain operation checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin nonscan rules checking...
+ Nonscan cell summary: #DFF=0  #DLAT=0  #RAM_outs=0  tla_usage_type=none
+ Nonscan rules checking completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ Begin DRC dependent learning...
+ Fast-sequential depth results: control=0(0), observe=0(0), detect=0(0), CPU time=0.00 sec
+ DRC dependent learning completed, CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+ DRC Summary Report
+ ------------------------------------------------------------------------------
+ No violations occurred during DRC process.
+ Design rules checking was successful, total CPU time=0.00 sec.
+ ------------------------------------------------------------------------------
+set_patterns -external ../Results/$design/${design}_patt.stil
+ End parsing STIL file ../Results/c432/c432_patt.stil with 0 errors.
+ End reading 2 patterns, CPU_time = 0.00 sec, Memory = 0MB
+run_simulation
+ Begin good simulation of 2 external patterns.
+ Simulation completed: #patterns=2, #fail_pats=0(0), #failing_meas=0(0), #rejected_pats=0, CPU time=0.00
+exit

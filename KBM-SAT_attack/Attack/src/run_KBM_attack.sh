@@ -1,6 +1,7 @@
+#!/bin/tcsh
+
 ##################### Identify flip signal attack begins #########################
 ## Select the LIB between fulllib or 2ip
-setenv LIB 2ip
 dc_shell-t -x "source -echo -verbose ./post_abc_synth_${LIB}.tcl" |tee ${DESIGN}_post_abc_synth${LIB}_log
 ############# Identify flip signal attack ends #################
 
