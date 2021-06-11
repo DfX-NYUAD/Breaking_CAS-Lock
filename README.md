@@ -19,6 +19,7 @@ Synopsys Design Compiler, Synopsys Tetramax.
 For all TCL scripts, the library path needs to be redirected to the appropriate one. To get started, we have provided the library files for NangateOpenCellLibrary 45nm [2].
 
 [1] https://github.com/berkeley-abc/abc
+
 [2] (2011)  NanGate  FreePDK45  Open  Cell  Library.  Nangate  Inc.  [Online].  Available:http://www.nangate.com/?pageid=2325
 
 ## Citation & Acknowledgement
