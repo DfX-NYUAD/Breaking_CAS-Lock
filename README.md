@@ -36,7 +36,7 @@ E.g.
 
 In bench_convert/src folder --> ./convert  <.v file> <.bench file> (convert Verilog netlist to BENCH format)
 
-In SAT_attack/bin folder --> ./lcmp <orignal .bench> <locked .bench> key=<keyvalue>
+In SAT_attack/bin folder --> ./lcmp <orignal .bench> <locked .bench> key= <key_value>
   
 In SAT_attack/bin folder --> ./sld <locked .bench> <original .bench>
 
