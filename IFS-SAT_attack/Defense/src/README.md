@@ -8,3 +8,9 @@ Instructions on implementing MCAS:
 
 For MCAS: Set the --mcas argument to 1:
 python caslock.py --name $DESIGN --PO $CASLOCK_OP --keysize $KEY --mcas 1
+
+Scripts in the folder:
+1. synthesis_2ip.tcl --> Synthesizes the Verilog design using only two-input standard gates such as AND,OR,NAND,OR,etc in addition to NOT and BUF.
+2. dc_fanin_cone.tcl --> Extracts fanin logic cone given a net/output.
+3. caslock.py       --> Produces locked CASLock,MCAS, or AntiSAT benchmarks depending on the parameter set on 'mcas' argument.
+4. run.sh file provides an example to get started.

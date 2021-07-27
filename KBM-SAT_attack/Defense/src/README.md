@@ -3,3 +3,9 @@ Script run_defense.sh includes all the required scripts.
 Example is provided in run.sh script.
 
 	$ sh run.sh
+
+Scripts in the folder:
+1. synthesis_2ip.tcl --> Synthesizes the Verilog design using only two-input standard gates such as AND,OR,NAND,OR,etc in addition to NOT and BUF.
+2. dc_fanin_cone.tcl --> Extracts fanin logic cone given a net/output.
+3. caslock.py       --> Produces locked CASLock,MCAS, or AntiSAT benchmarks depending on the parameter set on 'mcas' argument.
+4. run.sh file provides an example to get started.

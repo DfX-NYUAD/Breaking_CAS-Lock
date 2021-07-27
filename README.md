@@ -31,6 +31,12 @@ Instructions to produce the locked benchmarks for each attack is provided in the
 Attacks mentioned in the paper are provided in the Attack folder within each main attacks.
 README.md file provides instructions to run the attack scripts.
 
+## Binary commands usage:
+E.g. 
+In bench_convert/src folder --> ./convert  <.v file> <.bench file> (convert Verilog netlist to BENCH format)
+In SAT_attack/bin folder --> ./lcmp <orignal .bench> <locked .bench> key=<keyvalue>
+In SAT_attack/bin folder --> ./sld <locked .bench> <original .bench>
+
 ## Citation & Acknowledgement
 If you find the code useful, please cite our paper:
 * TCHES 2021:
