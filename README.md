@@ -14,7 +14,7 @@ IFS-SAT_attack folder contains the library files to get the user started.
 ### Academic:
 ABC Synthesis tool [1], tcsh shell
 ### Industrial:
-Synopsys Design Compiler, Synopsys Tetramax.
+Synopsys Design Compiler (Version M-2016.12-SP2), Synopsys Tetramax (Version M-2016.12-SP5-1).
 ### Library:
 For all TCL scripts, the library path needs to be redirected to the appropriate one. To get started, we have provided the link to library files for NangateOpenCellLibrary 45nm [2].
 
